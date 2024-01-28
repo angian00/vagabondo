@@ -1,0 +1,19 @@
+anise
+basil
+borage
+caraway
+chervil
+chives
+dill
+fennel
+garlic
+lovage
+marjoram
+mint
+oregano
+parsley
+rosemary
+sage
+summer savory
+tarragon
+thyme
