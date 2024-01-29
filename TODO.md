@@ -10,7 +10,6 @@
 + selezionare ingredienti antichi (pre-america)
 	https://it.wikipedia.org/wiki/Alimentazione_medievale
 	
-
 - substitution grammar:
 	- verbi e plurali irregolari
 	- test suite
