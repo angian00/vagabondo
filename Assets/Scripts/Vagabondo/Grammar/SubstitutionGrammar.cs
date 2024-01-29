@@ -13,13 +13,52 @@ namespace Vagabondo.Grammar
         private static string ruleRefPattern = @"\#((?:\[.*\])?.*?)\#";
         private static string variablePattern = @"\[(.*?)\]";
 
+        private const string defaultStartingRule = "origin";
+
+        private static Dictionary<string, string> irregularNouns;
+        private static Dictionary<string, (string, string)> irregularVerbs;
+
         private Dictionary<string, List<string>> rules;
+
+
+        static SubstitutionGrammar()
+        {
+            loadIrregularNouns();
+            loadIrregularVerbs();
+        }
+
+        private static void loadIrregularNouns()
+        {
+            var fileObj = Resources.Load<TextAsset>($"Data/Grammars/irregularNouns");
+            var lines = fileObj.text.Split("\n");
+
+            irregularNouns = new();
+
+            foreach (var line in lines)
+            {
+                var tokens = line.Split("|");
+                irregularNouns.Add(tokens[0], tokens[1]);
+            }
+        }
+
+        private static void loadIrregularVerbs()
+        {
+            var fileObj = Resources.Load<TextAsset>($"Data/Grammars/irregularVerbs");
+            var lines = fileObj.text.Split("\n");
+
+            irregularVerbs = new();
+
+            foreach (var line in lines)
+            {
+                var tokens = line.Split("|");
+                irregularVerbs.Add(tokens[0], (tokens[1], tokens[2]));
+            }
+        }
 
         private SubstitutionGrammar() { }
 
-        public static SubstitutionGrammar Load(string filename)
+        public static SubstitutionGrammar FromFile(string filename)
         {
-
             var fileObj = Resources.Load<TextAsset>($"Data/Grammars/{filename}");
 
             var result = new SubstitutionGrammar();
@@ -28,7 +67,23 @@ namespace Vagabondo.Grammar
             return result;
         }
 
-        public string GenerateText(string startingRuleId = "origin")
+        public static SubstitutionGrammar FromDictionary(Dictionary<string, List<string>> rules)
+        {
+            var result = new SubstitutionGrammar();
+            result.rules = rules;
+
+            return result;
+        }
+
+        public static SubstitutionGrammar FromSingleRule(string rule)
+        {
+            var result = new SubstitutionGrammar();
+            result.rules = new() { { defaultStartingRule, new List<string>() { rule } } };
+
+            return result;
+        }
+
+        public string GenerateText(string startingRuleId = defaultStartingRule)
         {
             var variables = new Dictionary<string, string>();
 
@@ -139,6 +194,9 @@ namespace Vagabondo.Grammar
 
         private static string applyPlural(string originalText)
         {
+            if (irregularNouns.ContainsKey(originalText))
+                return irregularNouns[originalText];
+
             if (originalText.EndsWith("f"))
                 return originalText.Substring(0, originalText.Length - 1) + "ves";
             if (originalText.EndsWith("fe"))
@@ -149,22 +207,19 @@ namespace Vagabondo.Grammar
 
             if (originalText.EndsWith("o") && !isVowel(originalText[originalText.Length - 2]))
                 return originalText + "es";
-            //TODO: -o plural exceptions (piano – pianos)
 
             if (originalText.EndsWith("ss") || originalText.EndsWith("x") ||
                 originalText.EndsWith("ch") || originalText.EndsWith("sh"))
                 return originalText + "es";
-
-            //TODO: some -s and -z endings
-
-            //TODO: irregular plural endings
-            //TODO: invariant plural endings
 
             return originalText + "s";
         }
 
         private static string applyPastTense(string originalText)
         {
+            if (irregularVerbs.ContainsKey(originalText))
+                return irregularVerbs[originalText].Item1;
+
             if (originalText.EndsWith("e"))
                 return originalText + "d";
 
@@ -178,8 +233,6 @@ namespace Vagabondo.Grammar
             //If a verb ends in consonant and -y, you take off the y and add - ied.
             if (!isVowel(originalText[originalText.Length - 2]) && originalText[originalText.Length - 1] == 'y')
                 return originalText.Substring(0, originalText.Length - 1) + "ied";
-
-            //TODO: irregular past verbs
 
             return originalText + "ed";
         }

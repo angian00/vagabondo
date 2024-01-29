@@ -21,7 +21,7 @@ namespace Vagabondo.Grammar
         public static SubstitutionGrammar GetGrammar(GrammarId grammarId)
         {
             if (!cache.ContainsKey(grammarId))
-                cache.Add(grammarId, SubstitutionGrammar.Load(filenames[grammarId]));
+                cache.Add(grammarId, SubstitutionGrammar.FromFile(filenames[grammarId]));
 
             return cache[grammarId];
         }

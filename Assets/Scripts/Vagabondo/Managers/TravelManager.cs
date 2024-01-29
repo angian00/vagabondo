@@ -154,10 +154,22 @@ namespace Vagabondo.Managers
             //if (hasCrime())
             actions.Add(new SketchyDealAction(townData));
 
-            //if (townData.hasTavern())
-            actions.Add(new TavernAction());
-            //if (townData.hasLibrary())
-            actions.Add(new LibraryAction());
+            foreach (var building in townData.buildings)
+            {
+                GameAction action = null;
+                switch (building)
+                {
+                    case TownBuilding.Tavern:
+                        action = new TavernAction();
+                        break;
+                    case TownBuilding.Library:
+                        action = new LibraryAction();
+                        break;
+                }
+
+                if (action != null)
+                    actions.Add(action);
+            }
 
             const float questActionProbability = 0.1f;
             if (UnityEngine.Random.value < questActionProbability)

@@ -1,7 +1,6 @@
 # TODO
 
 - Town:
-	- introdurre campo bitfield per edifici presenti
 	- introdurre nel generator prob per edifici by biome, town size, etc.
 	- generare hints
 
@@ -11,9 +10,12 @@
 	https://it.wikipedia.org/wiki/Alimentazione_medievale
 	
 - substitution grammar:
-	- verbi e plurali irregolari
-	- test suite
-		https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/workflow-create-test-assembly.html
+	- tests
+		- modifier .ed
+		- other modifiers
+		- composite modifiers
+		- variables
+		
 	+ sintassi migliorata: "optional", randomization weights, tags (ad es. per biomes)
 	+ tooling:
 		- conversione tracery --> my custom format
@@ -43,5 +45,4 @@
 
 
 ## Errands
-- creare solution da Unity
 

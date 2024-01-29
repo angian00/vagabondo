@@ -12,14 +12,21 @@ namespace Vagabondo.DataModel
         Lake,
     }
 
+    public enum TownBuilding
+    {
+        Tavern,
+        Library,
+    }
+
+
     public class Town
     {
         public string name;
         public string description;
-        public List<GameAction> actions;
         public Biome biome;
         public Dominion dominion;
-
+        public HashSet<TownBuilding> buildings;
+        public List<GameAction> actions;
 
         public Town(string name)
         {

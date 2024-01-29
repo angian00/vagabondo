@@ -70,23 +70,25 @@ namespace Vagabondo.Generators
         public Town GenerateTownData(Town lastTown)
         {
             var townName = FileStringGenerator.Sites.GenerateString();
-            var townData = new Town(townName);
+            var town = new Town(townName);
 
             Biome biome;
             if (lastTown == null)
                 biome = randomBiome();
             else
                 biome = randomBiome(lastTown.biome);
-            townData.biome = biome;
+            town.biome = biome;
 
             Dominion dominion = dominionGenerator.GenerateDominion(); //FUTURE: dominion persistence logic
-            townData.dominion = dominion;
+            town.dominion = dominion;
 
-            townData.description = "";
+            town.description = "";
             for (int i = 0; i < 10; i++)
-                townData.description += $"TODO: {townName} description  "; //FUTURE: generate description from grammar
+                town.description += $"TODO: {townName} description  "; //FUTURE: generate description from grammar
 
-            return townData;
+            town.buildings = randomBuildings(biome);
+
+            return town;
         }
 
 
@@ -110,5 +112,14 @@ namespace Vagabondo.Generators
             return RandomUtils.RandomChooseWeighted(values, weights);
         }
 
+
+        private static HashSet<TownBuilding> randomBuildings(Biome biome)
+        {
+            var buildings = new HashSet<TownBuilding>();
+            //TODO: randomBuildings(biome, dominion, ...)
+            buildings.Add(TownBuilding.Tavern);
+            buildings.Add(TownBuilding.Library);
+            return buildings;
+        }
     }
 }

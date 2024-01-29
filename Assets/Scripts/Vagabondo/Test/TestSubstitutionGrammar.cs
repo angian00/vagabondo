@@ -64,7 +64,7 @@ namespace Vagabondo.Test
         private void onGrammarChanged()
         {
             var filename = grammarDropdown.options[grammarDropdown.value].text;
-            grammar = SubstitutionGrammar.Load(filename);
+            grammar = SubstitutionGrammar.FromFile(filename);
 
         }
     }
