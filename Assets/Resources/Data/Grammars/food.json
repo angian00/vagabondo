@@ -1,0 +1,103 @@
+{
+	"origin": "#cookingVerb.ed# #foodNoun#",
+	"cookingVerb": [
+		"fry",
+		"broil",
+		"steam",
+		"stew",
+		"saute",
+		"stir-fry",
+		"grill",
+		"roast",
+		"bake",
+		"burn",
+		"melt"
+	],
+	"foodNoun": [
+		"#vegetable#",
+		"#fish#",
+		"#meatDish#",
+		"#meatType# #meatPart#",
+		"#meatTypeExotic# #meatPart#"
+	],
+	"slicingVerb": [
+		"slice",
+		"mash",
+		"dice",
+		"chop",
+		"grate",
+		"carve"
+	],
+	"spicingVerb": [
+		"sprinkle"
+	],
+	"meatType": [
+		"beef",
+		"veal",
+		"chicken",
+		"turkey",
+		"pork",
+		"lamb",
+		"mutton",
+		"rabbit",
+		"duck"
+	],
+	"meatTypeExotic": [
+		"antelope",
+		"alligator",
+		"stork",
+		"ostrich",
+		"horse",
+		"bison",
+		"jellyfish",
+		"wild boar",
+		"kangaroo",
+		"tarantula",
+		"yak",
+		"bear",
+		"python"
+	],
+	"meatPart": [
+		"chops",
+		"liver",
+		"breast"
+	],
+	"meatDish": [
+		"sausage",
+		"ham",
+		"bacon",
+		"hamburger"
+	],
+	"vegetable": [
+		"beetroot",
+		"zucchini",
+		"bell pepper",
+		"carrots",
+		"cabbage",
+		"tomatoes",
+		"cucumber",
+		"cauliflower",
+		"garlic",
+		"peas",
+		"aubergine",
+		"green peas",
+		"potatoes",
+		"lettuce",
+		"spinach",
+		"pumpkin"
+	],
+	"fish": [
+		"tuna",
+		"lobster",
+		"squid",
+		"cod",
+		"sole",
+		"crab",
+		"anchovies",
+		"carp",
+		"salmon",
+		"trout",
+		"clams",
+		"shrimp"
+	]
+}

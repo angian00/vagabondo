@@ -86,38 +86,6 @@ namespace Vagabondo.Generators
             for (int i = 0; i < 10; i++)
                 townData.description += $"TODO: {townName} description  "; //FUTURE: generate description from grammar
 
-
-            var townActions = new List<GameAction>();
-            var nActions = 6;
-            for (int iAction = 0; iAction < nActions; iAction++)
-            {
-                GameAction action;
-                var randomValue = Random.Range(0, 5);
-                switch (randomValue)
-                {
-                    case 0:
-                        action = new ForageAction(townData.biome);
-                        break;
-                    case 1:
-                        action = new TavernAction();
-                        break;
-                    case 2:
-                        action = new SketchyDealAction(townData);
-                        break;
-                    case 3:
-                        action = new ExploreAction();
-                        break;
-                    case 4:
-                        action = new LibraryAction();
-                        break;
-                    default:
-                        throw new System.Exception("Reached end of switch");
-                }
-                townActions.Add(action);
-            }
-            townData.actions = townActions;
-
-
             return townData;
         }
 
@@ -141,5 +109,6 @@ namespace Vagabondo.Generators
 
             return RandomUtils.RandomChooseWeighted(values, weights);
         }
+
     }
 }

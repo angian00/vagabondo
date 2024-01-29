@@ -10,15 +10,17 @@ namespace Vagabondo.Behaviours
         [SerializeField]
         private Transform trinketsPanel;
         [SerializeField]
-        private Transform memoriesPanel;
-        [SerializeField]
         private Transform knowledgePanel;
+        [SerializeField]
+        private Transform memoriesPanel;
 
         [Header("Prefabs")]
         [SerializeField]
         private GameObject trinketTemplate;
         [SerializeField]
         private GameObject knowledgeItemTemplate;
+        [SerializeField]
+        private GameObject memoryTemplate;
 
 
         private void OnEnable()
@@ -58,11 +60,16 @@ namespace Vagabondo.Behaviours
                 newKnowledgeObj.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = knowledgeValue.ToString();
             }
 
-            //var newMemoriesText = "";
-            //foreach (var memory in travelerData.memories)
-            //    newMemoriesText += memory.text + "\n";
+            UnityUtils.RemoveAllChildren(memoriesPanel);
+            foreach (var memory in travelerData.memories)
+            {
+                var newMemoryObj = Instantiate(memoryItemTemplate, memoriesPanel, false);
 
-            //memoriesPanel.Find("Text").GetComponent<TextMeshProUGUI>().text = newMemoriesText;
+                newMemoryObj.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = memory.title;
+                newMemoryObj.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = memory.description;
+                //TODO: color varies with memory type
+            }
+
         }
 
 

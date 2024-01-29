@@ -57,13 +57,38 @@ La ricerca dell'artefatto antico:
 Durante il viaggio, il giocatore raccoglie frammenti di informazioni, come "Un antico tempio si trova oltre il deserto", "L'artefatto è legato a una leggenda di poteri nascosti", "Gli antichi scritti parlano di un custode dell'artefatto".
 Ogni volta che il giocatore visita una nuova città, può ottenere un nuovo frammento di informazione o reincontrare frammenti precedentemente raccolti, ma in un contesto diverso.
 Alla fine, dopo aver raccolto abbastanza frammenti di informazioni, il giocatore riesce a mettere insieme i pezzi del puzzle e comprendere il vero scopo e la storia dell'artefatto.
-Ad esempio, potrebbe essere:
 
+Ad esempio, potrebbe essere:
 Il giocatore trova una tavoletta di pietra antica con una scritta che suggerisce l'esistenza di un tempio oltre il deserto.
 In un'altra città, ascolta un racconto popolare che menziona l'artefatto e le sue leggendarie capacità.
 Durante un'altra avventura, il giocatore trova un diario di un esploratore che descrive un custode dell'artefatto che protegge il tempio.
 In questo modo, ogni frammento di informazione contribuisce a costruire la comprensione complessiva dell'obiettivo principale del giocatore nel trovare e comprendere l'artefatto antico.
 
+
+### QuestFragments
+Al massimo una Quest attiva ad un dato istante.
+I frammenti di info su una quest sono annegati come parte delle Memories, magari con un colore diverso.
+
+QuestFragment 1
+title: The Abandoned Church
+description: A local farmer told you that somewhere in a neighbouring valley lay the ruins an old church, abandoned a century ago after a plague.
+
+QuestFragment 2
+title: An Artifact of Yore
+description: i racconti popolari della zona menzionano un antico artefatto ormai smarrito. l'artefatto e' di pietra verde ricoperta di muschio. secondo alcuni porta bene, secondo altri male.
+
+QuestFragment 3
+title: The Church Warden
+description: hai trovato il diario del guardiano della chiesa. vi si dice che la chiesa gode di una protezione dagli influssi maligni che allignano nel bosco
+
+
+State machine:
+QF 1 --> QF 2 --> QF3 --> <the curch> --> recupero artefatto
+
+Logica generazione SpecialActions:
+- al tempo t0: creazione procedurale Quest; init quest state
+
+- quando si generano le azioni: prob(special action) = p. if (randomize < p) --> generate special action (quest state); update quest state
 
 
 ## Resources

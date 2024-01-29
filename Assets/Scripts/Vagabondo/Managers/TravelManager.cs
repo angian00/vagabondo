@@ -14,7 +14,8 @@ namespace Vagabondo
 
         private TravelerData travelerData;
 
-        private TownData currTown;
+        private TownData currentTown;
+        private Quest activeQuest;
         private Dictionary<string, TownData> nextDestinations;
 
 
@@ -22,6 +23,7 @@ namespace Vagabondo
         {
             travelerData = new TravelerData();
             townGenerator = new TownGenerator();
+            NewQuest();
         }
 
         public void Init()
@@ -40,7 +42,7 @@ namespace Vagabondo
 
         public void PerformAction(GameAction action)
         {
-            var resultText = action.Perform(this);
+            var actionResult = action.Perform(this);
             //EventManager.PublishTravelerChanged(travelerData);
             EventManager.PublishActionPerformed(resultText);
         }
@@ -48,15 +50,15 @@ namespace Vagabondo
         public void TravelTo(string townName)
         {
             var destination = nextDestinations[townName];
-            currTown = destination;
-            EventManager.PublishTownChanged(currTown);
+            currentTown = destination;
+            EventManager.PublishTownChanged(currentTown);
 
             foreach (var merchItem in travelerData.merchandise)
                 updatePrice(merchItem);
             EventManager.PublishTravelerChanged(travelerData);
 
             const int nDestinations = 3;
-            nextDestinations = generateNextDestinations(nDestinations, currTown);
+            nextDestinations = generateNextDestinations(nDestinations, currentTown);
             EventManager.PublishDestinationsChanged(nextDestinations.Values.ToList());
         }
 
@@ -102,23 +104,69 @@ namespace Vagabondo
             EventManager.PublishTravelerChanged(travelerData);
         }
 
+        public void AddMemory(Memory memory)
+        {
+            travelerData.memories.Add(memory);
+            EventManager.PublishTravelerChanged(travelerData);
+        }
+
+        public void RemoveQuestFragments(Guid questId)
+        {
+            travelerData.memories.RemoveAll(m =>
+               (m is QuestFragmentMemory) && (((QuestFragmentMemory)m).questId == questId));
+            EventManager.PublishTravelerChanged(travelerData);
+        }
+
+        public void NewQuest()
+        {
+            activeQuest = QuestGenerator.GenerateQuest();
+        }
+
+
         private void updatePrice(MerchandiseItem merchItem)
         {
             //TODO: use quality and townData to influence price
-            merchItem.price = merchItem.basePrice + (Math.Abs(currTown.GetHashCode())) % 100; //some deterministic variation
+            merchItem.price = merchItem.basePrice + (Math.Abs(currentTown.GetHashCode())) % 100; //some deterministic variation
         }
-
 
         private Dictionary<string, TownData> generateNextDestinations(int nDestinations, TownData lastTown = null)
         {
             var result = new Dictionary<string, TownData>();
             for (int i = 0; i < nDestinations; i++)
             {
-                var townData = townGenerator.GenerateTownData(lastTown); //TODO: make sure town id is not used again
+                var townData = townGenerator.GenerateTownData(lastTown); //TODO: make sure town name is not used again
+                townData.actions = generateActions(townData);
+
                 result[townData.name] = townData;
             }
 
             return result;
+        }
+
+
+        private List<GameAction> generateActions(TownData townData)
+        {
+            var actions = new List<GameAction>();
+            actions.Add(new ForageAction(townData.biome));
+            //if (hasWilderness())
+            actions.Add(new ExploreAction());
+            //if (hasCrime())
+            actions.Add(new SketchyDealAction(townData));
+
+            //if (townData.hasTavern())
+            actions.Add(new TavernAction());
+            //if (townData.hasLibrary())
+            actions.Add(new LibraryAction());
+
+            const float questActionProbability = 0.1f;
+            if (Random.next < questActionProbability)
+            {
+                var questState = activeQuest.GetCurrentState();
+                var questAction = new QuestAction(questState.title, questState.description);
+                actions.Add(questAction);
+            }
+
+            return actions;
         }
     }
 }
