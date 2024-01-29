@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Vagabondo.Actions;
+using Vagabondo.DataModel;
 using Vagabondo.Generators;
 
-namespace Vagabondo
+namespace Vagabondo.Managers
 {
     public class TravelManager
     {
@@ -12,16 +14,16 @@ namespace Vagabondo
 
         private TownGenerator townGenerator;
 
-        private TravelerData travelerData;
+        private Traveler travelerData;
 
-        private TownData currentTown;
+        private Town currentTown;
         private Quest activeQuest;
-        private Dictionary<string, TownData> nextDestinations;
+        private Dictionary<string, Town> nextDestinations;
 
 
         private TravelManager()
         {
-            travelerData = new TravelerData();
+            travelerData = new Traveler();
             townGenerator = new TownGenerator();
             NewQuest();
         }
@@ -43,8 +45,7 @@ namespace Vagabondo
         public void PerformAction(GameAction action)
         {
             var actionResult = action.Perform(this);
-            //EventManager.PublishTravelerChanged(travelerData);
-            EventManager.PublishActionPerformed(resultText);
+            EventManager.PublishActionPerformed(actionResult);
         }
 
         public void TravelTo(string townName)
@@ -129,9 +130,9 @@ namespace Vagabondo
             merchItem.price = merchItem.basePrice + (Math.Abs(currentTown.GetHashCode())) % 100; //some deterministic variation
         }
 
-        private Dictionary<string, TownData> generateNextDestinations(int nDestinations, TownData lastTown = null)
+        private Dictionary<string, Town> generateNextDestinations(int nDestinations, Town lastTown = null)
         {
-            var result = new Dictionary<string, TownData>();
+            var result = new Dictionary<string, Town>();
             for (int i = 0; i < nDestinations; i++)
             {
                 var townData = townGenerator.GenerateTownData(lastTown); //TODO: make sure town name is not used again
@@ -144,7 +145,7 @@ namespace Vagabondo
         }
 
 
-        private List<GameAction> generateActions(TownData townData)
+        private List<GameAction> generateActions(Town townData)
         {
             var actions = new List<GameAction>();
             actions.Add(new ForageAction(townData.biome));
@@ -159,10 +160,10 @@ namespace Vagabondo
             actions.Add(new LibraryAction());
 
             const float questActionProbability = 0.1f;
-            if (Random.next < questActionProbability)
+            if (UnityEngine.Random.value < questActionProbability)
             {
                 var questState = activeQuest.GetCurrentState();
-                var questAction = new QuestAction(questState.title, questState.description);
+                var questAction = new QuestAction(questState);
                 actions.Add(questAction);
             }
 

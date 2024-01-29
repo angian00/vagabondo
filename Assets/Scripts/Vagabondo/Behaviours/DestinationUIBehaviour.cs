@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Behaviours
@@ -24,7 +26,7 @@ namespace Vagabondo.Behaviours
 
         }
 
-        private void updateView(List<TownData> destinationsData)
+        private void updateView(List<Town> destinationsData)
         {
             //Debug.Log("DestinationUIBehaviour.updateMerchandisePanel()");
             UnityUtils.RemoveAllChildren(destinationsPanel);

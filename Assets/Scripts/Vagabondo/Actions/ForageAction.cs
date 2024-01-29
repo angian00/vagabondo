@@ -1,7 +1,8 @@
+using Vagabondo.DataModel;
 using Vagabondo.Generators;
-using static Vagabondo.Grammar.GrammarFactory;
+using Vagabondo.Managers;
 
-namespace Vagabondo
+namespace Vagabondo.Actions
 {
     public class ForageAction : GameAction
     {
@@ -14,7 +15,7 @@ namespace Vagabondo
             this.description = "Walk around the countryside looking for useful herbs";
         }
 
-        public override bool CanPerform(TravelerData travelerData)
+        public override bool CanPerform(Traveler travelerData)
         {
             return true;
         }

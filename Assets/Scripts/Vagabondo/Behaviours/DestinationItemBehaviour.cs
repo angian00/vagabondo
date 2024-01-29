@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Behaviours
@@ -8,8 +10,8 @@ namespace Vagabondo.Behaviours
     {
         public GameObject ParentView { get; set; }
 
-        private TownData _data;
-        public TownData Data { set { _data = value; updateView(); } }
+        private Town _data;
+        public Town Data { set { _data = value; updateView(); } }
 
 
         public void OnDestinationChosen()

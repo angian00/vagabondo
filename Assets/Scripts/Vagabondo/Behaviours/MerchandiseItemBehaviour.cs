@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 
 namespace Vagabondo.Behaviours
 {

@@ -1,6 +1,6 @@
 # TODO
 
-- TownData:
+- Town:
 	- introdurre campo bitfield per edifici presenti
 	- introdurre nel generator prob per edifici by biome, town size, etc.
 	- generare hints
@@ -19,11 +19,6 @@
 		- conversione tracery --> my custom format
 		- import da spreadsheet
 	+ sintassi tracery: supportare singola stringa invece di array nel json della grammar
-
-- refactoring namespaces:
-	- DataModel/...
-	- Actions/...
-	- Managers/...
 
 - aux files:
 	- get biome transition weights from external file

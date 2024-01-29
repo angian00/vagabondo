@@ -1,6 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Vagabondo.Actions;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 using Button = UnityEngine.UI.Button;
 
 namespace Vagabondo.Behaviours
@@ -56,7 +59,7 @@ namespace Vagabondo.Behaviours
         }
 
 
-        public void ComputeInteractable(TravelerData travelerData)
+        public void ComputeInteractable(Traveler travelerData)
         {
             _canPerform = _action.CanPerform(travelerData);
             gameObject.GetComponent<Button>().interactable = (_canPerform && !_actionSpent);

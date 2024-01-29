@@ -1,27 +1,8 @@
 using System.Collections.Generic;
 
-namespace Vagabondo
+namespace Vagabondo.DataModel
 {
-    public struct Trinket
-    {
-        public string text;
-
-        public Trinket(string text)
-        {
-            this.text = text;
-        }
-    }
-
-    public enum KnowledgeType
-    {
-        Nature,
-        Languages,
-        Exoterism,
-        Politics,
-    }
-
-
-    public class TravelerData
+    public class Traveler
     {
         public static int startMoney = 100;
         //public static int startMoney = 0;

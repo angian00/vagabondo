@@ -1,4 +1,6 @@
-namespace Vagabondo
+using Vagabondo.DataModel;
+
+namespace Vagabondo.Actions
 {
     public abstract class GameActionResult { }
 
@@ -18,7 +20,8 @@ namespace Vagabondo
 
         public ItemAcquiredActionResult(string text, Trinket item)
         {
-            //TODO
+            this.text = text;
+            this.item = item;
         }
     }
 

@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Behaviours
@@ -33,7 +35,7 @@ namespace Vagabondo.Behaviours
         }
 
 
-        private void updateView(TravelerData travelerData)
+        private void updateView(Traveler travelerData)
         {
             moneyValueLabel.text = travelerData.money.ToString();
 

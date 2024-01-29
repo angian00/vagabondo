@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using Vagabondo.Actions;
+using Vagabondo.Managers;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Behaviours
@@ -32,11 +34,11 @@ namespace Vagabondo.Behaviours
 
             if (actionResult is TextActionResult)
             {
-                descriptionLabel.text = actionResult;
+                descriptionLabel.text = ((TextActionResult)actionResult).text;
             }
             else if (actionResult is ItemAcquiredActionResult)
             {
-                descriptionLabel.text = actionResult;
+                descriptionLabel.text = ((ItemAcquiredActionResult)actionResult).text;
                 //TODO: schedule item reveal
             }
         }

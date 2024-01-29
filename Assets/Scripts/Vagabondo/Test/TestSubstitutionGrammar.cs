@@ -9,7 +9,6 @@ namespace Vagabondo.Test
 {
     public class TestSubstitutionGrammar : MonoBehaviour
     {
-        private static string grammarFilename = "poem";
         private static string rootRuleName = "origin";
 
         [SerializeField]

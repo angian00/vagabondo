@@ -168,7 +168,11 @@ namespace Vagabondo.Grammar
             if (originalText.EndsWith("e"))
                 return originalText + "d";
 
-            if (isVowel(originalText[originalText.Length - 2]) && !isVowel(originalText[originalText.Length - 1]))
+            //doubling final consonant as per britannica.com
+            //https://www.britannica.com/dictionary/eb/qa/Doubling-the-final-consonant-before-adding-ed-or-ing#:~:text=To%20know%20when%20to%20double,consonant%2C%20follow%20the%20rules%20below.&text=In%20a%20word%20with%201,the%20final%20syllable%20is%20stressed.
+            if ((!isVowel(originalText[originalText.Length - 3])) && isVowel(originalText[originalText.Length - 2]) && !isVowel(originalText[originalText.Length - 1], false)
+                && originalText[originalText.Length - 1] != 'w' && originalText[originalText.Length - 1] != 'x')
+                //ignoring accent-related subrule
                 return originalText + originalText[originalText.Length - 1] + "ed";
 
             //If a verb ends in consonant and -y, you take off the y and add - ied.

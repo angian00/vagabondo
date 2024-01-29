@@ -1,4 +1,6 @@
-namespace Vagabondo
+using System;
+
+namespace Vagabondo.DataModel
 {
     public enum MemoryType
     {
@@ -9,8 +11,8 @@ namespace Vagabondo
     public class Memory
     {
         public MemoryType type;
-        public title;
-        public description;
+        public string title;
+        public string description;
 
         public Memory(MemoryType type)
         {

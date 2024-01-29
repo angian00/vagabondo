@@ -1,7 +1,7 @@
-using Vagabondo.Generators;
-using static Vagabondo.Grammar.GrammarFactory;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 
-namespace Vagabondo
+namespace Vagabondo.Actions
 {
     public class TavernAction : GameAction
     {
@@ -13,7 +13,7 @@ namespace Vagabondo
             this.description = "Spend some cash in the local watering hole";
         }
 
-        public override bool CanPerform(TravelerData travelerData)
+        public override bool CanPerform(Traveler travelerData)
         {
             return (travelerData.money >= tavernCost);
         }

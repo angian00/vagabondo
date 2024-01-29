@@ -1,5 +1,5 @@
 {
-	"origin": "#cookingVerb.ed# #foodNoun#",
+	"origin": ["#cookingVerb.ed# #foodNoun#"],
 	"cookingVerb": [
 		"fry",
 		"broil",

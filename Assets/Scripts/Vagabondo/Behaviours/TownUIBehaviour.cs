@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Behaviours
@@ -63,7 +65,7 @@ namespace Vagabondo.Behaviours
             UnityUtils.ShowUIView(destinationUI);
         }
 
-        public void updateView(TownData townData)
+        public void updateView(Town townData)
         {
             townNameLabel.text = townData.name;
             //townDescriptionLabel.text = townData.description;
@@ -79,10 +81,10 @@ namespace Vagabondo.Behaviours
                 actionObjs.Add(newActionButton.GetComponent<ActionButtonBehaviour>());
             }
 
-            //updateInteractableActions(TravelManager.Instance.TravelerData); //FIXME
+            //updateInteractableActions(TravelManager.Instance.Traveler); //FIXME
         }
 
-        public void updateInteractableActions(TravelerData travelerData)
+        public void updateInteractableActions(Traveler travelerData)
         {
             foreach (var actionObj in actionObjs)
             {

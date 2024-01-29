@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UnityEngine;
+using Vagabondo.DataModel;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Generators
@@ -9,7 +9,7 @@ namespace Vagabondo.Generators
         private static Dictionary<Biome, Dictionary<Biome, int>> biomeTransitions;
 
         private DominionGenerator dominionGenerator;
-        private HashSet<DominionData> dominions;
+        private HashSet<Dominion> dominions;
 
         static TownGenerator()
         {
@@ -67,10 +67,10 @@ namespace Vagabondo.Generators
             dominionGenerator = new DominionGenerator();
         }
 
-        public TownData GenerateTownData(TownData lastTown)
+        public Town GenerateTownData(Town lastTown)
         {
             var townName = FileStringGenerator.Sites.GenerateString();
-            var townData = new TownData(townName);
+            var townData = new Town(townName);
 
             Biome biome;
             if (lastTown == null)
@@ -79,7 +79,7 @@ namespace Vagabondo.Generators
                 biome = randomBiome(lastTown.biome);
             townData.biome = biome;
 
-            DominionData dominion = dominionGenerator.GenerateDominion(); //FUTURE: dominion persistence logic
+            Dominion dominion = dominionGenerator.GenerateDominion(); //FUTURE: dominion persistence logic
             townData.dominion = dominion;
 
             townData.description = "";

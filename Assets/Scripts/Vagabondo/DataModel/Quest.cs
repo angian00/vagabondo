@@ -1,4 +1,7 @@
-namespace Vagabondo.Quests
+using System;
+using System.Collections.Generic;
+
+namespace Vagabondo.DataModel
 {
     public class QuestState
     {

@@ -18,7 +18,7 @@ namespace Vagabondo.Grammar
         private static Dictionary<GrammarId, SubstitutionGrammar> cache = new();
 
 
-        public static SubstitutionGrammar CreateGrammar(GrammarId grammarId)
+        public static SubstitutionGrammar GetGrammar(GrammarId grammarId)
         {
             if (!cache.ContainsKey(grammarId))
                 cache.Add(grammarId, SubstitutionGrammar.Load(filenames[grammarId]));

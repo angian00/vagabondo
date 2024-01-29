@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Vagabondo.DataModel;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Generators
@@ -25,12 +26,12 @@ namespace Vagabondo.Generators
 
         private HashSet<string> usedRegionNames = new();
 
-        public DominionData GenerateDominion()
+        public Dominion GenerateDominion()
         {
             var dominionType = chooseDominionType();
             var regionName = chooseRegionName();
 
-            return new DominionData($"{dominionType} of {regionName}");
+            return new Dominion($"{dominionType} of {regionName}");
         }
 
         private string chooseDominionType()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Vagabondo.DataModel;
 
 namespace Vagabondo.Generators
 {

@@ -1,21 +1,23 @@
+using Vagabondo.DataModel;
 using Vagabondo.Generators;
+using Vagabondo.Managers;
 using static Vagabondo.Grammar.GrammarFactory;
 
-namespace Vagabondo
+namespace Vagabondo.Actions
 {
     public class SketchyDealAction : GameAction
     {
         public static int dealCost = 50;
 
-        private TownData townData;
-        public SketchyDealAction(TownData townData) : base(GameActionType.SketchyDeal)
+        private Town townData;
+        public SketchyDealAction(Town townData) : base(GameActionType.SketchyDeal)
         {
             this.townData = townData;
             this.title = "Explore the streets";
             this.description = "Look for a bargain deal in the seediest part of the town";
         }
 
-        public override bool CanPerform(TravelerData travelerData)
+        public override bool CanPerform(Traveler travelerData)
         {
             return (travelerData.money >= dealCost);
         }
@@ -33,7 +35,7 @@ namespace Vagabondo
             travelManager.AddTrinket(trinket);
 
             //TODO: trinket discovery UI
-            var resultText = CreateGrammar(GrammarId.SketchyDeal).GenerateText();
+            var resultText = GetGrammar(GrammarId.SketchyDeal).GenerateText();
             return new ItemAcquiredActionResult(resultText, trinket);
         }
     }

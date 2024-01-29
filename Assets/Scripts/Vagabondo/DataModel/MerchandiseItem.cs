@@ -1,4 +1,4 @@
-namespace Vagabondo
+namespace Vagabondo.DataModel
 {
     public class MerchandiseItem
     {

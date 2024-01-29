@@ -1,7 +1,7 @@
-using Vagabondo.Generators;
-using static Vagabondo.Grammar.GrammarFactory;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 
-namespace Vagabondo
+namespace Vagabondo.Actions
 {
     public class ExploreAction : GameAction
     {
@@ -11,7 +11,7 @@ namespace Vagabondo
             this.description = "Spend some time getting acquainted with the countryside";
         }
 
-        public override bool CanPerform(TravelerData travelerData)
+        public override bool CanPerform(Traveler travelerData)
         {
             return true;
         }

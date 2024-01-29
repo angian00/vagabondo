@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using Vagabondo.Actions;
 
-namespace Vagabondo
+namespace Vagabondo.DataModel
 {
     public enum Biome
     {
@@ -11,16 +12,16 @@ namespace Vagabondo
         Lake,
     }
 
-    public class TownData
+    public class Town
     {
         public string name;
         public string description;
         public List<GameAction> actions;
         public Biome biome;
-        public DominionData dominion;
+        public Dominion dominion;
 
 
-        public TownData(string name)
+        public Town(string name)
         {
             this.name = name;
         }

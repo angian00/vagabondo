@@ -1,8 +1,10 @@
+using Vagabondo.DataModel;
+
 namespace Vagabondo.Generators
 {
     public class TrinketGenerator
     {
-        public static Trinket GenerateTrinket(TownData townData)
+        public static Trinket GenerateTrinket(Town townData)
         {
             var trinket = new Trinket();
             trinket.text = "a beautiful pearl necklace";

@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Behaviours
@@ -39,7 +41,7 @@ namespace Vagabondo.Behaviours
         }
 
 
-        private void updateView(TravelerData travelerData)
+        private void updateView(Traveler travelerData)
         {
             //Debug.Log("TravelerUIBehaviour.updateView()");
 
@@ -63,7 +65,7 @@ namespace Vagabondo.Behaviours
             UnityUtils.RemoveAllChildren(memoriesPanel);
             foreach (var memory in travelerData.memories)
             {
-                var newMemoryObj = Instantiate(memoryItemTemplate, memoriesPanel, false);
+                var newMemoryObj = Instantiate(memoryTemplate, memoriesPanel, false);
 
                 newMemoryObj.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = memory.title;
                 newMemoryObj.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = memory.description;

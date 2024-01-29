@@ -1,19 +1,17 @@
-using System;
-using System.Collections.Generic;
-using Vagabondo.Utils;
+using Vagabondo.DataModel;
 
 namespace Vagabondo.Generators
 {
     public class QuestGenerator
     {
-        public QuestGenerator GenerateQuest()
+        public static Quest GenerateQuest()
         {
             var quest = new Quest();
-            var questPlot = ["dungeonIntro", "artifactIntro", "dungeonGuardian", "getArtifact"];
+            var questPlot = new string[] { "dungeonIntro", "artifactIntro", "dungeonGuardian", "getArtifact" };
 
             foreach (var questPlotItem in questPlot)
             {
-                var questState = new QuestState(quest.id);
+                var questState = new QuestState(quest);
                 generateState(questState, questPlotItem);
 
                 quest.states.Add(questState);
@@ -25,7 +23,7 @@ namespace Vagabondo.Generators
         }
 
 
-        private void generateState(QuestState questState, string plotItemId)
+        private static void generateState(QuestState questState, string plotItemId)
         {
             //TODO: compile and use grammar + variables
             if (plotItemId == "dungeonIntro")
@@ -48,7 +46,7 @@ namespace Vagabondo.Generators
             {
                 questState.actionTitle = "Dealing in antiquities";
                 questState.actionDescription = "Make some cheap purchases at the local second-hand dealer";
-                questState.memoryText = "The Church Warden Diary";
+                questState.memoryTitle = "The Church Warden Diary";
                 questState.memoryDescription = "Hai trovato il diario del guardiano della chiesa. vi si dice che la chiesa gode di una protezione dagli influssi maligni che allignano nel bosco";
                 questState.actionResultText = questState.memoryDescription;
             }
@@ -60,7 +58,7 @@ namespace Vagabondo.Generators
                     You feel a cold round shape under your fingers. You triumphantly grasp it and take it out of the rubble: 
                     it's the mossy artifact! Finally!
                     Once it is exposed to the air, it crumbles with a sizzle into a handful of dust. Too bad.";
-                questState.memoryText = "The Mossy Artifact";
+                questState.memoryTitle = "The Mossy Artifact";
                 questState.memoryDescription = "You managed to put your hands on an old stone artifact fuzzy with moss and moisture, only to see it crumble in your hands.";
             }
         }

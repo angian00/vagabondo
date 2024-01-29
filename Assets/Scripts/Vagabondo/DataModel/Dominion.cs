@@ -1,10 +1,10 @@
-namespace Vagabondo
+namespace Vagabondo.DataModel
 {
-    public class DominionData
+    public class Dominion
     {
         public string name;
 
-        public DominionData(string name)
+        public Dominion(string name)
         {
             this.name = name;
         }

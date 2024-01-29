@@ -1,4 +1,7 @@
-namespace Vagabondo
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
+
+namespace Vagabondo.Actions
 {
     public enum GameActionType
     {
@@ -21,7 +24,7 @@ namespace Vagabondo
             this.type = type;
         }
 
-        public abstract bool CanPerform(TravelerData travelerData);
+        public abstract bool CanPerform(Traveler travelerData);
         public abstract string GetCantPerformMessage();
         public abstract GameActionResult Perform(TravelManager travelManager);
     }

@@ -1,7 +1,7 @@
-using Vagabondo.Generators;
-using static Vagabondo.Grammar.GrammarFactory;
+using Vagabondo.DataModel;
+using Vagabondo.Managers;
 
-namespace Vagabondo
+namespace Vagabondo.Actions
 {
     public class QuestAction : GameAction
     {
@@ -14,7 +14,7 @@ namespace Vagabondo
             this.description = questState.actionDescription;
         }
 
-        public override bool CanPerform(TravelerData travelerData)
+        public override bool CanPerform(Traveler travelerData)
         {
             return true;
         }
@@ -43,7 +43,7 @@ namespace Vagabondo
             memory.description = questState.memoryDescription;
             travelManager.AddMemory(memory);
 
-            return new TextActionResult(memory.actionResultText);
+            return new TextActionResult(questState.actionResultText);
         }
     }
 }
