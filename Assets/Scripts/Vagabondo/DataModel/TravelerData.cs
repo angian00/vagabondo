@@ -12,16 +12,6 @@ namespace Vagabondo
         }
     }
 
-    public struct TravelMemory
-    {
-        public string text;
-
-        public TravelMemory(string text)
-        {
-            this.text = text;
-        }
-    }
-
     public enum KnowledgeType
     {
         Nature,
@@ -39,7 +29,7 @@ namespace Vagabondo
         public int money = startMoney;
         public List<MerchandiseItem> merchandise = new();
         public List<Trinket> trinkets = new();
-        public List<TravelMemory> memories = new();
+        public List<Memory> memories = new();
         public Dictionary<KnowledgeType, int> knowledge = new();
     }
 }

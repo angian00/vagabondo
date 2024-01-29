@@ -26,14 +26,19 @@ namespace Vagabondo.Behaviours
             UnityUtils.HideUIView(gameObject);
         }
 
-        private void updateView(string actionResult)
+        private void updateView(GameActionResult actionResult)
         {
-            Debug.Log("ActionResultUIBehaviour.updateMerchandisePanel()");
             UnityUtils.ShowUIView(gameObject);
 
-            descriptionLabel.text = actionResult;
+            if (actionResult is TextActionResult)
+            {
+                descriptionLabel.text = actionResult;
+            }
+            else if (actionResult is ItemAcquiredActionResult)
+            {
+                descriptionLabel.text = actionResult;
+                //TODO: schedule item reveal
+            }
         }
-
-
     }
 }

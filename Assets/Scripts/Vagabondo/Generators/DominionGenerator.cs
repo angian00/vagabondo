@@ -19,11 +19,7 @@ namespace Vagabondo.Generators
             "Marquisdom",
             "Barony",
 
-            "Shire",
-
-            "Khanate",
             "Free State",
-
         };
 
 
