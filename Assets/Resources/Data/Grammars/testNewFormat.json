@@ -1,0 +1,72 @@
+{
+    "startRule": "origin",
+    "rules": {
+        "origin": [
+            //references to other rules
+            "#sky#",
+            "#rock#",
+            "#plant#",
+            "#animal#",
+            "#flower#",
+            "#person#",
+            "#weather#"
+        ],
+
+        "sky": "a blue blue sky", //fixed string
+
+        "rock": "[red] stone", //optional part; could itself be an expression
+
+        "plant": {
+            //random choice from list;
+            //equivalent to "plant": [ "oak", "elm" ]
+            "chooseFrom": [
+                "oak",
+                "elm"
+            ]
+        },
+
+        "animal": {
+            //weighted random choice
+            //equivalent to "animal": { "cat": 90, "dog": 10 }
+            "chooseFromWeights":
+            {
+                "cat": 90,
+                "dog": 10
+            }
+        },
+
+        "flower": "#flowerName.a#", //modifiers, as in tracery
+        "flowerName": [
+            "rose",
+            "tulip"
+        ],
+
+        "person": {
+            //set and use variables;
+            //used when a generated value must be repeated inside an expression
+            "setVariables": { "person": "#personName#" },
+            "expression": "#person# is happy. #person# is going to get married today."
+        },
+        "personName": [
+            "Greta",
+            "Scarlett"
+        ],
+
+        "weather": {
+            //tags are supposed to set externally before invoking grammar;
+            //potential choices are allowed iff:
+            //     for every inputTag
+            //        (inputTag in tags) and not (inputTag in forbiddenTags)
+            "sunny": {
+                "tags": [ "desert", "tropics" ],
+                "forbiddenTags": "winter"
+            },
+            "muggy": {
+                "tags": [ "tropics", "rainforest" ]
+            },
+            "rainy": {
+                "tags": [ "rainforest" ]
+            }
+        }
+    }
+}

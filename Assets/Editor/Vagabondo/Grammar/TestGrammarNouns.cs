@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Vagabondo.Grammar
 {
-    public class TestSubstitutionGrammar
+    public class TestGrammarNouns : TestGrammarBase
     {
         [Test]
         public void TestStaticRule()
@@ -54,7 +54,7 @@ namespace Vagabondo.Grammar
         [Test]
         public void TestPluralEndsWithX()
         {
-            testPlural("ex", "exes");
+            testPxcclural("ex", "exes");
         }
 
         [Test]
@@ -63,17 +63,27 @@ namespace Vagabondo.Grammar
             testPlural("beach", "beaches");
         }
 
+        [Test]
+        public void TestARegular()
+        {
+            testPlural("rose", "a rose");
+        }
+
+        [Test]
+        public void TestAVowel()
+        {
+            testPlural("excursion", "an excursion");
+        }
+
 
         private void testPlural(string noun, string expectedNounPlural)
         {
-            var rules = new Dictionary<string, List<string>>();
-            rules.Add("origin", new List<string>() { "#noun.s#" });
-            rules.Add("noun", new List<string>() { noun });
+            testModifier("s", noun, expectedNounPlural);
+        }
 
-            var grammar = SubstitutionGrammar.FromDictionary(rules);
-            var outputText = grammar.GenerateText();
-
-            Assert.AreEqual(outputText, expectedNounPlural);
+        private void testA(string noun, string expectedWithA)
+        {
+            testModifier("a", noun, expectedWithA);
         }
 
     }
