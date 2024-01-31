@@ -1,0 +1,10 @@
+{
+    "rules": {
+        "origin": {
+        	"clauses": {
+	            "clause1": 90,
+	            "clause2": 10
+        	}
+        }
+    }
+}

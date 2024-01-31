@@ -8,7 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - Basic UI
 - Basic data structures
-- Basic Tracery grammar parser
+- A substitution grammar system
 - Some procedural generators
-- Basic test scene infrastructure
+- Basic experimental scene infrastructure
+- Unit testing infrastructure
 

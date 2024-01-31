@@ -19,7 +19,7 @@
         "plant": {
             //random choice from list;
             //equivalent to "plant": [ "oak", "elm" ]
-            "chooseFrom": [
+            "clauses": [
                 "oak",
                 "elm"
             ]
@@ -28,7 +28,7 @@
         "animal": {
             //weighted random choice
             //equivalent to "animal": { "cat": 90, "dog": 10 }
-            "chooseFromWeights":
+            "clauses":
             {
                 "cat": 90,
                 "dog": 10
@@ -44,7 +44,7 @@
         "person": {
             //set and use variables;
             //used when a generated value must be repeated inside an expression
-            "setVariables": { "person": "#personName#" },
+            "variables": { "person": "#personName#" },
             "expression": "#person# is happy. #person# is going to get married today."
         },
         "personName": [

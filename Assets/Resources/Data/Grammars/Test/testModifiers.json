@@ -1,0 +1,49 @@
+{
+    "rules": {
+        "origin": "--",
+        //---- .a modifier (indefinite article) ----
+        "indefiniteA": "#nounRose.a#",
+        "indefiniteAN": "#nounOrchid.a#",
+
+        "nounRose": "rose",
+        "nounOrchid": "orchid",
+
+        //---- .s modifier (plural) ----
+        "pluralS": "#nounCarrot.s#",
+        "pluralIrregular": "#nounFoot.s#",
+        "pluralFVES": "#nounKnife.s#",
+        "pluralFVES2": "#nounLoaf.s#",
+        "pluralOES": "#nounPotato.s#",
+        "pluralXES": "#nounEx.s#",
+        "pluralCHES": "#nounBeach.s#",
+        
+        "nounCarrot": "carrot",
+        "nounFoot": "foot",
+        "nounKnife": "knife",
+        "nounLoaf": "loaf",
+        "nounPotato": "potato",
+        "nounEx": "ex",
+        "nounBeach": "beach",
+
+        //---- .ed modifier (simple past tense) ----
+        "simplePastED": "#verbHelp.ed#",
+        "simplePastIrregular": "#verbEat.ed#",
+        "simplePastD": "#verbDance.ed#",
+        "simplePastIED": "#verbTry.ed#",
+
+        "verbHelp": "help",
+        "verbEat": "eat",
+        "verbDance": "dance",
+        "verbTry": "try",
+
+        //---- .capitalize modifier ----
+        "capitalizeSingle": "#wordRose.capitalize#",
+        "capitalizePhrase": "#phraseRoseAndTulip.capitalize#",
+        "capitalizeAllSingle": "#wordRose.capitalizeAll#",
+        "capitalizeAllPhrase": "#phraseRoseAndTulip.capitalizeAll#",
+
+        "wordRose": "rose",
+        "phraseRoseAndTulip": "rose and tulip",
+
+    }
+}

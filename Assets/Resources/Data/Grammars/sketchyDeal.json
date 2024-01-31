@@ -1,128 +1,143 @@
 {
-  //"origin": [ "#firstSentence1.capitalize#." ],
-  "origin": [ "#firstSentence1.capitalize#.\n#secondSentence.capitalize#" ],
-  //"origin": [ "#firstSentence1.capitalize#, #firstSentence2#.\n#secondSentence.capitalize#" ],
-  
-  //----------- sentence structures -----------
-  "firstSentence1": ["#embarkJourney#", "#ventureStreet#"],
-  //"firstSentence2": [ "#where#", "#navigating#" ],
-  "secondSentence": ["after #reflectionPeriod# #optionalFinally#you #optionalDecide##buy# a mysterious packet."],
+  "rules": {
+    //"origin": [ "#firstSentence1.capitalize#." ],
+    "origin": [ "#firstSentence1.capitalize#.\n#secondSentence.capitalize#" ],
+    //"origin": [ "#firstSentence1.capitalize#, #firstSentence2#.\n#secondSentence.capitalize#" ],
+    
+    //----------- sentence structures -----------
+    "firstSentence1": ["#embarkJourney#", "#ventureStreet#"],
+    //"firstSentence2": [ "#where#", "#navigating#" ],
+    "secondSentence": ["after #reflectionPeriod# #optionalFinally#you #optionalDecide##buy# a mysterious packet."],
 
-  "embarkJourney": [ "you #embarkOn# #journeyAdj.a# #journeyInto# the #streetVariations#" ],
-  "ventureStreet": [ "you #ventureInto# the #streetVariations#" ],
+    "embarkJourney": [ "you #embarkOn# #journeyAdj.a# #journeyInto# the #streetVariations#" ],
+    "ventureStreet": [ "you #ventureInto# the #streetVariations#" ],
 
-  //"where": ["where every corner holds the promise of unbeatable bargains waiting to be discovered"], //TODO
-  //"navigating": ["navigating through vibrant markets and hidden alleys in pursuit of irresistible deals"], //TODO
-  
-  //----------- synonyms -----------
-  "embarkOn": [
-  	"embark on",
-  	"set forth on",
-  	"set out on",
-  ],
+    //"where": ["where every corner holds the promise of unbeatable bargains waiting to be discovered"], //TODO
+    //"navigating": ["navigating through vibrant markets and hidden alleys in pursuit of irresistible deals"], //TODO
+    
+    //----------- synonyms -----------
+    "embarkOn": [
+    	"embark on",
+    	"set forth on",
+    	"set out on",
+    ],
 
-  "journeyAdj": [
-  	"exciting",
-  	"thrilling",
-  	"intriguing",
-  	"exhilarating",
-  	"busy",
-  	"crowded",
-  	"noisy",
-  	"peaceful",
-  	"lively",
-  	"vibrant",
-  	"urban",
-  	"serene",
-  	"picturesque",
-  	"historic",
-  	"quaint",
-  	"charming",
-  	"colorful",
-  	"inviting",
-  	"pleasant",
-  	"refreshing",
-  ],
-  
-  "journeyInto": [
-  	"journey through",
-	"exploration of",
-	"escapade through",
-	"expedition through",
-  ],
+    "journeyAdj": [
+    	"exciting",
+    	"thrilling",
+    	"intriguing",
+    	"exhilarating",
+    	"busy",
+    	"crowded",
+    	"noisy",
+    	"peaceful",
+    	"lively",
+    	"vibrant",
+    	"urban",
+    	"serene",
+    	"picturesque",
+    	"historic",
+    	"quaint",
+    	"charming",
+    	"colorful",
+    	"inviting",
+    	"pleasant",
+    	"refreshing",
+    ],
+    
+    "journeyInto": [
+    	"journey through",
+  	"exploration of",
+  	"escapade through",
+  	"expedition through",
+    ],
 
-  "ventureInto": [
-	"venture into",
-	"roam freely through", //FUTURE: try movement adverb
-	"take to",
-	"explore",
-	"wander through",
-	"delve into",
-  ],
+    "ventureInto": [
+  	"venture into",
+  	"roam freely through", //FUTURE: try movement adverb
+  	"take to",
+  	"explore",
+  	"wander through",
+  	"delve into",
+    ],
 
-  "streetVariations": [
-  	"#streetObj#",
-  	//"#streetObj# of #town#",
-  	"#streetAdj# #streetObj#",
-  	//"#streetAdj# #streetObj# of #town#",
-  	"#streetObj# of the #town#",
-  	"heart of the #town#",
-  	"#streetAdj# heart of the #town#",
-  	//"#streetAdj# #streetObj# #activityAdj #activityNoun",
-  ],
+    "streetVariations": [
+    	"#streetObj#",
+    	//"#streetObj# of #town#",
+    	"#streetAdj# #streetObj#",
+    	//"#streetAdj# #streetObj# of #town#",
+    	"#streetObj# of the #town#",
+    	"heart of the #town#",
+    	"#streetAdj# heart of the #town#",
+    	//"#streetAdj# #streetObj# #activityAdj #activityNoun",
+    ],
 
-  "streetObj": [
-  	"urban landscape",
-  	"streets",
-  	"streets",
-  	"avenues",
-  	"urban sprawl",
-  ],
+    "streetObj": {
+      "clauses": {
+      	"streets": 5,
+      	"avenues": 2,
+      	"urban landscape": 1,
+      	"urban sprawl": 1,
+      }
+    },
 
-  "streetAdj": [
-  	"lively",
-  	"winding",
-  	"charming",
-  	"vibrant",
-  	"bustling",
-  	"labyrinthine",
-  ],
+    "streetAdj": [
+    	"lively",
+    	"winding",
+    	"charming",
+    	"vibrant",
+    	"bustling",
+    	"labyrinthine",
+    ],
 
-  "town": [
-  	"town",
-  	"city",
-  	"village",
-  	"city center",
-  	"neighbourhood",
-  	"borough",
-  	"hamlet",
-  ],
+    "town": {
+      "clauses": {
+      	"town": 5,
+      	"city": 2,
+      	"village": 5,
+      	"city center": 2,
+      	"neighbourhood": 1,
+      	"borough": 1,
+      	"hamlet": 1,
+      }
+    },
 
-  "reflectionPeriod": [
-  	"a while",
-  	"some deliberation",
-  	"a long internal fight",
-  	"a check on your finances",
-  ],
+    "reflectionPeriod": [
+    	"a while",
+    	"some deliberation",
+    	"a long internal fight",
+    	"a check on your finances",
+    ],
 
-  "optionalFinally": [ "#finally# ", "", "", ""],
-  "finally": [
-  	"finally",
-  	"at last",
-  	"at long last",
-  ],
+    "optionalFinally": {
+      "clauses": {
+        "": 50,
+        "#finally# ": 10,
+      }
+    },
+    "finally": [
+    	"finally",
+    	"at last",
+    	"at long last",
+    ],
 
 
-  "optionalDecide": [ "#decide# ", "", "", "" ],
-  "decide": [
-  	"decide to",
-  	"resolve to",
-  ],
+    "optionalDecide": {
+      "clauses": {
+        "": 50,
+        "#decide# ": 10,
+      }
+    },
+    "decide": [
+    	"decide to",
+    	"resolve to",
+    ],
 
-  "buy": [
-  	"buy",
-  	"purchase",
-  	"spend money on",
-  ],
+    "buy": [
+    	"buy",
+    	"purchase",
+    	"spend money on",
+    ],
+  }
 }
 

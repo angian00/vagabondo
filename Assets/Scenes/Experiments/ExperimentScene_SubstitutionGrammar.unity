@@ -1396,7 +1396,7 @@ GameObject:
   - component: {fileID: 1174088780}
   - component: {fileID: 1174088781}
   m_Layer: 0
-  m_Name: TestSubstitutionGrammar
+  m_Name: ExperimentSubstitutionGrammar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

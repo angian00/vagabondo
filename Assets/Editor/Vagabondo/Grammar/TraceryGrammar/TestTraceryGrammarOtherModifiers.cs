@@ -1,9 +1,8 @@
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace Vagabondo.Grammar
 {
-    public class TestGrammarOtherModifiers : TestGrammarBase
+    public class TestTraceryGrammarOtherModifiers : TestTraceryGrammarBase
     {
 
         [Test]
@@ -16,8 +15,8 @@ namespace Vagabondo.Grammar
         [Test]
         public void TestCapitalizeAll()
         {
-            testModifier("capitalize", "rose", "Rose");
-            testModifier("capitalize", "rose and tulip", "Rose And Tulip");
+            testModifier("capitalizeAll", "rose", "Rose");
+            testModifier("capitalizeAll", "rose and tulip", "Rose And Tulip");
         }
     }
 }

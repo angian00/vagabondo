@@ -1,0 +1,57 @@
+{
+    "rules": {
+        "origin": "--",
+        
+        //---- rule nesting  ----
+        "singleNesting": "#rule1#",
+        "rule1": "text",
+
+        "doubleNesting": "#rule2_1#",
+        "rule2_1": "#rule2_2#",
+        "rule2_2": "text",
+
+        //---- variables ----
+        "singleVariable": {
+        	"variables": { "var": "text" },
+        	"clauses": "#var#"
+    	},
+
+        "singleVariableTwice": {
+        	"variables": { "var": "text" },
+        	"clauses": "#var#_#var#"
+    	},
+
+        "twoVariables": {
+        	"variables": { "var1": "text2", "var2": "text1" },
+        	"clauses": "#var2#_#var1#"
+    	},
+
+        "nestedVariables": {
+        	"variables": { "var2_1": "#rule_var2_2#" },
+        	"clauses": "#var2_1#"
+    	},
+    	"rule_var2_2": {
+        	"variables": { "var2_2": "text" },
+        	"clauses": "#var2_2#"
+    	},
+
+        //---- tag filtering  ----
+        "tagging": ["#ruleA#", "#ruleB#" ],
+        "ruleA": {
+            "tags": "tagA",
+            "clauses": "textA"
+        },
+        "ruleB": {
+            "tags": "tagB",
+            "clauses": "textB"
+        },
+
+        //---- clause weights ----
+        "weighting": {
+            "clauses": {
+                "textA": 90,
+                "textB": 10,
+            }
+        },
+    }
+}

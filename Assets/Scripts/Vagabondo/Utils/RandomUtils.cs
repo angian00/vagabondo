@@ -12,6 +12,16 @@ namespace Vagabondo.Utils
             return values[Random.Range(0, values.Count)];
         }
 
+        public static T RandomChooseWeighted<T>(Dictionary<T, int> weightedValues)
+        {
+            var values = new List<T>(weightedValues.Keys);
+            var weights = new List<int>();
+            foreach (var value in values)
+                weights.Add(weightedValues[value]);
+
+            return RandomChooseWeighted(values, weights);
+        }
+
         public static T RandomChooseWeighted<T>(List<T> values, List<int> weights)
         {
             var cumWeights = new List<int>();

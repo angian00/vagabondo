@@ -1,9 +1,10 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Vagabondo.Grammar
 {
-    public class TestGrammarVariables : TestGrammarBase
+    public class TestTraceryGrammarVariables : TestTraceryGrammarBase
     {
         [Test]
         public void TestVariableSimple()
@@ -20,14 +21,14 @@ namespace Vagabondo.Grammar
         [Test]
         public void TestTwoVariables()
         {
-            testVariables(new Dictionary<string, string>() { {"var1", "rose"}, {"var2", "tulip"} }, 
+            testVariables(new Dictionary<string, string>() { { "var1", "rose" }, { "var2", "tulip" } },
                 "#var1#_#var2#", "rose_tulip");
         }
 
         [Test]
         public void TestTwoVariablesMixed()
         {
-            testVariables(new Dictionary<string, string>() { {"var1", "rose"}, {"var2", "tulip"} }, 
+            testVariables(new Dictionary<string, string>() { { "var1", "rose" }, { "var2", "tulip" } },
                 "#var2#_#var1#_#var2#", "tulip_rose_tulip");
         }
 
@@ -40,7 +41,7 @@ namespace Vagabondo.Grammar
             rules.Add("expression", new List<string>() { expression });
             rules.Add("origin", new List<string>() { $"#[var:#varRule#]expression#" });
 
-            var grammar = SubstitutionGrammar.FromDictionary(rules);
+            var grammar = TraceryGrammar.FromDictionary(rules);
             var outputText = grammar.GenerateText();
 
             Assert.AreEqual(outputText, expectedOutputText);
@@ -50,10 +51,11 @@ namespace Vagabondo.Grammar
         {
             var rules = new Dictionary<string, List<string>>();
             rules.Add("expression", new List<string>() { expression });
-            
+
             var varRefsStr = "";
-            var varKeys = varValues.Keys;
-            for (var iVar = 0; iVar < varKeys.Count; iVar++) {
+            var varKeys = varValues.Keys.ToList();
+            for (var iVar = 0; iVar < varKeys.Count; iVar++)
+            {
                 var varName = varKeys[iVar];
                 var varRuleName = $"varRule{iVar}";
                 varRefsStr += $"[{varName}:#{varRuleName}#]";
@@ -61,7 +63,7 @@ namespace Vagabondo.Grammar
             }
 
             rules.Add("origin", new List<string>() { $"#{varRefsStr}expression#" });
-            var grammar = SubstitutionGrammar.FromDictionary(rules);
+            var grammar = TraceryGrammar.FromDictionary(rules);
             var outputText = grammar.GenerateText();
 
             Assert.AreEqual(outputText, expectedOutputText);

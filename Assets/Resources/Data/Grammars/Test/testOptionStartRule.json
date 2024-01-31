@@ -1,0 +1,7 @@
+{
+	"startRule": "otherRule",
+    "rules": {
+        "origin": "staticText",
+        "otherRule": "otherRuleText"
+    }
+}

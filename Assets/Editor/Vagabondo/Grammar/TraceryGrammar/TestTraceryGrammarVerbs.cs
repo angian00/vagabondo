@@ -1,9 +1,8 @@
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace Vagabondo.Grammar
 {
-    public class TestGrammarVerbs: TestGrammarBase
+    public class TestTraceryGrammarVerbs : TestTraceryGrammarBase
     {
         [Test]
         public void TestPastRegular()
@@ -31,8 +30,8 @@ namespace Vagabondo.Grammar
 
         private void testSimplePast(string verb, string expectedSimplePast)
         {
-           testModifier("ed", verb, expectedSimplePast);
-         }
+            testModifier("ed", verb, expectedSimplePast);
+        }
 
     }
 }

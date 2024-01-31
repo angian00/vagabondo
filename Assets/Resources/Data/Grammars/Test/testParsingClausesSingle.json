@@ -1,0 +1,7 @@
+{
+    "rules": {
+        "origin": {
+        	"clauses": "staticText"
+        }
+    }
+}

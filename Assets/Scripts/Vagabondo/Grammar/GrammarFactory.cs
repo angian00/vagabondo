@@ -15,13 +15,13 @@ namespace Vagabondo.Grammar
         };
 
 
-        private static Dictionary<GrammarId, SubstitutionGrammar> cache = new();
+        private static Dictionary<GrammarId, RichGrammar> cache = new();
 
 
-        public static SubstitutionGrammar GetGrammar(GrammarId grammarId)
+        public static RichGrammar GetGrammar(GrammarId grammarId)
         {
             if (!cache.ContainsKey(grammarId))
-                cache.Add(grammarId, SubstitutionGrammar.FromFile(filenames[grammarId]));
+                cache.Add(grammarId, new RichGrammar(filenames[grammarId]));
 
             return cache[grammarId];
         }

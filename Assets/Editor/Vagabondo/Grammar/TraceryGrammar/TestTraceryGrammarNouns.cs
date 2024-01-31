@@ -1,15 +1,14 @@
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace Vagabondo.Grammar
 {
-    public class TestGrammarNouns : TestGrammarBase
+    public class TestTraceryGrammarNouns : TestTraceryGrammarBase
     {
         [Test]
         public void TestStaticRule()
         {
             var staticRule = "foo bar baz";
-            var grammar = SubstitutionGrammar.FromSingleRule(staticRule);
+            var grammar = TraceryGrammar.FromSingleRule(staticRule);
             var outputText = grammar.GenerateText();
 
             Assert.AreEqual(outputText, staticRule);
@@ -54,7 +53,7 @@ namespace Vagabondo.Grammar
         [Test]
         public void TestPluralEndsWithX()
         {
-            testPxcclural("ex", "exes");
+            testPlural("ex", "exes");
         }
 
         [Test]
@@ -66,13 +65,13 @@ namespace Vagabondo.Grammar
         [Test]
         public void TestARegular()
         {
-            testPlural("rose", "a rose");
+            testA("rose", "a rose");
         }
 
         [Test]
         public void TestAVowel()
         {
-            testPlural("excursion", "an excursion");
+            testA("excursion", "an excursion");
         }
 
 

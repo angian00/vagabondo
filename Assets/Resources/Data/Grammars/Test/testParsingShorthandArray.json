@@ -1,0 +1,8 @@
+{
+    "rules": {
+        "origin": [
+            "clause1",
+            "clause2"
+        ]
+    }
+}

@@ -5,9 +5,9 @@ using TMPro;
 using UnityEngine;
 using Vagabondo.Grammar;
 
-namespace Vagabondo.Test
+namespace Vagabondo.Experiment
 {
-    public class TestSubstitutionGrammar : MonoBehaviour
+    public class ExperimentSubstitutionGrammar : MonoBehaviour
     {
         private static string rootRuleName = "origin";
 
@@ -16,7 +16,7 @@ namespace Vagabondo.Test
         [SerializeField]
         private TextMeshProUGUI outputField;
 
-        private SubstitutionGrammar grammar;
+        private RichGrammar grammar;
 
 
         private void Start()
@@ -64,7 +64,7 @@ namespace Vagabondo.Test
         private void onGrammarChanged()
         {
             var filename = grammarDropdown.options[grammarDropdown.value].text;
-            grammar = SubstitutionGrammar.FromFile(filename);
+            grammar = new RichGrammar(filename);
 
         }
     }

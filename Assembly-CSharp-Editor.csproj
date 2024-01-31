@@ -56,7 +56,16 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\Vagabondo\Grammar\TestSubstitutionGrammar.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\RichGrammar\BaseTestRichGrammar.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\RichGrammar\TestRichGrammarModifiers.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\TraceryGrammar\TestTraceryGrammarNouns.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\TraceryGrammar\TestTraceryGrammarVariables.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\TraceryGrammar\TestTraceryGrammarBase.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\TraceryGrammar\TestTraceryGrammarOtherModifiers.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\RichGrammar\TestRichGrammarExpansion.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\TraceryGrammar\TestTraceryGrammarVerbs.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\RichGrammar\TestRichGrammarParsing.cs" />
+    <Compile Include="Assets\Editor\Vagabondo\Grammar\TraceryGrammar\TestTraceryGrammarMultipleModifiers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

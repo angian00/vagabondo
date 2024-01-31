@@ -14,15 +14,10 @@
 + selezionare ingredienti antichi (pre-america)
 	https://it.wikipedia.org/wiki/Alimentazione_medievale
 	
-- substitution grammar:
-	+ implementazione sintassi migliorata
++ substitution grammar:
 	+ tooling:
 		- conversione tracery --> my custom format
 		- import da spreadsheet
-	+ sintassi tracery:
-		- supportare singola stringa invece di array nel json della grammar
-		- supportare nested variables
-		- test recursion
 
 + brainstorming:
 	- merchandise
