@@ -52,6 +52,8 @@ namespace Vagabondo.Managers
         {
             var destination = nextDestinations[townName];
             currentTown = destination;
+            currentTown.actions = generateActions(currentTown);
+
             EventManager.PublishTownChanged(currentTown);
 
             foreach (var merchItem in travelerData.merchandise)
@@ -136,7 +138,6 @@ namespace Vagabondo.Managers
             for (int i = 0; i < nDestinations; i++)
             {
                 var townData = townGenerator.GenerateTownData(lastTown); //TODO: make sure town name is not used again
-                townData.actions = generateActions(townData);
 
                 result[townData.name] = townData;
             }
@@ -147,12 +148,16 @@ namespace Vagabondo.Managers
 
         private List<GameAction> generateActions(Town townData)
         {
+            const float questActionProbability = 0.8f;
+
             var actions = new List<GameAction>();
             actions.Add(new ForageAction(townData.biome));
             //if (hasWilderness())
             actions.Add(new ExploreAction());
             //if (hasCrime())
             actions.Add(new SketchyDealAction(townData));
+            //if (friendly)
+            actions.Add(new FoodGiftAction(townData));
 
             foreach (var building in townData.buildings)
             {
@@ -171,7 +176,6 @@ namespace Vagabondo.Managers
                     actions.Add(action);
             }
 
-            const float questActionProbability = 0.1f;
             if (UnityEngine.Random.value < questActionProbability)
             {
                 var questState = activeQuest.GetCurrentState();

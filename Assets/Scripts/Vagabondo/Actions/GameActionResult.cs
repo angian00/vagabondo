@@ -16,9 +16,9 @@ namespace Vagabondo.Actions
     public class ItemAcquiredActionResult : GameActionResult
     {
         public readonly string text;
-        public Trinket item;
+        public GameItem item;
 
-        public ItemAcquiredActionResult(string text, Trinket item)
+        public ItemAcquiredActionResult(string text, GameItem item)
         {
             this.text = text;
             this.item = item;

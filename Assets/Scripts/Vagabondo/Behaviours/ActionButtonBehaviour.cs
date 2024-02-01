@@ -10,7 +10,7 @@ namespace Vagabondo.Behaviours
 {
     public class ActionButtonBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public static int maxTitleLength = 20;
+        public static int maxTitleLength = 30;
         public static int maxDescriptionLength = 60;
 
         [SerializeField]

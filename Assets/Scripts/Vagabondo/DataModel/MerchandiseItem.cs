@@ -1,10 +1,13 @@
 namespace Vagabondo.DataModel
 {
-    public class MerchandiseItem
+    public interface GameItem { }
+
+    public class MerchandiseItem : GameItem
     {
         public enum Category
         {
             Herb,
+            Food,
         }
 
         public enum Quality

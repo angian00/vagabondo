@@ -35,7 +35,7 @@ namespace Vagabondo.Actions
             }
             else
             {
-                memory = new QuestFragmentMemory();
+                memory = new QuestFragmentMemory(questState.parent.id);
                 questState.parent.AdvanceState();
             }
 

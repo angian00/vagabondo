@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\Managers\TravelManager.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\DominionGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\LibraryAction.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Actions\FoodGiftAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RichGrammarParser.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Dominion.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\TavernAction.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TemplatedStringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\MerchandiseItem.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\GrammarFactory.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Behaviours\MemoryItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\DataUtils.cs" />
   </ItemGroup>
   <ItemGroup>

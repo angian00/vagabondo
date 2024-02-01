@@ -1,5 +1,6 @@
 using UnityEngine;
 using Vagabondo.DataModel;
+using static Vagabondo.Grammar.GrammarFactory;
 
 namespace Vagabondo.Generators
 {
@@ -15,5 +16,15 @@ namespace Vagabondo.Generators
             return merchItem;
         }
 
+        public static MerchandiseItem GenerateFood(Town town)
+        {
+            var merchItem = new MerchandiseItem();
+            merchItem.category = MerchandiseItem.Category.Food;
+            merchItem.text = GetGrammar(GrammarId.Food).GenerateText();
+            merchItem.basePrice = Random.Range(1, 200);
+            merchItem.quality = MerchandiseItem.Quality.Standard; //TODO: randomize
+
+            return merchItem;
+        }
     }
 }

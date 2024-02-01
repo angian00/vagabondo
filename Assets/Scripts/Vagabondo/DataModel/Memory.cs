@@ -31,6 +31,9 @@ namespace Vagabondo.DataModel
     {
         public Guid questId;
 
-        public QuestFragmentMemory() : base(MemoryType.QuestFragment) { }
+        public QuestFragmentMemory(Guid questId) : base(MemoryType.QuestFragment)
+        {
+            this.questId = questId;
+        }
     }
 }

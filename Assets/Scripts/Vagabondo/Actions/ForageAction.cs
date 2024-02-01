@@ -30,7 +30,7 @@ namespace Vagabondo.Actions
             var merchItem = MerchandiseGenerator.GenerateHerb(biome);
             travelManager.AddMerchandiseItem(merchItem);
 
-            return new TextActionResult($"You gather some {merchItem.text}");
+            return new TextActionResult($"You gather some <style=C1>{merchItem.text}</style>");
         }
     }
 

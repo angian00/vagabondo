@@ -67,9 +67,8 @@ namespace Vagabondo.Behaviours
             {
                 var newMemoryObj = Instantiate(memoryTemplate, memoriesPanel, false);
 
-                newMemoryObj.transform.Find("Title").GetComponent<TextMeshProUGUI>().text = memory.title;
-                newMemoryObj.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = memory.description;
-                //TODO: color varies with memory type
+                newMemoryObj.GetComponent<MemoryItemBehaviour>().Memory = memory;
+                //FUTURE: color varies with memory type
             }
 
         }
