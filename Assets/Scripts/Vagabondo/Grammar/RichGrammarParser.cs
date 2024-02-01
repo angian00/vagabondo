@@ -87,7 +87,7 @@ namespace Vagabondo.Grammar
                             rule.tags = new HashSet<string>(parseValuesArrayAsHashSet((JArray)rulePropertyValue));
                     }
                     else
-                        Debug.LogWarning($"Unknown parsed rule property: {rulePropertyKey}");
+                        throw new Exception($"Unknown parsed rule property: {rulePropertyKey}");
                 }
             }
             else

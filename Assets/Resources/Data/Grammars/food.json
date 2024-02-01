@@ -1,0 +1,90 @@
+{
+	"rules": {
+		"origin": ["#foodNoun#"],
+
+		"foodNoun": {
+			"clauses": {
+				"#vegetables#": 10,
+				"#fruit.s#": 5,
+				"#bread#": 5,
+			}
+		},
+
+
+	//-------------------------------------------------------
+	//---- Grammar
+	//-------------------------------------------------------
+
+		"vegetables": {
+			"clauses": {
+				"#vegetableCountable.s#": 10,
+				"#vegetableUncountable#": 5,
+			}
+		},
+
+	//-------------------------------------------------------
+	//---- Preparations
+	//-------------------------------------------------------
+	
+		"bread": "#grain# bread",
+
+	//-------------------------------------------------------
+	//---- Ingredients
+	//-------------------------------------------------------
+
+		"grain": [
+			"wheat",
+			"rye",
+			"spelt",
+			"barley",
+			"buckwheat",
+			"millet",
+			"oats",
+			"sorghum",
+		],
+
+		"vegetableCountable": [
+			"cabbage",
+			"beet",
+			"onion",
+			"carrot",
+			"turnip",
+			"chard",
+			"cucumber",
+			"gourd",
+			"parsnip",
+			"shallot",
+			"radish",
+			"artichoke",
+		],
+		"vegetableUncountable": [
+			"lettuce",
+			"garlic",
+			"leek",
+			"celery",
+			"fennel",
+		],
+
+		"legumes": [
+			"chickpea",
+			"fava bean",
+			"pea",
+			"grass pea",
+		],
+
+		"fruit": [
+			"lemon",
+			"citron",
+			"bitter orange",
+			"pomegranate",
+			"quince",
+			"grape",
+			"apple",
+			"pear",
+			"plum",
+			"strawberry",
+			"fig",
+			"date",
+		],
+	}
+}

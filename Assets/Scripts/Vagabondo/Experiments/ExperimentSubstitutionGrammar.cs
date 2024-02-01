@@ -21,8 +21,7 @@ namespace Vagabondo.Experiment
 
         private void Start()
         {
-            //populateGrammarDropdown();
-            grammar = new RichGrammar("sketchyDeal");
+            populateGrammarDropdown();
         }
 
         public void OnRun()

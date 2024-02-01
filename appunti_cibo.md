@@ -1,134 +1,213 @@
- grano. Farinate e polente, pane
+# Cibo
 
- olio di oliva e il vino
-  uova e i latticini (ma non il pesce)
-   latte, formaggio, burro
-   e balene, oche nere, pulcinella di mare e persino castori
-   e prosciutti e insaccati;
-   latte di mandorle
-   pomi o legumi
-   rozzo pane d'orzo, maiale salato e legumi,
-    selvaggina fresca
-     zucchero o miele
-      zenzero, carvi e semi di anice, finocchio o cumino 
-      'ippocrasso
+## Ingredienti
+- cereali
+  - frumento
+  - segale
+  - spelta
+  - orzo
+  - grano saraceno
+  - miglio
+  - avena
+  - sorgo
 
- mele. 
- lattuga, cavolo, portulaca, dell'altra frutta umida, pollo o capretto
-  minestre e brodo
-  aceto
-  birra
-  i agrumi
-   melograno 
-  fichi secchi e datteri
-   oli di papavero, noce e nocciola 
-   Burro e lardo,
-   mandorla
-    zuppe e stufati
+- verdura
+  - lattuga
+  - cavoli
+  - barbabietole
+  - cipolle
+  - agli
+  - carote 
+  - rape
+  x radicchio
+  - cardi
+  - cicoria
+  - cetrioli
+  - zucche
+  - pastinache
+  - porri
+  - scalogno
+  - sedano
+  - finocchi
+  - ravanelli
+  - carciofi
 
- fichi, uva passa, mele e pere da cuocere con salmone o merluzzo, con prugne 
- mele cotogne
-  cavolo rape
-   pere
- quaglie 
- bue
+//dopo XV secolo: patate, fagioli, cacao, vaniglia, pomodori, peperoncini e mais
+//riso, melanzane
+// arance dolci
 
- essiccazione
-affumicatura
-, la salatura,
- la fermentazione o
-  marmellata s
-  sott'aceto, sotto limone o in salamoia
-  cuocendolo nello zucchero, nel miele o nel grasso,
+-legumi 
+  - ceci
+  - fave
+  - piselli
+  - cicerchie
 
-uva
- bevande alcoliche,
- formaggi e latticelli
- 
+- frutta
+  - limoni
+  - cedri
+  - arance amare
+  - melograni
+  - mele cotogne
+  - uva
+  - mele
+  - pere
+  - prugne
+  - fragole
+  - fichi
+  - datteri
+------------------------------------------------------------------
 
-  frumento, segale, spelta, orzo, grano saraceno, miglio, avena e sorgo
+- latticini
+  - latte di pecora, di capra, di mucca
+  - latte di cavallo, di cammello 
+  - latticello, siero di latte, latte inacidito o annacquato
+  - latte di mandorla
+  - burro
+  - formaggio: 
+    - formaggio duro
+    - formaggio grasso
+    - tomini
+    - pecorino
+    - sardesco
+    - marzolini
+    - provature
+    - ravogliuoli
+    - edam
+    - brie
+    - pecorino
+    - parmigiano 
+    - ricotta
 
-gallette o crostini, inzuppandoli in un liquido come il vino, il brodo, una zuppa o una salsa 
- pappa di frumento, una farinata molto densa spesso preparata con brodo di carne e insaporita con spezie
+- grassi per condire
+  - burro
+  - olio
+  - lardo
+  - oli di papavero, noce e nocciola 
 
- farinate con latte o latte di mandorla e addolcite con lo zucchero
-torte salate farcite con carne, uova, verdure o frutta, così come pastine, frittelle, ciambelle e altri dolcetti 
+- carne
+  - selvaggina
+  - maiale
+  - maialino da latte 
+  - pollo
+  - riccio e di istrice
+  - cigni, pavoni, quaglie, pernici, cicogne, gru, allodole
+  - oche ed anatre
+  - quaglie 
+  - bue
+  - capretto
 
+-pesce
+  - balene
+  - delfini
+  - castori
+  - aringhe
+  - merluzzi
+  - stoccafisso
+  - ostriche
+  - cozze
+  - cappesante
+  - gamberi di fiume
+  - lucci
+  - carpe
+  - lamprede
+  - trote
+  - pesci persici
+  - pulcinella di mare
 
- cavoli, barbabietole, cipolle, agli e carote 
- zuppe
+- spezie
+  - pepe nero
+  - cannella
+  - cassia
+  - cumino
+  - noce moscata
+  - zenzero
+  - chiodi di garofano
+  - zafferano
+  - pepe lungo
+  - macis
+  - nardo
+  - galanga
+  - cubebe
+  
+  - zucchero 
+  - sale
 
-legumi come ceci, fave e piselli
- crauti
+- erbe aromatiche
+  - salvia
+  - senape nera
+  - prezzemolo
+  - carvi
+  - menta
+  - aneto
+  - finocchio 
+  - anice 
+  - malva
 
-limoni, cedri, arance amare, melograni, mele cotogne e uva,  mele, pere, prugne e fragole. Fichi e datteri
-
-
-//dopo XV secolo:  patate, fagioli, cacao, vaniglia, pomodori, peperoncini e mais
-
-
-latte di pecora o di capra
- latticello o siero di latte oppure latte inacidito o annacquato
-  latte di mandorla
-
-formaggio: "formaggio duro, grasso, tomini, pecorino, sardesco; marzolini, provature e ravogliuoli
-
-«crispelli di carne, o vero tortelli e ravioli», la spalla di pecora ripiena di «cascio fresco, bene pesto con ova
-edam olandese, il brie del nord della Francia oltre ai già citati pecorino e parmigiano 
-ricotta
-burro
-olio lardo
-
-selvaggina
-maialino da latte 
-di riccio e di istrice
-i cigni, pavoni, quaglie, pernici, cicogne, gru, allodole
- oche ed anatre
-
- balene e i delfini.
-castori
-i aringhe e merluzzi.
-stoccafisso
- ostriche, cozze e cappesante, gamberi di fiume
-  lucci, carpe, lamprede, trote e pesci persici
-
- pepe nero, la cannella cassia, il cumino, la noce moscata, lo zenzero e i chiodi di garofano. 
- zafferano
-  il pepe lungo, il macis, il nardo, la galanga e il cubebe.
- zucchero 
-
-  erbe aromatiche come salvia, senape nera, prezzemolo, carvi, menta, aneto e finocchio 
- senape
- . L'anice 
-
- Vino, agresto,aceto 
-sale
-
- frittelle, crêpes zuccherate, budini, tortine e paste di sfoglia che talvolta potevano contenere della frutta, ma anche midollo o pesce
- krapfen,
-il marzapane
-
- budini dolci e salati, minestre, salse e torte con fragole, ciliegie, mele e prugn
-i petali di fiori come rose, violette e sambuco
-sorbetto 
-a cassata siciliana  marzapane, pan di Spagna e ricotta dolce, e i "cannoli alla siciliana" 
-
-
-vino
-l vino di melograno e di more e il sidro di pere e di mele
-idromele
-
-Il kumis, latte di cavallo o di cammello 
-
-vino speziato e il vin brulé 
- con spezie varie come zenzero, cardamomo, pepe, grani del paradiso, noce moscata, chiodi di garofano e zucchero
- l'ippocrate
-claret
-
-aqua vitae
-sciroppo d'uva mischiato con zucchero e spezie 
- l'acqua di rose 
-
- 
+- aceto
+- agresto
 
 
+## Preparazioni
+- gallette o crostini
+  - inzuppati in vino, brodo, zuppa, salsa 
+- pappa di frumento
+- farinate con latte o latte di mandorla e addolcite con lo zucchero
+- polenta
+- pane
+
+- torte salate farcite 
+  - con carne, uova, verdure o frutta
+- pastine, frittelle, ciambelle e altri dolcetti 
+
+- zuppe, minestre, brodo
+- stufati
+
+- crispelli di carne, o vero tortelli e ravioli
+- spalla di pecora ripiena
+
+- salmone o merluzzo con frutta
+
+
+- conservazione
+  - insaccati
+  - carne salata
+  - essiccazione
+  - affumicatura
+  - salatura
+  - fermentazione
+  - marmellata
+  - sott'aceto, sotto limone o in salamoia
+  - cottura in crosta nello zucchero, nel miele o nel grasso
+
+- dolci
+  - frittelle
+  - crêpes zuccherate
+  - budini
+  - tortine
+  - paste di sfoglia con frutta, ma anche midollo o pesce
+  - krapfen
+  - marzapane
+  - budini dolci e salati
+  - torte con fragole, ciliegie, mele e prugne
+  - petali di fiori come rose, violette e sambuco
+  - sorbetto 
+  - cassata siciliana
+  - cannoli alla siciliana
+
+- bevande alcoliche
+  - vino
+  - birra
+  - vino di melograno
+  - vino di more
+  - sidro di mele
+  - sidro di pere
+  - idromele
+  - vino speziato
+  - vin brule'
+  - ippocrate (ippocrasso)
+  - claret
+  - acquavite
+  - acqua di rose
+
+- bevande analcoliche
+  ? kumis, 

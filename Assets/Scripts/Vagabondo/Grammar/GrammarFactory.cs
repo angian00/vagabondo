@@ -7,11 +7,13 @@ namespace Vagabondo.Grammar
         public enum GrammarId
         {
             SketchyDeal,
+            Food,
         }
 
         private static Dictionary<GrammarId, string> filenames = new()
         {
             { GrammarId.SketchyDeal, "sketchyDeal" },
+            { GrammarId.Food, "food" },
         };
 
 
