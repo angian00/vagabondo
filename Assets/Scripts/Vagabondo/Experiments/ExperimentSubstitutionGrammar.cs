@@ -21,8 +21,8 @@ namespace Vagabondo.Experiment
 
         private void Start()
         {
-            populateGrammarDropdown();
-            //TestJsonLoader.LoadTestJson("exampleGrammarTracerySyntax");
+            //populateGrammarDropdown();
+            grammar = new RichGrammar("sketchyDeal");
         }
 
         public void OnRun()

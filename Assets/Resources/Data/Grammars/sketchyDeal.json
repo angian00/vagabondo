@@ -69,7 +69,7 @@
     	"#streetObj# of the #town#",
     	"heart of the #town#",
     	"#streetAdj# heart of the #town#",
-    	//"#streetAdj# #streetObj# #activityAdj #activityNoun",
+    	// "#streetAdj# #streetObj# #activityAdj #activityNoun",
     ],
 
     "streetObj": {

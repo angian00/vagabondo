@@ -37,7 +37,7 @@ namespace Vagabondo.Managers
         private void initFirstTown()
         {
             nextDestinations = generateNextDestinations(1);
-            var townName = nextDestinations.Keys.ToList()[0];
+            var townName = nextDestinations.Keys.First();
             TravelTo(townName);
         }
 

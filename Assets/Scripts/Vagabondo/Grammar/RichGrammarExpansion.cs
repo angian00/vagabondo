@@ -26,11 +26,11 @@ namespace Vagabondo.Grammar
             if (variables.ContainsKey(refStr))
                 return expandExpression(variables[refStr], variables, inputTags);
 
-            var ruleVariables = rules[refStr].variables;
+            var rule = rules[refStr];
+            var ruleVariables = rule.variables;
             foreach (var ruleVariableName in ruleVariables.Keys)
                 variables[ruleVariableName] = ruleVariables[ruleVariableName];
 
-            var rule = rules[refStr];
             if (!honorsTags(rule, inputTags))
                 return null;
 

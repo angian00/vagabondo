@@ -18,6 +18,7 @@
 	+ tooling:
 		- conversione tracery --> my custom format
 		- import da spreadsheet
+	+ [optional] syntax
 
 + brainstorming:
 	- merchandise
