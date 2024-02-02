@@ -12,12 +12,16 @@
 	+ improve dominion permanence (town counter?)
 	+ correlare town size a dominion size
 
+
 - generators:
 	- leggere pesi da file json:
 		- buildings?
 
+- food generator:
+	- ingredients generation weight
+	- some grammar in food item name generation
+
 + brainstorming:
-	- ricette
 	- religioni/soprannaturale
 	- influenza del passare del tempo:
 		- raccolta erbe con la luna nuova

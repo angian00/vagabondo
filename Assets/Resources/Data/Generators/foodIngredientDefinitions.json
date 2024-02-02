@@ -1,0 +1,139 @@
+[
+	//-------------------------------------------------------
+	//---- Grains
+	//-------------------------------------------------------
+	{
+        "name": "wheat",
+        "category": "grain",
+    },
+	{
+        "name": "rye",
+        "category": "grain",
+    },
+	{
+        "name": "spelt",
+        "category": "grain",
+    },
+	{
+        "name": "barley",
+        "category": "grain",
+    },
+	{
+        "name": "buckwheat",
+        "category": "grain",
+    },
+	{
+        "name": "millet",
+        "category": "grain",
+    },
+	{
+        "name": "oats",
+        "category": "grain",
+    },
+	{
+        "name": "sorghum",
+        "category": "grain",
+    },
+
+
+	//-------------------------------------------------------
+	//---- Dairy
+	//-------------------------------------------------------
+
+	{
+        "name": "sheep milk",
+        "category": "dairy",
+    },
+	{
+        "name": "cow milk",
+        "category": "dairy",
+    },
+	{
+        "name": "goat milk",
+        "category": "dairy",
+    },
+/*	
+	{
+        "name": "horse milk",
+        "category": "dairy",
+    },
+	{
+        "name": "camel milk",
+        "category": "dairy",
+    },
+*/
+	{
+        "name": "buttermilk",
+        "category": "dairy",
+    },
+	{
+        "name": "sour cream",
+        "category": "dairy",
+    },
+	{
+        "name": "milk cream",
+        "category": "dairy",
+    },
+	{
+        "name": "almond milk",
+        "category": "dairy",
+    },
+	{
+        "name": "almond milk",
+        "category": "dairy",
+    },
+/*
+	{
+        "name": "butter",
+        "category": "dairy",
+    },
+	{
+        "name": "cheese",
+        "category": "dairy",
+    },
+*/
+
+/*
+		"vegetable": [
+			"cabbage",
+			"beet",
+			"onion",
+			"carrot",
+			"turnip",
+			"chard",
+			"cucumber",
+			"gourd",
+			"parsnip",
+			"shallot",
+			"radish",
+			"artichoke",
+			"lettuce",
+			"garlic",
+			"leek",
+			"celery",
+			"fennel",
+		],
+
+		"legume": [
+			"chickpea",
+			"fava bean",
+			"pea",
+			"grass pea",
+		],
+
+		"fruit": [
+			"lemon",
+			"citron",
+			"bitter orange",
+			"pomegranate",
+			"quince",
+			"grape",
+			"apple",
+			"pear",
+			"plum",
+			"strawberry",
+			"fig",
+			"date",
+		],
+*/
+]

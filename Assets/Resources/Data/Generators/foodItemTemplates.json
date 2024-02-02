@@ -1,0 +1,19 @@
+[
+	{
+		"name": "boiled meal",
+        "category": "breakfast",
+        "ingredients": [
+        	"grain",
+        ],
+        "preparation": "boil",
+    },
+	{
+		"name": "gruel",
+        "category": "breakfast",
+        "ingredients": [
+        	"grain",
+        	"dairy",
+        ],
+        "preparation": "mix",
+    },
+]
