@@ -6,14 +6,14 @@ namespace Vagabondo.Generators
 {
     public class FileStringGenerator : StringGenerator
     {
-        private List<string> _names = new();
-        private List<int> _frequencies = new();
+        protected List<string> _names = new();
+        protected List<int> _frequencies = new();
 
 
-        //public static FileStringGenerator Sites = new FileStringGenerator("names_sites_international");
-        public static FileStringGenerator Sites = new FileStringGenerator("names_sites_italia");
-        public static FileStringGenerator Regions = new FileStringGenerator("names_regions_milano");
-        public static FileStringGenerator Herbs = new FileStringGenerator("names_herbs");
+        //public static FileStringGenerator Sites = new FileStringGenerator("namesSitesInternational");
+        public static FileStringGenerator Sites = new FileStringGenerator("namesSitesItalia");
+        public static FileStringGenerator Regions = new FileStringGenerator("namesRegionsMilano");
+        public static FileStringGenerator Herbs = new FileStringGenerator("namesHerbs");
 
 
         protected FileStringGenerator(string sourceFile) : this(new string[] { sourceFile }) { }
@@ -25,9 +25,9 @@ namespace Vagabondo.Generators
         }
 
 
-        private void loadFile(string filename)
+        protected void loadFile(string filename)
         {
-            var fileObj = Resources.Load<TextAsset>($"Data/Names/{filename}");
+            var fileObj = Resources.Load<TextAsset>($"Data/Generators/{filename}");
             var fileLines = fileObj.text.Split("\n");
 
 

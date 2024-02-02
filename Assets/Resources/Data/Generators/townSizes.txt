@@ -1,0 +1,4 @@
+hamlet|10
+village|20
+town|6
+city|2

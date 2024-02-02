@@ -1,0 +1,37 @@
+{
+	"Forest": {
+        "Forest": 40,
+        "Plains": 20,
+        "Hills": 20,
+        "Mountains": 10,
+        "Lake": 10,
+    },
+	"Plains": {
+        "Forest": 30,
+        "Plains": 40,
+        "Hills": 20,
+        "Mountains": 0,
+        "Lake": 10,
+	},
+	"Hills": {
+        "Forest": 20,
+        "Plains": 20,
+        "Hills": 30,
+        "Mountains": 20,
+        "Lake": 10,
+	},
+	"Mountains": {
+        "Forest": 20,
+        "Plains": 0,
+        "Hills": 30,
+        "Mountains": 40,
+        "Lake": 10,
+	},
+	"Lake": {
+        "Forest": 40,
+        "Plains": 20,
+        "Hills": 40,
+        "Mountains": 0,
+        "Lake": 0,
+	},
+}

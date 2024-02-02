@@ -1,0 +1,38 @@
+[
+    {
+    	"name": "Principate",
+    	"size": 8,
+    	"permanence": 0.8,
+    },
+    {
+    	"name": "Archduchy",
+    	"size": 6,
+    	"permanence": 0.6,
+    },
+    {
+    	"name": "Duchy",
+    	"size": 5,
+    	"permanence": 0.5,
+    },
+    {
+    	"name": "County",
+    	"size": 4,
+    	"permanence": 0.4,
+    },
+    {
+    	"name": "Marquisdom",
+    	"size": 4,
+    	"permanence": 0.4,
+    },
+    {
+    	"name": "Barony",
+    	"size": 3,
+    	"permanence": 0.3,
+    },
+
+	{
+	    "name": "Free State",
+	    "size": 3,
+	    "permanence": 0.3,
+	},
+]

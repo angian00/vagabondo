@@ -60,12 +60,14 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Vagabondo\Generators\EnumGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\SubstitutionGrammar.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\QuestGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\StringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\MerchandiseUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\KnowledgeType.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\CommentRemover.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\DataModel\Biome.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Town.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\SketchyDealAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\UnityUtils.cs" />
@@ -115,8 +117,9 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\Resources\Data\Generators\townSizes.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Resources\Data\Names\names_sites_international.txt" />
+    <None Include="Assets\Resources\Data\Generators\namesSitesInternational.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -124,12 +127,12 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\Resources\Data\Names\names_regions_milano.txt" />
+    <None Include="Assets\Resources\Data\Generators\namesRegionsMilano.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\Resources\Data\Names\names_sites_italia.txt" />
+    <None Include="Assets\Resources\Data\Generators\namesSitesItalia.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Resources\Data\Names\names_herbs.txt" />
+    <None Include="Assets\Resources\Data\Generators\namesHerbs.txt" />
     <None Include="Assets\Resources\Data\Grammars\irregularNouns.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

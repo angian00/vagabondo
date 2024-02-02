@@ -1,4 +1,6 @@
+using Newtonsoft.Json;
 using System.Collections.Generic;
+using UnityEngine;
 using Vagabondo.DataModel;
 using Vagabondo.Utils;
 
@@ -9,56 +11,14 @@ namespace Vagabondo.Generators
         private static Dictionary<Biome, Dictionary<Biome, int>> biomeTransitions;
 
         private DominionGenerator dominionGenerator;
-        private HashSet<Dominion> dominions;
+        private HashSet<Dominion> dominions; //TODO: count explored towns by dominion
 
         static TownGenerator()
         {
-            initBiomeTransitions();
-        }
+            TextAsset fileObj;
 
-        private static void initBiomeTransitions()
-        {
-            biomeTransitions = new Dictionary<Biome, Dictionary<Biome, int>>();
-
-            biomeTransitions.Add(Biome.Forest, new Dictionary<Biome, int>() {
-                { Biome.Forest, 40 },
-                { Biome.Plains, 20 },
-                { Biome.Hills, 20 },
-                { Biome.Mountains, 10 },
-                { Biome.Lake, 10 },
-            });
-
-            biomeTransitions.Add(Biome.Plains, new Dictionary<Biome, int>() {
-                { Biome.Forest, 30 },
-                { Biome.Plains, 40 },
-                { Biome.Hills, 20 },
-                { Biome.Mountains, 0 },
-                { Biome.Lake, 10 },
-            });
-
-            biomeTransitions.Add(Biome.Hills, new Dictionary<Biome, int>() {
-                { Biome.Forest, 20 },
-                { Biome.Plains, 20 },
-                { Biome.Hills, 30 },
-                { Biome.Mountains, 20 },
-                { Biome.Lake, 10 },
-            });
-
-            biomeTransitions.Add(Biome.Mountains, new Dictionary<Biome, int>() {
-                { Biome.Forest, 20 },
-                { Biome.Plains, 0 },
-                { Biome.Hills, 30 },
-                { Biome.Mountains, 40 },
-                { Biome.Lake, 10 },
-            });
-
-            biomeTransitions.Add(Biome.Lake, new Dictionary<Biome, int>() {
-                { Biome.Forest, 40 },
-                { Biome.Plains, 20 },
-                { Biome.Hills, 40 },
-                { Biome.Mountains, 0 },
-                { Biome.Lake, 0 },
-            });
+            fileObj = Resources.Load<TextAsset>($"Data/Generators/biomeTransitions");
+            biomeTransitions = JsonConvert.DeserializeObject<Dictionary<Biome, Dictionary<Biome, int>>>(fileObj.text);
 
         }
 
@@ -67,37 +27,51 @@ namespace Vagabondo.Generators
             dominionGenerator = new DominionGenerator();
         }
 
-        public Town GenerateTownData(Town lastTown)
+        public Town GenerateTown(Town lastTown)
         {
             var townName = FileStringGenerator.Sites.GenerateString();
             var town = new Town(townName);
 
+            TownSize size;
             Biome biome;
+            Dominion dominion;
             if (lastTown == null)
-                biome = randomBiome();
+            {
+                size = RandomUtils.RandomEnum<TownSize>();
+                biome = RandomUtils.RandomEnum<Biome>();
+                dominion = dominionGenerator.GenerateDominion();
+            }
             else
-                biome = randomBiome(lastTown.biome);
-            town.biome = biome;
+            {
+                size = randomSizeTransition(lastTown.size);
+                biome = randomBiomeTransition(lastTown.biome);
+                dominion = randomDominionTransition(lastTown.dominion);
+            }
 
-            Dominion dominion = dominionGenerator.GenerateDominion(); //FUTURE: dominion persistence logic
+            town.size = size;
+            town.biome = biome;
             town.dominion = dominion;
 
             town.description = "";
             for (int i = 0; i < 10; i++)
                 town.description += $"TODO: {townName} description  "; //FUTURE: generate description from grammar
 
-            town.buildings = randomBuildings(biome);
+            town.buildings = randomBuildings(biome, size);
 
             return town;
         }
 
-
-        private static Biome randomBiome()
+        private TownSize randomSizeTransition(TownSize lastSize)
         {
-            return RandomUtils.RandomEnum<Biome>();
+            while (true)
+            {
+                var newSize = EnumGenerator.TownSize.GenerateValue();
+                if (!(lastSize == TownSize.City && (newSize == TownSize.City)))
+                    return newSize;
+            }
         }
 
-        private static Biome randomBiome(Biome lastBiome)
+        private Biome randomBiomeTransition(Biome lastBiome)
         {
             var transitionWeights = biomeTransitions[lastBiome];
             var values = new List<Biome>();
@@ -112,13 +86,47 @@ namespace Vagabondo.Generators
             return RandomUtils.RandomChooseWeighted(values, weights);
         }
 
-
-        private static HashSet<TownBuilding> randomBuildings(Biome biome)
+        private Dominion randomDominionTransition(Dominion lastDominion)
         {
+            if (UnityEngine.Random.value <= lastDominion.type.permanence)
+                return lastDominion;
+            else
+                return dominionGenerator.GenerateDominion();
+        }
+
+
+        private static HashSet<TownBuilding> randomBuildings(Biome biome, TownSize size)
+        {
+            int maxNBuildings = -1;
+
+            switch (size)
+            {
+                case TownSize.Hamlet:
+                    maxNBuildings = 1;
+                    break;
+                case TownSize.Village:
+                    maxNBuildings = 2;
+                    break;
+                case TownSize.Town:
+                    maxNBuildings = 3;
+                    break;
+                case TownSize.City:
+                    maxNBuildings = 5;
+                    break;
+            }
+
+            var buildingTypes = DataUtils.EnumToList<TownBuilding>();
+            RandomUtils.Shuffle(buildingTypes);
+
             var buildings = new HashSet<TownBuilding>();
-            //TODO: randomBuildings(biome, dominion, ...)
-            buildings.Add(TownBuilding.Tavern);
-            buildings.Add(TownBuilding.Library);
+            foreach (var buildingType in buildingTypes)
+            {
+                if (buildings.Count >= maxNBuildings)
+                    break;
+
+                buildings.Add(buildingType);
+            }
+
             return buildings;
         }
     }

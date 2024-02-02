@@ -7,6 +7,20 @@ namespace Vagabondo.Utils
 {
     public class RandomUtils
     {
+        public static void Shuffle<T>(List<T> values)
+        {
+            // Fisher-Yates shuffle algorithm
+            int n = values.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = Random.Range(0, n + 1);
+                var value = values[k];
+                values[k] = values[n];
+                values[n] = value;
+            }
+        }
+
         public static T RandomChoose<T>(List<T> values)
         {
             return values[Random.Range(0, values.Count)];

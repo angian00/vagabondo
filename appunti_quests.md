@@ -1,11 +1,4 @@
-# Appunti
-
-## Brainstorming
-- esistono antagonisti/difficolta'/ modi di essere sconfitti?
-
-### Azioni
-- messaggi criptati
-
+# Appunti Quests
 
 ### Special destinations
 Alcuni stati abilitano (solo per un turno?) delle destinazioni speciali, es. dungeon, rovine, templi, evidenziate visivamente in qualche modo.
@@ -64,33 +57,3 @@ In un'altra città, ascolta un racconto popolare che menziona l'artefatto e le s
 Durante un'altra avventura, il giocatore trova un diario di un esploratore che descrive un custode dell'artefatto che protegge il tempio.
 In questo modo, ogni frammento di informazione contribuisce a costruire la comprensione complessiva dell'obiettivo principale del giocatore nel trovare e comprendere l'artefatto antico.
 
-
-### QuestFragments
-Al massimo una Quest attiva ad un dato istante.
-I frammenti di info su una quest sono annegati come parte delle Memories, magari con un colore diverso.
-
-QuestFragment 1
-title: The Abandoned Church
-description: A local farmer told you that somewhere in a neighbouring valley lay the ruins an old church, abandoned a century ago after a plague.
-
-QuestFragment 2
-title: An Artifact of Yore
-description: i racconti popolari della zona menzionano un antico artefatto ormai smarrito. l'artefatto e' di pietra verde ricoperta di muschio. secondo alcuni porta bene, secondo altri male.
-
-QuestFragment 3
-title: The Church Warden
-description: hai trovato il diario del guardiano della chiesa. vi si dice che la chiesa gode di una protezione dagli influssi maligni che allignano nel bosco
-
-
-State machine:
-QF 1 --> QF 2 --> QF3 --> <the curch> --> recupero artefatto
-
-Logica generazione SpecialActions:
-- al tempo t0: creazione procedurale Quest; init quest state
-
-- quando si generano le azioni: prob(special action) = p. if (randomize < p) --> generate special action (quest state); update quest state
-
-
-## Resources
-Corpora
-https://github.com/dariusk/corpora/tree/master

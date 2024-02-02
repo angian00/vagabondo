@@ -55,6 +55,7 @@
   - fragole
   - fichi
   - datteri
+  
 ------------------------------------------------------------------
 
 - latticini
@@ -131,6 +132,8 @@
   
   - zucchero 
   - sale
+  - aceto
+  - agresto
 
 - erbe aromatiche
   - salvia
@@ -143,8 +146,6 @@
   - anice 
   - malva
 
-- aceto
-- agresto
 
 
 ## Preparazioni

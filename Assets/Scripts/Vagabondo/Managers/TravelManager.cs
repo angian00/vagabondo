@@ -137,7 +137,7 @@ namespace Vagabondo.Managers
             var result = new Dictionary<string, Town>();
             for (int i = 0; i < nDestinations; i++)
             {
-                var townData = townGenerator.GenerateTownData(lastTown); //TODO: make sure town name is not used again
+                var townData = townGenerator.GenerateTown(lastTown); //TODO: make sure town name is not used again
 
                 result[townData.name] = townData;
             }
@@ -158,6 +158,7 @@ namespace Vagabondo.Managers
             actions.Add(new SketchyDealAction(townData));
             //if (friendly)
             actions.Add(new FoodGiftAction(townData));
+
 
             foreach (var building in townData.buildings)
             {

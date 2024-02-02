@@ -3,13 +3,12 @@ using Vagabondo.Actions;
 
 namespace Vagabondo.DataModel
 {
-    public enum Biome
+    public enum TownSize
     {
-        Forest,
-        Plains,
-        Hills,
-        Mountains,
-        Lake,
+        Hamlet,
+        Village,
+        Town,
+        City,
     }
 
     public enum TownBuilding
@@ -22,6 +21,7 @@ namespace Vagabondo.DataModel
     public class Town
     {
         public string name;
+        public TownSize size;
         public string description;
         public Biome biome;
         public Dominion dominion;
