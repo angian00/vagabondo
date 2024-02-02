@@ -22,7 +22,7 @@ namespace Vagabondo.Generators
             merchItem.category = MerchandiseItem.Category.Food;
             merchItem.text = GetGrammar(GrammarId.Food).GenerateText();
             merchItem.basePrice = Random.Range(1, 200);
-            merchItem.quality = MerchandiseItem.Quality.Standard; //TODO: randomize
+            merchItem.quality = MerchandiseItem.Quality.Standard;
 
             return merchItem;
         }

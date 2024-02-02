@@ -1,139 +1,296 @@
 [
-	//-------------------------------------------------------
-	//---- Grains
-	//-------------------------------------------------------
-	{
-        "name": "wheat",
-        "category": "grain",
-    },
-	{
-        "name": "rye",
-        "category": "grain",
-    },
-	{
-        "name": "spelt",
-        "category": "grain",
-    },
-	{
-        "name": "barley",
-        "category": "grain",
-    },
-	{
-        "name": "buckwheat",
-        "category": "grain",
-    },
-	{
-        "name": "millet",
-        "category": "grain",
-    },
-	{
-        "name": "oats",
-        "category": "grain",
-    },
-	{
-        "name": "sorghum",
-        "category": "grain",
-    },
-
-
-	//-------------------------------------------------------
-	//---- Dairy
-	//-------------------------------------------------------
-
-	{
-        "name": "sheep milk",
-        "category": "dairy",
-    },
-	{
-        "name": "cow milk",
-        "category": "dairy",
-    },
-	{
-        "name": "goat milk",
-        "category": "dairy",
-    },
-/*	
-	{
-        "name": "horse milk",
-        "category": "dairy",
-    },
-	{
-        "name": "camel milk",
-        "category": "dairy",
-    },
-*/
-	{
-        "name": "buttermilk",
-        "category": "dairy",
-    },
-	{
-        "name": "sour cream",
-        "category": "dairy",
-    },
-	{
-        "name": "milk cream",
-        "category": "dairy",
-    },
-	{
-        "name": "almond milk",
-        "category": "dairy",
-    },
-	{
-        "name": "almond milk",
-        "category": "dairy",
-    },
-/*
-	{
-        "name": "butter",
-        "category": "dairy",
-    },
-	{
-        "name": "cheese",
-        "category": "dairy",
-    },
-*/
-
-/*
-		"vegetable": [
-			"cabbage",
-			"beet",
-			"onion",
-			"carrot",
-			"turnip",
-			"chard",
-			"cucumber",
-			"gourd",
-			"parsnip",
-			"shallot",
-			"radish",
-			"artichoke",
-			"lettuce",
-			"garlic",
-			"leek",
-			"celery",
-			"fennel",
-		],
-
-		"legume": [
-			"chickpea",
-			"fava bean",
-			"pea",
-			"grass pea",
-		],
-
-		"fruit": [
-			"lemon",
-			"citron",
-			"bitter orange",
-			"pomegranate",
-			"quince",
-			"grape",
-			"apple",
-			"pear",
-			"plum",
-			"strawberry",
-			"fig",
-			"date",
-		],
-*/
+  {
+    "name": "wheat",
+    "category": "grain",
+    "baseValue": 5,
+    "frequency": 80
+  },
+  {
+    "name": "rye",
+    "category": "grain",
+    "baseValue": 5,
+    "frequency": 80
+  },
+  {
+    "name": "spelt",
+    "category": "grain",
+    "baseValue": 5,
+    "frequency": 70
+  },
+  {
+    "name": "barley",
+    "category": "grain",
+    "baseValue": 5,
+    "frequency": 70
+  },
+  {
+    "name": "buckwheat",
+    "category": "grain",
+    "baseValue": 5,
+    "frequency": 50
+  },
+  {
+    "name": "millet",
+    "category": "grain",
+    "baseValue": 5,
+    "frequency": 60
+  },
+  {
+    "name": "oats",
+    "category": "grain",
+    "baseValue": 5,
+    "frequency": 70
+  },
+  {
+    "name": "sorghum",
+    "category": "grain",
+    "baseValue": 5,
+    "frequency": 40
+  },
+  {
+    "name": "lettuce",
+    "category": "vegetable",
+    "baseValue": 2,
+    "frequency": 50
+  },
+  {
+    "name": "cabbage",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 50
+  },
+  {
+    "name": "beet",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 40
+  },
+  {
+    "name": "onion",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 50
+  },
+  {
+    "name": "garlic",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 30
+  },
+  {
+    "name": "carrot",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 30
+  },
+  {
+    "name": "turnip",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 40
+  },
+  {
+    "name": "chard",
+    "category": "vegetable",
+    "baseValue": 15,
+    "frequency": 20
+  },
+  {
+    "name": "chicory",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 20
+  },
+  {
+    "name": "cucumber",
+    "category": "vegetable",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "gourd",
+    "category": "vegetable",
+    "baseValue": 10,
+    "frequency": 10
+  },
+  {
+    "name": "parsnip",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 20
+  },
+  {
+    "name": "leek",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 20
+  },
+  {
+    "name": "shallot",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 20
+  },
+  {
+    "name": "celery",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 30
+  },
+  {
+    "name": "fennel",
+    "category": "vegetable",
+    "baseValue": 10,
+    "frequency": 30
+  },
+  {
+    "name": "radish",
+    "category": "vegetable",
+    "baseValue": 5,
+    "frequency": 20
+  },
+  {
+    "name": "artichoke",
+    "category": "vegetable",
+    "baseValue": 20,
+    "frequency": 10
+  },
+  {
+    "name": "chickpea",
+    "category": "legume",
+    "baseValue": 10,
+    "frequency": 50
+  },
+  {
+    "name": "fava bean",
+    "category": "legume",
+    "baseValue": 15,
+    "frequency": 30
+  },
+  {
+    "name": "pea",
+    "category": "legume",
+    "baseValue": 10,
+    "frequency": 30
+  },
+  {
+    "name": "grass pea",
+    "category": "legume",
+    "baseValue": 10,
+    "frequency": 50
+  },
+  {
+    "name": "lemon",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "citron",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "bitter orange",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "pomegranate",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "quince",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "grape",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "apple",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 50
+  },
+  {
+    "name": "pear",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "plum",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "strawberry",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "fig",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "date",
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "sheep milk",
+    "category": "dairy",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "goat milk",
+    "category": "dairy",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "cow milk",
+    "category": "dairy",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "buttermilk",
+    "category": "dairy",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "sour cream",
+    "category": "dairy",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "milk cream",
+    "category": "dairy",
+    "baseValue": 10,
+    "frequency": 20
+  },
+  {
+    "name": "almond milk",
+    "category": "dairy",
+    "baseValue": 10,
+    "frequency": 20
+  }
 ]

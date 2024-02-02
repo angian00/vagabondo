@@ -25,7 +25,7 @@ namespace Vagabondo.Generators
 
         private static void generateState(QuestState questState, string plotItemId)
         {
-            //TODO: compile and use grammar + variables
+            //TODO: compile and use quest grammar
             if (plotItemId == "dungeonIntro")
             {
                 questState.actionTitle = "Chat with the locals";

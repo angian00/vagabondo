@@ -18,7 +18,7 @@
 		- buildings?
 
 - food generator:
-	- ingredients generation weight
+	- leggere su teoria medievale degli umori
 	- some grammar in food item name generation
 
 + brainstorming:

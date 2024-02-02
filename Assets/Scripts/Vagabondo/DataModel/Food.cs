@@ -33,13 +33,14 @@ namespace Vagabondo.DataModel
     {
         public string name;
         public FoodIngredientCategory category;
+        public int frequency;
         public int baseValue;
         public HashSet<Biome> compatibleBiomes;
         //TODO: "elemento" (caldo/freddo, ...)
         //
     }
 
-    public struct FoodIngredient
+    public class FoodIngredient
     {
         public FoodIngredientDef definition;
         public ItemQuality quality;
@@ -91,6 +92,7 @@ namespace Vagabondo.DataModel
     {
         private static List<FoodIngredientDef> ingredientDefinitions;
         private static List<FoodItemTemplate> foodItemTemplates;
+        private static List<int> ingredientDefinitionWeights;
 
         static FoodGenerator()
         {
@@ -98,6 +100,9 @@ namespace Vagabondo.DataModel
 
             fileObj = Resources.Load<TextAsset>($"Data/Generators/foodIngredientDefinitions");
             ingredientDefinitions = JsonConvert.DeserializeObject<List<FoodIngredientDef>>(fileObj.text);
+            ingredientDefinitionWeights = new();
+            foreach (var id in ingredientDefinitions)
+                ingredientDefinitionWeights.Add(id.frequency);
 
             fileObj = Resources.Load<TextAsset>($"Data/Generators/foodItemTemplates");
             foodItemTemplates = JsonConvert.DeserializeObject<List<FoodItemTemplate>>(fileObj.text);
@@ -110,7 +115,7 @@ namespace Vagabondo.DataModel
             for (int iIngredient = 0; iIngredient < nIngredients; iIngredient++)
             {
                 var ingredient = new FoodIngredient();
-                ingredient.definition = RandomUtils.RandomChoose(ingredientDefinitions);
+                ingredient.definition = RandomUtils.RandomChooseWeighted(ingredientDefinitions, ingredientDefinitionWeights);
                 ingredient.quality = ItemQuality.Standard; //TODO: randomize ingredient quality
                 res.Add(ingredient);
             }
@@ -120,6 +125,9 @@ namespace Vagabondo.DataModel
 
         public static FoodItem GenerateFoodItem(List<FoodIngredient> availableIngredients)
         {
+            const int maxTries = 10;
+            int nTries = 0;
+
             while (true)
             {
                 var template = RandomUtils.RandomChoose(foodItemTemplates);
@@ -134,6 +142,8 @@ namespace Vagabondo.DataModel
                 {
                     //TODO: remove ingredient from availableIngredients
                     var ingredient = chooseIngredient(availableIngredients, ingredientCategory);
+                    if (ingredient == null)
+                        goto outerLoopIterate;
                     foodItem.ingredients.Add(ingredient);
                 }
 
@@ -142,6 +152,11 @@ namespace Vagabondo.DataModel
 
                 //FUTURE: final foodItem compatibility check
                 return foodItem;
+
+            outerLoopIterate:
+                nTries++;
+                if (nTries >= maxTries)
+                    return null;
             }
         }
 
@@ -155,7 +170,7 @@ namespace Vagabondo.DataModel
         {
             var compatibleIngredients = availableIngredients.Where(ingredient => (ingredient.definition.category == category)).ToList();
             if (compatibleIngredients.Count == 0)
-                throw new System.Exception("No compatible ingredients found");
+                return null;
 
             return RandomUtils.RandomChoose(compatibleIngredients);
         }
