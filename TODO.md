@@ -81,8 +81,6 @@
 		- glass
 
 
-
-
 - town:
 	- dominion archetype (religion, nomadness, ...)
 	- generare hints
@@ -96,15 +94,10 @@
 
 - food generator:
 	- elenchi
-		- eggs
-		- cheese
-		- wild berries and mushrooms
-		- mandorle, noci, ...
-		- medicinal herbs
-		- fiori
+		+ fiori
+		+ medicinal herbs
+		
 
-	- non ripetere ingredienti (ingredientDef) gia' scelti
-	- computeFoodValue
 	- armonizzare espansione nomi con rich grammar
 
 
@@ -114,7 +107,6 @@
 		- raccolta erbe con la luna nuova
 		- cambia l'effetto dei biomi con le stagioni
 
-+ migliorare grammar food
 + logica valutazione prezzi
 + logica generazione azioni
 
@@ -130,4 +122,5 @@
 - provare trial copilot
 https://github.com/github-copilot/signup
 
-
+- provare American town generator
+https://github.com/james-owen-ryan/talktown

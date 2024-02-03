@@ -26,7 +26,7 @@
 	//---- Meals and gruels
 	//-----------------------------------------------
 	{
-		"name": "boiled #ingredient1#",
+		"name": "boiled #ingredient1.s#",
 		"category": "breakfast",
 		"ingredientCategories": [
 			"grain",
@@ -54,7 +54,7 @@
 	},
 
 	//-----------------------------------------------
-	//---- Vegetables
+	//---- Vegetables and legumes
 	//-----------------------------------------------
 	{
 		"name": "#ingredient1# and #ingredient2# soup",
@@ -64,7 +64,7 @@
 			"vegetable",
 			"herb",
 		],
-		"preparation": "boil",
+		"preparation": "stew",
 	},
 	{
 		"name": "boiled #ingredient1.s#",
@@ -73,6 +73,35 @@
 			"vegetable",
 		],
 		"preparation": "boil",
+	},
+	{
+		"name": "#ingredient1# soup",
+		"category": "soup",
+		"ingredientCategories": [
+			"legume",
+			"vegetable",
+			"fat",
+		],
+		"preparation": "stew",
+	},
+	{
+		"name": "#ingredient1# dumplings",
+		"category": "soup",
+		"ingredientCategories": [
+			"meat",
+			"grain",
+		],
+		"preparation": "stew",
+	},
+	{
+		"name": "#ingredient1# dumplings",
+		"category": "soup",
+		"ingredientCategories": [
+			"vegetable",
+			"cheese",
+			"grain",
+		],
+		"preparation": "stew",
 	},
 
 	//-----------------------------------------------
@@ -88,7 +117,7 @@
 		"preparation": "roast",
 	},
 	{
-		"name": "roasted #ingredient1#",
+		"name": "roasted #ingredient1.s#",
 		"category": "mainCourse",
 		"ingredientCategories": [
 			"fish",
@@ -147,7 +176,7 @@
 	//---- Stuffed preparations
 	//-----------------------------------------------
 	{
-		"name": "#ingredient1# pastry",
+		"name": "#ingredient2# pastry",
 		"category": "mainCourse",
 		"ingredientNames": [
 			"wheat",
@@ -159,13 +188,36 @@
 		"preparation": "bake",
 	},
 	{
-		"name": "stuffed #ingredient1#",
+		"name": "#ingredient2# pastry",
+		"category": "mainCourse",
+		"ingredientNames": [
+			"wheat",
+		],
+		"ingredientCategories": [
+			"meat",
+			"vegetable",
+		],
+		"preparation": "bake",
+	},
+	{
+		"name": "stuffed #ingredient1.s#",
 		"category": "mainCourse",
 		"ingredientCategories": [
 			"meat",
 			"vegetable",
 		],
 		"preparation": "bake",
+	},
+	{
+		"name": "#ingredient2# bacon",
+		"category": "breakfast",
+		"ingredientNames": [
+			"lard",
+		],
+		"ingredientCategories": [
+			"meat",
+		],
+		"preparation": "fry",
 	},
 
 
@@ -178,6 +230,7 @@
 		"ingredientNames": [
 			"eggs",
 			"honey",
+			"butter",
 		],
 		"preparation": "fry",
 	},
@@ -187,6 +240,7 @@
 		"ingredientNames": [
 			"eggs",
 			"sugar",
+			"lard",
 		],
 		"preparation": "fry",
 	},
@@ -275,7 +329,7 @@
 		"preparation": "bake",
 	},
 	{
-		"name": "candied #ingredient2#",
+		"name": "candied #ingredient2.s#",
 		"category": "dessert",
 		"ingredientNames": [
 			"sugar",
@@ -286,7 +340,7 @@
 		"preparation": "simmer",
 	},
 	{
-		"name": "tipsy #ingredient1#",
+		"name": "tipsy #ingredient1.s#",
 		"category": "dessert",
 		"ingredientCategories": [
 			"fruit",
@@ -296,4 +350,164 @@
 	},
 
 	//TODO: dolci con petali di fiori come rose, violette e sambuco
+
+	//-----------------------------------------------
+	//---- Preserves and cured meats
+	//-----------------------------------------------
+	{
+		"name": "salted #ingredient2.s#",
+		"category": "preserve",
+		"ingredientNames": [
+			"salt",
+		],
+		"ingredientCategories": [
+			"meat",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "#ingredient1# sausages",
+		"category": "preserve",
+		"ingredientCategories": [
+			"meat",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "#ingredient2# salami",
+		"category": "preserve",
+		"ingredientNames": [
+			"salt",
+		],
+		"ingredientCategories": [
+			"meat",
+			"herb",
+			"spice",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "#ingredient1# ham",
+		"category": "preserve",
+		"ingredientCategories": [
+			"meat",
+			"herb",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "dried #ingredient1.s#",
+		"category": "preserve",
+		"ingredientCategories": [
+			"meat",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "dried #ingredient1.s#",
+		"category": "preserve",
+		"ingredientCategories": [
+			"fish",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "dried #ingredient1.s#",
+		"category": "preserve",
+		"ingredientCategories": [
+			"fruit",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "smoked #ingredient1.s#",
+		"category": "preserve",
+		"ingredientCategories": [
+			"meat",
+			"herb",
+		],
+		"preparation": "preserve",
+	},
+
+	{
+		"name": "#ingredient1# jam",
+		"category": "preserve",
+		"ingredientCategories": [
+			"fruit",
+		],
+		"preparation": "preserve",
+	},
+
+	{
+		"name": "fermented #ingredient1.s#",
+		"category": "preserve",
+		"ingredientCategories": [
+			"grain",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "fermented #ingredient1.s#",
+		"category": "preserve",
+		"ingredientCategories": [
+			"vegetable",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "sour #ingredient2.s#",
+		"category": "preserve",
+		"ingredientNames": [
+			"vinegar",
+		],
+		"ingredientCategories": [
+			"vegetable",
+			"herb",
+		],
+		"preparation": "preserve",
+	},
+
+	{
+		"name": "honey-glazed #ingredient2.s#",
+		"category": "preserve",
+		"ingredientNames": [
+			"honey",
+		],
+		"ingredientCategories": [
+			"fruit",
+		],
+		"preparation": "preserve",
+	},
+	{
+		"name": "honey-glazed #ingredient2#",
+		"category": "preserve",
+		"ingredientNames": [
+			"honey",
+		],
+		"ingredientCategories": [
+			"meat",
+		],
+		"preparation": "preserve",
+	},
+
+	//-----------------------------------------------
+	//---- No-preparation
+	//-----------------------------------------------
+	{
+		"name": "#ingredient1#",
+		"category": "drink",
+		"ingredientCategories": [
+			"drink",
+		],
+		"preparation": "none",
+	},
+	{
+		"name": "#ingredient1#",
+		"category": "dessert",
+		"ingredientCategories": [
+			"cheese",
+		],
+		"preparation": "none",
+	},
+
 ]

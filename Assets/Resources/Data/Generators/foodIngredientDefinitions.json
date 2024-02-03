@@ -182,6 +182,13 @@
     "frequency": 10
   },
   {
+    "name": "olive",
+    "isPluralizable": true,
+    "category": "vegetable",
+    "baseValue": 10,
+    "frequency": 25
+  },
+  {
     "name": "chickpea",
     "isPluralizable": true,
     "category": "legume",
@@ -294,6 +301,130 @@
     "frequency": 5
   },
   {
+    "name": "peach",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 20,
+    "frequency": 20
+  },
+  {
+    "name": "apricot",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 20,
+    "frequency": 20
+  },
+  {
+    "name": "cherry",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 15,
+    "frequency": 25
+  },
+  {
+    "name": "sorb",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 30
+  },
+  {
+    "name": "carob",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 5,
+    "frequency": 25
+  },
+  {
+    "name": "Cornelian cherry",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 12,
+    "frequency": 30
+  },
+  {
+    "name": "watermelon",
+    "isPluralizable": false,
+    "category": "fruit",
+    "baseValue": 8,
+    "frequency": 30
+  },
+  {
+    "name": "melon",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 10,
+    "frequency": 25
+  },
+  {
+    "name": "medlar",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 15,
+    "frequency": 20
+  },
+  {
+    "name": "wild strawberry",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 20,
+    "frequency": 10,
+    "tags": "wild"
+  },
+  {
+    "name": "blackberry",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 12,
+    "frequency": 10,
+    "tags": "wild"
+  },
+  {
+    "name": "raspberry",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 12,
+    "frequency": 10,
+    "tags": "wild"
+  },
+  {
+    "name": "red currant",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 30,
+    "frequency": 10,
+    "tags": "wild"
+  },
+  {
+    "name": "walnut",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 20,
+    "frequency": 15,
+    "": "maybe other category?"
+  },
+  {
+    "name": "hazelnut",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 20,
+    "frequency": 15
+  },
+  {
+    "name": "pine nut",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 40,
+    "frequency": 10
+  },
+  {
+    "name": "chestnut",
+    "isPluralizable": true,
+    "category": "fruit",
+    "baseValue": 20,
+    "frequency": 15
+  },
+  {
     "name": "sheep milk",
     "isPluralizable": false,
     "category": "dairy",
@@ -341,6 +472,90 @@
     "category": "dairy",
     "baseValue": 20,
     "frequency": 20
+  },
+  {
+    "name": "grana cheese",
+    "isPluralizable": false,
+    "category": "cheese",
+    "baseValue": 15,
+    "frequency": 40
+  },
+  {
+    "name": "gorgonzola cheese",
+    "isPluralizable": false,
+    "category": "cheese",
+    "baseValue": 20,
+    "frequency": 30
+  },
+  {
+    "name": "brie cheese",
+    "isPluralizable": false,
+    "category": "cheese",
+    "baseValue": 15,
+    "frequency": 30
+  },
+  {
+    "name": "castelmagno cheese",
+    "isPluralizable": false,
+    "category": "cheese",
+    "baseValue": 10,
+    "frequency": 70
+  },
+  {
+    "name": "goat cheese",
+    "isPluralizable": false,
+    "category": "cheese",
+    "baseValue": 30,
+    "frequency": 20
+  },
+  {
+    "name": "sheep cheese",
+    "isPluralizable": false,
+    "category": "cheese",
+    "baseValue": 30,
+    "frequency": 20
+  },
+  {
+    "name": "ricotta",
+    "isPluralizable": false,
+    "category": "cheese",
+    "baseValue": 40,
+    "frequency": 15
+  },
+  {
+    "name": "hard cheese",
+    "isPluralizable": false,
+    "category": "cheese",
+    "baseValue": 20,
+    "frequency": 30
+  },
+  {
+    "name": "cottage cheese",
+    "isPluralizable": false,
+    "category": "cheese",
+    "baseValue": 40,
+    "frequency": 15
+  },
+  {
+    "name": "egg",
+    "isPluralizable": true,
+    "category": "egg",
+    "baseValue": 10,
+    "frequency": 50
+  },
+  {
+    "name": "duck egg",
+    "isPluralizable": true,
+    "category": "egg",
+    "baseValue": 20,
+    "frequency": 15
+  },
+  {
+    "name": "goose egg",
+    "isPluralizable": true,
+    "category": "egg",
+    "baseValue": 25,
+    "frequency": 10
   },
   {
     "name": "butter",
@@ -501,6 +716,13 @@
     "isPluralizable": false,
     "category": "meat",
     "baseValue": 60,
+    "frequency": 15
+  },
+  {
+    "name": "quail",
+    "isPluralizable": true,
+    "category": "meat",
+    "baseValue": 50,
     "frequency": 15
   },
   {

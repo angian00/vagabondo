@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,10 +10,11 @@ namespace Vagabondo.DataModel
 {
     public enum ItemQuality
     {
-        Poor,
-        Standard,
-        High,
-        Exceptional,
+        Terrible = -2,
+        Poor = -1,
+        Standard = 0,
+        Good = 1,
+        Exceptional = 2,
     }
 
     public enum FoodIngredientCategory
@@ -22,6 +24,8 @@ namespace Vagabondo.DataModel
         Legume,
         Fruit,
         Dairy,
+        Cheese,
+        Egg,
         Fish,
         Meat,
         Fat,
@@ -57,6 +61,7 @@ namespace Vagabondo.DataModel
         Roast,
         Fry,
         Simmer,
+        Preserve,
     }
 
 
@@ -69,6 +74,8 @@ namespace Vagabondo.DataModel
         Salad,
         MainCourse,
         Dessert,
+        Preserve,
+        Drink,
     }
 
     public class FoodItemTemplate
@@ -88,7 +95,9 @@ namespace Vagabondo.DataModel
         public List<FoodIngredient> ingredients = new();
         public FoodPreparation preparation;
         public ItemQuality preparationQuality;
+        public ItemQuality overallQuality;
         public int baseValue;
+
         //FUTURE: perishability
     }
 
@@ -98,6 +107,15 @@ namespace Vagabondo.DataModel
         private static List<FoodIngredientDef> ingredientDefinitions;
         private static List<FoodItemTemplate> foodItemTemplates;
         private static List<int> ingredientDefinitionWeights;
+
+        private static Dictionary<ItemQuality, float> qualityValueMultiplier = new()
+        {
+            { ItemQuality.Terrible, 0.2f },
+            { ItemQuality.Poor, 0.6f },
+            { ItemQuality.Standard, 1.0f },
+            { ItemQuality.Good, 1.3f },
+            { ItemQuality.Exceptional, 2.0f },
+        };
 
         static FoodGenerator()
         {
@@ -130,7 +148,7 @@ namespace Vagabondo.DataModel
 
         public static FoodItem GenerateFoodItem(List<FoodIngredient> availableIngredients)
         {
-            const int maxTries = 10;
+            const int maxTries = 20;
             int nTries = 0;
 
             while (true)
@@ -144,26 +162,33 @@ namespace Vagabondo.DataModel
                 foodItem.preparation = template.preparation;
                 foodItem.preparationQuality = randomQuality();
 
+                var chosenIngredients = new List<FoodIngredient>();
+                var chosenIngredientNames = new List<string>();
+
                 foreach (var ingredientName in template.ingredientNames)
                 {
-                    var ingredient = chooseIngredient(availableIngredientsCopy, ingredientName);
+                    var ingredient = chooseIngredient(ingredientName, availableIngredientsCopy, chosenIngredientNames);
                     if (ingredient == null)
                         goto outerLoopIterate;
 
-                    foodItem.ingredients.Add(ingredient);
+                    chosenIngredients.Add(ingredient);
+                    chosenIngredientNames.Add(ingredient.definition.name);
                     availableIngredientsCopy.Remove(ingredient);
                 }
 
                 foreach (var ingredientCategory in template.ingredientCategories)
                 {
-                    var ingredient = chooseIngredient(availableIngredientsCopy, ingredientCategory);
+                    var ingredient = chooseIngredient(ingredientCategory, availableIngredientsCopy, chosenIngredientNames);
                     if (ingredient == null)
                         goto outerLoopIterate;
 
-                    foodItem.ingredients.Add(ingredient);
+                    chosenIngredients.Add(ingredient);
+                    chosenIngredientNames.Add(ingredient.definition.name);
                     availableIngredientsCopy.Remove(ingredient);
                 }
 
+                foodItem.ingredients = chosenIngredients;
+                foodItem.overallQuality = computeFoodQuality(foodItem);
                 foodItem.baseValue = computeFoodValue(foodItem);
                 foodItem.name = computeFoodName(foodItem, template);
 
@@ -187,28 +212,65 @@ namespace Vagabondo.DataModel
             return GenerateFoodItem(availableIngredients);
         }
 
-        private static FoodIngredient chooseIngredient(List<FoodIngredient> availableIngredients, FoodIngredientCategory category)
+        private static FoodIngredient chooseIngredient(FoodIngredientCategory targetCategory,
+            List<FoodIngredient> availableIngredients, List<string> prohibitedIngredientNames)
         {
-            var compatibleIngredients = availableIngredients.Where(ingredient => (ingredient.definition.category == category)).ToList();
+            var compatibleIngredients = availableIngredients.Where(ingredient =>
+                (ingredient.definition.category == targetCategory &&
+                !prohibitedIngredientNames.Contains(ingredient.definition.name))).ToList();
+
             if (compatibleIngredients.Count == 0)
                 return null;
 
             return RandomUtils.RandomChoose(compatibleIngredients);
         }
 
-        private static FoodIngredient chooseIngredient(List<FoodIngredient> availableIngredients, string ingredientName)
+        private static FoodIngredient chooseIngredient(string targetIngredientName,
+            List<FoodIngredient> availableIngredients, List<string> prohibitedIngredientNames)
         {
-            var compatibleIngredients = availableIngredients.Where(ingredient => (ingredient.definition.name == ingredientName)).ToList();
+            var compatibleIngredients = availableIngredients.Where(ingredient =>
+                (ingredient.definition.name == targetIngredientName &&
+                !prohibitedIngredientNames.Contains(ingredient.definition.name))).ToList();
+
             if (compatibleIngredients.Count == 0)
                 return null;
 
             return RandomUtils.RandomChoose(compatibleIngredients);
+        }
+
+        private static ItemQuality computeFoodQuality(FoodItem foodItem)
+        {
+            const float preparationWeight = 2.0f;
+            float cumQuality = 0;
+            float nQualities = 0;
+
+            foreach (var ingredient in foodItem.ingredients)
+            {
+                cumQuality += (int)ingredient.quality;
+                nQualities++;
+            }
+
+            cumQuality += preparationWeight * (int)foodItem.preparationQuality;
+            nQualities += preparationWeight;
+
+
+            return (ItemQuality)Math.Round(cumQuality / nQualities);
         }
 
         private static int computeFoodValue(FoodItem foodItem)
         {
-            return 10; //TODO: computeFoodValue
+            const float preparationMultiplier = 1.2f;
+            var cumValue = 0.0f;
+            foreach (var ingredient in foodItem.ingredients)
+            {
+                cumValue += ingredient.definition.baseValue;
+            }
+
+            cumValue *= preparationMultiplier * qualityValueMultiplier[foodItem.overallQuality];
+
+            return (int)Math.Round(cumValue);
         }
+
 
         private static string computeFoodName(FoodItem foodItem, FoodItemTemplate template)
         {
@@ -219,7 +281,15 @@ namespace Vagabondo.DataModel
                 ingredientNouns.Add(ingredient.definition);
             }
 
-            return RefExpansion.ExpandText(template.name, "ingredient", ingredientNouns);
+            var dishStr = RefExpansion.ExpandText(template.name, "ingredient", ingredientNouns);
+
+            string qualityStr;
+            if (foodItem.overallQuality == ItemQuality.Standard)
+                qualityStr = "";
+            else
+                qualityStr = " [" + DataUtils.EnumToStr(foodItem.overallQuality).ToLower() + "]";
+
+            return dishStr + qualityStr;
         }
 
         private static string computeFoodNameOld(FoodItem foodItem, FoodItemTemplate template)
@@ -246,8 +316,14 @@ namespace Vagabondo.DataModel
 
         private static ItemQuality randomQuality()
         {
-            var values = new List<ItemQuality>() { ItemQuality.Poor, ItemQuality.Standard, ItemQuality.High, ItemQuality.Exceptional };
-            var weights = new List<int>() { 10, 60, 10, 1 };
+            var values = new List<ItemQuality>() {
+                ItemQuality.Terrible,
+                ItemQuality.Poor,
+                ItemQuality.Standard,
+                ItemQuality.Good,
+                ItemQuality.Exceptional
+            };
+            var weights = new List<int>() { 1, 10, 60, 10, 1 };
 
             return RandomUtils.RandomChooseWeighted(values, weights);
         }
