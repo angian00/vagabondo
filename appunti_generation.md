@@ -18,3 +18,28 @@
 + ornamenti (gemme incastonate, ...)
 + dedica a personaggi di rilievo, divinita'
 + identita' artefice
+
+
+jewelry
+	rings
+	earrings
+	bracelets
+	? gems
+
+power symbols
+	crowns
+	scepters
+
+religious symbols
+	amulets
+	figurines
+	totems
+
+musical instruments
+
+* decorations
+
+art
+	coins
+	statues
+	engravings

@@ -8,12 +8,14 @@ namespace Vagabondo.Grammar
         {
             SketchyDeal,
             Food,
+            TownDescription,
         }
 
         private static Dictionary<GrammarId, string> filenames = new()
         {
             { GrammarId.SketchyDeal, "sketchyDeal" },
             { GrammarId.Food, "food" },
+            { GrammarId.TownDescription, "townDescription" },
         };
 
 

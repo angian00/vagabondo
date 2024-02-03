@@ -1,19 +1,299 @@
 [
+	//-----------------------------------------------
+	//---- Bread
+	//-----------------------------------------------
 	{
-		"name": "boiled meal",
-        "category": "breakfast",
-        "ingredients": [
-        	"grain",
-        ],
-        "preparation": "boil",
-    },
+		"name": "#ingredient1# bread",
+		"category": "bread",
+		"ingredientCategories": [
+			"grain",
+		],
+		"preparation": "bake",
+	},
 	{
-		"name": "gruel",
-        "category": "breakfast",
-        "ingredients": [
-        	"grain",
-        	"dairy",
-        ],
-        "preparation": "mix",
-    },
+		"name": "#ingredient2# crackers",
+		"category": "bread",
+		"ingredientNames": [
+			"salt",
+		],
+		"ingredientCategories": [
+			"grain",
+		],
+		"preparation": "bake",
+	},
+
+	//-----------------------------------------------
+	//---- Meals and gruels
+	//-----------------------------------------------
+	{
+		"name": "boiled #ingredient1#",
+		"category": "breakfast",
+		"ingredientCategories": [
+			"grain",
+		],
+		"preparation": "boil",
+	},
+	{
+		"name": "#ingredient1# gruel",
+		"category": "breakfast",
+		"ingredientCategories": [
+			"grain",
+			"dairy",
+		],
+		"preparation": "mix",
+	},
+	{
+		"name": "#ingredient1# and #ingredient2# porridge",
+		"category": "breakfast",
+		"ingredientCategories": [
+			"grain",
+			"fruit",
+			"dairy",
+		],
+		"preparation": "mix",
+	},
+
+	//-----------------------------------------------
+	//---- Vegetables
+	//-----------------------------------------------
+	{
+		"name": "#ingredient1# and #ingredient2# soup",
+		"category": "soup",
+		"ingredientCategories": [
+			"vegetable",
+			"vegetable",
+			"herb",
+		],
+		"preparation": "boil",
+	},
+	{
+		"name": "boiled #ingredient1.s#",
+		"category": "soup",
+		"ingredientCategories": [
+			"vegetable",
+		],
+		"preparation": "boil",
+	},
+
+	//-----------------------------------------------
+	//---- Roasts and Stews
+	//-----------------------------------------------
+	{
+		"name": "#ingredient1# roast",
+		"category": "mainCourse",
+		"ingredientCategories": [
+			"meat",
+			"herb",
+		],
+		"preparation": "roast",
+	},
+	{
+		"name": "roasted #ingredient1#",
+		"category": "mainCourse",
+		"ingredientCategories": [
+			"fish",
+		],
+		"preparation": "roast",
+	},
+	{
+		"name": "#ingredient1# stew",
+		"category": "mainCourse",
+		"ingredientCategories": [
+			"meat",
+			"vegetable",
+		],
+		"preparation": "stew",
+	},
+	{
+		"name": "#ingredient1# and #ingredient2# stew",
+		"category": "mainCourse",
+		"ingredientCategories": [
+			"meat",
+			"fruit",
+		],
+		"preparation": "stew",
+	},
+	{
+		"name": "#ingredient1# pottage",
+		"category": "mainCourse",
+		"ingredientCategories": [
+			"meat",
+			"grain",
+			"vegetable",
+		],
+		"preparation": "stew",
+	},
+	{
+		"name": "#ingredient1# stew",
+		"category": "mainCourse",
+		"ingredientCategories": [
+			"fish",
+			"vegetable",
+			"herb",
+		],
+		"preparation": "stew",
+	},
+	{
+		"name": "#ingredient1# and #ingredient2# stew",
+		"category": "mainCourse",
+		"ingredientCategories": [
+			"fish",
+			"fruit",
+		],
+		"preparation": "stew",
+	},
+
+	//-----------------------------------------------
+	//---- Stuffed preparations
+	//-----------------------------------------------
+	{
+		"name": "#ingredient1# pastry",
+		"category": "mainCourse",
+		"ingredientNames": [
+			"wheat",
+		],
+		"ingredientCategories": [
+			"fish",
+			"vegetable",
+		],
+		"preparation": "bake",
+	},
+	{
+		"name": "stuffed #ingredient1#",
+		"category": "mainCourse",
+		"ingredientCategories": [
+			"meat",
+			"vegetable",
+		],
+		"preparation": "bake",
+	},
+
+
+	//-----------------------------------------------
+	//---- Desserts
+	//-----------------------------------------------
+	{
+		"name": "pancakes",
+		"category": "dessert",
+		"ingredientNames": [
+			"eggs",
+			"honey",
+		],
+		"preparation": "fry",
+	},
+	{
+		"name": "krapfen",
+		"category": "dessert",
+		"ingredientNames": [
+			"eggs",
+			"sugar",
+		],
+		"preparation": "fry",
+	},
+	{
+		"name": "marzipan",
+		"category": "dessert",
+		"ingredientNames": [
+			"eggs",
+			"sugar",
+			"wheat",
+			"almonds",
+		],
+		"preparation": "fry",
+	},
+	{
+		"name": "#ingredient3# tart",
+		"category": "dessert",
+		"ingredientNames": [
+			"eggs",
+			"wheat",
+		],
+		"ingredientCategories": [
+			"fruit",
+		],
+		"preparation": "bake",
+	},
+	{
+		"name": "#ingredient2# sherbet",
+		"category": "dessert",
+		"ingredientNames": [
+			"sugar",
+		],
+		"ingredientCategories": [
+			"fruit",
+		],
+		"preparation": "bake",
+	},
+	{
+		"name": "cassata",
+		"category": "dessert",
+		"ingredientNames": [
+			"wheat",
+			"ricotta",
+			"sugar",
+			"brandy",
+		],
+		"ingredientCategories": [
+			"fruit",
+		],
+		"preparation": "bake",
+	},
+	{
+		"name": "cannoli",
+		"category": "dessert",
+		"ingredientNames": [
+			"wheat",
+			"ricotta",
+			"sugar",
+			"brandy",
+		],
+		"ingredientCategories": [
+			"fruit",
+		],
+		"preparation": "fry",
+	},
+	{
+		"name": "puff pastry",
+		"category": "dessert",
+		"ingredientNames": [
+			"wheat",
+			"butter",
+			"sugar",
+		],
+		"preparation": "bake",
+	},
+	{
+		"name": "pudding",
+		"category": "dessert",
+		"ingredientNames": [
+			"eggs",
+			"sugar",
+		],
+		"ingredientCategories": [
+			"dairy",
+		],
+		"preparation": "bake",
+	},
+	{
+		"name": "candied #ingredient2#",
+		"category": "dessert",
+		"ingredientNames": [
+			"sugar",
+		],
+		"ingredientCategories": [
+			"fruit",
+		],
+		"preparation": "simmer",
+	},
+	{
+		"name": "tipsy #ingredient1#",
+		"category": "dessert",
+		"ingredientCategories": [
+			"fruit",
+			"drink",
+		],
+		"preparation": "mix",
+	},
+
+	//TODO: dolci con petali di fiori come rose, violette e sambuco
 ]

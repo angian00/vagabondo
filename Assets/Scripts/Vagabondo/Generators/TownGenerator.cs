@@ -52,11 +52,12 @@ namespace Vagabondo.Generators
             town.biome = biome;
             town.dominion = dominion;
 
-            town.description = "";
-            for (int i = 0; i < 10; i++)
-                town.description += $"TODO: {townName} description  "; //FUTURE: generate description from grammar
-
+            //town.description = "";
+            //for (int i = 0; i < 10; i++)
+            //    town.description += $"TODO: {townName} description  ";
             town.buildings = randomBuildings(biome, size);
+
+            town.description = TownDescriptionGenerator.GenerateTownDescription(town);
 
             return town;
         }

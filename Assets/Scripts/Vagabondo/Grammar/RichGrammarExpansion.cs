@@ -55,7 +55,7 @@ namespace Vagabondo.Grammar
             for (int iModifier = 0; iModifier < nestedRuleTokens.Length - 1; iModifier++)
                 expandedRule = RichGrammarModifiers.applyModifier(expandedRule, nestedRuleTokens[iModifier + 1]);
 
-            return expandedRule.ToString();
+            return expandedRule;
         }
 
         private string expandExpression(string expression, Dictionary<string, string> variables, HashSet<string> inputTags)
@@ -94,11 +94,11 @@ namespace Vagabondo.Grammar
 
             foreach (var inputTag in inputTags)
             {
-                if (!rule.tags.Contains(inputTag))
-                    return false;
+                if (rule.tags.Contains(inputTag))
+                    return true;
             }
 
-            return true;
+            return false;
         }
     }
 }

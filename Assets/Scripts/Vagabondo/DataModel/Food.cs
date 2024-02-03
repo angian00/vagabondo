@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Vagabondo.Grammar;
 using Vagabondo.Utils;
 
 namespace Vagabondo.DataModel
@@ -26,18 +27,18 @@ namespace Vagabondo.DataModel
         Fat,
         Herb,
         Spice,
-        //Beverage?
+        Drink,
     }
 
-    public struct FoodIngredientDef
+    public struct FoodIngredientDef : IGrammarNoun
     {
-        public string name;
+        public string name { get; set; }
+        public bool isPluralizable { get; set; }
+
         public FoodIngredientCategory category;
         public int frequency;
         public int baseValue;
         public HashSet<Biome> compatibleBiomes;
-        //TODO: "elemento" (caldo/freddo, ...)
-        //
     }
 
     public class FoodIngredient
@@ -51,25 +52,31 @@ namespace Vagabondo.DataModel
         None,
         Mix,
         Boil,
-        //TODO: brainstorm food preparations enum
+        Bake,
+        Stew,
+        Roast,
+        Fry,
+        Simmer,
     }
 
 
     public enum FoodItemCategory
     {
         Raw,
-        Salad,
         Breakfast,
+        Bread,
         Soup,
+        Salad,
+        MainCourse,
         Dessert,
-        //TODO: brainstorm FoodItemCategory enum
     }
 
-    public struct FoodItemTemplate
+    public class FoodItemTemplate
     {
         public string name;
         public FoodItemCategory category;
-        public List<FoodIngredientCategory> ingredients;
+        public List<FoodIngredientCategory> ingredientCategories = new();
+        public List<string> ingredientNames = new();
         public FoodPreparation preparation;
     }
 
@@ -82,9 +89,7 @@ namespace Vagabondo.DataModel
         public FoodPreparation preparation;
         public ItemQuality preparationQuality;
         public int baseValue;
-        //FUTURE: recipe
         //FUTURE: perishability
-        //FUTURE: "elemento" (caldo/freddo, ...)
     }
 
 
@@ -116,7 +121,7 @@ namespace Vagabondo.DataModel
             {
                 var ingredient = new FoodIngredient();
                 ingredient.definition = RandomUtils.RandomChooseWeighted(ingredientDefinitions, ingredientDefinitionWeights);
-                ingredient.quality = ItemQuality.Standard; //TODO: randomize ingredient quality
+                ingredient.quality = randomQuality();
                 res.Add(ingredient);
             }
 
@@ -130,27 +135,38 @@ namespace Vagabondo.DataModel
 
             while (true)
             {
+                var availableIngredientsCopy = new List<FoodIngredient>(availableIngredients);
                 var template = RandomUtils.RandomChoose(foodItemTemplates);
 
                 var foodItem = new FoodItem();
 
                 foodItem.category = template.category;
                 foodItem.preparation = template.preparation;
-                foodItem.preparationQuality = ItemQuality.Standard; //TODO: randomize preparationQuality
+                foodItem.preparationQuality = randomQuality();
 
-                foreach (var ingredientCategory in template.ingredients)
+                foreach (var ingredientName in template.ingredientNames)
                 {
-                    //TODO: remove ingredient from availableIngredients
-                    var ingredient = chooseIngredient(availableIngredients, ingredientCategory);
+                    var ingredient = chooseIngredient(availableIngredientsCopy, ingredientName);
                     if (ingredient == null)
                         goto outerLoopIterate;
+
                     foodItem.ingredients.Add(ingredient);
+                    availableIngredientsCopy.Remove(ingredient);
+                }
+
+                foreach (var ingredientCategory in template.ingredientCategories)
+                {
+                    var ingredient = chooseIngredient(availableIngredientsCopy, ingredientCategory);
+                    if (ingredient == null)
+                        goto outerLoopIterate;
+
+                    foodItem.ingredients.Add(ingredient);
+                    availableIngredientsCopy.Remove(ingredient);
                 }
 
                 foodItem.baseValue = computeFoodValue(foodItem);
                 foodItem.name = computeFoodName(foodItem, template);
 
-                //FUTURE: final foodItem compatibility check
                 return foodItem;
 
             outerLoopIterate:
@@ -163,6 +179,11 @@ namespace Vagabondo.DataModel
         public static FoodItem GenerateFoodItem(Biome biome, int nIngredients = 10)
         {
             var availableIngredients = GenerateFoodIngredients(biome, nIngredients);
+
+            Debug.Log("Generated ingredients:");
+            foreach (var ingredient in availableIngredients)
+                Debug.Log($"\t {ingredient.definition.name} [{DataUtils.EnumToStr(ingredient.definition.category)}]");
+
             return GenerateFoodItem(availableIngredients);
         }
 
@@ -175,12 +196,33 @@ namespace Vagabondo.DataModel
             return RandomUtils.RandomChoose(compatibleIngredients);
         }
 
+        private static FoodIngredient chooseIngredient(List<FoodIngredient> availableIngredients, string ingredientName)
+        {
+            var compatibleIngredients = availableIngredients.Where(ingredient => (ingredient.definition.name == ingredientName)).ToList();
+            if (compatibleIngredients.Count == 0)
+                return null;
+
+            return RandomUtils.RandomChoose(compatibleIngredients);
+        }
+
         private static int computeFoodValue(FoodItem foodItem)
         {
             return 10; //TODO: computeFoodValue
         }
 
         private static string computeFoodName(FoodItem foodItem, FoodItemTemplate template)
+        {
+            var ingredientNouns = new List<IGrammarNoun>();
+            for (var iIngredient = 0; iIngredient < foodItem.ingredients.Count; iIngredient++)
+            {
+                var ingredient = foodItem.ingredients[iIngredient];
+                ingredientNouns.Add(ingredient.definition);
+            }
+
+            return RefExpansion.ExpandText(template.name, "ingredient", ingredientNouns);
+        }
+
+        private static string computeFoodNameOld(FoodItem foodItem, FoodItemTemplate template)
         {
             var res = "";
             for (var iIngredient = 0; iIngredient < foodItem.ingredients.Count; iIngredient++)
@@ -200,6 +242,14 @@ namespace Vagabondo.DataModel
             res += $" {template.name}";
 
             return res;
+        }
+
+        private static ItemQuality randomQuality()
+        {
+            var values = new List<ItemQuality>() { ItemQuality.Poor, ItemQuality.Standard, ItemQuality.High, ItemQuality.Exceptional };
+            var weights = new List<int>() { 10, 60, 10, 1 };
+
+            return RandomUtils.RandomChooseWeighted(values, weights);
         }
     }
 }

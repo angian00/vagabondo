@@ -15,7 +15,7 @@ namespace Vagabondo.Experiment
 
         public void OnRun()
         {
-            var foodItem = FoodGenerator.GenerateFoodItem(Biome.Forest);
+            var foodItem = FoodGenerator.GenerateFoodItem(Biome.Forest, 20);
 
             var textBuilder = new StringBuilder();
             if (foodItem == null)
@@ -26,7 +26,7 @@ namespace Vagabondo.Experiment
                 textBuilder.Append($"category: {foodItem.category} \n");
                 textBuilder.Append($"preparation: {DataUtils.EnumToStr(foodItem.preparation)} \n");
                 textBuilder.Append($"baseValue: {foodItem.baseValue} \n");
-                textBuilder.Append($"ingredients: \n");
+                textBuilder.Append($"ingredientCategories: \n");
 
                 foreach (var ingredient in foodItem.ingredients)
                     textBuilder.Append($"\t {ingredient.definition.name} \n");

@@ -68,10 +68,10 @@ namespace Vagabondo.Behaviours
         public void updateView(Town townData)
         {
             townNameLabel.text = townData.name;
-            //townDescriptionLabel.text = townData.description;
-            townDescriptionLabel.text = DataUtils.EnumToStr(townData.size) + " - "
-                + townData.dominion.name + "\n"
-                + DataUtils.EnumToStr(townData.biome);
+            townDescriptionLabel.text = townData.description;
+            //townDescriptionLabel.text = DataUtils.EnumToStr(townData.size) + " - "
+            //    + townData.dominion.name + "\n"
+            //    + DataUtils.EnumToStr(townData.biome);
 
             actionObjs.Clear();
             UnityUtils.RemoveAllChildren(townActionPanel);
@@ -82,8 +82,6 @@ namespace Vagabondo.Behaviours
 
                 actionObjs.Add(newActionButton.GetComponent<ActionButtonBehaviour>());
             }
-
-            //updateInteractableActions(TravelManager.Instance.Traveler); //FIXME
         }
 
         public void updateInteractableActions(Traveler travelerData)

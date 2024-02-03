@@ -1,10 +1,87 @@
 # TODO
 
 - brainstorming:
-	- merchandise vs. trinkets
-	- altre azioni
+	- town description grammar
+		- parametrizzare
+		- differenziare tipi di frase
+		- tenere traccia delle frasi gia' usate, con timestamp
+	
+	- evidenziare cambio di dominio
+
 	- dominion archetypes
+		- Teocrazia
+		- Popolo Nomade
+		- Regno Militare
+		- Democrazia Diretta
+		- Feudalesimo
+		- Utopia Comunista
+		- Isola Isolazionista
+		- Plutocrazia
+		- Anarchia
+		- Monarchia Assoluta
+
+	- or... multiple dominion variables
+		- religious tolerance vs fanatici
+		? nomadi vs stanziali
+		- militarism vs pacifism
+		- form of government: assoluto vs democratico
+		- farming vs industry
+		- isolazionista vs aperto
+
 	- buildings
+		- church (cathedral), monastery
+		- mine
+		- town hall / castle / manor
+		- blacksmith
+		- mill
+		- workshops, shops
+		- walls, gates, towers
+		- barber
+		- bathhouse
+		- charitable foundation
+		- guild
+		- stables
+
+	- altre azioni
+		-> cercare azioni tipiche libro-game
+		-> reazione: meccanismo scelta alternative
+		- shop
+		- Listen for Rumors
+		- Asking Around
+		- Sightsee
+		- Find Person or Work
+		- Rest
+		- Gambling
+
+	- town events
+		- lost animal
+		- festival
+		- performance
+		- fortune-teller
+		- offer drink
+		- animal seller
+		- telling story around a fire
+		- bambini che giocano
+		- playing darts in the tavern
+		- traveling priest/preacher
+		- injured man
+		- gossip of adultery
+		- exotic merchant/caravan
+		- beggar
+		- cult
+		- flower seller
+		- crazy man
+
+	- merchandise
+		- spices
+		- wine
+		- food
+		- furs
+		- fine cloth
+		- glass
+
+
+
 
 - town:
 	- dominion archetype (religion, nomadness, ...)
@@ -18,8 +95,18 @@
 		- buildings?
 
 - food generator:
-	- leggere su teoria medievale degli umori
-	- some grammar in food item name generation
+	- elenchi
+		- eggs
+		- cheese
+		- wild berries and mushrooms
+		- mandorle, noci, ...
+		- medicinal herbs
+		- fiori
+
+	- non ripetere ingredienti (ingredientDef) gia' scelti
+	- computeFoodValue
+	- armonizzare espansione nomi con rich grammar
+
 
 + brainstorming:
 	- religioni/soprannaturale
@@ -33,8 +120,6 @@
 
 + grammar:
 	+ [optional] syntax
-	+ tooling:
-		- import da spreadsheet
 
 
 ## FIXME
@@ -42,4 +127,7 @@
 
 
 ## Errands
-- leggere nomi e categorie artefatti da dwarf fortress etc.
+- provare trial copilot
+https://github.com/github-copilot/signup
+
+
