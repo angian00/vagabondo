@@ -5,16 +5,17 @@ using Vagabondo.Utils;
 
 namespace Vagabondo.Grammar
 {
-    public partial class RichGrammar : SubstitutionGrammar
+    public partial class RichGrammar
     {
         private static string refPattern = @"\#(.*?)\#";
 
-        public string GenerateText(string startRule = null, HashSet<string> inputTags = null)
+        public string GenerateText(string startRule = null, HashSet<string> inputTags = null, Dictionary<string, string> variables = null)
         {
             if (startRule == null)
                 startRule = this.startRule;
 
-            var variables = new Dictionary<string, string>();
+            if (variables == null)
+                variables = new Dictionary<string, string>();
 
             if (inputTags == null)
                 inputTags = new HashSet<string>();

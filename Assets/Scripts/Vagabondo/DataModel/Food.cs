@@ -71,7 +71,6 @@ namespace Vagabondo.DataModel
         Breakfast,
         Bread,
         Soup,
-        Salad,
         MainCourse,
         Dessert,
         Preserve,

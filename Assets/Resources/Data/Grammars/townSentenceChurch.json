@@ -1,0 +1,99 @@
+{
+  "rules": {
+    "townSentenceChurch": [
+      "#adjectiveSmall.a# #nounChurch# with #adjectiveColor.a# #nounChurchDetail# #expressionChurchAction# #locationEdgeExpression#",
+      "#adjectiveSmall.a# #nounChurch# with #adjectiveColor.a# #nounChurchDetail# #expressionChurchAction# as the #expressionTownCenter#",
+      "#adjectiveSmall.a# #nounChurch# #expressionChurchAction#, #expressionChurchActivity# on #expressionChurchDays#"
+    ],
+
+    "adjectiveSmall": [
+      "small",
+      "modest",
+      "quaint",
+      "cozy",
+      "compact",
+      "charming",
+      "tiny",
+      "homely",
+      "petite",
+      "intimate"
+    ],
+
+    "nounChurch": [
+      "church",
+      "chapel",
+      "place of worship",
+      "sanctuary",
+      "house of prayer"
+    ],
+
+    "adjectiveColor": [
+      "white",
+      "cream",
+      "ivory",
+      "snowy",
+      "pearly",
+      "chalky",
+      "milky",
+      "bleached",
+      "pure",
+      "alabaster",
+      "ochre",
+      "red",
+    ],
+
+    "nounChurchDetail": [
+      "steeple",
+      "bell tower",
+      "spire",
+      "tall structure",
+      "pointed roof"
+    ],
+
+    "expressionChurchAction": [
+      "#verbStand.s#",
+      "#verbStand.s# #adverbProudly#"
+    ],
+
+    "verbStand": [
+      "stand",
+      "rise",
+      "soar",
+      "sprout"
+    ],
+
+    "adverbProudly": [
+      "proudly",
+      "proud",
+      "tall",
+      "gracefully",
+      "elegantly"
+    ],
+
+    "expressionTownCenter": "#nounCenter# of #expressionTown#",
+
+    "nounCenter": [
+      "heart",
+      "soul",
+      "core",
+      "centerpiece",
+      "focal point"
+    ],
+
+    "expressionChurchActivity": [
+      "ringing its bells",
+      "calling the faithful",
+      "summoning worshippers",
+      "heralding the day of rest",
+      "echoing hymns"
+    ],
+
+    "expressionChurchDays": [
+      "Sundays",
+      "the Sabbath",
+      "the Lord's day",
+      "the day of worship",
+      "weekends"
+    ]
+  }
+}

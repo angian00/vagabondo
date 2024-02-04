@@ -2,10 +2,19 @@
 
 - brainstorming:
 	- town description grammar
-		- parametrizzare
-		- differenziare tipi di frase
-		- tenere traccia delle frasi gia' usate, con timestamp
-	
+		- parametrizzare per bioma, stagione, stato economico e militare
+
+		- generalizzare sentences:
+			- children -> people
+			- church -> public building
+			- crops in the wind -> aggiungere location rural; altri landscape e condizioni atmosferiche
+
+		- altre sentences:
+			- citta' grandi
+			- clima cupo
+
+		- implementazione grammar: tenere traccia delle frasi gia' usate, con timestamp
+
 	- evidenziare cambio di dominio
 
 	- dominion archetypes
@@ -96,7 +105,9 @@
 	- elenchi
 		+ fiori
 		+ medicinal herbs
-		
+		- almonds
+		- correggere mulled wine
+
 
 	- armonizzare espansione nomi con rich grammar
 

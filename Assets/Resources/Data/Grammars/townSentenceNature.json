@@ -1,0 +1,132 @@
+{
+  "rules": {
+    "townSentenceNature": "#locationEdgeExpression#, #naturalDescription#",
+
+    "locationEdgeExpression": {
+      "clauses": {
+        "#nounLocationEdge# of #expressionTown#": 10,
+        "#locationRural#": 2
+      }
+    },
+
+    "expressionTown": [
+      "the #townType#",
+      "the settlement",
+      "the community",
+      "the township",
+      "the neighborhood",
+      "town"
+    ],
+
+    "townExpressionBig": [
+      "the urban sprawl"
+    ],
+
+
+    "nounLocationEdge": [
+      "at the edge",
+      "on the outskirts",
+      "near the boundary",
+      "at the periphery",
+      "on the fringe",
+      "nestled on the outskirts",
+      "by the outskirts",
+      "along the border",
+      "near the verge"
+    ],
+
+    "locationRural": [
+      "amidst the wilderness at the town's edge",
+      "just beyond the town limits",
+      "bordering the rural countryside",
+      "adjacent to the farmland"
+    ],
+
+    "naturalDescription": [
+      "#treeExpression# provides #treeBenefit# for #natureActivity#",
+      "#treeExpression# provides a spot for #natureAdjective# #natureNounPurpose#",
+      "#treeExpression# provides #treeBenefit# for #natureActivity# and a spot for #natureAdjective# #natureNounPurpose#"
+    ],
+
+    "treeExpression": [
+      "#nounTree.a# tree",
+      "#treeAdjectiveBig.a# #nounTree#"
+    ],
+
+    "treeAdjectiveBig": [
+      "towering",
+      "tall",
+      "imposing",
+      "monumental",
+      "august"
+    ],
+
+    "treeBenefit": [
+      "shade",
+      "shelter",
+      "protection",
+      "cover",
+      "refuge",
+      "sanctuary",
+      "shield",
+      "haven",
+      "asylum",
+      "retreat",
+      "comfort"
+    ],
+
+    "natureActivity": [
+      "families",
+      "friends",
+      "gatherings",
+      "revelers",
+      "travelers",
+      "visitors",
+      "outings",
+      "merrymakers",
+      "nature enthusiasts",
+      "adventurers"
+    ],
+
+    "natureAdjective": [
+      "affectionate",
+      "amorous",
+      "cherished",
+      "cozy",
+      "dreamy",
+      "heartfelt",
+      "intimate",
+      "passionate",
+      "peaceful",
+      "private",
+      "quiet",
+      "relaxing",
+      "romantic",
+      "serene",
+      "shared",
+      "stolen",
+      "tender",
+      "unforgettable",
+      "whispered"
+    ],
+
+    "natureNounPurpose": [
+      "confessions",
+      "contemplation",
+      "conversations",
+      "cuddling",
+      "embraces",
+      "encounters",
+      "gestures",
+      "interlude",
+      "kisses",
+      "laughter",
+      "memories",
+      "moments",
+      "reflection",
+      "rendezvous",
+      "reprieve",
+      "solitude"
+    ]
+  }
+}

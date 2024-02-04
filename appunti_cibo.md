@@ -63,8 +63,7 @@
   - latte di cavallo, di cammello 
   - latticello, siero di latte, latte inacidito o annacquato
   - latte di mandorla
-  - burro
-  - formaggio: 
+  - formaggio
     - formaggio duro
     - formaggio grasso
     - tomini
@@ -91,7 +90,7 @@
   - maialino da latte 
   - pollo
   - riccio e di istrice
-  - cigni, pavoni, quaglie, pernici, cicogne, gru, allodole
+  - cigni, pavoni, pernici, cicogne, gru, allodole
   - oche ed anatre
   - quaglie 
   - bue
@@ -210,5 +209,3 @@
   - acquavite
   - acqua di rose
 
-- bevande analcoliche
-  ? kumis, 

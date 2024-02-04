@@ -53,6 +53,8 @@ namespace Vagabondo.Grammar
                 return applyA(originalText);
             if (modifier == "s")
                 return applyPlural(originalText);
+            if (modifier == "ing")
+                return applyGerund(originalText);
             if (modifier == "ed")
                 return applyPastTense(originalText);
 
@@ -105,8 +107,30 @@ namespace Vagabondo.Grammar
             if (originalText.EndsWith("ss") || originalText.EndsWith("x") ||
                 originalText.EndsWith("ch") || originalText.EndsWith("sh"))
                 return originalText + "es";
-
             return originalText + "s";
+        }
+
+        private static string applyGerund(string originalText)
+        {
+            if (originalText.EndsWith("ie"))
+                return originalText.Substring(0, originalText.Length - 2) + "ying";
+
+            if (originalText.EndsWith("w") || originalText.EndsWith("x") || originalText.EndsWith("y"))
+                return originalText + "ing";
+
+            if ((!isVowel(originalText[originalText.Length - 3])) &&
+                (isVowel(originalText[originalText.Length - 2])) && (!isVowel(originalText[originalText.Length - 1])))
+                return originalText + originalText[originalText.Length - 1] + "ing";
+
+            if (isVowel(originalText[originalText.Length - 2], false) && isVowel(originalText[originalText.Length - 1]))
+                //ignoring accent-related subrule
+                return originalText + originalText[originalText.Length - 1] + "ing";
+
+            if (originalText.EndsWith("e") && !isVowel(originalText[originalText.Length - 2]))
+                return originalText.Substring(0, originalText.Length - 1) + "ing";
+
+            return originalText + "ing";
+
         }
 
         private static string applyPastTense(string originalText)

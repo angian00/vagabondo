@@ -1,0 +1,89 @@
+{
+  "rules": {
+    "townSentenceChildren": [
+      "#childrenTownActivity.capitalize#, where #nostalgicStructureOrnamented#."
+    ],
+    
+    "childrenTownActivity": "#childrenSubject# #childrenVerb# in the #childrenLocation#",
+    "nostalgicStructureOrnamented": "#nostalgicStructureAdjective.a# #townStructureSmall# stands #adverbBuildingSmall# as #nostalgicBuildingOrnament.a#",
+
+    "childrenSubject": {
+      "clauses": {
+        "#nounChild.s#": 1,
+        "#adverbQuantitySome# #nounChild.s#": 10,
+        "#adverbQuantitySome# #nounMultipleChild#": 2,
+      }
+    },
+
+    "childrenVerb": [
+      "laugh and play",
+      "laugh",
+      "play",
+      "run and chase each other",
+      "play and skip around", 
+      "play games",
+      "make memories",
+      "enjoy themselves",
+      "are engrossed in play",
+      "gather for games and activities",
+      "discover the wonders of the world around them",
+      "share laughter and joy",
+      "embark on exciting adventures",
+    ],
+
+    "childrenLocation": [
+      "#townSquare#",
+      "#townPark#",
+      "#childrenPark#",
+    ],
+
+    "childrenPark": [
+      "community playground",
+      "schoolyard",
+    ],
+
+    "nostalgicStructureAdjective": [
+      "#adjectiveOld#",
+      "#adjectiveLoved#",
+      "#adjectiveBuilding#",
+    ],
+
+    "nostalgicBuildingOrnament": [
+      "#ornamentPast#",
+      "#ornamentPastTown#",
+    ],
+
+    "ornamentPast": [
+      "relic from a bygone era",
+      "symbol of days long past",
+      "testament to past generations",
+      "cherished memento of yesteryears",
+      "echo of generations past",
+      "echoing the past",
+      "evoking memory of the past",
+      "heritage landmark",
+      "memory of simpler times",
+      "monument to times gone by",
+      "nostalgic reminder of days gone by",
+      "relic of times past",
+      "remembrance of the past",
+      "reminder of the community's heritage",
+      "reminder of the past",
+      "sentimental link to the past",
+      "symbol of days gone by",
+      "testament to bygone eras",
+      "tribute to days gone by",
+    ],
+
+    "ornamentPastTown": [
+      "echo of the town's collective memories",
+      "emblem of the town's resilience",
+      "homage to the town's founders",
+      "reflection of the town's journey through time",
+      "sign of the town's lasting legacy",
+      "timeless symbol of the town's identity",
+      "token of the town's enduring spirit",
+      "tribute to the town's history",
+    ],
+  }
+}

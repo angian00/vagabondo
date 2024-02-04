@@ -1,0 +1,84 @@
+{
+  "rules": {
+
+    "townSquare": [
+      "town square",
+      "central plaza",
+      "main square",
+      "public square",
+      "community square"
+    ],
+    "townPark": [
+      "neighborhood park",
+      "village green",
+    ],
+
+    "townStructureSmall": [
+      "cross",
+      "chapel",
+      "small shrine",
+      "well",
+      "fountain",
+      "herb garden",
+      "gazebo",
+    ],
+
+    "townStructureMedium": [
+      "statue",
+      "monument",
+
+      //TODO: improve townStructureMedium
+    ],
+
+    "townBuildingMedium": [
+      "watchtower",
+      "guild hall",
+      "almshouse",
+      "guardhouse",
+      "schoolhouse",
+      "town crier",
+      "town hall",
+    ],
+
+    "townStructureCriminal": [
+      "stocks",
+      "pillory",
+      "gallows",
+      "hanging scaffold",
+    ],
+
+    "tavern": {
+      "clauses": {
+        "tavern": 20,
+        "inn": 15,
+        "lodge": 3,
+        "watering hole": 2,
+      }
+    },
+
+    "marketStall": {
+      "clauses": {
+          "market stall": 10,
+          "#specificFoodShop# stall": 3,
+      }
+    },
+
+    "specificFoodShop": [
+      "butcher",
+      "baker",
+      //TODO" food shops
+    ],
+
+    "workshop": {
+      "clauses": {
+          "workshop": 10,
+          "#specificWorkshop#": 3,
+      }
+    },
+
+    "specificWorkshop": [
+      "smithy",
+      //TODO" workshops
+    ],
+  }
+}

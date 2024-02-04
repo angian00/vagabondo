@@ -21,12 +21,25 @@ namespace Vagabondo.Experiment
 
         private void Start()
         {
-            populateGrammarDropdown();
+            //populateGrammarDropdown();
+            var townDescriptionGrammarFiles = new List<string>() {
+                "townRoot",
+                "townSentenceChildren",
+                "townSentenceNature",
+                "townSentenceChurch",
+                "townSentenceFields",
+                "townStructures",
+                "townNouns",
+                "townAdjectives",
+            };
+            grammar = new RichGrammar(townDescriptionGrammarFiles);
         }
 
         public void OnRun()
         {
-            var generatedText = grammar.GenerateText(rootRuleName);
+            var variables = new Dictionary<string, string>();
+            variables.Add("townType", "village");
+            var generatedText = grammar.GenerateText(rootRuleName, variables: variables);
 
             outputField.text = generatedText;
             Debug.Log("-- generatedText:");
@@ -62,9 +75,8 @@ namespace Vagabondo.Experiment
 
         private void onGrammarChanged()
         {
-            var filename = grammarDropdown.options[grammarDropdown.value].text;
-            grammar = new RichGrammar(filename);
-
+            //var filename = grammarDropdown.options[grammarDropdown.value].text;
+            //grammar = new RichGrammar(filename);
         }
     }
 }

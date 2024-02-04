@@ -24,6 +24,18 @@ namespace Vagabondo.Grammar
         }
 
         [Test]
+        public void TestGerund()
+        {
+            testGrammar("Test/testModifiers", "gerundING", "helping");
+            testGrammar("Test/testModifiers", "gerundE_ING", "dancing");
+            testGrammar("Test/testModifiers", "gerundDouble", "stopping");
+            testGrammar("Test/testModifiers", "gerundYING", "lying");
+            testGrammar("Test/testModifiers", "gerundW", "snowing");
+            testGrammar("Test/testModifiers", "gerundX", "fixing");
+            testGrammar("Test/testModifiers", "gerundY", "trying");
+        }
+
+        [Test]
         public void TestPastTense()
         {
             testGrammar("Test/testModifiers", "simplePastED", "helped");

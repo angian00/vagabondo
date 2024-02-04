@@ -20,7 +20,7 @@ namespace Vagabondo.Grammar
     }
 
 
-    public partial class RichGrammar : SubstitutionGrammar
+    public partial class RichGrammar
     {
         private const string defaultStartRule = "origin";
         private string startRule = defaultStartRule;
@@ -28,8 +28,21 @@ namespace Vagabondo.Grammar
 
         private RichGrammar() { }
 
+
+        public RichGrammar(List<string> filenames)
+        {
+            foreach (var filename in filenames)
+                parseFile(filename);
+        }
+
         public RichGrammar(string filename)
         {
+            parseFile(filename);
+        }
+
+        private void parseFile(string filename)
+        {
+            Debug.Log($"Parsing grammar file {filename}");
             var fileObj = Resources.Load<TextAsset>($"Data/Grammars/{filename}");
 
             var preprocessedText = CommentRemover.RemoveComments(fileObj.text);
@@ -66,7 +79,7 @@ namespace Vagabondo.Grammar
 
                     if (rulePropertyKey == "clauses")
                     {
-                        if (rulePropertyValue.GetType() == typeof(string))
+                        if (rulePropertyValue.GetType() == typeof(JValue))
                             rule.clauses = new Dictionary<string, int>() { { (string)rulePropertyValue, 1 } };
                         else if (rulePropertyValue.GetType() == typeof(JArray))
                             rule.clauses = parseValuesArrayAsDictionary((JArray)rulePropertyValue);
@@ -81,7 +94,7 @@ namespace Vagabondo.Grammar
                     }
                     else if (rulePropertyKey == "tags")
                     {
-                        if (rulePropertyValue.GetType() == typeof(string))
+                        if (rulePropertyValue.GetType() == typeof(JValue))
                             rule.tags = new HashSet<string>() { (string)rulePropertyValue };
                         else if (rulePropertyValue.GetType() == typeof(JArray))
                             rule.tags = new HashSet<string>(parseValuesArrayAsHashSet((JArray)rulePropertyValue));

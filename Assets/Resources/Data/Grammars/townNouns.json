@@ -1,0 +1,36 @@
+{
+  "rules": {
+    "nounChild": [
+      "child",
+      "kid",
+      "youngster",
+    ],
+    "nounMultipleChild": [
+      "boys and girls",
+    ],
+
+
+     "nounTree": [
+      "oak",
+      "willow",
+      "maple",
+      "chestnut",
+      "pine",
+      "birch",
+      "poplar",
+      "elm",
+      "ash",
+      "sycamore",
+      "cedar",
+      "beech",
+      "fir",
+      "juniper",
+      "cypress",
+      "hemlock",
+      "spruce",
+      "redwood",
+      "magnolia",
+      "locust"
+    ],
+  }
+}

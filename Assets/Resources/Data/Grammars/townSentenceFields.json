@@ -1,0 +1,139 @@
+{
+  "rules": {
+    "townSentenceFields": [
+      "#expressionCropAction# in the #expressionWind#, #verbColor.ing# the landscape with #expressionCropShades#",
+      "#expressionDistance#, #expressionCropAction# in the #expressionWind#"
+    ],
+
+    "expressionDistance": [
+      "in the #adjectiveDistant# #nounDistance#",
+      "#adjectiveDistant# in the #nounDistance#"
+    ],
+
+    "adjectiveDistant": [
+      "far",
+      "distant",
+      "remote",
+      "far-off",
+      "vast"
+    ],
+
+    "nounDistance": [
+      "distance",
+      "horizon",
+      "vista",
+      "expanse"
+    ],
+
+    "expressionCropAction": [
+      "fields of #nounCrop# #verbCrop#",
+      "#nounCrop# #verbCrop.s#",
+      "#adjectiveCropColor# #nounCrop# #verbCrop.s#"
+    ],
+
+    "adjectiveCrop": [
+      "golden",
+      "yellow",
+      "amber",
+      "green",
+      "ripe",
+      "growing",
+      "tall"
+    ],
+
+    "nounCrop": [
+      "wheat",
+      "barley",
+      "buckwheat",
+      "oat",
+      "rye",
+      "spelt",
+      "millet",
+      "sorghum"
+    ],
+
+    "verbCrop": [
+      "sway",
+      "bend",
+      "lean",
+      "swing",
+      "waver",
+      "wobble",
+    ],
+
+    "expressionWind": [
+      "#nounWindSoft#",
+      "#nounWindStrong#",
+      "#adjectiveWindSoft# #nounWindSoft#",
+      "#adjectiveWindStrong# #nounWindStrong#"
+    ],
+
+    "adjectiveWindSoft": [
+      "gentle",
+      "mild",
+      "soft",
+      "whispering",
+      "calm",
+      "subtle",
+      "murmuring"
+    ],
+    "nounWindSoft": [
+      "breeze",
+      "whiffs of air",
+      "drafts of air",
+      "wind"
+    ],
+    "adjectiveWindStrong": [
+      "strong",
+      "mighty",
+      "powerful",
+      "robust",
+      "vigorous"
+    ],
+    "nounWindStrong": [
+      "wind",
+      "gale",
+      "blasts of air"
+    ],
+
+    "verbColor": [
+      "paint",
+      "tint",
+      "stain",
+      "tinge",
+      "decorate"
+      //"add color to",
+      //"infuse with color",
+    ],
+
+    "expressionCropShades": [
+      "#nounShade.s# of #nounCropColor#",
+      "#adjectiveCropColor# #nounShade.s#"
+    ],
+
+    "nounShade": [
+      "shade",
+      "hue",
+      "tone"
+    ],
+
+    "nounCropColor": [
+      "amber",
+      "gold",
+      "ochre",
+      "green",
+      "brown"
+    ],
+
+    "adjectiveCropColor": [
+      "amber",
+      "golden",
+      "warm",
+      "ochre",
+      "rich",
+      "tawny",
+      "brown",
+      "green"
+    ]
+  }
+}

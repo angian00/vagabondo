@@ -1,0 +1,77 @@
+{
+  "rules": {
+    "adjectiveOld": [
+      "weathered",
+      "ancient",
+      "worn",
+      "vintage",
+      "historic",
+      "old",
+      "weather-beaten",
+      "faded",
+      "nostalgic",
+      "crumbling",
+      "dilapidated",
+      "well-worn",
+      "rusted",
+      "decrepit",
+      "aged",
+      "weather-worn",
+      "time-worn",
+      "worn-out",
+      "time-honored",
+      "aged but sturdy",
+      "antique",
+    ],
+
+    "adjectiveLoved": [
+      "beloved",
+      "cherished",
+      "well-loved",
+      "sentimental",
+    ],
+
+    "adjectiveBuilding": [
+      "rustic",
+      "enduring",
+      "quaint",
+    ],
+
+    "adverbQuantitySome": [
+      "some",
+      "a few",
+      //"several",
+    ],
+
+    "adverbBuildingSmall": [
+      "attractively",
+      "beautifully",
+      "elegantly",
+      "gallantly",
+      "gracefully",
+      "serenely",
+      "silently",
+      "stoically",
+    ],
+
+    "adverbBuildingBig": [
+      "boldly",
+      "confidently",
+      "firmly",
+      "grandly",
+      "heroically",
+      "imposingly",
+      "impressively",
+      "magnificently",
+      "majestically",
+      "nobly",
+      "prominently",
+      "proudly",
+      "regally",
+      "resolutely",
+      "robustly",
+      "securely",
+      "solidly",
+      "tall",
+    ],  }
+}

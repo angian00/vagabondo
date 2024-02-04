@@ -25,6 +25,15 @@
         "nounEx": "ex",
         "nounBeach": "beach",
 
+        //---- .ing modifier (gerund) ----
+        "gerundING": "#verbHelp.ing#",
+        "gerundE_ING": "#verbDance.ing#",
+        "gerundDouble": "#verbStop.ing#",
+        "gerundYING": "#verbLie.ing#",
+        "gerundW": "#verbSnow.ing#",
+        "gerundX": "#verbFix.ing#",
+        "gerundY": "#verbTry.ing#",
+
         //---- .ed modifier (simple past tense) ----
         "simplePastED": "#verbHelp.ed#",
         "simplePastIrregular": "#verbEat.ed#",
@@ -32,9 +41,13 @@
         "simplePastIED": "#verbTry.ed#",
 
         "verbHelp": "help",
-        "verbEat": "eat",
         "verbDance": "dance",
+        "verbStop": "stop",
+        "verbLie": "lie",
+        "verbSnow": "snow",
+        "verbFix": "fix",
         "verbTry": "try",
+        "verbEat": "eat",
 
         //---- .capitalize modifier ----
         "capitalizeSingle": "#wordRose.capitalize#",
