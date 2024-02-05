@@ -1,0 +1,35 @@
+{
+	"Hamlet": {
+		"nMaxBuildings": 1,
+		"buildings": [
+			{ "buildingType": "church", "probability": 0.7 },
+			{ "buildingType": "ShopGeneric", "probability": 0.3 },
+		]
+	},
+
+	"Village": {
+		"nMaxBuildings": 2,
+		"buildings": [
+			{ "buildingType": "church", "probability": 0.8 },
+			{ "buildingType": "tavern", "probability": 0.8 },
+			{ "buildingType": "ShopGeneric", "probability": 0.8 },
+			{ "buildingType": "ShopGeneric", "probability": 0.8 },
+
+		]
+	},
+
+	"Town": {
+		"nMaxBuildings": 3,
+		"buildings": [
+			{ "buildingType": "mine", "probability": 1.0, "traitNeeded": "Industrial" },
+			{ "buildingType": "farm", "probability": 1.0, "traitExcluded": "Industrial" },
+		]
+	},
+
+	"City": {
+		"nMaxBuildings": 5,
+		"buildings": [
+			{ "buildingType": "library", "probability": 1.0 },
+		]
+	},
+}

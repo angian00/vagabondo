@@ -9,6 +9,7 @@ namespace Vagabondo.Generators
     public class TownGenerator
     {
         private static Dictionary<Biome, Dictionary<Biome, int>> biomeTransitions;
+        private static Dictionary<TownSize, TownTemplate> townTemplates;
 
         private DominionGenerator dominionGenerator;
         private HashSet<Dominion> dominions; //TODO: count explored towns by dominion
@@ -20,7 +21,10 @@ namespace Vagabondo.Generators
             fileObj = Resources.Load<TextAsset>($"Data/Generators/biomeTransitions");
             biomeTransitions = JsonConvert.DeserializeObject<Dictionary<Biome, Dictionary<Biome, int>>>(fileObj.text);
 
+            fileObj = Resources.Load<TextAsset>($"Data/Generators/townTemplates");
+            townTemplates = JsonConvert.DeserializeObject<Dictionary<TownSize, TownTemplate>>(fileObj.text);
         }
+
 
         public TownGenerator()
         {
@@ -52,10 +56,9 @@ namespace Vagabondo.Generators
             town.biome = biome;
             town.dominion = dominion;
 
-            //town.description = "";
-            //for (int i = 0; i < 10; i++)
-            //    town.description += $"TODO: {townName} description  ";
-            town.buildings = randomBuildings(biome, size);
+            assignTownTraits(town, dominion.traits);
+
+            assignRandomBuildings(town);
 
             town.description = TownDescriptionGenerator.GenerateTownDescription(town);
 
@@ -95,40 +98,61 @@ namespace Vagabondo.Generators
                 return dominionGenerator.GenerateDominion();
         }
 
-
-        private static HashSet<TownBuilding> randomBuildings(Biome biome, TownSize size)
+        private void assignTownTraits(Town town, HashSet<DominionTrait> traits)
         {
-            int maxNBuildings = -1;
+            town.traits = new();
 
-            switch (size)
+            foreach (var trait in traits)
             {
-                case TownSize.Hamlet:
-                    maxNBuildings = 1;
-                    break;
-                case TownSize.Village:
-                    maxNBuildings = 2;
-                    break;
-                case TownSize.Town:
-                    maxNBuildings = 3;
-                    break;
-                case TownSize.City:
-                    maxNBuildings = 5;
-                    break;
-            }
+                //if (trait == DominionTrait.Industrial && town.size == TownSize.Hamlet)
+                //    continue;
 
-            var buildingTypes = DataUtils.EnumToList<TownBuilding>();
-            RandomUtils.Shuffle(buildingTypes);
+                //if (trait == DominionTrait.HighCrime && town.size <= TownSize.Town && traits.Contains(DominionTrait.Rural))
+                //    continue;
+
+                town.traits.Add(trait);
+            }
+        }
+
+        private static void assignRandomBuildings(Town town)
+        {
+            var shopTypes = new List<TownBuilding>() {
+                TownBuilding.Clothier,
+                TownBuilding.Baker,
+                TownBuilding.Butcher,
+                TownBuilding.Smith,
+                TownBuilding.Carpenter,
+                TownBuilding.Shoemaker,
+            };
+
+            var townTemplate = townTemplates[town.size];
+
+            var buildingInfos = townTemplate.buildings;
+            RandomUtils.Shuffle(buildingInfos);
 
             var buildings = new HashSet<TownBuilding>();
-            foreach (var buildingType in buildingTypes)
+            foreach (var buildingInfo in buildingInfos)
             {
-                if (buildings.Count >= maxNBuildings)
+                if (buildings.Count >= townTemplate.nMaxBuildings)
                     break;
+
+                if (buildingInfo.traitNeeded != DominionTrait.Default && !town.traits.Contains(buildingInfo.traitNeeded))
+                    continue;
+
+                if (buildingInfo.traitExcluded != DominionTrait.Default && town.traits.Contains(buildingInfo.traitExcluded))
+                    continue;
+
+                if (Random.value > buildingInfo.probability)
+                    continue;
+
+                var buildingType = buildingInfo.buildingType;
+                if (buildingType == TownBuilding.ShopGeneric)
+                    buildingType = RandomUtils.RandomChoose(shopTypes);
 
                 buildings.Add(buildingType);
             }
 
-            return buildings;
+            town.buildings = buildings;
         }
     }
 }

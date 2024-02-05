@@ -11,11 +11,21 @@ namespace Vagabondo.Grammar
             TownDescription,
         }
 
-        private static Dictionary<GrammarId, string> filenames = new()
+        private static Dictionary<GrammarId, List<string>> grammarFiles = new()
         {
-            { GrammarId.SketchyDeal, "sketchyDeal" },
-            { GrammarId.Food, "food" },
-            { GrammarId.TownDescription, "townDescription" },
+            { GrammarId.SketchyDeal, new List<string>() { "sketchyDeal" }  },
+            { GrammarId.Food, new List<string>() {"food" } },
+            { GrammarId.TownDescription, new List<string>() {
+                            "townRoot",
+                "townSentenceChildren",
+                "townSentenceNature",
+                "townSentenceChurch",
+                "townSentenceFields",
+                "townStructures",
+                "townNouns",
+                "townAdjectives",
+                }
+            },
         };
 
 
@@ -25,7 +35,7 @@ namespace Vagabondo.Grammar
         public static RichGrammar GetGrammar(GrammarId grammarId)
         {
             if (!cache.ContainsKey(grammarId))
-                cache.Add(grammarId, new RichGrammar(filenames[grammarId]));
+                cache.Add(grammarId, new RichGrammar(grammarFiles[grammarId]));
 
             return cache[grammarId];
         }

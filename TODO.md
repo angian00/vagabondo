@@ -1,22 +1,28 @@
 # TODO
+- town description grammar
+	- parametrizzare per bioma, stagione, stato economico e militare
 
-- brainstorming:
-	- town description grammar
-		- parametrizzare per bioma, stagione, stato economico e militare
+	- generalizzare sentences:
+		- children -> people
+		- church -> public building
+		- crops in the wind -> aggiungere location rural; altri landscape e condizioni atmosferiche
 
-		- generalizzare sentences:
-			- children -> people
-			- church -> public building
-			- crops in the wind -> aggiungere location rural; altri landscape e condizioni atmosferiche
+	- altre sentences:
+		- citta' grandi
+		- clima cupo
 
-		- altre sentences:
-			- citta' grandi
-			- clima cupo
+	- implementazione grammar: tenere traccia delle frasi gia' usate, con timestamp
 
-		- implementazione grammar: tenere traccia delle frasi gia' usate, con timestamp
+- town
+	- generare hints
+	+ improve dominion permanence (town counter?)
+	+ correlare town size a dominion size
 
+- ui
 	- evidenziare cambio di dominio
 
+
+- brainstorming:
 	- dominion archetypes
 		- Teocrazia
 		- Popolo Nomade
@@ -36,6 +42,7 @@
 		- form of government: assoluto vs democratico
 		- farming vs industry
 		- isolazionista vs aperto
+		- wealth
 
 	- buildings
 		- church (cathedral), monastery
@@ -92,9 +99,6 @@
 
 - town:
 	- dominion archetype (religion, nomadness, ...)
-	- generare hints
-	+ improve dominion permanence (town counter?)
-	+ correlare town size a dominion size
 
 
 - generators:
@@ -107,7 +111,6 @@
 		+ medicinal herbs
 		- almonds
 		- correggere mulled wine
-
 
 	- armonizzare espansione nomi con rich grammar
 

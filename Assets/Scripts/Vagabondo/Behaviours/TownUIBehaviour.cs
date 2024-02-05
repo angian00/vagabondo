@@ -68,10 +68,8 @@ namespace Vagabondo.Behaviours
         public void updateView(Town townData)
         {
             townNameLabel.text = townData.name;
-            townDescriptionLabel.text = townData.description;
-            //townDescriptionLabel.text = DataUtils.EnumToStr(townData.size) + " - "
-            //    + townData.dominion.name + "\n"
-            //    + DataUtils.EnumToStr(townData.biome);
+            //townDescriptionLabel.text = townData.description;
+            townDescriptionLabel.text = townData.Dump();
 
             actionObjs.Clear();
             UnityUtils.RemoveAllChildren(townActionPanel);

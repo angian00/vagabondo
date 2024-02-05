@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Vagabondo.DataModel
 {
     public class DominionType
@@ -7,11 +9,28 @@ namespace Vagabondo.DataModel
         public float permanence; //probability to transition to itself
     }
 
+    public enum DominionTrait
+    {
+        Default,
+
+        Rich,
+        Poor,
+
+        Rural,
+        Industrial,
+
+        HighCrime,
+
+        Fanatic,
+    }
+
+
     public class Dominion
     {
         public string name;
         public DominionType type;
-        //TODO: archetype(religion, nomadness, ...)
+        public HashSet<DominionTrait> traits = new();
+
 
         public Dominion(DominionType type, string name)
         {
