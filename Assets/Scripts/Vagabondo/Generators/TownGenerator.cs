@@ -117,12 +117,12 @@ namespace Vagabondo.Generators
         private static void assignRandomBuildings(Town town)
         {
             var shopTypes = new List<TownBuilding>() {
-                TownBuilding.Clothier,
                 TownBuilding.Baker,
                 TownBuilding.Butcher,
-                TownBuilding.Smith,
-                TownBuilding.Carpenter,
-                TownBuilding.Shoemaker,
+                //TownBuilding.Clothier,
+                //TownBuilding.Smith,
+                //TownBuilding.Carpenter,
+                //TownBuilding.Shoemaker,
             };
 
             var townTemplate = townTemplates[town.size];
@@ -152,6 +152,9 @@ namespace Vagabondo.Generators
                 buildings.Add(buildingType);
             }
 
+            //DEBUG
+            buildings.Add(TownBuilding.Tavern);
+            //
             town.buildings = buildings;
         }
     }

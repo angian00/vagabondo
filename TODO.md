@@ -1,4 +1,20 @@
 # TODO
+- town and event actions
+	- bug: townui, disabilitare on hover su action attive
+	- travelerUI: aggiungere health
+
+	- reorganize merchandise ui flow
+		- compute (shop inventory) TradableItems price
+		- generalizzare categorie di tradableitem
+		+ rendere scrollabile gli inventory
+
+	- implement chosen actions
+	- fill in building generation metadata
+	- reorganize traveler stats
+
+
+- manage defeat
+
 - town description grammar
 	- parametrizzare per bioma, stagione, stato economico e militare
 
@@ -23,87 +39,46 @@
 
 
 - brainstorming:
-	- dominion archetypes
-		- Teocrazia
-		- Popolo Nomade
-		- Regno Militare
-		- Democrazia Diretta
-		- Feudalesimo
-		- Utopia Comunista
-		- Isola Isolazionista
-		- Plutocrazia
-		- Anarchia
-		- Monarchia Assoluta
-
-	- or... multiple dominion variables
-		- religious tolerance vs fanatici
-		? nomadi vs stanziali
-		- militarism vs pacifism
-		- form of government: assoluto vs democratico
-		- farming vs industry
-		- isolazionista vs aperto
-		- wealth
-
-	- buildings
-		- church (cathedral), monastery
-		- mine
-		- town hall / castle / manor
-		- blacksmith
-		- mill
-		- workshops, shops
-		- walls, gates, towers
-		- barber
-		- bathhouse
-		- charitable foundation
-		- guild
-		- stables
+	- healing system
 
 	- altre azioni
 		-> cercare azioni tipiche libro-game
-		-> reazione: meccanismo scelta alternative
-		- shop
-		- Listen for Rumors
+		
 		- Asking Around
 		- Sightsee
 		- Find Person or Work
 		- Rest
 		- Gambling
 
-	- town events
-		- lost animal
-		- festival
-		- performance
-		- fortune-teller
-		- offer drink
-		- animal seller
-		- telling story around a fire
+		- help out
+		        - lost animal
+		        - injured man
+
+		- leisure time
+		        - festival
+		        - performance
+		        - playing darts in the tavern
+
+		- gossip
+		        - telling story around a fire
+		        - gossip of adultery
+		        - offer drink in the tavern
+
 		- bambini che giocano
-		- playing darts in the tavern
-		- traveling priest/preacher
-		- injured man
-		- gossip of adultery
-		- exotic merchant/caravan
-		- beggar
+
+		- outsider npcs
+		        - traveling priest/preacher
+		        - fortune-teller
+		        - exotic merchant/caravan
+		        - beggar
+		        - crazy man
+
+		- exotic vendors
+		        - animal seller
+		        - flower seller
+
 		- cult
-		- flower seller
-		- crazy man
 
-	- merchandise
-		- spices
-		- wine
-		- food
-		- furs
-		- fine cloth
-		- glass
-
-
-- town:
-	- dominion archetype (religion, nomadness, ...)
-
-
-- generators:
-	- leggere pesi da file json:
-		- buildings?
 
 - food generator:
 	- elenchi

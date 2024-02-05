@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using Vagabondo.DataModel;
+using Vagabondo.Generators;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Experiment

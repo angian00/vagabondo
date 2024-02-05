@@ -23,9 +23,9 @@ namespace Vagabondo.Actions
 
         public override GameActionResult Perform(TravelManager travelManager)
         {
-            travelManager.IncrementKnowledge(KnowledgeType.Languages);
+            travelManager.IncrementStat(StatId.KnowledgeLanguages);
 
-            return new TextActionResult($"You become more erudite than you were before");
+            return new GameActionResult($"You become more erudite than you were before");
         }
     }
 

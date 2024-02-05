@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Vagabondo.Actions;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
@@ -8,9 +9,17 @@ namespace Vagabondo.Behaviours
 {
     public class ActionResultUIBehaviour : MonoBehaviour
     {
+        [Header("UI Fields")]
         [SerializeField]
         private TextMeshProUGUI descriptionLabel;
+        [SerializeField]
+        private GameObject actionButton;
 
+        [Header("Other UI views")]
+        [SerializeField]
+        private GameObject shopUI;
+
+        private GameActionResult _actionResult;
 
         private void OnEnable()
         {
@@ -30,17 +39,29 @@ namespace Vagabondo.Behaviours
 
         private void updateView(GameActionResult actionResult)
         {
+            this._actionResult = actionResult;
             UnityUtils.ShowUIView(gameObject);
 
-            if (actionResult is TextActionResult)
+            descriptionLabel.text = actionResult.text;
+            if (actionResult is ShopActionResult)
             {
-                descriptionLabel.text = ((TextActionResult)actionResult).text;
+                actionButton.transform.Find("Action Label").GetComponent<TextMeshProUGUI>().text = "Trade";
+                actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
+                actionButton.GetComponent<Button>().onClick.AddListener(onActionShop);
+                actionButton.SetActive(true);
             }
-            else if (actionResult is ItemAcquiredActionResult)
-            {
-                descriptionLabel.text = ((ItemAcquiredActionResult)actionResult).text;
-                //TODO: schedule item reveal
-            }
+
+            else
+                actionButton.SetActive(false);
+        }
+
+        private void onActionShop()
+        {
+            UnityUtils.HideUIView(gameObject);
+
+            var shopInventory = ((ShopActionResult)_actionResult).shopInventory;
+            shopUI.GetComponent<ShopUIBehaviour>().ShopInventory = shopInventory;
+            UnityUtils.ShowUIView(shopUI);
         }
     }
 }

@@ -1,5 +1,5 @@
+using System;
 using Vagabondo.DataModel;
-using Vagabondo.Generators;
 using Vagabondo.Managers;
 
 namespace Vagabondo.Actions
@@ -27,11 +27,11 @@ namespace Vagabondo.Actions
 
         public override GameActionResult Perform(TravelManager travelManager)
         {
-            var merchItem = MerchandiseGenerator.GenerateHerb(biome);
-            travelManager.AddMerchandiseItem(merchItem);
+            //var merchItem = MerchandiseGenerator.GenerateHerb(biome);
+            //travelManager.AddMerchandiseItem(merchItem);
 
-            return new TextActionResult($"You gather some <style=C1>{merchItem.text}</style>");
+            //return new TextActionResult($"You gather some <style=C1>{merchItem.text}</style>");
+            throw new NotImplementedException();
         }
     }
-
 }

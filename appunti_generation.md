@@ -7,6 +7,14 @@
 - quality
 - base value deve essere compatibile con min e max dipendenti dalla causa/persona che genera l'item
 
+- merchandise
+	- spices
+	- wine
+	- food
+	- furs
+	- fine cloth
+	- glass
+
 
 ### trinket
 - nome

@@ -1,11 +1,18 @@
 # Appunti
 
 ## Brainstorming
-- esistono antagonisti/difficolta'/ modi di essere sconfitti?
-- ricette secondo teoria dell'equilibrio degli umori
+- modi di essere sconfitti:
+	- friendliness diminuisce sotto valore critico
+	- combattimento (perdite health):
+		- con animali selvatici
+		- con guardie quando ad es. non si paga gabella
+
+
 
 ### Azioni
 - messaggi criptati
+- libri
+
 
 
 ## Resources

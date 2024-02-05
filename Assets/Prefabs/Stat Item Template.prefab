@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 4665420713434968446}
   - component: {fileID: 4120878106898837455}
   m_Layer: 5
-  m_Name: Knowledge Item Template
+  m_Name: Stat Item Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -52,13 +52,15 @@ namespace Vagabondo.Managers
         {
             var destination = nextDestinations[townName];
             currentTown = destination;
-            currentTown.actions = generateActions(currentTown);
+
+            TownActionGenerator.GenerateActions(currentTown);
+            maybeAddQuestAction(currentTown);
 
             EventManager.PublishTownChanged(currentTown);
 
-            foreach (var merchItem in travelerData.merchandise)
-                updatePrice(merchItem);
-            EventManager.PublishTravelerChanged(travelerData);
+            //foreach (var merchItem in travelerData.merchandise)
+            //    updatePrice(merchItem);
+            //EventManager.PublishTravelerChanged(travelerData);
 
             const int nDestinations = 3;
             nextDestinations = generateNextDestinations(nDestinations, currentTown);
@@ -69,6 +71,17 @@ namespace Vagabondo.Managers
         {
             travelerData.money += delta;
             EventManager.PublishTravelerChanged(travelerData);
+        }
+
+        public void AddHealth(int delta)
+        {
+            travelerData.health += delta;
+            EventManager.PublishTravelerChanged(travelerData);
+
+            //TODO: defeat event
+            //if (travelerData.health < 0)
+            //    EventManager.PublishTravelerChanged(travelerData);
+
         }
 
         public void AddTrinket(Trinket trinket)
@@ -84,26 +97,44 @@ namespace Vagabondo.Managers
         }
 
 
-        public void SellMerchandiseItem(MerchandiseItem merchItem)
+        public void TradeItem(TradableItem item, bool isTravelerSelling)
         {
-            travelerData.money += merchItem.price;
-            travelerData.merchandise.Remove(merchItem);
+            if (isTravelerSelling)
+            {
+                travelerData.money += item.price;
+                travelerData.merchandise.Remove(item);
+            }
+            else
+            {
+                travelerData.money -= item.price;
+                travelerData.merchandise.Add(item);
+            }
             EventManager.PublishTravelerChanged(travelerData);
         }
 
-        public void AddMerchandiseItem(MerchandiseItem merchItem)
+        //public void AddMerchandiseItem(MerchandiseItem merchItem)
+        //{
+        //    travelerData.merchandise.Add(merchItem);
+        //    updatePrice(merchItem);
+        //    EventManager.PublishTravelerChanged(travelerData);
+        //}
+
+
+        public void IncrementStat(StatId statId)
         {
-            travelerData.merchandise.Add(merchItem);
-            updatePrice(merchItem);
-            EventManager.PublishTravelerChanged(travelerData);
+            addToStat(statId, 1);
         }
 
+        public void DecrementStat(StatId statId)
+        {
+            addToStat(statId, -1);
+        }
 
-        public void IncrementKnowledge(KnowledgeType knowledgeType)
+        private void addToStat(StatId statId, int delta)
         {
             int oldValue;
-            travelerData.knowledge.TryGetValue(knowledgeType, out oldValue);
-            travelerData.knowledge[knowledgeType] = oldValue + 1;
+            travelerData.stats.TryGetValue(statId, out oldValue);
+            travelerData.stats[statId] = oldValue + delta;
             EventManager.PublishTravelerChanged(travelerData);
         }
 
@@ -126,11 +157,11 @@ namespace Vagabondo.Managers
         }
 
 
-        private void updatePrice(MerchandiseItem merchItem)
-        {
-            //TODO: use quality and townData to influence price
-            merchItem.price = merchItem.basePrice + (Math.Abs(currentTown.GetHashCode())) % 100; //some deterministic variation
-        }
+        //private void updatePrice(MerchandiseItem merchItem)
+        //{
+        //    //TODO: use quality and townData to influence price
+        //    merchItem.price = merchItem.basePrice + (Math.Abs(currentTown.GetHashCode())) % 100; //some deterministic variation
+        //}
 
         private Dictionary<string, Town> generateNextDestinations(int nDestinations, Town lastTown = null)
         {
@@ -146,45 +177,16 @@ namespace Vagabondo.Managers
         }
 
 
-        private List<GameAction> generateActions(Town townData)
+        private void maybeAddQuestAction(Town townData)
         {
             const float questActionProbability = 0.8f;
-
-            var actions = new List<GameAction>();
-            actions.Add(new ForageAction(townData.biome));
-            //if (hasWilderness())
-            actions.Add(new ExploreAction());
-            //if (hasCrime())
-            actions.Add(new SketchyDealAction(townData));
-            //if (friendly)
-            actions.Add(new FoodGiftAction(townData));
-
-
-            foreach (var building in townData.buildings)
-            {
-                GameAction action = null;
-                switch (building)
-                {
-                    case TownBuilding.Tavern:
-                        action = new TavernAction();
-                        break;
-                    case TownBuilding.Library:
-                        action = new LibraryAction();
-                        break;
-                }
-
-                if (action != null)
-                    actions.Add(action);
-            }
 
             if (UnityEngine.Random.value < questActionProbability)
             {
                 var questState = activeQuest.GetCurrentState();
                 var questAction = new QuestAction(questState);
-                actions.Add(questAction);
+                townData.actions.Add(questAction);
             }
-
-            return actions;
         }
     }
 }

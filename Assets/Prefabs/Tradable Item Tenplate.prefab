@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 24043131564464790}
   - component: {fileID: 9195363485654405948}
   m_Layer: 5
-  m_Name: Sell Button
+  m_Name: Trade Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,6 @@ RectTransform:
   m_Children:
   - {fileID: 322927800973551647}
   m_Father: {fileID: 5252103052470049925}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -123,9 +122,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 89938594712582508}
-        m_TargetAssemblyTypeName: Vagabondo.Behaviours.MerchandiseItemBehaviour,
-          Assembly-CSharp
-        m_MethodName: OnSellItem
+        m_TargetAssemblyTypeName: Vagabondo.Behaviours.ShopItemBehaviour, Assembly-CSharp
+        m_MethodName: OnTradeItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -166,7 +164,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5252103052470049925}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -283,7 +280,7 @@ GameObject:
   - component: {fileID: 5336831162754275993}
   - component: {fileID: 89938594712582508}
   m_Layer: 5
-  m_Name: Merchandise Item Tenplate
+  m_Name: Tradable Item Tenplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,7 +301,6 @@ RectTransform:
   - {fileID: 2232291816878149632}
   - {fileID: 2663593717090955357}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -375,7 +371,7 @@ GameObject:
   - component: {fileID: 1930092125154962126}
   - component: {fileID: 1237959489794928434}
   m_Layer: 5
-  m_Name: Sell Button Label
+  m_Name: Trade Button Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,7 +390,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2663593717090955357}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -429,7 +424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sell for 999$
+  m_text: Sell/Buy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

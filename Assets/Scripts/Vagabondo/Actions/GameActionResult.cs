@@ -1,13 +1,22 @@
+using System.Collections.Generic;
 using Vagabondo.DataModel;
 
 namespace Vagabondo.Actions
 {
-    public abstract class GameActionResult { }
+    public enum GameActionEffectType
+    {
+        Trade,
+        Gossip,
+        MakeFriends,
+        MakeEnemies,
+        Injury,
+    }
 
-    public class TextActionResult : GameActionResult
+
+    public class GameActionResult
     {
         public readonly string text;
-        public TextActionResult(string text)
+        public GameActionResult(string text)
         {
             this.text = text;
         }
@@ -15,14 +24,22 @@ namespace Vagabondo.Actions
 
     public class ItemAcquiredActionResult : GameActionResult
     {
-        public readonly string text;
         public GameItem item;
 
-        public ItemAcquiredActionResult(string text, GameItem item)
+        public ItemAcquiredActionResult(string text, GameItem item) : base(text)
         {
-            this.text = text;
             this.item = item;
         }
     }
 
+
+    public class ShopActionResult : GameActionResult
+    {
+        public readonly List<TradableItem> shopInventory;
+
+        public ShopActionResult(string text, List<TradableItem> shopInventory) : base(text)
+        {
+            this.shopInventory = shopInventory;
+        }
+    }
 }

@@ -43,7 +43,7 @@ namespace Vagabondo.Actions
             memory.description = questState.memoryDescription;
             travelManager.AddMemory(memory);
 
-            return new TextActionResult(questState.actionResultText);
+            return new GameActionResult(questState.actionResultText);
         }
     }
 }

@@ -23,9 +23,9 @@ namespace Vagabondo.Actions
 
         public override GameActionResult Perform(TravelManager travelManager)
         {
-            travelManager.IncrementKnowledge(KnowledgeType.Nature);
+            travelManager.IncrementStat(StatId.KnowledgeNature);
 
-            return new TextActionResult($"You learn some interesting facts about the local wilderness");
+            return new GameActionResult($"You learn some interesting facts about the local wilderness");
         }
     }
 }

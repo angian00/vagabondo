@@ -15,31 +15,30 @@ namespace Vagabondo.DataModel
 
     public enum TownBuilding
     {
-        Tavern,
         Church,
         Monastery,
 
         TownHall,
-        Manor,
-        Castle,
-
-        Marketplace,
+        //Manor,
+        //Castle,
 
         ShopGeneric,
-        Clothier,
+        Emporium,
+        //Clothier,
         Baker,
         Butcher,
-        Smith,
-        Carpenter,
-        Shoemaker,
+        //Smith,
+        //Carpenter,
+        //Shoemaker,
 
         Farm,
-        Mine,
-        Mill,
+        //Mine,
+        //Mill,
 
+        Tavern,
         Library,
-        Barber,
-        Bathhouse,
+        //Barber,
+        //Bathhouse,
         //Stables,
     }
 
@@ -64,9 +63,9 @@ namespace Vagabondo.DataModel
         public string description;
         public Biome biome;
         public Dominion dominion;
-        public HashSet<DominionTrait> traits;
-        public HashSet<TownBuilding> buildings;
-        public List<GameAction> actions;
+        public HashSet<DominionTrait> traits = new();
+        public HashSet<TownBuilding> buildings = new();
+        public List<GameAction> actions = new();
 
         public Town(string name)
         {

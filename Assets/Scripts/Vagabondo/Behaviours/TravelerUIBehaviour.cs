@@ -12,7 +12,7 @@ namespace Vagabondo.Behaviours
         [SerializeField]
         private Transform trinketsPanel;
         [SerializeField]
-        private Transform knowledgePanel;
+        private Transform statsPanel;
         [SerializeField]
         private Transform memoriesPanel;
 
@@ -20,7 +20,7 @@ namespace Vagabondo.Behaviours
         [SerializeField]
         private GameObject trinketTemplate;
         [SerializeField]
-        private GameObject knowledgeItemTemplate;
+        private GameObject statItemTemplate;
         [SerializeField]
         private GameObject memoryTemplate;
 
@@ -52,14 +52,14 @@ namespace Vagabondo.Behaviours
                 newTrinketObj.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = trinket.text;
             }
 
-            UnityUtils.RemoveAllChildren(knowledgePanel);
-            foreach (var knowledgeKey in travelerData.knowledge.Keys)
+            UnityUtils.RemoveAllChildren(statsPanel);
+            foreach (var statKey in travelerData.stats.Keys)
             {
-                var knowledgeValue = travelerData.knowledge[knowledgeKey];
-                var newKnowledgeObj = Instantiate(knowledgeItemTemplate, knowledgePanel, false);
+                var statValue = travelerData.stats[statKey];
+                var newStatObj = Instantiate(statItemTemplate, statsPanel, false);
 
-                newKnowledgeObj.transform.Find("Label").GetComponent<TextMeshProUGUI>().text = DataUtils.EnumToStr(knowledgeKey);
-                newKnowledgeObj.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = knowledgeValue.ToString();
+                newStatObj.transform.Find("Label").GetComponent<TextMeshProUGUI>().text = DataUtils.EnumToStr(statKey);
+                newStatObj.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = statValue.ToString();
             }
 
             UnityUtils.RemoveAllChildren(memoriesPanel);

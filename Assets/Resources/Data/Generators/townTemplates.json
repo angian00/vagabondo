@@ -18,11 +18,14 @@
 		]
 	},
 
+
 	"Town": {
 		"nMaxBuildings": 3,
 		"buildings": [
-			{ "buildingType": "mine", "probability": 1.0, "traitNeeded": "Industrial" },
-			{ "buildingType": "farm", "probability": 1.0, "traitExcluded": "Industrial" },
+			{ "buildingType": "church", "probability": 1.0 },
+			{ "buildingType": "tavern", "probability": 1.0 },
+//			{ "buildingType": "mine", "probability": 1.0, "traitNeeded": "Industrial" },
+//			{ "buildingType": "farm", "probability": 1.0, "traitExcluded": "Industrial" },
 		]
 	},
 

@@ -6,11 +6,13 @@ namespace Vagabondo.DataModel
     {
         public static int startMoney = 100;
         //public static int startMoney = 0;
+        public static int startHealth = 10;
 
         public int money = startMoney;
-        public List<MerchandiseItem> merchandise = new();
+        public int health = startHealth;
+        public List<TradableItem> merchandise = new();
         public List<Trinket> trinkets = new();
         public List<Memory> memories = new();
-        public Dictionary<KnowledgeType, int> knowledge = new();
+        public Dictionary<StatId, int> stats = new();
     }
 }
