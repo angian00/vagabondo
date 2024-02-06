@@ -4,7 +4,7 @@ using Vagabondo.DataModel;
 
 namespace Vagabondo.Generators
 {
-    public class TownActionGenerator
+    public class ActionGenerator
     {
         public static void GenerateActions(Town townData)
         {
@@ -28,6 +28,12 @@ namespace Vagabondo.Generators
                     case TownBuilding.Library:
                         action = new LibraryAction();
                         break;
+
+                    case TownBuilding.Bakery:
+                        action = new ShopAction(ShopType.Bakery);
+                        break;
+                        //Emporium,
+                        //Butchery,
 
                         //case TownBuilding.Church:
                         //    action = new ChurchAction();

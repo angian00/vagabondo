@@ -15,12 +15,15 @@ namespace Vagabondo.DataModel
     {
         public string name { get; }
         public ItemQuality quality { get; }
-        public int price { get; set; }
+        public int baseValue { get; }
+        public int currentPrice { get; set; }
     }
 
     public enum ShopType
     {
         Tavern,
+        Bakery,
+        Butchery,
     }
 
 
@@ -37,6 +40,6 @@ namespace Vagabondo.DataModel
     //    public int basePrice;
 
     //    public string text;
-    //    public int price;
+    //    public int currentPrice;
     //}
 }

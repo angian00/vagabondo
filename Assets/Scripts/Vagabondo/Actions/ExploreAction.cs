@@ -11,16 +11,6 @@ namespace Vagabondo.Actions
             this.description = "Spend some time getting acquainted with the countryside";
         }
 
-        public override bool CanPerform(Traveler travelerData)
-        {
-            return true;
-        }
-
-        public override string GetCantPerformMessage()
-        {
-            return "";
-        }
-
         public override GameActionResult Perform(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.KnowledgeNature);

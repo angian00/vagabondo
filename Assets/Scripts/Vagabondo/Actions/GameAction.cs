@@ -8,6 +8,7 @@ namespace Vagabondo.Actions
         Forage,
         Explore,
         Tavern,
+        Shop,
         Library,
         SketchyDeal,
         Quest,
@@ -24,8 +25,16 @@ namespace Vagabondo.Actions
             this.type = type;
         }
 
-        public abstract bool CanPerform(Traveler travelerData);
-        public abstract string GetCantPerformMessage();
+        public virtual bool CanPerform(Traveler travelerData)
+        {
+            return true;
+        }
+
+        public virtual string GetCantPerformMessage()
+        {
+            return "";
+        }
+
         public abstract GameActionResult Perform(TravelManager travelManager);
     }
 }

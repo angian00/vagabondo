@@ -53,14 +53,13 @@ namespace Vagabondo.Managers
             var destination = nextDestinations[townName];
             currentTown = destination;
 
-            TownActionGenerator.GenerateActions(currentTown);
+            ActionGenerator.GenerateActions(currentTown);
             maybeAddQuestAction(currentTown);
 
             EventManager.PublishTownChanged(currentTown);
 
-            //foreach (var merchItem in travelerData.merchandise)
-            //    updatePrice(merchItem);
-            //EventManager.PublishTravelerChanged(travelerData);
+            PriceEvaluator.UpdatePrices(travelerData.merchandise);
+            EventManager.PublishTravelerChanged(travelerData);
 
             const int nDestinations = 3;
             nextDestinations = generateNextDestinations(nDestinations, currentTown);
@@ -101,23 +100,16 @@ namespace Vagabondo.Managers
         {
             if (isTravelerSelling)
             {
-                travelerData.money += item.price;
+                travelerData.money += item.currentPrice;
                 travelerData.merchandise.Remove(item);
             }
             else
             {
-                travelerData.money -= item.price;
+                travelerData.money -= item.currentPrice;
                 travelerData.merchandise.Add(item);
             }
             EventManager.PublishTravelerChanged(travelerData);
         }
-
-        //public void AddMerchandiseItem(MerchandiseItem merchItem)
-        //{
-        //    travelerData.merchandise.Add(merchItem);
-        //    updatePrice(merchItem);
-        //    EventManager.PublishTravelerChanged(travelerData);
-        //}
 
 
         public void IncrementStat(StatId statId)
@@ -156,12 +148,6 @@ namespace Vagabondo.Managers
             activeQuest = QuestGenerator.GenerateQuest();
         }
 
-
-        //private void updatePrice(MerchandiseItem merchItem)
-        //{
-        //    //TODO: use quality and townData to influence price
-        //    merchItem.price = merchItem.basePrice + (Math.Abs(currentTown.GetHashCode())) % 100; //some deterministic variation
-        //}
 
         private Dictionary<string, Town> generateNextDestinations(int nDestinations, Town lastTown = null)
         {

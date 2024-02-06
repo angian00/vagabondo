@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemLabel: {fileID: 1300835410234926136}
+  tradeButton: {fileID: 9195363485654405948}
   buttonLabel: {fileID: 1237959489794928434}
 --- !u!1 &6098404298554189518
 GameObject:

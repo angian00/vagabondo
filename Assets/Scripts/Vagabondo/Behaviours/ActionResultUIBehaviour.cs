@@ -43,6 +43,7 @@ namespace Vagabondo.Behaviours
             UnityUtils.ShowUIView(gameObject);
 
             descriptionLabel.text = actionResult.text;
+
             if (actionResult is ShopActionResult)
             {
                 actionButton.transform.Find("Action Label").GetComponent<TextMeshProUGUI>().text = "Trade";

@@ -60,10 +60,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.19f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Vagabondo\Generators\TownActionGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\EnumGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\SubstitutionGrammar.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\ChoiceTree.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Actions\ShopAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\QuestGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\StringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\CommentRemover.cs" />
@@ -97,8 +97,9 @@
     <Compile Include="Assets\Scripts\Vagabondo\Actions\FoodGiftAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RichGrammarParser.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Dominion.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\TavernAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\StatId.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Actions\TavernAction.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Generators\ActionGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\FileStringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ActionButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TownDescriptionGenerator.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\Actions\ForageAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TrinketGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TemplatedStringGenerator.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Managers\PriceEvaluator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\GrammarFactory.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ShopItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\MemoryItemBehaviour.cs" />

@@ -24,17 +24,20 @@ namespace Vagabondo.Behaviours
         private List<TradableItem> _shopInventory;
         public List<TradableItem> ShopInventory { set { _shopInventory = value; updateShopInventory(); } }
 
+        private Traveler _travelerData;
+
+
         private void OnEnable()
         {
-            EventManager.onTravelerChanged += updateTravelerView;
+            EventManager.onTravelerChanged += onTravelerChanged;
         }
 
         private void OnDisable()
         {
-            EventManager.onTravelerChanged -= updateTravelerView;
+            EventManager.onTravelerChanged -= onTravelerChanged;
         }
 
-        public void OnSwitchViewClicked()
+        public void OnCloseClicked()
         {
             UnityUtils.HideUIView(gameObject);
         }
@@ -51,13 +54,18 @@ namespace Vagabondo.Behaviours
             updateShopInventory();
         }
 
-
-        private void updateTravelerView(Traveler travelerData)
+        private void onTravelerChanged(Traveler travelerData)
         {
-            moneyValueLabel.text = travelerData.money.ToString();
+            this._travelerData = travelerData;
+            updateTravelerView();
+        }
+
+        private void updateTravelerView()
+        {
+            moneyValueLabel.text = _travelerData.money.ToString();
 
             UnityUtils.RemoveAllChildren(travelerItemsPanel);
-            foreach (var item in travelerData.merchandise)
+            foreach (var item in _travelerData.merchandise)
             {
                 var newItemObj = Instantiate(tradableItemTemplate, travelerItemsPanel, false);
                 newItemObj.GetComponent<ShopItemBehaviour>().Parent = this;
@@ -65,6 +73,8 @@ namespace Vagabondo.Behaviours
                 newItemObj.GetComponent<ShopItemBehaviour>().IsTravelerSelling = true;
             }
 
+            if (_shopInventory != null)
+                updateInteractableInventory();
         }
 
         private void updateShopInventory()
@@ -76,7 +86,22 @@ namespace Vagabondo.Behaviours
                 newItemObj.GetComponent<ShopItemBehaviour>().Parent = this;
                 newItemObj.GetComponent<ShopItemBehaviour>().Data = item;
                 newItemObj.GetComponent<ShopItemBehaviour>().IsTravelerSelling = false;
+                if (_travelerData != null)
+                    newItemObj.GetComponent<ShopItemBehaviour>().Interactable = (item.currentPrice <= _travelerData.money);
             }
+        }
+
+        private void updateInteractableInventory()
+        {
+            for (int i = 0; i < _shopInventory.Count; i++)
+            {
+                //works because _shopInventory and shopItemsPanel children are in the same order
+                var itemObj = shopItemsPanel.GetChild(i);
+                //var price = itemObj.GetComponent<ShopItemBehaviour>().Data.currentPrice;
+                var price = _shopInventory[i].currentPrice;
+                itemObj.GetComponent<ShopItemBehaviour>().Interactable = (price <= _travelerData.money);
+            }
+
         }
     }
 }

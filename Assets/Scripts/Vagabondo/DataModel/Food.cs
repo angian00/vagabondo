@@ -36,7 +36,8 @@ namespace Vagabondo.DataModel
         public FoodIngredientDef definition;
         public string name { get => definition.name; }
         public ItemQuality quality { get; set; }
-        public int price { get; set; }
+        public int baseValue { get => definition.baseValue; }
+        public int currentPrice { get; set; }
     }
 
     public enum FoodPreparation
@@ -83,10 +84,10 @@ namespace Vagabondo.DataModel
         public List<FoodIngredient> ingredients = new();
         public FoodPreparation preparation;
         public ItemQuality preparationQuality;
-        public int baseValue;
+        public int baseValue { get; set; }
 
         public ItemQuality quality { get; set; }
-        public int price { get; set; }
+        public int currentPrice { get; set; }
 
         //FUTURE: perishability
     }

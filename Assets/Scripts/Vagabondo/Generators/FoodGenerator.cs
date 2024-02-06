@@ -15,15 +15,6 @@ namespace Vagabondo.Generators
         private static List<FoodItemTemplate> foodItemTemplates;
         private static List<int> ingredientDefinitionWeights;
 
-        private static Dictionary<ItemQuality, float> qualityValueMultiplier = new()
-        {
-            { ItemQuality.Terrible, 0.2f },
-            { ItemQuality.Poor, 0.6f },
-            { ItemQuality.Standard, 1.0f },
-            { ItemQuality.Good, 1.3f },
-            { ItemQuality.Exceptional, 2.0f },
-        };
-
         static FoodGenerator()
         {
             TextAsset fileObj;
@@ -55,6 +46,12 @@ namespace Vagabondo.Generators
 
         public static List<FoodIngredient> GenerateFoodIngredients(List<FoodIngredientCategory> categories, int nIngredients = 10)
         {
+            Predicate<FoodIngredientDef> ingredientFilter = (ingredientDef) => categories.Contains(ingredientDef.category);
+            return GenerateFoodIngredients(ingredientFilter, nIngredients);
+        }
+
+        public static List<FoodIngredient> GenerateFoodIngredients(Predicate<FoodIngredientDef> ingredientFilter, int nIngredients = 10)
+        {
             List<FoodIngredientDef> compatibleDefs = new();
             List<int> compatibleDefWeights = new();
 
@@ -62,7 +59,7 @@ namespace Vagabondo.Generators
             {
                 var def = ingredientDefinitions[iDef];
 
-                if (categories.Contains(def.category))
+                if (ingredientFilter(def))
                 {
                     compatibleDefs.Add(def);
                     compatibleDefWeights.Add(ingredientDefinitionWeights[iDef]);
@@ -80,6 +77,7 @@ namespace Vagabondo.Generators
 
             return res;
         }
+
 
         public static FoodItem GenerateFoodItem(List<FoodIngredient> availableIngredients)
         {
@@ -124,7 +122,7 @@ namespace Vagabondo.Generators
 
                 foodItem.ingredients = chosenIngredients;
                 foodItem.quality = computeFoodQuality(foodItem);
-                foodItem.baseValue = computeFoodValue(foodItem);
+                foodItem.baseValue = computeFoodBaseValue(foodItem);
                 foodItem.name = computeFoodName(foodItem, template);
 
                 return foodItem;
@@ -146,6 +144,20 @@ namespace Vagabondo.Generators
 
             return GenerateFoodItem(availableIngredients);
         }
+
+        public static List<FoodItem> GenerateFoodItems(Predicate<FoodItem> itemFilter, int nItems = 10)
+        {
+            List<FoodItem> res = new();
+            for (int iItem = 0; iItem < nItems; iItem++)
+            {
+                //var item = new FoodItem();
+                //res.Add(ingredient);
+                TODO
+            }
+
+            return res;
+        }
+
 
         private static FoodIngredient chooseIngredient(FoodIngredientCategory targetCategory,
             List<FoodIngredient> availableIngredients, List<string> prohibitedIngredientNames)
@@ -192,7 +204,7 @@ namespace Vagabondo.Generators
             return (ItemQuality)Math.Round(cumQuality / nQualities);
         }
 
-        private static int computeFoodValue(FoodItem foodItem)
+        private static int computeFoodBaseValue(FoodItem foodItem)
         {
             const float preparationMultiplier = 1.2f;
             var cumValue = 0.0f;
@@ -201,7 +213,7 @@ namespace Vagabondo.Generators
                 cumValue += ingredient.definition.baseValue;
             }
 
-            cumValue *= preparationMultiplier * qualityValueMultiplier[foodItem.quality];
+            cumValue *= preparationMultiplier;
 
             return (int)Math.Round(cumValue);
         }
@@ -227,27 +239,6 @@ namespace Vagabondo.Generators
             return dishStr + qualityStr;
         }
 
-        private static string computeFoodNameOld(FoodItem foodItem, FoodItemTemplate template)
-        {
-            var res = "";
-            for (var iIngredient = 0; iIngredient < foodItem.ingredients.Count; iIngredient++)
-            {
-                var ingredient = foodItem.ingredients[iIngredient];
-                if (iIngredient > 0)
-                {
-                    if (iIngredient == foodItem.ingredients.Count - 1)
-                        res += $" and ";
-                    else
-                        res += $", ";
-                }
-
-                res += $"{ingredient.definition.name}";
-            }
-
-            res += $" {template.name}";
-
-            return res;
-        }
 
         private static ItemQuality randomQuality()
         {

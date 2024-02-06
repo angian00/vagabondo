@@ -14,16 +14,6 @@ namespace Vagabondo.Actions
             this.description = questState.actionDescription;
         }
 
-        public override bool CanPerform(Traveler travelerData)
-        {
-            return true;
-        }
-
-        public override string GetCantPerformMessage()
-        {
-            return "";
-        }
-
         public override GameActionResult Perform(TravelManager travelManager)
         {
             Memory memory;

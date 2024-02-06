@@ -15,23 +15,11 @@ namespace Vagabondo.Actions
         public TavernAction() : base(GameActionType.Tavern)
         {
             this.title = "Go to the tavern";
-            this.description = "Spend some cash in the local watering hole";
-        }
-
-        public override bool CanPerform(Traveler travelerData)
-        {
-            return (travelerData.money >= tavernCost);
-        }
-
-        public override string GetCantPerformMessage()
-        {
-            return $"You must have at least {tavernCost}$ to be served in this tavern";
+            this.description = "Spend the night in the local watering hole";
         }
 
         public override GameActionResult Perform(TravelManager travelManager)
         {
-            travelManager.AddMoney(-tavernCost);
-
             var effectTypes = new List<GameActionEffectType>() {
                 GameActionEffectType.Trade,
                 GameActionEffectType.Gossip,
@@ -40,13 +28,15 @@ namespace Vagabondo.Actions
                 GameActionEffectType.Injury,
             };
 
+            //TODO: check if you can spend money to make friends
+
             //DEBUG
             //var effectType = RandomUtils.RandomChoose(effectTypes);
             var effectType = GameActionEffectType.Trade;
             switch (effectType)
             {
                 case GameActionEffectType.Trade:
-                    return performBuySell(travelManager);
+                    return performTrade(travelManager);
                 case GameActionEffectType.Gossip:
                     return performGossip(travelManager);
                 case GameActionEffectType.MakeFriends:
@@ -61,9 +51,10 @@ namespace Vagabondo.Actions
         }
 
 
-        private GameActionResult performBuySell(TravelManager travelManager)
+        private GameActionResult performTrade(TravelManager travelManager)
         {
             var shopInventory = MerchandiseGenerator.GenerateInventoryFood(ShopType.Tavern);
+            PriceEvaluator.UpdatePrices(shopInventory);
             return new ShopActionResult($"You have the opportunity to buy some food and beverages, " +
                 "or even sell some of your own", shopInventory);
         }

@@ -1,10 +1,6 @@
 # TODO
 - town and event actions
-	- bug: townui, disabilitare on hover su action attive
-	- travelerUI: aggiungere health
-
 	- reorganize merchandise ui flow
-		- compute (shop inventory) TradableItems price
 		- generalizzare categorie di tradableitem
 		+ rendere scrollabile gli inventory
 

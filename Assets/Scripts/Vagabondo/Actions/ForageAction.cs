@@ -15,16 +15,6 @@ namespace Vagabondo.Actions
             this.description = "Walk around the countryside looking for useful herbs";
         }
 
-        public override bool CanPerform(Traveler travelerData)
-        {
-            return true;
-        }
-
-        public override string GetCantPerformMessage()
-        {
-            return "";
-        }
-
         public override GameActionResult Perform(TravelManager travelManager)
         {
             //var merchItem = MerchandiseGenerator.GenerateHerb(biome);

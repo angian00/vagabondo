@@ -33,20 +33,23 @@ namespace Vagabondo.Generators
             const int inventorySize = 12;
 
             var result = new List<TradableItem>();
-            //List<Category> categories;
-            List<FoodIngredientCategory> foodIngredientCategories;
+            Predicate<FoodItem> itemFilter;
 
             switch (shopType)
             {
                 case ShopType.Tavern:
-                    foodIngredientCategories = new List<FoodIngredientCategory>() { FoodIngredientCategory.Drink };
+                    itemFilter = (foodItem) => (foodItem.category == FoodItemCategory.Drink);
+                    break;
+
+                case ShopType.Bakery:
+                    itemFilter = (foodItem) => (foodItem.category == FoodItemCategory.Bread || foodItem.category == FoodItemCategory.Dessert);
                     break;
 
                 default:
                     throw new NotImplementedException();
             }
 
-            result.AddRange(FoodGenerator.GenerateFoodIngredients(foodIngredientCategories, inventorySize));
+            result.AddRange(FoodGenerator.GenerateFoodItems(itemFilter, inventorySize));
 
             return result;
         }

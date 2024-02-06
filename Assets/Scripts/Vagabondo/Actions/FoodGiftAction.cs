@@ -14,16 +14,6 @@ namespace Vagabondo.Actions
             this.description = "Look for a bargain deal in the seediest part of the town"; //FIXME
         }
 
-        public override bool CanPerform(Traveler travelerData)
-        {
-            return true;
-        }
-
-        public override string GetCantPerformMessage()
-        {
-            return "";
-        }
-
         public override GameActionResult Perform(TravelManager travelManager)
         {
             //var foodItem = MerchandiseGenerator.GenerateFood(townData);

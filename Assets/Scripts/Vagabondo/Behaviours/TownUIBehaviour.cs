@@ -31,17 +31,20 @@ namespace Vagabondo.Behaviours
 
 
         private List<ActionButtonBehaviour> actionObjs = new();
+        private Town townData;
+        private Traveler travelerData;
+
 
         private void OnEnable()
         {
-            EventManager.onTownChanged += updateView;
-            EventManager.onTravelerChanged += updateInteractableActions;
+            EventManager.onTownChanged += onTownChanged;
+            EventManager.onTravelerChanged += onTravelerChanged;
         }
 
         private void OnDisable()
         {
-            EventManager.onTownChanged -= updateView;
-            EventManager.onTravelerChanged -= updateInteractableActions;
+            EventManager.onTownChanged -= onTownChanged;
+            EventManager.onTravelerChanged -= onTravelerChanged;
         }
 
         private void Start()
@@ -65,7 +68,17 @@ namespace Vagabondo.Behaviours
             UnityUtils.ShowUIView(destinationUI);
         }
 
-        public void updateView(Town townData)
+
+        public void onTownChanged(Town townData)
+        {
+            Debug.Log("TownUIBehaviour.onTownChanged()");
+            this.townData = townData;
+            updateView();
+            if (travelerData != null)
+                updateInteractableActions();
+        }
+
+        private void updateView()
         {
             townNameLabel.text = townData.name;
             //townDescriptionLabel.text = townData.description;
@@ -82,7 +95,19 @@ namespace Vagabondo.Behaviours
             }
         }
 
-        public void updateInteractableActions(Traveler travelerData)
+        public void onTravelerChanged(Traveler travelerData)
+        {
+            Debug.Log("TownUIBehaviour.onTravelerChanged()");
+            this.travelerData = travelerData;
+            updateInteractableActions();
+
+            foreach (var actionObj in actionObjs)
+            {
+                actionObj.ComputeInteractable(travelerData);
+            }
+        }
+
+        private void updateInteractableActions()
         {
             foreach (var actionObj in actionObjs)
             {
