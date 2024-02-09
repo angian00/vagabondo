@@ -22,18 +22,22 @@ namespace Vagabondo.Generators
                 switch (building)
                 {
                     case TownBuilding.Tavern:
-                        action = new TavernAction();
+                        action = new TavernAction(townData);
                         break;
 
                     case TownBuilding.Library:
-                        action = new LibraryAction();
+                        action = new LibraryAction(townData);
                         break;
 
                     case TownBuilding.Bakery:
-                        action = new ShopAction(ShopType.Bakery);
+                        action = new ShopAction(ShopType.Bakery, townData);
                         break;
-                        //Emporium,
-                        //Butchery,
+                    case TownBuilding.Butchery:
+                        action = new ShopAction(ShopType.Butchery, townData);
+                        break;
+                        //case TownBuilding.Emporium:
+                        //    action = new ShopAction(ShopType.Emporium);
+                        //    break;
 
                         //case TownBuilding.Church:
                         //    action = new ChurchAction();
@@ -59,13 +63,12 @@ namespace Vagabondo.Generators
         private static void generateEventActions(Town townData)
         {
             var newActions = new List<GameAction>();
-            newActions.Add(new ForageAction(townData.biome));
             //if (hasWilderness())
-            newActions.Add(new ExploreAction());
-            //if (hasCrime())
-            newActions.Add(new SketchyDealAction(townData));
+            newActions.Add(new ExploreAction(townData));
             //if (friendly)
-            newActions.Add(new FoodGiftAction(townData));
+            newActions.Add(new ChatLocalsAction(townData));
+            //if (hasCrime())
+            newActions.Add(new ChatCriminalsAction(townData));
 
             townData.actions.AddRange(newActions);
         }

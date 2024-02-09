@@ -1,6 +1,6 @@
 namespace Vagabondo.DataModel
 {
-    public struct Trinket : GameItem
+    public struct Trinket
     {
         public string text;
 

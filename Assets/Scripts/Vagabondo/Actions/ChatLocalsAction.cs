@@ -7,38 +7,33 @@ using Vagabondo.Utils;
 
 namespace Vagabondo.Actions
 {
-    public class TavernAction : GameAction
+    public class ChatLocalsAction : GameAction
     {
-        public static int tavernCost = 10; //TODO: make tavernCost variable
-
-
-        public TavernAction(Town townData) : base(GameActionType.Tavern, townData)
+        public ChatLocalsAction(Town townData) : base(GameActionType.ChatLocals, townData)
         {
-            this.title = "Go to the tavern";
-            this.description = "Spend the night in the local watering hole";
+            this.title = "Chat with the local folk";
+            this.description = "Look for a bargain deal in the seediest part of the town"; //FIXME
         }
 
         public override GameActionResult Perform(TravelManager travelManager)
         {
             var effectTypes = new List<GameActionEffectType>() {
-                GameActionEffectType.Trade,
-                GameActionEffectType.Gossip,
+                GameActionEffectType.Learn,
+                //FUTURE: learn recipe
+                GameActionEffectType.ReceiveItem,
                 GameActionEffectType.MakeFriends,
                 GameActionEffectType.MakeEnemies,
                 GameActionEffectType.Injury,
             };
 
-            //TODO: check if you can spend money to make friends
-
-            //DEBUG
+            //TODO: result influenced by Knowledge.Diplomacy
             var effectType = RandomUtils.RandomChoose(effectTypes);
-            //var effectType = GameActionEffectType.Trade;
             switch (effectType)
             {
-                case GameActionEffectType.Trade:
-                    return performTrade(travelManager);
-                case GameActionEffectType.Gossip:
-                    return performGossip(travelManager);
+                case GameActionEffectType.Learn:
+                    return performLearn(travelManager);
+                case GameActionEffectType.ReceiveItem:
+                    return performReceiveItem(travelManager);
                 case GameActionEffectType.MakeFriends:
                     return performMakeFriends(travelManager);
                 case GameActionEffectType.MakeEnemies:
@@ -50,25 +45,24 @@ namespace Vagabondo.Actions
             throw new Exception($"Invalid effectType: {DataUtils.EnumToStr(effectType)}");
         }
 
-
-        private GameActionResult performTrade(TravelManager travelManager)
-        {
-            var shopInventory = MerchandiseGenerator.GenerateInventory(ShopType.Tavern);
-            PriceEvaluator.UpdatePrices(shopInventory);
-            return new ShopActionResult($"You have the opportunity to buy some food and beverages, " +
-                "or even sell some of your own", shopInventory);
-        }
-
-        private GameActionResult performGossip(TravelManager travelManager)
+        private GameActionResult performLearn(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Diplomacy);
-            return new GameActionResult($"You learn some interesting facts about the local government");
+            return new GameActionResult($"You learn some interesting facts about the local people");
+        }
+
+        private GameActionResult performReceiveItem(TravelManager travelManager)
+        {
+            var tool = MerchandiseGenerator.GenerateItem(ItemCategory.Tool);
+
+            travelManager.AddItem(tool);
+            return new GameActionResult($"As a sign of good will, you are gifted a useful <style=C1>{tool}</style>");
         }
 
         private GameActionResult performMakeFriends(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Reputation);
-            return new GameActionResult($"You spend some time making friends with the other patrons");
+            return new GameActionResult($"You make friends with some of the locals");
         }
 
         private GameActionResult performMakeEnemies(TravelManager travelManager)
@@ -86,5 +80,7 @@ namespace Vagabondo.Actions
 
             return new GameActionResult($"You get involved in a fight and get the worst of it");
         }
+
     }
+
 }

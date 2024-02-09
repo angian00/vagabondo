@@ -5,7 +5,7 @@ namespace Vagabondo.Actions
 {
     public class LibraryAction : GameAction
     {
-        public LibraryAction() : base(GameActionType.Library)
+        public LibraryAction(Town townData) : base(GameActionType.Library, townData)
         {
             this.title = "Go to the library";
             this.description = "Browse through the books of the local library";
@@ -13,7 +13,7 @@ namespace Vagabondo.Actions
 
         public override GameActionResult Perform(TravelManager travelManager)
         {
-            travelManager.IncrementStat(StatId.KnowledgeLanguages);
+            travelManager.IncrementStat(StatId.Languages);
 
             return new GameActionResult($"You become more erudite than you were before");
         }

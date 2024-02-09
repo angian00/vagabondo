@@ -30,7 +30,7 @@ namespace Vagabondo.Generators
         }
 
 
-        public static List<FoodIngredient> GenerateFoodIngredients(Biome biome, int nIngredients = 10)
+        public static List<FoodIngredient> GenerateFoodIngredients(int nIngredients = 10)
         {
             List<FoodIngredient> res = new();
             for (int iIngredient = 0; iIngredient < nIngredients; iIngredient++)
@@ -91,7 +91,7 @@ namespace Vagabondo.Generators
 
                 var foodItem = new FoodItem();
 
-                foodItem.category = template.category;
+                foodItem.foodCategory = template.category;
                 foodItem.preparation = template.preparation;
                 foodItem.preparationQuality = randomQuality();
 
@@ -136,7 +136,8 @@ namespace Vagabondo.Generators
 
         public static FoodItem GenerateFoodItem(Biome biome, int nIngredients = 10)
         {
-            var availableIngredients = GenerateFoodIngredients(biome, nIngredients);
+            //var availableIngredients = GenerateFoodIngredients(biome, nIngredients);
+            var availableIngredients = GenerateFoodIngredients(nIngredients);
 
             Debug.Log("Generated ingredients:");
             foreach (var ingredient in availableIngredients)
@@ -147,12 +148,21 @@ namespace Vagabondo.Generators
 
         public static List<FoodItem> GenerateFoodItems(Predicate<FoodItem> itemFilter, int nItems = 10)
         {
+            var nIngredients = nItems * 100;
+            var availableIngredients = GenerateFoodIngredients(nIngredients);
+
+            var nTries = nItems * 100;
+            var iTry = 0;
             List<FoodItem> res = new();
-            for (int iItem = 0; iItem < nItems; iItem++)
+            while (true)
             {
-                //var item = new FoodItem();
-                //res.Add(ingredient);
-                TODO
+                iTry++;
+                if (res.Count >= nItems || iTry >= nTries)
+                    break;
+
+                var item = GenerateFoodItem(availableIngredients);
+                if (item != null && itemFilter == null || itemFilter(item))
+                    res.Add(item);
             }
 
             return res;
@@ -240,7 +250,7 @@ namespace Vagabondo.Generators
         }
 
 
-        private static ItemQuality randomQuality()
+        public static ItemQuality randomQuality()
         {
             var values = new List<ItemQuality>() {
                 ItemQuality.Terrible,

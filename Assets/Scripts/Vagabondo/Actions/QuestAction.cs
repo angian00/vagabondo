@@ -7,7 +7,7 @@ namespace Vagabondo.Actions
     {
         private QuestState questState;
 
-        public QuestAction(QuestState questState) : base(GameActionType.Quest)
+        public QuestAction(QuestState questState, Town townData) : base(GameActionType.Quest, townData)
         {
             this.questState = questState;
             this.title = questState.actionTitle;

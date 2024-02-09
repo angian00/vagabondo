@@ -71,6 +71,7 @@ namespace Vagabondo.Behaviours
                 newItemObj.GetComponent<ShopItemBehaviour>().Parent = this;
                 newItemObj.GetComponent<ShopItemBehaviour>().Data = item;
                 newItemObj.GetComponent<ShopItemBehaviour>().IsTravelerSelling = true;
+                newItemObj.GetComponent<ShopItemBehaviour>().Interactable = true;
             }
 
             if (_shopInventory != null)

@@ -5,12 +5,14 @@ namespace Vagabondo.Actions
 {
     public enum GameActionType
     {
-        Forage,
         Explore,
         Tavern,
         Shop,
         Library,
-        SketchyDeal,
+
+        ChatLocals,
+        ChatCriminals,
+
         Quest,
     }
 
@@ -19,10 +21,12 @@ namespace Vagabondo.Actions
         public GameActionType type;
         public string title;
         public string description;
+        public Town townData;
 
-        public GameAction(GameActionType type)
+        public GameAction(GameActionType type, Town townData)
         {
             this.type = type;
+            this.townData = townData;
         }
 
         public virtual bool CanPerform(Traveler travelerData)

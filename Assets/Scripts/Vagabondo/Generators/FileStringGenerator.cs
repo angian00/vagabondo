@@ -13,7 +13,7 @@ namespace Vagabondo.Generators
         //public static FileStringGenerator Sites = new FileStringGenerator("namesSitesInternational");
         public static FileStringGenerator Sites = new FileStringGenerator("namesSitesItalia");
         public static FileStringGenerator Regions = new FileStringGenerator("namesRegionsMilano");
-        public static FileStringGenerator Herbs = new FileStringGenerator("namesHerbs");
+        public static FileStringGenerator WildPlants = new FileStringGenerator("namesWildPlants");
 
 
         protected FileStringGenerator(string sourceFile) : this(new string[] { sourceFile }) { }

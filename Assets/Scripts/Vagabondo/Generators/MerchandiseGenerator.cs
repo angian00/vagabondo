@@ -6,28 +6,60 @@ namespace Vagabondo.Generators
 {
     public class MerchandiseGenerator
     {
-        //public static MerchandiseItem GenerateHerb(Biome biome)
-        //{
-        //    var merchItem = new MerchandiseItem();
-        //    merchItem.category = MerchandiseItem.Category.Herb;
-        //    merchItem.text = FileStringGenerator.Herbs.GenerateString();
-        //    merchItem.basePrice = Random.Range(1, 200);
+        public static TradableItem GenerateItem(ItemCategory category)
+        {
+            switch (category)
+            {
+                case ItemCategory.WildPlant:
+                    return generateWildPlant();
 
-        //    return merchItem;
-        //}
+                case ItemCategory.Tool:
+                    return generateItemOther("hammer", ItemCategory.Tool);
 
-        //public static MerchandiseItem GenerateFood(Town town)
-        //{
-        //    var merchItem = new MerchandiseItem();
-        //    merchItem.category = MerchandiseItem.Category.Food;
-        //    merchItem.text = GetGrammar(GrammarId.Food).GenerateText();
-        //    merchItem.basePrice = Random.Range(1, 200);
-        //    merchItem.quality = MerchandiseItem.Quality.Standard;
+                default:
+                    throw new NotImplementedException();
+            }
+        }
 
-        //    return merchItem;
-        //}
+        private static TradableItem generateWildPlant()
+        {
+            var plant = new Plant();
+            plant.name = FileStringGenerator.WildPlants.GenerateString();
+            plant.quality = FoodGenerator.randomQuality();
+            plant.baseValue = 10;
 
-        public static List<TradableItem> GenerateInventoryFood(ShopType shopType)
+            return plant;
+        }
+
+        private static TradableItem generateItemOther(string name, ItemCategory category)
+        {
+            var item = new HouseholdItem();
+            item.name = name;
+            item.category = category;
+            item.quality = FoodGenerator.randomQuality();
+            item.baseValue = 10;
+
+            return item;
+        }
+
+        public static List<TradableItem> GenerateInventory(ShopType shopType)
+        {
+            switch (shopType)
+            {
+                case ShopType.Tavern:
+                case ShopType.Bakery:
+                    return GenerateInventoryFood(shopType);
+
+                case ShopType.Butchery:
+                    return GenerateInventoryFoodIngredients(shopType);
+
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+
+        private static List<TradableItem> GenerateInventoryFood(ShopType shopType)
         {
             //FUTURE: inventory is influenced by town data
             const int inventorySize = 12;
@@ -38,11 +70,16 @@ namespace Vagabondo.Generators
             switch (shopType)
             {
                 case ShopType.Tavern:
-                    itemFilter = (foodItem) => (foodItem.category == FoodItemCategory.Drink);
+                    itemFilter = (foodItem) => (foodItem.foodCategory == FoodItemCategory.Drink);
                     break;
 
                 case ShopType.Bakery:
-                    itemFilter = (foodItem) => (foodItem.category == FoodItemCategory.Bread || foodItem.category == FoodItemCategory.Dessert);
+                    //itemFilter = (foodItem) => (foodItem.category == FoodItemCategory.Bread || foodItem.category == FoodItemCategory.Dessert);
+                    itemFilter = (foodItem) => (foodItem.foodCategory == FoodItemCategory.Bread);
+                    break;
+
+                case ShopType.Butchery:
+                    itemFilter = (foodItem) => (foodItem.foodCategory == FoodItemCategory.Bread);
                     break;
 
                 default:
@@ -50,6 +87,29 @@ namespace Vagabondo.Generators
             }
 
             result.AddRange(FoodGenerator.GenerateFoodItems(itemFilter, inventorySize));
+
+            return result;
+        }
+
+        private static List<TradableItem> GenerateInventoryFoodIngredients(ShopType shopType)
+        {
+            //FUTURE: inventory is influenced by town data
+            const int inventorySize = 12;
+
+            var result = new List<TradableItem>();
+            Predicate<FoodIngredientDef> ingredientFilter;
+
+            switch (shopType)
+            {
+                case ShopType.Butchery:
+                    ingredientFilter = (foodIngredientDef) => (foodIngredientDef.category == FoodIngredientCategory.Meat);
+                    break;
+
+                default:
+                    throw new NotImplementedException();
+            }
+
+            result.AddRange(FoodGenerator.GenerateFoodIngredients(ingredientFilter, inventorySize));
 
             return result;
         }

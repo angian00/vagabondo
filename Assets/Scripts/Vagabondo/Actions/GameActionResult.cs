@@ -10,6 +10,9 @@ namespace Vagabondo.Actions
         MakeFriends,
         MakeEnemies,
         Injury,
+        Learn,
+        ReceiveItem,
+        LoseMoney,
     }
 
 
@@ -21,17 +24,6 @@ namespace Vagabondo.Actions
             this.text = text;
         }
     }
-
-    public class ItemAcquiredActionResult : GameActionResult
-    {
-        public GameItem item;
-
-        public ItemAcquiredActionResult(string text, GameItem item) : base(text)
-        {
-            this.item = item;
-        }
-    }
-
 
     public class ShopActionResult : GameActionResult
     {

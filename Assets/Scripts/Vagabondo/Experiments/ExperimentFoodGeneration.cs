@@ -24,7 +24,7 @@ namespace Vagabondo.Experiment
             else
             {
                 textBuilder.Append($"name: {foodItem.name} \n");
-                textBuilder.Append($"category: {foodItem.category} \n");
+                textBuilder.Append($"category: {foodItem.foodCategory} \n");
                 textBuilder.Append($"preparation: {DataUtils.EnumToStr(foodItem.preparation)} \n");
                 textBuilder.Append($"baseValue: {foodItem.baseValue} \n");
                 textBuilder.Append($"ingredientCategories: \n");

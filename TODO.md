@@ -1,13 +1,37 @@
 # TODO
 - town and event actions
-	- reorganize merchandise ui flow
-		- generalizzare categorie di tradableitem
-		+ rendere scrollabile gli inventory
+	- Church
+	- Monastery
+	- TownHall
+	- Tavern
+	- Library
 
-	- implement chosen actions
+	+ generazione wild animals (by biome)
+
+- data
 	- fill in building generation metadata
-	- reorganize traveler stats
+	- wild plants list
+	- improve quest action templates
 
+- trading
+	- filtrare tipi di item vendibili per shop
+	+ prezzi diversi di vendita e acquisto
+	? alcuni "shop" (es. farm) vendono tipi diversi da quelli che comprano
+	
+	- refactoring:
+		- make TradableItem as class, and food/foodIngredients/herbs as its Components
+		- generalizzare concetto di "ricetta" vs. "ingredient"; pensare a "semilavorato" (prodotto di ricetta che e' anche ingrediente)
+
+- food generation
+	- aggiungere frequency a foodItemTemplates
+	- aggiungere templates per food raw
+
+- reorganize traveler stats
+
+- ui
+	- skip ActionResult for shops
+	- fix overflow testo e/o aggiungere tooltip con testo completo
+	+ rendere scrollabile gli inventory
 
 - manage defeat
 

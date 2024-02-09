@@ -2,10 +2,11 @@ namespace Vagabondo.DataModel
 {
     public enum StatId
     {
-        KnowledgeNature,
-        KnowledgeLanguages,
+        Nature,
+        Languages,
         Exoterism,
         Diplomacy,
         Reputation,
+        StreetSmarts,
     }
 }

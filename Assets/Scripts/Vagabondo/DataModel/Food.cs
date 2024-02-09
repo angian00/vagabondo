@@ -35,6 +35,7 @@ namespace Vagabondo.DataModel
     {
         public FoodIngredientDef definition;
         public string name { get => definition.name; }
+        public ItemCategory category { get => ItemCategory.FoodIngredient; }
         public ItemQuality quality { get; set; }
         public int baseValue { get => definition.baseValue; }
         public int currentPrice { get; set; }
@@ -79,8 +80,9 @@ namespace Vagabondo.DataModel
     public class FoodItem : TradableItem
     {
         public string name { get; set; }
+        public ItemCategory category { get => foodCategory == FoodItemCategory.Drink ? ItemCategory.Drink : ItemCategory.Food; }
 
-        public FoodItemCategory category;
+        public FoodItemCategory foodCategory;
         public List<FoodIngredient> ingredients = new();
         public FoodPreparation preparation;
         public ItemQuality preparationQuality;

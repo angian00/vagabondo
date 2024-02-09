@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Vagabondo\Generators\EnumGenerator.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\DataModel\Plant.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\SubstitutionGrammar.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\ChoiceTree.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\ShopAction.cs" />
@@ -69,8 +70,8 @@
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\CommentRemover.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Biome.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Town.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\SketchyDealAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\UnityUtils.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Actions\ChatLocalsAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\GameAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ShopUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RefExpansion.cs" />
@@ -91,10 +92,10 @@
     <Compile Include="Assets\Scripts\Vagabondo\Managers\EventManager.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\MerchandiseGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Managers\TravelManager.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Actions\ChatCriminalsAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\DominionGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\LibraryAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\FoodGenerator.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\FoodGiftAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RichGrammarParser.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Dominion.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\StatId.cs" />
@@ -111,7 +112,6 @@
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Memory.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RichGrammarModifiers.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Experiments\ExperimentSubstitutionGrammar.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\ForageAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TrinketGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TemplatedStringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Managers\PriceEvaluator.cs" />
@@ -141,7 +141,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Resources\Data\Generators\namesSitesItalia.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Resources\Data\Generators\namesHerbs.txt" />
+    <None Include="Assets\Resources\Data\Generators\namesWildPlants.txt" />
     <None Include="Assets\Resources\Data\Grammars\irregularNouns.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />

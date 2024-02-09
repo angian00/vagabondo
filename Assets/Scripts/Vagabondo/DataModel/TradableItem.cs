@@ -9,13 +9,32 @@ namespace Vagabondo.DataModel
         Exceptional = 2,
     }
 
-    public interface GameItem { }
+    public enum ItemCategory
+    {
+        FoodIngredient,
+        Food,
+        Drink,
+        WildPlant,
+
+        Tool,
+        //...
+    }
 
     public interface TradableItem
     {
         public string name { get; }
+        public ItemCategory category { get; }
         public ItemQuality quality { get; }
         public int baseValue { get; }
+        public int currentPrice { get; set; }
+    }
+
+    public class HouseholdItem : TradableItem
+    {
+        public string name { get; set; }
+        public ItemCategory category { get; set; }
+        public ItemQuality quality { get; set; }
+        public int baseValue { get; set; }
         public int currentPrice { get; set; }
     }
 

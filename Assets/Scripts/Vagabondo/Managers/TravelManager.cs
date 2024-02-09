@@ -96,6 +96,18 @@ namespace Vagabondo.Managers
         }
 
 
+        public void AddItem(TradableItem item)
+        {
+            travelerData.merchandise.Add(item);
+            EventManager.PublishTravelerChanged(travelerData);
+        }
+
+        public void RemoveItem(TradableItem item)
+        {
+            travelerData.merchandise.Remove(item);
+            EventManager.PublishTravelerChanged(travelerData);
+        }
+
         public void TradeItem(TradableItem item, bool isTravelerSelling)
         {
             if (isTravelerSelling)
@@ -170,7 +182,7 @@ namespace Vagabondo.Managers
             if (UnityEngine.Random.value < questActionProbability)
             {
                 var questState = activeQuest.GetCurrentState();
-                var questAction = new QuestAction(questState);
+                var questAction = new QuestAction(questState, townData);
                 townData.actions.Add(questAction);
             }
         }

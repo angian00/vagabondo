@@ -154,7 +154,6 @@ namespace Vagabondo.Generators
 
             //DEBUG
             //buildings.Add(TownBuilding.Tavern);
-            buildings.Add(TownBuilding.Bakery);
             //
             town.buildings = buildings;
         }

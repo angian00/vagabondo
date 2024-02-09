@@ -9,7 +9,7 @@ namespace Vagabondo.Actions
     {
         public ShopType shopType;
 
-        public ShopAction(ShopType shopType) : base(GameActionType.Shop)
+        public ShopAction(ShopType shopType, Town townData) : base(GameActionType.Shop, townData)
         {
             this.shopType = shopType;
             this.title = $"Go to the local {DataUtils.EnumToStr(shopType)}";
@@ -18,7 +18,7 @@ namespace Vagabondo.Actions
 
         public override GameActionResult Perform(TravelManager travelManager)
         {
-            var shopInventory = MerchandiseGenerator.GenerateInventoryFood(shopType);
+            var shopInventory = MerchandiseGenerator.GenerateInventory(shopType);
             PriceEvaluator.UpdatePrices(shopInventory);
             return new ShopActionResult("", shopInventory);
         }
