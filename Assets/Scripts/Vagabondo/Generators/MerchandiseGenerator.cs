@@ -1,48 +1,39 @@
 using System;
 using System.Collections.Generic;
 using Vagabondo.DataModel;
+using Vagabondo.Utils;
 
 namespace Vagabondo.Generators
 {
     public class MerchandiseGenerator
     {
-        public static TradableItem GenerateItem(ItemCategory category)
+        public static GameItem GenerateItem(ItemCategory category)
         {
             switch (category)
             {
                 case ItemCategory.WildPlant:
-                    return generateWildPlant();
+                    return generateItem(FileStringGenerator.WildPlants.GenerateString(), ItemCategory.WildPlant);
 
                 case ItemCategory.Tool:
-                    return generateItemOther("hammer", ItemCategory.Tool);
+                    return generateItem("hammer", ItemCategory.Tool);
 
                 default:
                     throw new NotImplementedException();
             }
         }
 
-        private static TradableItem generateWildPlant()
+        private static GameItem generateItem(string name, ItemCategory category)
         {
-            var plant = new Plant();
-            plant.name = FileStringGenerator.WildPlants.GenerateString();
-            plant.quality = FoodGenerator.randomQuality();
-            plant.baseValue = 10;
-
-            return plant;
-        }
-
-        private static TradableItem generateItemOther(string name, ItemCategory category)
-        {
-            var item = new HouseholdItem();
+            var item = new GameItem();
             item.name = name;
             item.category = category;
-            item.quality = FoodGenerator.randomQuality();
+            item.quality = RandomUtils.RandomQuality();
             item.baseValue = 10;
 
             return item;
         }
 
-        public static List<TradableItem> GenerateInventory(ShopType shopType)
+        public static List<GameItem> GenerateInventory(ShopType shopType)
         {
             switch (shopType)
             {
@@ -59,27 +50,27 @@ namespace Vagabondo.Generators
         }
 
 
-        private static List<TradableItem> GenerateInventoryFood(ShopType shopType)
+        private static List<GameItem> GenerateInventoryFood(ShopType shopType)
         {
             //FUTURE: inventory is influenced by town data
             const int inventorySize = 12;
 
-            var result = new List<TradableItem>();
-            Predicate<FoodItem> itemFilter;
+            var result = new List<GameItem>();
+            Predicate<GameItem> itemFilter;
 
             switch (shopType)
             {
                 case ShopType.Tavern:
-                    itemFilter = (foodItem) => (foodItem.foodCategory == FoodItemCategory.Drink);
+                    itemFilter = (foodItem) => (foodItem.category == ItemCategory.Drink);
                     break;
 
                 case ShopType.Bakery:
                     //itemFilter = (foodItem) => (foodItem.category == FoodItemCategory.Bread || foodItem.category == FoodItemCategory.Dessert);
-                    itemFilter = (foodItem) => (foodItem.foodCategory == FoodItemCategory.Bread);
+                    itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Bread);
                     break;
 
                 case ShopType.Butchery:
-                    itemFilter = (foodItem) => (foodItem.foodCategory == FoodItemCategory.Bread);
+                    itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Bread);
                     break;
 
                 default:
@@ -91,18 +82,18 @@ namespace Vagabondo.Generators
             return result;
         }
 
-        private static List<TradableItem> GenerateInventoryFoodIngredients(ShopType shopType)
+        private static List<GameItem> GenerateInventoryFoodIngredients(ShopType shopType)
         {
             //FUTURE: inventory is influenced by town data
             const int inventorySize = 12;
 
-            var result = new List<TradableItem>();
+            var result = new List<GameItem>();
             Predicate<FoodIngredientDef> ingredientFilter;
 
             switch (shopType)
             {
                 case ShopType.Butchery:
-                    ingredientFilter = (foodIngredientDef) => (foodIngredientDef.category == FoodIngredientCategory.Meat);
+                    ingredientFilter = (foodIngredientDef) => (foodIngredientDef.subcategory == ItemSubcategory.Meat);
                     break;
 
                 default:

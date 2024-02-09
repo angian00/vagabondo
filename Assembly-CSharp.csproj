@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Vagabondo\Generators\EnumGenerator.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\DataModel\Plant.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\SubstitutionGrammar.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\ChoiceTree.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\ShopAction.cs" />
@@ -76,7 +75,6 @@
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ShopUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RefExpansion.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\ExploreAction.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\DataModel\TradableItem.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TownGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Experiments\ExperimentFoodGeneration.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Quest.cs" />
@@ -100,6 +98,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Dominion.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\StatId.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\TavernAction.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\DataModel\GameItem.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\ActionGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\FileStringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ActionButtonBehaviour.cs" />

@@ -4,7 +4,7 @@
 	//-----------------------------------------------
 	{
 		"name": "#ingredient1# bread",
-		"category": "bread",
+		"subcategory": "bread",
 		"ingredientCategories": [
 			"grain",
 		],
@@ -12,7 +12,7 @@
 	},
 	{
 		"name": "#ingredient2# crackers",
-		"category": "bread",
+		"subcategory": "bread",
 		"ingredientNames": [
 			"salt",
 		],
@@ -27,7 +27,7 @@
 	//-----------------------------------------------
 	{
 		"name": "boiled #ingredient1.s#",
-		"category": "breakfast",
+		"subcategory": "breakfast",
 		"ingredientCategories": [
 			"grain",
 		],
@@ -35,7 +35,7 @@
 	},
 	{
 		"name": "#ingredient1# gruel",
-		"category": "breakfast",
+		"subcategory": "breakfast",
 		"ingredientCategories": [
 			"grain",
 			"dairy",
@@ -44,7 +44,7 @@
 	},
 	{
 		"name": "#ingredient1# and #ingredient2# porridge",
-		"category": "breakfast",
+		"subcategory": "breakfast",
 		"ingredientCategories": [
 			"grain",
 			"fruit",
@@ -58,7 +58,7 @@
 	//-----------------------------------------------
 	{
 		"name": "#ingredient1# and #ingredient2# soup",
-		"category": "soup",
+		"subcategory": "soup",
 		"ingredientCategories": [
 			"vegetable",
 			"vegetable",
@@ -68,7 +68,7 @@
 	},
 	{
 		"name": "boiled #ingredient1.s#",
-		"category": "soup",
+		"subcategory": "soup",
 		"ingredientCategories": [
 			"vegetable",
 		],
@@ -76,7 +76,7 @@
 	},
 	{
 		"name": "#ingredient1# soup",
-		"category": "soup",
+		"subcategory": "soup",
 		"ingredientCategories": [
 			"legume",
 			"vegetable",
@@ -86,7 +86,7 @@
 	},
 	{
 		"name": "#ingredient1# dumplings",
-		"category": "soup",
+		"subcategory": "soup",
 		"ingredientCategories": [
 			"meat",
 			"grain",
@@ -95,7 +95,7 @@
 	},
 	{
 		"name": "#ingredient1# dumplings",
-		"category": "soup",
+		"subcategory": "soup",
 		"ingredientCategories": [
 			"vegetable",
 			"cheese",
@@ -109,7 +109,7 @@
 	//-----------------------------------------------
 	{
 		"name": "#ingredient1# roast",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientCategories": [
 			"meat",
 			"herb",
@@ -118,7 +118,7 @@
 	},
 	{
 		"name": "roasted #ingredient1.s#",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientCategories": [
 			"fish",
 		],
@@ -126,7 +126,7 @@
 	},
 	{
 		"name": "#ingredient1# stew",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientCategories": [
 			"meat",
 			"vegetable",
@@ -135,7 +135,7 @@
 	},
 	{
 		"name": "#ingredient1# and #ingredient2# stew",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientCategories": [
 			"meat",
 			"fruit",
@@ -144,7 +144,7 @@
 	},
 	{
 		"name": "#ingredient1# pottage",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientCategories": [
 			"meat",
 			"grain",
@@ -154,7 +154,7 @@
 	},
 	{
 		"name": "#ingredient1# stew",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientCategories": [
 			"fish",
 			"vegetable",
@@ -164,7 +164,7 @@
 	},
 	{
 		"name": "#ingredient1# and #ingredient2# stew",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientCategories": [
 			"fish",
 			"fruit",
@@ -177,7 +177,7 @@
 	//-----------------------------------------------
 	{
 		"name": "#ingredient2# pastry",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientNames": [
 			"wheat",
 		],
@@ -189,7 +189,7 @@
 	},
 	{
 		"name": "#ingredient2# pastry",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientNames": [
 			"wheat",
 		],
@@ -201,7 +201,7 @@
 	},
 	{
 		"name": "stuffed #ingredient1.s#",
-		"category": "mainCourse",
+		"subcategory": "mainCourse",
 		"ingredientCategories": [
 			"meat",
 			"vegetable",
@@ -210,7 +210,7 @@
 	},
 	{
 		"name": "#ingredient2# bacon",
-		"category": "breakfast",
+		"subcategory": "breakfast",
 		"ingredientNames": [
 			"lard",
 		],
@@ -226,7 +226,7 @@
 	//-----------------------------------------------
 	{
 		"name": "pancakes",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"eggs",
 			"honey",
@@ -236,7 +236,7 @@
 	},
 	{
 		"name": "krapfen",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"eggs",
 			"sugar",
@@ -246,7 +246,7 @@
 	},
 	{
 		"name": "marzipan",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"eggs",
 			"sugar",
@@ -257,7 +257,7 @@
 	},
 	{
 		"name": "#ingredient3# tart",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"eggs",
 			"wheat",
@@ -269,7 +269,7 @@
 	},
 	{
 		"name": "#ingredient2# sherbet",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"sugar",
 		],
@@ -280,7 +280,7 @@
 	},
 	{
 		"name": "cassata",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"wheat",
 			"ricotta",
@@ -294,7 +294,7 @@
 	},
 	{
 		"name": "cannoli",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"wheat",
 			"ricotta",
@@ -308,7 +308,7 @@
 	},
 	{
 		"name": "puff pastry",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"wheat",
 			"butter",
@@ -318,7 +318,7 @@
 	},
 	{
 		"name": "pudding",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"eggs",
 			"sugar",
@@ -330,7 +330,7 @@
 	},
 	{
 		"name": "candied #ingredient2.s#",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientNames": [
 			"sugar",
 		],
@@ -341,7 +341,7 @@
 	},
 	{
 		"name": "tipsy #ingredient1.s#",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientCategories": [
 			"fruit",
 			"drink",
@@ -356,7 +356,7 @@
 	//-----------------------------------------------
 	{
 		"name": "salted #ingredient2.s#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientNames": [
 			"salt",
 		],
@@ -367,7 +367,7 @@
 	},
 	{
 		"name": "#ingredient1# sausages",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientCategories": [
 			"meat",
 		],
@@ -375,7 +375,7 @@
 	},
 	{
 		"name": "#ingredient2# salami",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientNames": [
 			"salt",
 		],
@@ -388,7 +388,7 @@
 	},
 	{
 		"name": "#ingredient1# ham",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientCategories": [
 			"meat",
 			"herb",
@@ -397,7 +397,7 @@
 	},
 	{
 		"name": "dried #ingredient1.s#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientCategories": [
 			"meat",
 		],
@@ -405,7 +405,7 @@
 	},
 	{
 		"name": "dried #ingredient1.s#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientCategories": [
 			"fish",
 		],
@@ -413,7 +413,7 @@
 	},
 	{
 		"name": "dried #ingredient1.s#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientCategories": [
 			"fruit",
 		],
@@ -421,7 +421,7 @@
 	},
 	{
 		"name": "smoked #ingredient1.s#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientCategories": [
 			"meat",
 			"herb",
@@ -431,7 +431,7 @@
 
 	{
 		"name": "#ingredient1# jam",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientCategories": [
 			"fruit",
 		],
@@ -440,7 +440,7 @@
 
 	{
 		"name": "fermented #ingredient1.s#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientCategories": [
 			"grain",
 		],
@@ -448,7 +448,7 @@
 	},
 	{
 		"name": "fermented #ingredient1.s#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientCategories": [
 			"vegetable",
 		],
@@ -456,7 +456,7 @@
 	},
 	{
 		"name": "sour #ingredient2.s#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientNames": [
 			"vinegar",
 		],
@@ -469,7 +469,7 @@
 
 	{
 		"name": "honey-glazed #ingredient2.s#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientNames": [
 			"honey",
 		],
@@ -480,7 +480,7 @@
 	},
 	{
 		"name": "honey-glazed #ingredient2#",
-		"category": "preserve",
+		"subcategory": "preserve",
 		"ingredientNames": [
 			"honey",
 		],
@@ -495,7 +495,7 @@
 	//-----------------------------------------------
 	{
 		"name": "#ingredient1#",
-		"category": "drink",
+		"subcategory": "drink",
 		"ingredientCategories": [
 			"drink",
 		],
@@ -503,7 +503,7 @@
 	},
 	{
 		"name": "#ingredient1#",
-		"category": "dessert",
+		"subcategory": "dessert",
 		"ingredientCategories": [
 			"cheese",
 		],

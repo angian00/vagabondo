@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Vagabondo.DataModel;
 using Random = UnityEngine.Random;
 
 
@@ -19,6 +20,20 @@ namespace Vagabondo.Utils
                 values[k] = values[n];
                 values[n] = value;
             }
+        }
+
+        public static ItemQuality RandomQuality()
+        {
+            var values = new List<ItemQuality>() {
+                ItemQuality.Terrible,
+                ItemQuality.Poor,
+                ItemQuality.Standard,
+                ItemQuality.Good,
+                ItemQuality.Exceptional
+            };
+            var weights = new List<int>() { 1, 10, 60, 10, 1 };
+
+            return RandomChooseWeighted(values, weights);
         }
 
         public static T RandomChoose<T>(List<T> values)

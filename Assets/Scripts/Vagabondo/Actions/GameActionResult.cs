@@ -27,9 +27,9 @@ namespace Vagabondo.Actions
 
     public class ShopActionResult : GameActionResult
     {
-        public readonly List<TradableItem> shopInventory;
+        public readonly List<GameItem> shopInventory;
 
-        public ShopActionResult(string text, List<TradableItem> shopInventory) : base(text)
+        public ShopActionResult(string text, List<GameItem> shopInventory) : base(text)
         {
             this.shopInventory = shopInventory;
         }

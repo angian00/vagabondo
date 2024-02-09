@@ -21,8 +21,8 @@ namespace Vagabondo.Behaviours
         [SerializeField]
         private GameObject tradableItemTemplate;
 
-        private List<TradableItem> _shopInventory;
-        public List<TradableItem> ShopInventory { set { _shopInventory = value; updateShopInventory(); } }
+        private List<GameItem> _shopInventory;
+        public List<GameItem> ShopInventory { set { _shopInventory = value; updateShopInventory(); } }
 
         private Traveler _travelerData;
 
@@ -42,13 +42,13 @@ namespace Vagabondo.Behaviours
             UnityUtils.HideUIView(gameObject);
         }
 
-        public void RemoveFromShopInventory(TradableItem item)
+        public void RemoveFromShopInventory(GameItem item)
         {
             _shopInventory.Remove(item);
             updateShopInventory();
         }
 
-        public void AddToShopInventory(TradableItem item)
+        public void AddToShopInventory(GameItem item)
         {
             _shopInventory.Add(item);
             updateShopInventory();

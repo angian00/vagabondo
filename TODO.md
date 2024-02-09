@@ -10,7 +10,6 @@
 
 - data
 	- fill in building generation metadata
-	- wild plants list
 	- improve quest action templates
 
 - trading
@@ -18,9 +17,8 @@
 	+ prezzi diversi di vendita e acquisto
 	? alcuni "shop" (es. farm) vendono tipi diversi da quelli che comprano
 	
-	- refactoring:
+- refactoring:
 		- make TradableItem as class, and food/foodIngredients/herbs as its Components
-		- generalizzare concetto di "ricetta" vs. "ingredient"; pensare a "semilavorato" (prodotto di ricetta che e' anche ingrediente)
 
 - food generation
 	- aggiungere frequency a foodItemTemplates

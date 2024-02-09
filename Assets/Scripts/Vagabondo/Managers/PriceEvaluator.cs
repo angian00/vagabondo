@@ -16,13 +16,13 @@ namespace Vagabondo.Managers
         };
 
 
-        public static void UpdatePrices(List<TradableItem> items)
+        public static void UpdatePrices(List<GameItem> items)
         {
             foreach (var item in items)
                 UpdatePrice(item);
         }
 
-        public static void UpdatePrice(TradableItem item)
+        public static void UpdatePrice(GameItem item)
         {
             //TODO: use townData to influence currentPrice
             item.currentPrice = (int)Math.Round(item.baseValue * qualityValueMultiplier[item.quality]);

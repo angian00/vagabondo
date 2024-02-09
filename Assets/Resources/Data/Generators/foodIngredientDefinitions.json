@@ -2,371 +2,371 @@
   {
     "name": "wheat",
     "isPluralizable": false,
-    "category": "grain",
+    "subcategory": "grain",
     "baseValue": 5,
     "frequency": 80
   },
   {
     "name": "rye",
     "isPluralizable": false,
-    "category": "grain",
+    "subcategory": "grain",
     "baseValue": 5,
     "frequency": 80
   },
   {
     "name": "spelt",
     "isPluralizable": false,
-    "category": "grain",
+    "subcategory": "grain",
     "baseValue": 5,
     "frequency": 70
   },
   {
     "name": "barley",
     "isPluralizable": false,
-    "category": "grain",
+    "subcategory": "grain",
     "baseValue": 5,
     "frequency": 70
   },
   {
     "name": "buckwheat",
     "isPluralizable": false,
-    "category": "grain",
+    "subcategory": "grain",
     "baseValue": 5,
     "frequency": 50
   },
   {
     "name": "millet",
     "isPluralizable": false,
-    "category": "grain",
+    "subcategory": "grain",
     "baseValue": 5,
     "frequency": 60
   },
   {
     "name": "oats",
     "isPluralizable": false,
-    "category": "grain",
+    "subcategory": "grain",
     "baseValue": 5,
     "frequency": 70
   },
   {
     "name": "sorghum",
     "isPluralizable": false,
-    "category": "grain",
+    "subcategory": "grain",
     "baseValue": 5,
     "frequency": 40
   },
   {
     "name": "lettuce",
     "isPluralizable": false,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 2,
     "frequency": 50
   },
   {
     "name": "cabbage",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 50
   },
   {
     "name": "beet",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 40
   },
   {
     "name": "onion",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 50
   },
   {
     "name": "garlic",
     "isPluralizable": false,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 30
   },
   {
     "name": "carrot",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 30
   },
   {
     "name": "turnip",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 40
   },
   {
     "name": "chard",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 15,
     "frequency": 20
   },
   {
     "name": "chicory",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 20
   },
   {
     "name": "cucumber",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 10,
     "frequency": 20
   },
   {
     "name": "gourd",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 10,
     "frequency": 10
   },
   {
     "name": "parsnip",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 20
   },
   {
     "name": "leek",
     "isPluralizable": false,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 20
   },
   {
     "name": "shallot",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 20
   },
   {
     "name": "celery",
     "isPluralizable": false,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 30
   },
   {
     "name": "fennel",
     "isPluralizable": false,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 10,
     "frequency": 30
   },
   {
     "name": "radish",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 5,
     "frequency": 20
   },
   {
     "name": "artichoke",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 20,
     "frequency": 10
   },
   {
     "name": "olive",
     "isPluralizable": true,
-    "category": "vegetable",
+    "subcategory": "vegetable",
     "baseValue": 10,
     "frequency": 25
   },
   {
     "name": "chickpea",
     "isPluralizable": true,
-    "category": "legume",
+    "subcategory": "legume",
     "baseValue": 10,
     "frequency": 50
   },
   {
     "name": "fava bean",
     "isPluralizable": true,
-    "category": "legume",
+    "subcategory": "legume",
     "baseValue": 15,
     "frequency": 30
   },
   {
     "name": "pea",
     "isPluralizable": true,
-    "category": "legume",
+    "subcategory": "legume",
     "baseValue": 10,
     "frequency": 30
   },
   {
     "name": "grass pea",
     "isPluralizable": true,
-    "category": "legume",
+    "subcategory": "legume",
     "baseValue": 10,
     "frequency": 50
   },
   {
     "name": "lemon",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 15,
     "frequency": 20
   },
   {
     "name": "citron",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 20,
     "frequency": 8
   },
   {
     "name": "bitter orange",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 20,
     "frequency": 10
   },
   {
     "name": "pomegranate",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 20,
     "frequency": 12
   },
   {
     "name": "quince",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 10,
     "frequency": 20
   },
   {
     "name": "grape",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 10,
     "frequency": 20
   },
   {
     "name": "apple",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 5,
     "frequency": 50
   },
   {
     "name": "pear",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 7,
     "frequency": 30
   },
   {
     "name": "plum",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 8,
     "frequency": 25
   },
   {
     "name": "strawberry",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 10,
     "frequency": 25
   },
   {
     "name": "fig",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 8,
     "frequency": 40
   },
   {
     "name": "date",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 30,
     "frequency": 5
   },
   {
     "name": "peach",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 20,
     "frequency": 20
   },
   {
     "name": "apricot",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 20,
     "frequency": 20
   },
   {
     "name": "cherry",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 15,
     "frequency": 25
   },
   {
     "name": "sorb",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 10,
     "frequency": 30
   },
   {
     "name": "carob",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 5,
     "frequency": 25
   },
   {
     "name": "Cornelian cherry",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 12,
     "frequency": 30
   },
   {
     "name": "watermelon",
     "isPluralizable": false,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 8,
     "frequency": 30
   },
   {
     "name": "melon",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 10,
     "frequency": 25
   },
   {
     "name": "medlar",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 15,
     "frequency": 20
   },
   {
     "name": "wild strawberry",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 20,
     "frequency": 10,
     "tags": "wild"
@@ -374,7 +374,7 @@
   {
     "name": "blackberry",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 12,
     "frequency": 10,
     "tags": "wild"
@@ -382,7 +382,7 @@
   {
     "name": "raspberry",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 12,
     "frequency": 10,
     "tags": "wild"
@@ -390,7 +390,7 @@
   {
     "name": "red currant",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 30,
     "frequency": 10,
     "tags": "wild"
@@ -398,7 +398,7 @@
   {
     "name": "walnut",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 20,
     "frequency": 15,
     "": "maybe other category?"
@@ -406,693 +406,693 @@
   {
     "name": "hazelnut",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 20,
     "frequency": 15
   },
   {
     "name": "pine nut",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 40,
     "frequency": 10
   },
   {
     "name": "chestnut",
     "isPluralizable": true,
-    "category": "fruit",
+    "subcategory": "fruit",
     "baseValue": 20,
     "frequency": 15
   },
   {
     "name": "sheep milk",
     "isPluralizable": false,
-    "category": "dairy",
+    "subcategory": "dairy",
     "baseValue": 10,
     "frequency": 50
   },
   {
     "name": "goat milk",
     "isPluralizable": false,
-    "category": "dairy",
+    "subcategory": "dairy",
     "baseValue": 10,
     "frequency": 30
   },
   {
     "name": "cow milk",
     "isPluralizable": false,
-    "category": "dairy",
+    "subcategory": "dairy",
     "baseValue": 20,
     "frequency": 15
   },
   {
     "name": "buttermilk",
     "isPluralizable": false,
-    "category": "dairy",
+    "subcategory": "dairy",
     "baseValue": 15,
     "frequency": 20
   },
   {
     "name": "sour cream",
     "isPluralizable": false,
-    "category": "dairy",
+    "subcategory": "dairy",
     "baseValue": 30,
     "frequency": 15
   },
   {
     "name": "milk cream",
     "isPluralizable": false,
-    "category": "dairy",
+    "subcategory": "dairy",
     "baseValue": 30,
     "frequency": 20
   },
   {
     "name": "almond milk",
     "isPluralizable": false,
-    "category": "dairy",
+    "subcategory": "dairy",
     "baseValue": 20,
     "frequency": 20
   },
   {
     "name": "grana cheese",
     "isPluralizable": false,
-    "category": "cheese",
+    "subcategory": "cheese",
     "baseValue": 15,
     "frequency": 40
   },
   {
     "name": "gorgonzola cheese",
     "isPluralizable": false,
-    "category": "cheese",
+    "subcategory": "cheese",
     "baseValue": 20,
     "frequency": 30
   },
   {
     "name": "brie cheese",
     "isPluralizable": false,
-    "category": "cheese",
+    "subcategory": "cheese",
     "baseValue": 15,
     "frequency": 30
   },
   {
     "name": "castelmagno cheese",
     "isPluralizable": false,
-    "category": "cheese",
+    "subcategory": "cheese",
     "baseValue": 10,
     "frequency": 70
   },
   {
     "name": "goat cheese",
     "isPluralizable": false,
-    "category": "cheese",
+    "subcategory": "cheese",
     "baseValue": 30,
     "frequency": 20
   },
   {
     "name": "sheep cheese",
     "isPluralizable": false,
-    "category": "cheese",
+    "subcategory": "cheese",
     "baseValue": 30,
     "frequency": 20
   },
   {
     "name": "ricotta",
     "isPluralizable": false,
-    "category": "cheese",
+    "subcategory": "cheese",
     "baseValue": 40,
     "frequency": 15
   },
   {
     "name": "hard cheese",
     "isPluralizable": false,
-    "category": "cheese",
+    "subcategory": "cheese",
     "baseValue": 20,
     "frequency": 30
   },
   {
     "name": "cottage cheese",
     "isPluralizable": false,
-    "category": "cheese",
+    "subcategory": "cheese",
     "baseValue": 40,
     "frequency": 15
   },
   {
     "name": "egg",
     "isPluralizable": true,
-    "category": "egg",
+    "subcategory": "egg",
     "baseValue": 10,
     "frequency": 50
   },
   {
     "name": "duck egg",
     "isPluralizable": true,
-    "category": "egg",
+    "subcategory": "egg",
     "baseValue": 20,
     "frequency": 15
   },
   {
     "name": "goose egg",
     "isPluralizable": true,
-    "category": "egg",
+    "subcategory": "egg",
     "baseValue": 25,
     "frequency": 10
   },
   {
     "name": "butter",
     "isPluralizable": false,
-    "category": "fat",
+    "subcategory": "fat",
     "baseValue": 20,
     "frequency": 30
   },
   {
     "name": "olive oil",
     "isPluralizable": false,
-    "category": "fat",
+    "subcategory": "fat",
     "baseValue": 20,
     "frequency": 30
   },
   {
     "name": "lard",
     "isPluralizable": false,
-    "category": "fat",
+    "subcategory": "fat",
     "baseValue": 10,
     "frequency": 60
   },
   {
     "name": "poppyseed oil",
     "isPluralizable": false,
-    "category": "fat",
+    "subcategory": "fat",
     "baseValue": 30,
     "frequency": 15
   },
   {
     "name": "walnut oil",
     "isPluralizable": false,
-    "category": "fat",
+    "subcategory": "fat",
     "baseValue": 30,
     "frequency": 15
   },
   {
     "name": "hazelnut oil",
     "isPluralizable": false,
-    "category": "fat",
+    "subcategory": "fat",
     "baseValue": 30,
     "frequency": 15
   },
   {
     "name": "lamb",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 40,
     "frequency": 20
   },
   {
     "name": "mutton",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 30,
     "frequency": 20
   },
   {
     "name": "goat",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 30,
     "frequency": 20
   },
   {
     "name": "veal",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 50,
     "frequency": 15
   },
   {
     "name": "beef",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 50,
     "frequency": 15
   },
   {
     "name": "pork",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 20,
     "frequency": 40
   },
   {
     "name": "chicken",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 60,
     "frequency": 10
   },
   {
     "name": "rabbit",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 50,
     "frequency": 15
   },
   {
     "name": "goose",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 60,
     "frequency": 7
   },
   {
     "name": "deer",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 80,
     "frequency": 5
   },
   {
     "name": "hedgehog",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 100,
     "frequency": 2
   },
   {
     "name": "swan",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 100,
     "frequency": 1
   },
   {
-    "name": "crane ",
+    "name": "crane",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 150,
     "frequency": 1
   },
   {
     "name": "partridge",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 150,
     "frequency": 3
   },
   {
     "name": "stork",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 200,
     "frequency": 2
   },
   {
     "name": "lark",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 150,
     "frequency": 2
   },
   {
     "name": "boar",
     "isPluralizable": false,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 60,
     "frequency": 15
   },
   {
     "name": "quail",
     "isPluralizable": true,
-    "category": "meat",
+    "subcategory": "meat",
     "baseValue": 50,
     "frequency": 15
   },
   {
     "name": "herring",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 20,
     "frequency": 50
   },
   {
     "name": "cod",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 20,
     "frequency": 50
   },
   {
     "name": "stockfish",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 20,
     "frequency": 30
   },
   {
     "name": "oyster",
     "isPluralizable": true,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 40,
     "frequency": 12
   },
   {
     "name": "mussel",
     "isPluralizable": true,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 20,
     "frequency": 20
   },
   {
     "name": "scallop",
     "isPluralizable": true,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 40,
     "frequency": 8
   },
   {
     "name": "prawn",
     "isPluralizable": true,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 30,
     "frequency": 15
   },
   {
     "name": "pike",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 60,
     "frequency": 6
   },
   {
     "name": "carp",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 20,
     "frequency": 10
   },
   {
     "name": "lamprey",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 40,
     "frequency": 6
   },
   {
     "name": "trout",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 30,
     "frequency": 12
   },
   {
     "name": "perch",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 50,
     "frequency": 6
   },
   {
     "name": "whale",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 150,
     "frequency": 1
   },
   {
     "name": "dolphin",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 150,
     "frequency": 1
   },
   {
     "name": "beaver",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 100,
     "frequency": 2
   },
   {
     "name": "puffin",
     "isPluralizable": false,
-    "category": "fish",
+    "subcategory": "fish",
     "baseValue": 200,
     "frequency": 1
   },
   {
     "name": "sage",
     "isPluralizable": false,
-    "category": "herb",
+    "subcategory": "herb",
     "baseValue": 10,
     "frequency": 20
   },
   {
     "name": "mustard",
     "isPluralizable": false,
-    "category": "herb",
+    "subcategory": "herb",
     "baseValue": 5,
     "frequency": 20
   },
   {
     "name": "parsley",
     "isPluralizable": false,
-    "category": "herb",
+    "subcategory": "herb",
     "baseValue": 10,
     "frequency": 30
   },
   {
     "name": "caraway",
     "isPluralizable": false,
-    "category": "herb",
+    "subcategory": "herb",
     "baseValue": 20,
     "frequency": 8
   },
   {
     "name": "mint",
     "isPluralizable": false,
-    "category": "herb",
+    "subcategory": "herb",
     "baseValue": 10,
     "frequency": 20
   },
   {
     "name": "dill",
     "isPluralizable": false,
-    "category": "herb",
+    "subcategory": "herb",
     "baseValue": 5,
     "frequency": 20
   },
   {
     "name": "fennel",
     "isPluralizable": false,
-    "category": "herb",
+    "subcategory": "herb",
     "baseValue": 10,
     "frequency": 15
   },
   {
     "name": "anise",
     "isPluralizable": false,
-    "category": "herb",
+    "subcategory": "herb",
     "baseValue": 10,
     "frequency": 12
   },
   {
     "name": "mauve",
     "isPluralizable": false,
-    "category": "herb",
+    "subcategory": "herb",
     "baseValue": 10,
     "frequency": 15
   },
   {
     "name": "black pepper",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 30,
     "frequency": 8
   },
   {
     "name": "cinnamon",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 30,
     "frequency": 8
   },
   {
     "name": "cassia",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 50,
     "frequency": 4
   },
   {
     "name": "cumin",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 30,
     "frequency": 8
   },
   {
     "name": "nutmeg",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 50,
     "frequency": 8
   },
   {
     "name": "ginger",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 30,
     "frequency": 8
   },
   {
     "name": "cloves",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 40,
     "frequency": 8
   },
   {
     "name": "saffron",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 60,
     "frequency": 6
   },
   {
     "name": "long pepper",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 100,
     "frequency": 6
   },
   {
     "name": "mace",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 100,
     "frequency": 6
   },
   {
     "name": "spikenard",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 150,
     "frequency": 3
   },
   {
     "name": "galangal",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 150,
     "frequency": 3
   },
   {
     "name": "cubeb pepper",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 100,
     "frequency": 3
   },
   {
     "name": "sugar",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 100,
     "frequency": 10
   },
   {
     "name": "honey",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 60,
     "frequency": 15
   },
   {
     "name": "salt",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 50,
     "frequency": 20
   },
   {
     "name": "vinegar",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 30,
     "frequency": 15
   },
   {
     "name": "verjuice",
     "isPluralizable": false,
-    "category": "spice",
+    "subcategory": "spice",
     "baseValue": 30,
     "frequency": 10
   },
   {
     "name": "wine",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 10,
     "frequency": 40
   },
   {
     "name": "beer",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 10,
     "frequency": 20
   },
   {
     "name": "pomegranate wine",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 20,
     "frequency": 10
   },
   {
     "name": "blackberry wine",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 20,
     "frequency": 10
   },
   {
     "name": "apple cider",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 20,
     "frequency": 15
   },
   {
     "name": "pear cider",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 25,
     "frequency": 10
   },
   {
     "name": "mead",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 50,
     "frequency": 10
   },
   {
     "name": "mulled wine",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 20,
     "frequency": 20
   },
   {
     "name": "hippocras",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 40,
     "frequency": 15
   },
   {
     "name": "brandy",
     "isPluralizable": false,
-    "category": "drink",
+    "subcategory": "drink",
     "baseValue": 30,
     "frequency": 20
   }

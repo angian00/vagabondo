@@ -16,8 +16,8 @@ namespace Vagabondo.Behaviours
         private TextMeshProUGUI buttonLabel;
 
 
-        private TradableItem _data;
-        public TradableItem Data { get => _data; set { _data = value; updateView(); } }
+        private GameItem _data;
+        public GameItem Data { get => _data; set { _data = value; updateView(); } }
 
         private bool _isTravelerSelling;
         public bool IsTravelerSelling { set { _isTravelerSelling = value; updateView(); } }

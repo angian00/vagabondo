@@ -1,9 +1,7 @@
 ﻿using System.Text;
 using TMPro;
 using UnityEngine;
-using Vagabondo.DataModel;
 using Vagabondo.Generators;
-using Vagabondo.Utils;
 
 namespace Vagabondo.Experiment
 {
@@ -16,7 +14,7 @@ namespace Vagabondo.Experiment
 
         public void OnRun()
         {
-            var foodItem = FoodGenerator.GenerateFoodItem(Biome.Forest, 20);
+            var foodItem = FoodGenerator.GenerateFoodItem(20);
 
             var textBuilder = new StringBuilder();
             if (foodItem == null)
@@ -24,13 +22,13 @@ namespace Vagabondo.Experiment
             else
             {
                 textBuilder.Append($"name: {foodItem.name} \n");
-                textBuilder.Append($"category: {foodItem.foodCategory} \n");
-                textBuilder.Append($"preparation: {DataUtils.EnumToStr(foodItem.preparation)} \n");
+                textBuilder.Append($"category: {foodItem.subcategory} \n");
+                //textBuilder.Append($"preparation: {DataUtils.EnumToStr(foodItem.preparation)} \n");
                 textBuilder.Append($"baseValue: {foodItem.baseValue} \n");
                 textBuilder.Append($"ingredientCategories: \n");
 
-                foreach (var ingredient in foodItem.ingredients)
-                    textBuilder.Append($"\t {ingredient.definition.name} \n");
+                //foreach (var ingredient in foodItem.ingredients)
+                //    textBuilder.Append($"\t {ingredient.definition.name} \n");
             }
 
             var generatedText = textBuilder.ToString();

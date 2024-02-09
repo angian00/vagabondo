@@ -96,19 +96,19 @@ namespace Vagabondo.Managers
         }
 
 
-        public void AddItem(TradableItem item)
+        public void AddItem(GameItem item)
         {
             travelerData.merchandise.Add(item);
             EventManager.PublishTravelerChanged(travelerData);
         }
 
-        public void RemoveItem(TradableItem item)
+        public void RemoveItem(GameItem item)
         {
             travelerData.merchandise.Remove(item);
             EventManager.PublishTravelerChanged(travelerData);
         }
 
-        public void TradeItem(TradableItem item, bool isTravelerSelling)
+        public void TradeItem(GameItem item, bool isTravelerSelling)
         {
             if (isTravelerSelling)
             {

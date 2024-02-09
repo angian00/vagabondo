@@ -10,7 +10,7 @@ namespace Vagabondo.DataModel
 
         public int money = startMoney;
         public int health = startHealth;
-        public List<TradableItem> merchandise = new();
+        public List<GameItem> merchandise = new();
         public List<Trinket> trinkets = new();
         public List<Memory> memories = new();
         public Dictionary<StatId, int> stats = new();
