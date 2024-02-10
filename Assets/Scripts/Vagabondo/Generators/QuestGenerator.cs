@@ -28,17 +28,17 @@ namespace Vagabondo.Generators
             //TODO: compile and use quest grammar
             if (plotItemId == "dungeonIntro")
             {
-                questState.actionTitle = "Chat with the locals";
-                questState.actionDescription = "Spend some time socializing with the villagers";
+                questState.actionTitle = "Speak with a local farmer";
+                questState.actionDescription = "A local farmer approaches you with a secretive attitude";
                 questState.memoryTitle = "The Abandoned Church";
-                questState.memoryDescription = "A local farmer told you that somewhere in a neighbouring valley "
+                questState.memoryDescription = "A local farmer tells you that somewhere in a neighbouring valley "
                     + "lay the ruins an old church, abandoned a century ago after a plague.";
                 questState.actionResultText = questState.memoryDescription;
             }
             else if (plotItemId == "artifactIntro")
             {
-                questState.actionTitle = "Chat with the locals";
-                questState.actionDescription = "Spend some time socializing with the villagers";
+                questState.actionTitle = "Tales around the fire";
+                questState.actionDescription = "Spend the night exchanging tales around a bonfire";
                 questState.memoryTitle = "An Artifact of Yore";
                 questState.memoryDescription = "I racconti popolari della zona menzionano un antico artefatto ormai smarrito."
                     + " L'artefatto e' di pietra verde ricoperta di muschio. secondo alcuni porta bene, secondo altri male.";
