@@ -15,6 +15,8 @@ namespace Vagabondo.Actions
             this.description = "Spend some time getting acquainted with the countryside";
         }
 
+        public override bool isEventAction() => true;
+
         public override GameActionResult Perform(TravelManager travelManager)
         {
             var effectTypes = new List<GameActionEffectType>() {
@@ -44,7 +46,10 @@ namespace Vagabondo.Actions
         {
             travelManager.IncrementStat(StatId.Nature);
 
-            return new GameActionResult($"You learn some interesting facts about the local wilderness");
+            var description = "You learn some interesting facts about the local wilderness";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Nature, 1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performReceiveItem(TravelManager travelManager)
@@ -53,7 +58,10 @@ namespace Vagabondo.Actions
 
             travelManager.AddItem(plant);
 
-            return new GameActionResult($"You find some useful <style=C1>{plant.name}</style>");
+            var description = "You gather some useful herbs";
+            var resultText = StringUtils.BuildResultTextItem(plant, true);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performInjury(TravelManager travelManager)
@@ -65,7 +73,10 @@ namespace Vagabondo.Actions
 
             var animalName = "bear"; //TODO: generate animal names by biome
 
-            return new GameActionResult($"You enconter a dangerous {animalName} which attacks you!");
+            var description = $"You enconter a dangerous {animalName} which attacks you!";
+            var resultText = StringUtils.BuildResultTextHealth(-injuryAmount);
+
+            return new GameActionResult(description, resultText);
         }
     }
 }

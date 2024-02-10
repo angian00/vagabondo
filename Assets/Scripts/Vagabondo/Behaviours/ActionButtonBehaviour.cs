@@ -1,9 +1,11 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Vagabondo.Actions;
 using Vagabondo.DataModel;
 using Vagabondo.Managers;
+using Vagabondo.ScriptableObjects;
 using Button = UnityEngine.UI.Button;
 
 namespace Vagabondo.Behaviours
@@ -13,6 +15,9 @@ namespace Vagabondo.Behaviours
         public static int maxTitleLength = 30;
         public static int maxDescriptionLength = 60;
 
+        [Header("UI Fields")]
+        [SerializeField]
+        private Image backgroundImage;
         [SerializeField]
         private TextMeshProUGUI titleLabel;
         [SerializeField]
@@ -21,6 +26,11 @@ namespace Vagabondo.Behaviours
         private GameObject tooltipObj;
         [SerializeField]
         private TextMeshProUGUI tooltipLabel;
+
+
+        [Header("Scriptable Objects")]
+        [SerializeField]
+        private GameColorConfig colorConfig;
 
 
         private GameAction _action;
@@ -32,6 +42,13 @@ namespace Vagabondo.Behaviours
 
                 //Debug.Assert(_action.title.Length <= maxTitleLength);
                 //Debug.Assert(_action.description.Length <= maxDescriptionLength);
+
+                if (_action.isBuildingAction())
+                    backgroundImage.color = colorConfig.buildingActionColor;
+                else if (_action.isEventAction())
+                    backgroundImage.color = colorConfig.eventActionColor;
+                else if (_action.isQuestAction())
+                    backgroundImage.color = colorConfig.questActionColor;
 
                 titleLabel.text = _action.title;
                 descriptionLabel.text = _action.description;

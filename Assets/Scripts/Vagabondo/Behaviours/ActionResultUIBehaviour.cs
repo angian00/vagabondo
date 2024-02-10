@@ -13,6 +13,8 @@ namespace Vagabondo.Behaviours
         [SerializeField]
         private TextMeshProUGUI descriptionLabel;
         [SerializeField]
+        private TextMeshProUGUI resultLabel;
+        [SerializeField]
         private GameObject actionButton;
 
         [Header("Other UI views")]
@@ -42,14 +44,27 @@ namespace Vagabondo.Behaviours
             this._actionResult = actionResult;
             UnityUtils.ShowUIView(gameObject);
 
-            descriptionLabel.text = actionResult.text;
+            descriptionLabel.text = actionResult.descriptionText;
+            if (actionResult.resultText != null)
+                resultLabel.text = actionResult.resultText;
+            else
+                resultLabel.text = "";
+
 
             if (actionResult is ShopActionResult)
             {
-                actionButton.transform.Find("Action Label").GetComponent<TextMeshProUGUI>().text = "Trade";
-                actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
-                actionButton.GetComponent<Button>().onClick.AddListener(onActionShop);
-                actionButton.SetActive(true);
+                if (((ShopActionResult)_actionResult).skipTextResult)
+                {
+                    onActionShop();
+                }
+                else
+                {
+
+                    actionButton.transform.Find("Action Label").GetComponent<TextMeshProUGUI>().text = "Trade";
+                    actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
+                    actionButton.GetComponent<Button>().onClick.AddListener(onActionShop);
+                    actionButton.SetActive(true);
+                }
             }
 
             else
@@ -60,8 +75,8 @@ namespace Vagabondo.Behaviours
         {
             UnityUtils.HideUIView(gameObject);
 
-            var shopInventory = ((ShopActionResult)_actionResult).shopInventory;
-            shopUI.GetComponent<ShopUIBehaviour>().ShopInventory = shopInventory;
+            var shopActionResult = (ShopActionResult)_actionResult;
+            shopUI.GetComponent<ShopUIBehaviour>().ShopInfo = shopActionResult.shopInfo;
             UnityUtils.ShowUIView(shopUI);
         }
     }

@@ -15,6 +15,8 @@ namespace Vagabondo.Actions
             this.description = "Browse through the books of the local library";
         }
 
+        public override bool isBuildingAction() => true;
+
         public override GameActionResult Perform(TravelManager travelManager)
         {
             var effectTypes = new List<GameActionEffectType>() {
@@ -39,14 +41,20 @@ namespace Vagabondo.Actions
         private GameActionResult performLearn(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Languages);
-            return new GameActionResult($"You become more erudite than you were before");
+
+            var description = "You become more erudite than you were before";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Languages, 1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performTrade(TravelManager travelManager)
         {
             var shopInventory = MerchandiseGenerator.GenerateInventory(ShopType.Library);
             PriceEvaluator.UpdatePrices(shopInventory);
-            return new ShopActionResult("You have the opportunity to trade books", shopInventory);
+
+            var shopInfo = new ShopInfo("Library", shopInventory, ShopInfo.BuyFilter[ShopType.Library]);
+            return new ShopActionResult("You have the opportunity to trade books", shopInfo);
         }
     }
 }

@@ -15,6 +15,8 @@ namespace Vagabondo.Actions
             this.description = "Look for adventures (or trouble) in the seediest part of the town";
         }
 
+        public override bool isEventAction() => true;
+
         public override GameActionResult Perform(TravelManager travelManager)
         {
             var effectTypes = new List<GameActionEffectType>() {
@@ -43,37 +45,85 @@ namespace Vagabondo.Actions
 
         private GameActionResult performTrade(TravelManager travelManager)
         {
-            //TODO: ask for amount of money to spend
-            var dealCost = 30; //TODO: check current traveler money
+            const int maxDealCost = 50;
+            string description;
+            string resultText;
+
+            var dealCost = UnityEngine.Random.Range(1, maxDealCost);
+            if (travelManager.travelerData.money < dealCost)
+            {
+                travelManager.DecrementStat(StatId.StreetSmarts);
+                travelManager.DecrementStat(StatId.StreetSmarts);
+
+                description = "Seeing you don't have much money, the people on the street look at you with contempt";
+                resultText = StringUtils.BuildResultTextStat(StatId.StreetSmarts, -2);
+
+                return new GameActionResult(description, resultText);
+            }
+
             travelManager.AddMoney(-dealCost);
+            //TODO: generate item with appropriate price
+            var item = MerchandiseGenerator.GenerateItem(ItemCategory.Tool);
+            travelManager.AddItem(item);
 
-            var tool = MerchandiseGenerator.GenerateItem(ItemCategory.Tool);
+            description = "You are approached by a sketchy figure in an alley, proposing you a deal";
+            resultText = StringUtils.BuildResultTextMoney(-dealCost) + "\n\n" +
+                StringUtils.BuildResultTextItem(item, true);
 
-            travelManager.AddItem(tool);
-            return new GameActionResult($"You are approached by a sketchy figure in an alley, proposing you a deal. " +
-                $"You pay {dealCost}$, and get a <style=C1>{tool.name}</style> in exchange.");
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performLearn(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.StreetSmarts);
-            return new GameActionResult($"You get more used to navigating in such an hostile environment");
+
+            var description = "You get more used to navigating in such an hostile environment";
+            var resultText = StringUtils.BuildResultTextStat(StatId.StreetSmarts, -1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performMakeEnemies(TravelManager travelManager)
         {
             travelManager.DecrementStat(StatId.Reputation);
-            return new GameActionResult($"You are spotted in the seedy part of town, and people start talking");
+
+            var description = "You are spotted in the seedy part of town, and people start talking";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Reputation, -1);
+
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performLoseMoney(TravelManager travelManager)
         {
-            var stolenAmount = 30; //TODO: check current traveler money
+            const int maxStolenAmount = 50;
+            string description;
+            string resultText;
+
+            var stolenAmount = UnityEngine.Random.Range(1, maxStolenAmount);
+            if (travelManager.travelerData.money < stolenAmount)
+            {
+                stolenAmount = travelManager.travelerData.money;
+                var injuryAmount = 3;
+                travelManager.AddMoney(-stolenAmount);
+                travelManager.AddHealth(-injuryAmount);
+
+                //FUTURE: add choice tree
+                description = "You are threatened by an armed guy, and forced to give him your money!" +
+                    " Since you don't have much money, the thief beats you up anyway";
+                resultText = StringUtils.BuildResultTextMoney(-stolenAmount) + "\n\n" + StringUtils.BuildResultTextHealth(-injuryAmount);
+
+                return new GameActionResult(description, resultText);
+            }
 
             travelManager.AddMoney(-stolenAmount);
-            return new GameActionResult($"You are threatened by an armed guy, and forced to give him your money!"); //FUTURE: add choice tree
+
+            //FUTURE: add choice tree
+            description = "You are threatened by an armed guy, and forced to give him your money!";
+            resultText = StringUtils.BuildResultTextMoney(-stolenAmount);
+
+            return new GameActionResult(description, resultText);
         }
 
     }
-
 }

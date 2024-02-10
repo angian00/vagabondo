@@ -39,10 +39,11 @@ namespace Vagabondo.Generators
             {
                 case ShopType.Tavern:
                 case ShopType.Bakery:
-                    return GenerateInventoryFood(shopType);
+                    return GenerateInventoryItems(shopType);
 
                 case ShopType.Butchery:
-                    return GenerateInventoryFoodIngredients(shopType);
+                case ShopType.Farm:
+                    return GenerateInventoryIngredients(shopType);
 
                 case ShopType.Library:
                     return GenerateInventoryBooks();
@@ -71,10 +72,10 @@ namespace Vagabondo.Generators
             return result;
         }
 
-        private static List<GameItem> GenerateInventoryFood(ShopType shopType)
+        private static List<GameItem> GenerateInventoryItems(ShopType shopType)
         {
             //FUTURE: inventory is influenced by town data
-            const int inventorySize = 12;
+            const int inventorySize = 20;
 
             var result = new List<GameItem>();
             Predicate<GameItem> itemFilter;
@@ -82,31 +83,31 @@ namespace Vagabondo.Generators
             switch (shopType)
             {
                 case ShopType.Tavern:
-                    itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Drink);
+                    itemFilter = (item) => (item.subcategory == ItemSubcategory.Drink);
                     break;
 
                 case ShopType.Bakery:
-                    itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Bread || foodItem.subcategory == ItemSubcategory.Dessert);
-                    //itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Bread);
+                    itemFilter = (item) => (item.subcategory == ItemSubcategory.Bread ||
+                                                item.subcategory == ItemSubcategory.Dessert);
                     break;
 
                 case ShopType.Butchery:
-                    itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Bread);
+                    itemFilter = (item) => (item.subcategory == ItemSubcategory.Bread);
                     break;
 
                 default:
                     throw new NotImplementedException();
             }
 
-            result.AddRange(FoodGenerator.GenerateFoodItemsFromTemplates(itemFilter, inventorySize));
+            result.AddRange(GameItemGenerator.GenerateItemsFromTemplates(itemFilter, inventorySize));
 
             return result;
         }
 
-        private static List<GameItem> GenerateInventoryFoodIngredients(ShopType shopType)
+        private static List<GameItem> GenerateInventoryIngredients(ShopType shopType)
         {
             //FUTURE: inventory is influenced by town data
-            const int inventorySize = 12;
+            const int inventorySize = 20;
 
             var result = new List<GameItem>();
             Predicate<IngredientDefinition> ingredientFilter;
@@ -114,14 +115,23 @@ namespace Vagabondo.Generators
             switch (shopType)
             {
                 case ShopType.Butchery:
-                    ingredientFilter = (foodIngredientDef) => (foodIngredientDef.subcategory == ItemSubcategory.Meat);
+                    ingredientFilter = (ingredientDef) => (ingredientDef.subcategory == ItemSubcategory.Meat);
                     break;
+
+                case ShopType.Farm:
+                    ingredientFilter = (ingredientDef) =>
+                        (ingredientDef.subcategory == ItemSubcategory.Grain ||
+                        ingredientDef.subcategory == ItemSubcategory.Vegetable ||
+                        ingredientDef.subcategory == ItemSubcategory.Legume ||
+                        ingredientDef.subcategory == ItemSubcategory.Fruit);
+                    break;
+
 
                 default:
                     throw new NotImplementedException();
             }
 
-            result.AddRange(FoodGenerator.GenerateFoodIngredients(ingredientFilter, inventorySize));
+            result.AddRange(GameItemGenerator.GenerateIngredients(ingredientFilter, inventorySize));
 
             return result;
         }

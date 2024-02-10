@@ -15,6 +15,8 @@ namespace Vagabondo.Actions
             this.description = "";
         }
 
+        public override bool isEventAction() => true;
+
         public override GameActionResult Perform(TravelManager travelManager)
         {
             var effectTypes = new List<GameActionEffectType>() {
@@ -48,27 +50,43 @@ namespace Vagabondo.Actions
         private GameActionResult performLearn(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Diplomacy);
-            return new GameActionResult($"You learn some interesting facts about the local people");
+
+            var description = "You learn some interesting facts about the local people";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Diplomacy, 1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performReceiveItem(TravelManager travelManager)
         {
-            var tool = MerchandiseGenerator.GenerateItem(ItemCategory.Tool);
+            var item = MerchandiseGenerator.GenerateItem(ItemCategory.Tool);
 
-            travelManager.AddItem(tool);
-            return new GameActionResult($"As a sign of good will, you are gifted a useful <style=C1>{tool.name}</style>");
+            travelManager.AddItem(item);
+
+            var description = "As a sign of good will, the locals make you a present";
+            var resultText = StringUtils.BuildResultTextItem(item, true);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performMakeFriends(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Reputation);
-            return new GameActionResult($"You make friends with some of the locals");
+
+            var description = "You make friends with some of the locals";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Reputation, 1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performMakeEnemies(TravelManager travelManager)
         {
             travelManager.DecrementStat(StatId.Reputation);
-            return new GameActionResult($"You try to make friends, but get only hostile stares in return. You should work more on your people skills.");
+
+            var description = "You try to make friends, but get only hostile stares in return. You should work more on your people skills!";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Reputation, -1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performInjury(TravelManager travelManager)
@@ -78,9 +96,11 @@ namespace Vagabondo.Actions
             var injuryAmount = UnityEngine.Random.Range(1, maxInjury);
             travelManager.AddHealth(-injuryAmount);
 
-            return new GameActionResult($"You get involved in a fight and get the worst of it");
-        }
+            var description = "You get involved in a fight and get the worst of it!";
+            var resultText = StringUtils.BuildResultTextHealth(-injuryAmount);
 
+            return new GameActionResult(description, resultText);
+        }
     }
 
 }

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Vagabondo.DataModel;
@@ -11,6 +10,8 @@ namespace Vagabondo.Behaviours
     {
         [Header("UI Fields")]
         [SerializeField]
+        private TextMeshProUGUI title;
+        [SerializeField]
         private TextMeshProUGUI moneyValueLabel;
         [SerializeField]
         private Transform travelerItemsPanel;
@@ -21,8 +22,15 @@ namespace Vagabondo.Behaviours
         [SerializeField]
         private GameObject tradableItemTemplate;
 
-        private List<GameItem> _shopInventory;
-        public List<GameItem> ShopInventory { set { _shopInventory = value; updateShopInventory(); } }
+        private ShopInfo _shopInfo;
+        public ShopInfo ShopInfo
+        {
+            set
+            {
+                _shopInfo = value;
+                updateShopInfo();
+            }
+        }
 
         private Traveler _travelerData;
 
@@ -44,14 +52,14 @@ namespace Vagabondo.Behaviours
 
         public void RemoveFromShopInventory(GameItem item)
         {
-            _shopInventory.Remove(item);
-            updateShopInventory();
+            _shopInfo.inventory.Remove(item);
+            updateShopInfo();
         }
 
         public void AddToShopInventory(GameItem item)
         {
-            _shopInventory.Add(item);
-            updateShopInventory();
+            _shopInfo.inventory.Add(item);
+            updateShopInfo();
         }
 
         private void onTravelerChanged(Traveler travelerData)
@@ -67,6 +75,9 @@ namespace Vagabondo.Behaviours
             UnityUtils.RemoveAllChildren(travelerItemsPanel);
             foreach (var item in _travelerData.merchandise)
             {
+                if (_shopInfo != null && _shopInfo.canBuy != null && !_shopInfo.canBuy(item))
+                    continue;
+
                 var newItemObj = Instantiate(tradableItemTemplate, travelerItemsPanel, false);
                 newItemObj.GetComponent<ShopItemBehaviour>().Parent = this;
                 newItemObj.GetComponent<ShopItemBehaviour>().Data = item;
@@ -74,14 +85,16 @@ namespace Vagabondo.Behaviours
                 newItemObj.GetComponent<ShopItemBehaviour>().Interactable = true;
             }
 
-            if (_shopInventory != null)
+            if (_shopInfo != null)
                 updateInteractableInventory();
         }
 
-        private void updateShopInventory()
+        private void updateShopInfo()
         {
+            title.text = $"Trading: {_shopInfo.name}";
+
             UnityUtils.RemoveAllChildren(shopItemsPanel);
-            foreach (var item in _shopInventory)
+            foreach (var item in _shopInfo.inventory)
             {
                 var newItemObj = Instantiate(tradableItemTemplate, shopItemsPanel, false);
                 newItemObj.GetComponent<ShopItemBehaviour>().Parent = this;
@@ -94,12 +107,12 @@ namespace Vagabondo.Behaviours
 
         private void updateInteractableInventory()
         {
-            for (int i = 0; i < _shopInventory.Count; i++)
+            for (int i = 0; i < _shopInfo.inventory.Count; i++)
             {
                 //works because _shopInventory and shopItemsPanel children are in the same order
                 var itemObj = shopItemsPanel.GetChild(i);
                 //var price = itemObj.GetComponent<ShopItemBehaviour>().Data.currentPrice;
-                var price = _shopInventory[i].currentPrice;
+                var price = _shopInfo.inventory[i].currentPrice;
                 itemObj.GetComponent<ShopItemBehaviour>().Interactable = (price <= _travelerData.money);
             }
 

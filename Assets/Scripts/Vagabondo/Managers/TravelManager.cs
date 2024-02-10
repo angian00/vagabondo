@@ -15,7 +15,7 @@ namespace Vagabondo.Managers
 
         private TownGenerator townGenerator;
 
-        private Traveler travelerData;
+        public Traveler travelerData;
 
         private Town currentTown;
         private Quest activeQuest;
@@ -70,6 +70,9 @@ namespace Vagabondo.Managers
         public void AddMoney(int delta)
         {
             travelerData.money += delta;
+            if (travelerData.money < 0)
+                throw new Exception("traveler money cannot become negative!");
+
             EventManager.PublishTravelerChanged(travelerData);
         }
 
@@ -109,10 +112,12 @@ namespace Vagabondo.Managers
             EventManager.PublishTravelerChanged(travelerData);
         }
 
-        public void RemoveAnyItem()
+        public GameItem RemoveAnyItem()
         {
             var item = RandomUtils.RandomChoose(travelerData.merchandise);
             RemoveItem(item);
+
+            return item;
         }
 
         public void TradeItem(GameItem item, bool isTravelerSelling)

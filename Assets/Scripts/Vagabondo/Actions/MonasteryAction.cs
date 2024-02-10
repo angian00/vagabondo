@@ -14,6 +14,8 @@ namespace Vagabondo.Actions
             this.description = "";
         }
 
+        public override bool isBuildingAction() => true;
+
         public override GameActionResult Perform(TravelManager travelManager)
         {
             var effectTypes = new List<GameActionEffectType>() {
@@ -45,23 +47,47 @@ namespace Vagabondo.Actions
         {
             travelManager.IncrementStat(StatId.Languages);
 
-            return new GameActionResult($"You spend some time in the monastery library, consulting venerable old texts");
+            var description = "You spend some time in the monastery library, consulting venerable old texts";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Languages, 1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performPray(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Religion);
 
-            return new GameActionResult($"You spend some time in the cloister, praying and meditating");
+            var description = "You spend some time in the cloister, praying and meditating";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Religion, 1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performTrade(TravelManager travelManager)
         {
-            var donationAmount = 20;
+            var donationAmount = 40;
+            string description;
+            string resultText;
+
+            if (travelManager.travelerData.money < donationAmount)
+            {
+                travelManager.DecrementStat(StatId.Religion);
+
+                description = "The monks ask you for a substantial donation, but you don't have enough money for their liking";
+                resultText = StringUtils.BuildResultTextStat(StatId.Religion, -1);
+
+                return new GameActionResult(description, resultText);
+            }
+
             travelManager.AddMoney(-donationAmount);
             travelManager.IncrementStat(StatId.Religion);
+            travelManager.IncrementStat(StatId.Religion);
 
-            return new GameActionResult($"You donate some money for charitable works");
+            description = "You donate some money for charitable works";
+            resultText = StringUtils.BuildResultTextMoney(-donationAmount)
+                + "\n\n" + StringUtils.BuildResultTextStat(StatId.Religion, 2);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performMakeEnemies(TravelManager travelManager)
@@ -69,7 +95,11 @@ namespace Vagabondo.Actions
             travelManager.DecrementStat(StatId.Religion);
             travelManager.DecrementStat(StatId.Religion);
 
-            return new GameActionResult($"You get involved in a theological dispute, and are finally kicked out of the monastery"); //FUTURE: make this a Choice Tree
+            //FUTURE: make this a Choice Tree
+            var description = "You get involved in a theological dispute, and are kicked out of the monastery!";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Religion, -2);
+
+            return new GameActionResult(description, resultText);
         }
     }
 }

@@ -14,6 +14,8 @@ namespace Vagabondo.Actions
             this.description = "";
         }
 
+        public override bool isBuildingAction() => true;
+
         public override GameActionResult Perform(TravelManager travelManager)
         {
             var effectTypes = new List<GameActionEffectType>() {
@@ -23,9 +25,6 @@ namespace Vagabondo.Actions
                 GameActionEffectType.LoseMoney,
             };
 
-            //TODO: check if you can spend money to make friends
-
-            //DEBUG
             var effectType = RandomUtils.RandomChoose(effectTypes);
             switch (effectType)
             {
@@ -43,24 +42,54 @@ namespace Vagabondo.Actions
 
         private GameActionResult performGiveItem(TravelManager travelManager)
         {
+            var item = travelManager.RemoveAnyItem();
             travelManager.IncrementStat(StatId.Reputation);
-            travelManager.RemoveAnyItem();
-            return new GameActionResult($"You have the opportunity to gift something to the town mayor as a sign of good will");
-            //return new GiftActionResult($"You have the opportunity to gift something to the town mayor as a sign of good will");
+
+            var description = "You have the opportunity to gift something to the town mayor as a sign of good will";
+            var resultText = StringUtils.BuildResultTextItem(item, false)
+                + "\n\n" + StringUtils.BuildResultTextStat(StatId.Reputation, 1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performMakeFriends(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Reputation);
-            return new GameActionResult($"You spend some time discussing local politics with the town bosses");
+
+            var description = "You spend some time discussing local politics with the town bosses";
+            var resultText = StringUtils.BuildResultTextStat(StatId.Reputation, 1);
+
+            return new GameActionResult(description, resultText);
         }
 
         private GameActionResult performLoseMoney(TravelManager travelManager)
         {
-            var taxAmount = 20; //TODO: check current traveler money
+            const int maxTaxAmount = 30;
+            string description;
+            string resultText;
+
+            var taxAmount = UnityEngine.Random.Range(1, maxTaxAmount);
+            if (travelManager.travelerData.money < taxAmount)
+            {
+                taxAmount = travelManager.travelerData.money;
+                travelManager.AddMoney(-taxAmount);
+                travelManager.DecrementStat(StatId.Reputation);
+                travelManager.DecrementStat(StatId.Reputation);
+
+                description = "You are politely invited to pay your customs tax" +
+                    " Since you don't have enough money, they don't look so polite anymore";
+                resultText = StringUtils.BuildResultTextMoney(-taxAmount)
+                    + "\n\n" + StringUtils.BuildResultTextStat(StatId.Reputation, -2);
+
+                return new GameActionResult(description, resultText);
+            }
 
             travelManager.AddMoney(-taxAmount);
-            return new GameActionResult($"You are politely invited to pay your customs tax");
+
+            description = "You are politely invited to pay your customs tax";
+            resultText = StringUtils.BuildResultTextMoney(-taxAmount);
+
+            return new GameActionResult(description, resultText);
         }
     }
 }

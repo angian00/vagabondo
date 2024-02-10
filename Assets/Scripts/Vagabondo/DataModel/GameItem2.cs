@@ -4,8 +4,6 @@ using Vagabondo.Utils;
 
 namespace Vagabondo.DataModel
 {
-
-
     public struct IngredientDefinition : IGrammarNoun
     {
         public string name { get; set; }
@@ -20,7 +18,9 @@ namespace Vagabondo.DataModel
         {
             var item = new GameItem();
             item.name = name;
+            //item.isPluralizable = isPluralizable;
             item.category = ItemCategory.FoodIngredient;
+            item.subcategory = subcategory;
             item.baseValue = baseValue;
             item.currentPrice = baseValue;
             item.quality = RandomUtils.RandomQuality();

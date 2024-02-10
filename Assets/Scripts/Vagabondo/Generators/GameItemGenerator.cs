@@ -9,14 +9,14 @@ using Vagabondo.Utils;
 
 namespace Vagabondo.Generators
 {
-    public class FoodGenerator
+    public class GameItemGenerator
     {
         private static List<IngredientDefinition> ingredientDefinitions;
         private static List<ItemTemplate> foodItemTemplates;
         private static List<int> ingredientDefinitionWeights;
         private static List<int> foodItemTemplateWeights;
 
-        static FoodGenerator()
+        static GameItemGenerator()
         {
             TextAsset fileObj;
 
@@ -51,16 +51,16 @@ namespace Vagabondo.Generators
         public static List<GameItem> GenerateFoodIngredients(List<ItemSubcategory> categories, int nIngredients = 10)
         {
             Predicate<IngredientDefinition> ingredientFilter = (ingredientDef) => categories.Contains(ingredientDef.subcategory);
-            return GenerateFoodIngredients(ingredientFilter, nIngredients);
+            return GenerateIngredients(ingredientFilter, nIngredients);
         }
 
         public static GameItem GenerateFoodIngredient(Predicate<IngredientDefinition> ingredientFilter)
         {
-            var ingredientList = GenerateFoodIngredients(ingredientFilter, nIngredients: 1);
+            var ingredientList = GenerateIngredients(ingredientFilter, nIngredients: 1);
             return ingredientList[0];
         }
 
-        public static List<GameItem> GenerateFoodIngredients(Predicate<IngredientDefinition> ingredientFilter, int nIngredients = 10)
+        public static List<GameItem> GenerateIngredients(Predicate<IngredientDefinition> ingredientFilter, int nIngredients = 10)
         {
             List<IngredientDefinition> compatibleDefs = new();
             List<int> compatibleDefWeights = new();
@@ -152,7 +152,7 @@ namespace Vagabondo.Generators
             return GenerateFoodItemFromIngredients(availableIngredients);
         }
 
-        public static List<GameItem> GenerateFoodItemsFromTemplates(Predicate<GameItem> itemFilter, int nItems = 10)
+        public static List<GameItem> GenerateItemsFromTemplates(Predicate<GameItem> itemFilter, int nItems = 10)
         {
             var nTries = nItems * 10;
             var iTry = 0;

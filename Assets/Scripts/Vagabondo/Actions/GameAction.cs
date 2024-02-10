@@ -9,6 +9,8 @@ namespace Vagabondo.Actions
         TownHall,
         Tavern,
         Library,
+        Monastery,
+        Farm,
 
         Shop,
 
@@ -41,6 +43,10 @@ namespace Vagabondo.Actions
         {
             return "";
         }
+
+        public virtual bool isBuildingAction() => false;
+        public virtual bool isEventAction() => false;
+        public virtual bool isQuestAction() => false;
 
         public abstract GameActionResult Perform(TravelManager travelManager);
     }

@@ -14,6 +14,8 @@ namespace Vagabondo.Actions
             this.description = questState.actionDescription;
         }
 
+        public override bool isQuestAction() => true;
+
         public override GameActionResult Perform(TravelManager travelManager)
         {
             Memory memory;

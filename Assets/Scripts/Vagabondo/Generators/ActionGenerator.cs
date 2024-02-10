@@ -33,6 +33,11 @@ namespace Vagabondo.Generators
                     case TownBuilding.Butchery:
                         action = new ShopAction(ShopType.Butchery, townData);
                         break;
+
+                    case TownBuilding.Farm:
+                        action = new ShopAction(ShopType.Farm, townData);
+                        break;
+
                     //case TownBuilding.Emporium:
                     //    action = new ShopAction(ShopType.Emporium);
                     //    break;

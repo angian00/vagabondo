@@ -60,13 +60,4 @@ namespace Vagabondo.DataModel
         public IngredientDefinition definition;
     }
 
-    public enum ShopType
-    {
-        Bakery,
-        Butchery,
-
-        Tavern,
-        Library,
-    }
-
 }

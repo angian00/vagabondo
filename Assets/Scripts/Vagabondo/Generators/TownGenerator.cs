@@ -25,7 +25,6 @@ namespace Vagabondo.Generators
             biomeTransitions = JsonConvert.DeserializeObject<Dictionary<Biome, Dictionary<Biome, int>>>(fileObj.text);
 
             fileObj = Resources.Load<TextAsset>($"Data/Generators/townTemplates");
-            //townTemplates = JsonConvert.DeserializeObject<Dictionary<TownSize, TownTemplate>>(fileObj.text);
             townTemplates = JsonConvert.DeserializeObject<List<TownTemplate>>(fileObj.text);
             townTemplateWeights = new();
             foreach (var template in townTemplates)
@@ -43,8 +42,7 @@ namespace Vagabondo.Generators
             var townName = FileStringGenerator.Sites.GenerateString();
             var town = new Town(townName);
 
-            Biome biome;
-            Dominion dominion;
+            Biome biome; Dominion dominion;
 
             if (lastTown == null)
             {
@@ -158,10 +156,13 @@ namespace Vagabondo.Generators
             }
 
             //DEBUG
+            //buildings.Add(TownBuilding.Farm);
+            //buildings.Add(TownBuilding.Butchery);
+
             //buildings.Add(TownBuilding.Church);
             //buildings.Add(TownBuilding.Monastery);
             //buildings.Add(TownBuilding.TownHall);
-            //buildings.Add(TownBuilding.Tavern);
+            buildings.Add(TownBuilding.Tavern);
             //buildings.Add(TownBuilding.Library);
             //
             town.buildings = buildings;

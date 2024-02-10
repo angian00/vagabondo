@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2074848810006337462}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -166,7 +165,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2429808969417268678}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -306,7 +304,6 @@ RectTransform:
   - {fileID: 551210901385438624}
   - {fileID: 2429808969417268678}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -419,10 +416,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b564bfa368bad474993e4327a70758bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 4161899171228145111}
   titleLabel: {fileID: 4659246442435926686}
   descriptionLabel: {fileID: 2351781981058666257}
   tooltipObj: {fileID: 4885647294535201255}
   tooltipLabel: {fileID: 6906336377238854369}
+  colorConfig: {fileID: 11400000, guid: 870548ce2d50a224ea9eb5810b8eafc9, type: 2}
 --- !u!1 &4885647294535201255
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +454,6 @@ RectTransform:
   m_Children:
   - {fileID: 485619658461750486}
   m_Father: {fileID: 2074848810006337462}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -531,7 +529,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2074848810006337462}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}

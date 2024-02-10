@@ -1,26 +1,15 @@
 # TODO
 - town and event actions
 	- town traits: randomize on dominion traits/town sizes
-	- actions: add check before money effects
 	- fare qualcosa quando vengono generate 0 actions
 
 - data
-	- improve quest generation data
 	- improve action texts
-
-- trading
-	- filtrare tipi di item vendibili per shop
-	? alcuni "shop" (es. farm) vendono tipi diversi da quelli che comprano
 
 - ui
 	- evidenziare cambio di dominio
-	- skip ActionResult for shops
-	- evidenziare action di tipo diverso (building, event, quest) con colori diversi
-	- add some feedback about action effect to ActionResult
-	- GiveItem action result ui
 	- fix overflow testo e/o aggiungere tooltip con testo completo
-	- shop ui title
-	+ rendere scrollabile gli inventory
+
 
 - manage defeat
 
@@ -47,6 +36,8 @@
 
 	- implementazione grammar: tenere traccia delle frasi gia' usate, con timestamp
 
+- write quest generation grammar
+
 - town
 	- generare hints
 	+ improve dominion permanence (town counter?)
@@ -54,10 +45,12 @@
 
 - actions
 	+ generazione random wild animals (by biome)
-
+	- GiveItem action flow
+	- azioni complesse (ChoiceTree)
 
 
 - brainstorming:
+	- eating mechanics
 	- new subsystems:
 		- books
 		- healing

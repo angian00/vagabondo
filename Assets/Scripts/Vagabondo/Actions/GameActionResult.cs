@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Vagabondo.DataModel;
 
 namespace Vagabondo.Actions
@@ -20,20 +19,27 @@ namespace Vagabondo.Actions
 
     public class GameActionResult
     {
-        public readonly string text;
-        public GameActionResult(string text)
+        public readonly string descriptionText;
+        public readonly string resultText;
+
+        public GameActionResult(string message) : this(message, null) { }
+
+        public GameActionResult(string message, string resultText)
         {
-            this.text = text;
+            this.descriptionText = message;
+            this.resultText = resultText;
         }
     }
 
     public class ShopActionResult : GameActionResult
     {
-        public readonly List<GameItem> shopInventory;
+        public readonly ShopInfo shopInfo;
+        public readonly bool skipTextResult;
 
-        public ShopActionResult(string text, List<GameItem> shopInventory) : base(text)
+        public ShopActionResult(string text, ShopInfo shopInfo, bool skipTextResult = false) : base(text)
         {
-            this.shopInventory = shopInventory;
+            this.shopInfo = shopInfo;
+            this.skipTextResult = skipTextResult;
         }
     }
 }
