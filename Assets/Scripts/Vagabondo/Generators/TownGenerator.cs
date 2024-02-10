@@ -119,6 +119,7 @@ namespace Vagabondo.Generators
             var shopTypes = new List<TownBuilding>() {
                 TownBuilding.Bakery,
                 TownBuilding.Butchery,
+                //TownBuilding.Emporium,
                 //TownBuilding.Clothier,
                 //TownBuilding.Smith,
                 //TownBuilding.Carpenter,
@@ -153,7 +154,11 @@ namespace Vagabondo.Generators
             }
 
             //DEBUG
+            buildings.Add(TownBuilding.Church);
+            buildings.Add(TownBuilding.Monastery);
+            buildings.Add(TownBuilding.TownHall);
             //buildings.Add(TownBuilding.Tavern);
+            buildings.Add(TownBuilding.Library);
             //
             town.buildings = buildings;
         }

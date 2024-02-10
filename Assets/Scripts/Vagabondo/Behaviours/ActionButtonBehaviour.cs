@@ -30,8 +30,8 @@ namespace Vagabondo.Behaviours
             {
                 _action = value;
 
-                Debug.Assert(_action.title.Length <= maxTitleLength);
-                Debug.Assert(_action.description.Length <= maxDescriptionLength);
+                //Debug.Assert(_action.title.Length <= maxTitleLength);
+                //Debug.Assert(_action.description.Length <= maxDescriptionLength);
 
                 titleLabel.text = _action.title;
                 descriptionLabel.text = _action.description;

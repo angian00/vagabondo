@@ -12,7 +12,7 @@ namespace Vagabondo.Actions
         public ChatLocalsAction(Town townData) : base(GameActionType.ChatLocals, townData)
         {
             this.title = "Chat with the local folk";
-            this.description = "Look for a bargain deal in the seediest part of the town"; //FIXME
+            this.description = "";
         }
 
         public override GameActionResult Perform(TravelManager travelManager)

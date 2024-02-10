@@ -1,24 +1,31 @@
 # TODO
 - town and event actions
-	- Church
-	- Monastery
-	- TownHall
-	- Tavern
-	- Library
+	- add check before money effects
 
 	+ generazione wild animals (by biome)
 
 - data
 	- fill in building generation metadata
-	- improve quest action templates
+	- improve quest generation data
+	- improve action texts
 
 - trading
 	- filtrare tipi di item vendibili per shop
 	+ prezzi diversi di vendita e acquisto
 	? alcuni "shop" (es. farm) vendono tipi diversi da quelli che comprano
 	
-- refactoring:
-		- make TradableItem as class, and food/foodIngredients/herbs as its Components
+- GameItem refactoring:
+	- tidy up categories
+	- tidy up merchandise generator
+	- make other game item categories and generators
+		- books
+		+ fiori
+		+ medicinal herbs
+
+- new subsystems:
+	- books
+	- healing
+	- exoterism
 
 - food generation
 	- aggiungere frequency a foodItemTemplates
@@ -28,7 +35,10 @@
 
 - ui
 	- skip ActionResult for shops
+	- add some feedback about action effect to ActionResult
+	- give item choice ui
 	- fix overflow testo e/o aggiungere tooltip con testo completo
+	- shop ui title
 	+ rendere scrollabile gli inventory
 
 - manage defeat

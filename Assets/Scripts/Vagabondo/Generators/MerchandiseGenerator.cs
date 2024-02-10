@@ -44,11 +44,32 @@ namespace Vagabondo.Generators
                 case ShopType.Butchery:
                     return GenerateInventoryFoodIngredients(shopType);
 
+                case ShopType.Library:
+                    return GenerateInventoryBooks();
+
                 default:
                     throw new NotImplementedException();
             }
         }
 
+        private static List<GameItem> GenerateInventoryBooks()
+        {
+            //FUTURE: inventory is influenced by town data
+            const int inventorySize = 12;
+
+            var result = new List<GameItem>();
+            for (int i = 0; i < inventorySize; i++)
+            {
+                var book = new GameItem();
+                book.name = "Some book title";
+                book.category = ItemCategory.Book;
+                book.quality = RandomUtils.RandomQuality();
+                book.baseValue = 10;
+                result.Add(book);
+            }
+
+            return result;
+        }
 
         private static List<GameItem> GenerateInventoryFood(ShopType shopType)
         {
@@ -88,7 +109,7 @@ namespace Vagabondo.Generators
             const int inventorySize = 12;
 
             var result = new List<GameItem>();
-            Predicate<FoodIngredientDef> ingredientFilter;
+            Predicate<IngredientDefinition> ingredientFilter;
 
             switch (shopType)
             {

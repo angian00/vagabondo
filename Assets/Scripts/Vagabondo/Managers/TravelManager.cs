@@ -4,6 +4,7 @@ using System.Linq;
 using Vagabondo.Actions;
 using Vagabondo.DataModel;
 using Vagabondo.Generators;
+using Vagabondo.Utils;
 
 namespace Vagabondo.Managers
 {
@@ -106,6 +107,12 @@ namespace Vagabondo.Managers
         {
             travelerData.merchandise.Remove(item);
             EventManager.PublishTravelerChanged(travelerData);
+        }
+
+        public void RemoveAnyItem()
+        {
+            var item = RandomUtils.RandomChoose(travelerData.merchandise);
+            RemoveItem(item);
         }
 
         public void TradeItem(GameItem item, bool isTravelerSelling)

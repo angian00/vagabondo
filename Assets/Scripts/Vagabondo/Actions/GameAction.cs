@@ -5,11 +5,14 @@ namespace Vagabondo.Actions
 {
     public enum GameActionType
     {
-        Explore,
+        Church,
+        TownHall,
         Tavern,
-        Shop,
         Library,
 
+        Shop,
+
+        Explore,
         ChatLocals,
         ChatCriminals,
 

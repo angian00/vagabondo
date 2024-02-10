@@ -21,34 +21,31 @@ namespace Vagabondo.Generators
                 GameAction action = null;
                 switch (building)
                 {
-                    case TownBuilding.Tavern:
-                        action = new TavernAction(townData);
-                        break;
-
-                    case TownBuilding.Library:
-                        action = new LibraryAction(townData);
-                        break;
-
                     case TownBuilding.Bakery:
                         action = new ShopAction(ShopType.Bakery, townData);
                         break;
                     case TownBuilding.Butchery:
                         action = new ShopAction(ShopType.Butchery, townData);
                         break;
-                        //case TownBuilding.Emporium:
-                        //    action = new ShopAction(ShopType.Emporium);
-                        //    break;
+                    //case TownBuilding.Emporium:
+                    //    action = new ShopAction(ShopType.Emporium);
+                    //    break;
 
-                        //case TownBuilding.Church:
-                        //    action = new ChurchAction();
-                        //    break;
-
-                        //case TownBuilding.Monastery:
-                        //    action = new MonasteryAction();
-                        //    break;
-                        //case TownBuilding.TownHall:
-                        //    action = new TownHallAction();
-                        //    break;
+                    case TownBuilding.Church:
+                        action = new ChurchAction(townData);
+                        break;
+                    case TownBuilding.Monastery:
+                        action = new MonasteryAction(townData);
+                        break;
+                    case TownBuilding.TownHall:
+                        action = new TownHallAction(townData);
+                        break;
+                    case TownBuilding.Tavern:
+                        action = new TavernAction(townData);
+                        break;
+                    case TownBuilding.Library:
+                        action = new LibraryAction(townData);
+                        break;
 
                 }
 

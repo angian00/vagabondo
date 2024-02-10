@@ -6,7 +6,7 @@ namespace Vagabondo.DataModel
 {
 
 
-    public struct FoodIngredientDef : IGrammarNoun
+    public struct IngredientDefinition : IGrammarNoun
     {
         public string name { get; set; }
         public bool isPluralizable { get; set; }

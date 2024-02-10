@@ -1,18 +1,17 @@
 using System;
 using System.Collections.Generic;
 using Vagabondo.DataModel;
-using Vagabondo.Generators;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Actions
 {
-    public class LibraryAction : GameAction
+    public class ChurchAction : GameAction
     {
-        public LibraryAction(Town townData) : base(GameActionType.Library, townData)
+        public ChurchAction(Town townData) : base(GameActionType.Church, townData)
         {
-            this.title = "Go to the library";
-            this.description = "Browse through the books of the local library";
+            this.title = "Visit the church";
+            this.description = "";
         }
 
         public override GameActionResult Perform(TravelManager travelManager)
@@ -22,7 +21,7 @@ namespace Vagabondo.Actions
                 GameActionEffectType.Trade,
             };
 
-            //TODO: influence result by stats
+            //TODO: influence result by Religion stat
             var effectType = RandomUtils.RandomChoose(effectTypes);
             switch (effectType)
             {
@@ -38,15 +37,18 @@ namespace Vagabondo.Actions
 
         private GameActionResult performLearn(TravelManager travelManager)
         {
-            travelManager.IncrementStat(StatId.Languages);
-            return new GameActionResult($"You become more erudite than you were before");
+            travelManager.IncrementStat(StatId.Religion);
+
+            return new GameActionResult($"You spend some time praying and meditating");
         }
 
         private GameActionResult performTrade(TravelManager travelManager)
         {
-            var shopInventory = MerchandiseGenerator.GenerateInventory(ShopType.Library);
-            PriceEvaluator.UpdatePrices(shopInventory);
-            return new ShopActionResult("You have the opportunity to trade books", shopInventory);
+            var donationAmount = 20;
+            travelManager.AddMoney(-donationAmount);
+            travelManager.IncrementStat(StatId.Religion);
+
+            return new GameActionResult($"You donate some money for charitable works");
         }
     }
 }

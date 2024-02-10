@@ -17,6 +17,7 @@ namespace Vagabondo.DataModel
         WildPlant,
 
         Tool,
+        Book,
         //...
     }
 
@@ -56,14 +57,16 @@ namespace Vagabondo.DataModel
         public int baseValue;
         public int currentPrice;
 
-        public FoodIngredientDef definition;
+        public IngredientDefinition definition;
     }
 
     public enum ShopType
     {
-        Tavern,
         Bakery,
         Butchery,
+
+        Tavern,
+        Library,
     }
 
 }

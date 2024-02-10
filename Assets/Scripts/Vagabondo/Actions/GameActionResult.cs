@@ -11,6 +11,8 @@ namespace Vagabondo.Actions
         MakeEnemies,
         Injury,
         Learn,
+        Pray,
+        GiveItem,
         ReceiveItem,
         LoseMoney,
     }

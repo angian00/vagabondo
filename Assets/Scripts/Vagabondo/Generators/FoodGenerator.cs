@@ -11,7 +11,7 @@ namespace Vagabondo.Generators
 {
     public class FoodGenerator
     {
-        private static List<FoodIngredientDef> ingredientDefinitions;
+        private static List<IngredientDefinition> ingredientDefinitions;
         private static List<FoodItemTemplate> foodItemTemplates;
         private static List<int> ingredientDefinitionWeights;
 
@@ -20,7 +20,7 @@ namespace Vagabondo.Generators
             TextAsset fileObj;
 
             fileObj = Resources.Load<TextAsset>($"Data/Generators/foodIngredientDefinitions");
-            ingredientDefinitions = JsonConvert.DeserializeObject<List<FoodIngredientDef>>(fileObj.text);
+            ingredientDefinitions = JsonConvert.DeserializeObject<List<IngredientDefinition>>(fileObj.text);
             ingredientDefinitionWeights = new();
             foreach (var id in ingredientDefinitions)
                 ingredientDefinitionWeights.Add(id.frequency);
@@ -46,13 +46,13 @@ namespace Vagabondo.Generators
 
         public static List<GameItem> GenerateFoodIngredients(List<ItemSubcategory> categories, int nIngredients = 10)
         {
-            Predicate<FoodIngredientDef> ingredientFilter = (ingredientDef) => categories.Contains(ingredientDef.subcategory);
+            Predicate<IngredientDefinition> ingredientFilter = (ingredientDef) => categories.Contains(ingredientDef.subcategory);
             return GenerateFoodIngredients(ingredientFilter, nIngredients);
         }
 
-        public static List<GameItem> GenerateFoodIngredients(Predicate<FoodIngredientDef> ingredientFilter, int nIngredients = 10)
+        public static List<GameItem> GenerateFoodIngredients(Predicate<IngredientDefinition> ingredientFilter, int nIngredients = 10)
         {
-            List<FoodIngredientDef> compatibleDefs = new();
+            List<IngredientDefinition> compatibleDefs = new();
             List<int> compatibleDefWeights = new();
 
             for (int iDef = 0; iDef < ingredientDefinitions.Count; iDef++)

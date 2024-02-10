@@ -8,5 +8,6 @@ namespace Vagabondo.DataModel
         Diplomacy,
         Reputation,
         StreetSmarts,
+        Religion,
     }
 }
