@@ -56,7 +56,7 @@ namespace Vagabondo.Actions
             var tool = MerchandiseGenerator.GenerateItem(ItemCategory.Tool);
 
             travelManager.AddItem(tool);
-            return new GameActionResult($"As a sign of good will, you are gifted a useful <style=C1>{tool}</style>");
+            return new GameActionResult($"As a sign of good will, you are gifted a useful <style=C1>{tool.name}</style>");
         }
 
         private GameActionResult performMakeFriends(TravelManager travelManager)

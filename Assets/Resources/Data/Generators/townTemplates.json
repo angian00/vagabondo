@@ -1,38 +1,56 @@
-{
-	"Hamlet": {
+[
+	{
+		"size": "Hamlet",
+		"frequency": 10,
 		"nMaxBuildings": 1,
 		"buildings": [
-			{ "buildingType": "church", "probability": 0.7 },
-			{ "buildingType": "ShopGeneric", "probability": 0.3 },
+			{ "buildingType": "Church", "probability": 0.5 },
+			{ "buildingType": "Farm", "probability": 0.8, "traitExcluded": "Industrial" },
+			{ "buildingType": "ShopGeneric", "probability": 0.5 },
 		]
 	},
 
-	"Village": {
+	{
+		"size": "Village",
+		"frequency": 20,
 		"nMaxBuildings": 2,
 		"buildings": [
-			{ "buildingType": "church", "probability": 0.8 },
-			{ "buildingType": "tavern", "probability": 0.8 },
-			{ "buildingType": "ShopGeneric", "probability": 0.8 },
+			{ "buildingType": "Church", "probability": 0.8 },
+			{ "buildingType": "Tavern", "probability": 0.8 },
+			{ "buildingType": "Farm", "probability": 0.8, "traitExcluded": "Industrial" },
 			{ "buildingType": "ShopGeneric", "probability": 0.8 },
 
 		]
 	},
 
 
-	"Town": {
+	{
+		"size": "Town",
+		"frequency": 6,
 		"nMaxBuildings": 3,
 		"buildings": [
-			{ "buildingType": "church", "probability": 1.0 },
-			{ "buildingType": "tavern", "probability": 1.0 },
+			{ "buildingType": "TownHall", "probability": 0.6 },
+			{ "buildingType": "Church", "probability": 1.0 },
+			{ "buildingType": "Tavern", "probability": 1.0 },
+			{ "buildingType": "ShopGeneric", "probability": 1.0 },
+			{ "buildingType": "ShopGeneric", "probability": 1.0 },
 //			{ "buildingType": "mine", "probability": 1.0, "traitNeeded": "Industrial" },
 //			{ "buildingType": "farm", "probability": 1.0, "traitExcluded": "Industrial" },
 		]
 	},
 
-	"City": {
+	{
+		"size": "City",
+		"frequency": 2,
 		"nMaxBuildings": 5,
 		"buildings": [
-			{ "buildingType": "library", "probability": 1.0 },
+			{ "buildingType": "TownHall", "probability": 1.0 },
+			{ "buildingType": "Church", "probability": 0.8 },
+			{ "buildingType": "Tavern", "probability": 0.8 },
+			{ "buildingType": "Monastery", "probability": 0.6 },
+			{ "buildingType": "Library", "probability": 0.4 },
+			{ "buildingType": "ShopGeneric", "probability": 1.0 },
+			{ "buildingType": "ShopGeneric", "probability": 1.0 },
 		]
 	},
-}
+]

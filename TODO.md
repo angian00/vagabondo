@@ -1,9 +1,10 @@
 # TODO
 - town and event actions
-	- add check before money effects
+	- town traits: randomize on dominion traits/town sizes
+	- actions: add check before money effects
+	- fare qualcosa quando vengono generate 0 actions
 
 - data
-	- fill in building generation metadata
 	- improve quest generation data
 	- improve action texts
 
@@ -14,8 +15,9 @@
 - ui
 	- evidenziare cambio di dominio
 	- skip ActionResult for shops
+	- evidenziare action di tipo diverso (building, event, quest) con colori diversi
 	- add some feedback about action effect to ActionResult
-	- give item choice ui
+	- GiveItem action result ui
 	- fix overflow testo e/o aggiungere tooltip con testo completo
 	- shop ui title
 	+ rendere scrollabile gli inventory

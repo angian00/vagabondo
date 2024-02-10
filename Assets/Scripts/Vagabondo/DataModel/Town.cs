@@ -44,8 +44,10 @@ namespace Vagabondo.DataModel
 
     public class TownTemplate
     {
+        public TownSize size;
         public int nMaxBuildings;
         public List<TownTemplateBuildingInfo> buildings;
+        public int frequency;
     }
 
     public class TownTemplateBuildingInfo

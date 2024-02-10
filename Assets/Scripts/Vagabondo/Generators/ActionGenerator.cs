@@ -14,7 +14,7 @@ namespace Vagabondo.Generators
 
         private static void generateBuildingActions(Town townData)
         {
-            const float buildingGenerationProb = 0.5f;
+            const float buildingGenerationProb = 0.7f;
 
             var newActions = new List<GameAction>();
 
@@ -52,9 +52,12 @@ namespace Vagabondo.Generators
 
         private static void generateEventActions(Town townData)
         {
-            const float eventGenerationProb = 0.5f;
+            const float eventGenerationProb = 0.7f;
 
             var candidateActionTypes = new List<GameActionType>() { };
+
+
+            candidateActionTypes.Add(GameActionType.ChatLocals);
 
             if (townData.traits.Contains(DominionTrait.Wild))
                 candidateActionTypes.Add(GameActionType.Explore);

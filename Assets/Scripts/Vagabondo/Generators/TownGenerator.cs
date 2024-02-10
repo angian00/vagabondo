@@ -9,10 +9,13 @@ namespace Vagabondo.Generators
     public class TownGenerator
     {
         private static Dictionary<Biome, Dictionary<Biome, int>> biomeTransitions;
-        private static Dictionary<TownSize, TownTemplate> townTemplates;
+        private static List<TownTemplate> townTemplates;
+        private static List<int> townTemplateWeights;
 
         private DominionGenerator dominionGenerator;
         private HashSet<Dominion> dominions; //TODO: count explored towns by dominion
+        private TownTemplate currentTemplate;
+
 
         static TownGenerator()
         {
@@ -22,7 +25,11 @@ namespace Vagabondo.Generators
             biomeTransitions = JsonConvert.DeserializeObject<Dictionary<Biome, Dictionary<Biome, int>>>(fileObj.text);
 
             fileObj = Resources.Load<TextAsset>($"Data/Generators/townTemplates");
-            townTemplates = JsonConvert.DeserializeObject<Dictionary<TownSize, TownTemplate>>(fileObj.text);
+            //townTemplates = JsonConvert.DeserializeObject<Dictionary<TownSize, TownTemplate>>(fileObj.text);
+            townTemplates = JsonConvert.DeserializeObject<List<TownTemplate>>(fileObj.text);
+            townTemplateWeights = new();
+            foreach (var template in townTemplates)
+                townTemplateWeights.Add(template.frequency);
         }
 
 
@@ -36,44 +43,36 @@ namespace Vagabondo.Generators
             var townName = FileStringGenerator.Sites.GenerateString();
             var town = new Town(townName);
 
-            TownSize size;
             Biome biome;
             Dominion dominion;
+
             if (lastTown == null)
             {
-                size = RandomUtils.RandomEnum<TownSize>();
+                currentTemplate = RandomUtils.RandomChooseWeighted(townTemplates, townTemplateWeights);
                 biome = RandomUtils.RandomEnum<Biome>();
                 dominion = dominionGenerator.GenerateDominion();
             }
             else
             {
-                size = randomSizeTransition(lastTown.size);
+                while (lastTown.size == TownSize.City && currentTemplate.size == TownSize.City)
+                    currentTemplate = RandomUtils.RandomChooseWeighted(townTemplates, townTemplateWeights);
+
                 biome = randomBiomeTransition(lastTown.biome);
                 dominion = randomDominionTransition(lastTown.dominion);
             }
 
-            town.size = size;
+            town.size = currentTemplate.size;
             town.biome = biome;
             town.dominion = dominion;
 
             assignTownTraits(town, dominion.traits);
-
-            assignRandomBuildings(town);
+            assignBuildings(town);
 
             town.description = TownDescriptionGenerator.GenerateTownDescription(town);
 
             return town;
         }
 
-        private TownSize randomSizeTransition(TownSize lastSize)
-        {
-            while (true)
-            {
-                var newSize = EnumGenerator.TownSize.GenerateValue();
-                if (!(lastSize == TownSize.City && (newSize == TownSize.City)))
-                    return newSize;
-            }
-        }
 
         private Biome randomBiomeTransition(Biome lastBiome)
         {
@@ -90,6 +89,7 @@ namespace Vagabondo.Generators
             return RandomUtils.RandomChooseWeighted(values, weights);
         }
 
+
         private Dominion randomDominionTransition(Dominion lastDominion)
         {
             if (UnityEngine.Random.value <= lastDominion.type.permanence)
@@ -104,17 +104,23 @@ namespace Vagabondo.Generators
 
             foreach (var trait in traits)
             {
-                //if (trait == DominionTrait.Industrial && town.size == TownSize.Hamlet)
-                //    continue;
-
-                //if (trait == DominionTrait.HighCrime && town.size <= TownSize.Town && traits.Contains(DominionTrait.Rural))
-                //    continue;
-
-                town.traits.Add(trait);
+                if (isValidConstraint(trait, town))
+                    town.traits.Add(trait);
             }
         }
 
-        private static void assignRandomBuildings(Town town)
+        private bool isValidConstraint(DominionTrait trait, Town town)
+        {
+            if (trait == DominionTrait.Industrial && town.size == TownSize.Hamlet)
+                return false;
+
+            if (trait == DominionTrait.HighCrime && town.size <= TownSize.Town && town.traits.Contains(DominionTrait.Rural))
+                return false;
+
+            return true;
+        }
+
+        private void assignBuildings(Town town)
         {
             var shopTypes = new List<TownBuilding>() {
                 TownBuilding.Bakery,
@@ -126,15 +132,13 @@ namespace Vagabondo.Generators
                 //TownBuilding.Shoemaker,
             };
 
-            var townTemplate = townTemplates[town.size];
-
-            var buildingInfos = townTemplate.buildings;
+            var buildingInfos = currentTemplate.buildings;
             RandomUtils.Shuffle(buildingInfos);
 
             var buildings = new HashSet<TownBuilding>();
             foreach (var buildingInfo in buildingInfos)
             {
-                if (buildings.Count >= townTemplate.nMaxBuildings)
+                if (buildings.Count >= currentTemplate.nMaxBuildings)
                     break;
 
                 if (buildingInfo.traitNeeded != DominionTrait.Default && !town.traits.Contains(buildingInfo.traitNeeded))
@@ -154,11 +158,11 @@ namespace Vagabondo.Generators
             }
 
             //DEBUG
-            buildings.Add(TownBuilding.Church);
-            buildings.Add(TownBuilding.Monastery);
-            buildings.Add(TownBuilding.TownHall);
+            //buildings.Add(TownBuilding.Church);
+            //buildings.Add(TownBuilding.Monastery);
+            //buildings.Add(TownBuilding.TownHall);
             //buildings.Add(TownBuilding.Tavern);
-            buildings.Add(TownBuilding.Library);
+            //buildings.Add(TownBuilding.Library);
             //
             town.buildings = buildings;
         }
