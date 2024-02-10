@@ -14,16 +14,22 @@ namespace Vagabondo.Generators
 
         private static void generateBuildingActions(Town townData)
         {
+            const float buildingGenerationProb = 0.5f;
+
             var newActions = new List<GameAction>();
 
             foreach (var building in townData.buildings)
             {
-                GameAction action = null;
+                if (UnityEngine.Random.value > buildingGenerationProb)
+                    continue;
+
+                GameAction action;
                 switch (building)
                 {
                     case TownBuilding.Bakery:
                         action = new ShopAction(ShopType.Bakery, townData);
                         break;
+
                     case TownBuilding.Butchery:
                         action = new ShopAction(ShopType.Butchery, townData);
                         break;
@@ -31,26 +37,13 @@ namespace Vagabondo.Generators
                     //    action = new ShopAction(ShopType.Emporium);
                     //    break;
 
-                    case TownBuilding.Church:
-                        action = new ChurchAction(townData);
-                        break;
-                    case TownBuilding.Monastery:
-                        action = new MonasteryAction(townData);
-                        break;
-                    case TownBuilding.TownHall:
-                        action = new TownHallAction(townData);
-                        break;
-                    case TownBuilding.Tavern:
-                        action = new TavernAction(townData);
-                        break;
-                    case TownBuilding.Library:
-                        action = new LibraryAction(townData);
+                    default:
+                        action = GameActionFactory.CreateBuildingAction(building, townData);
                         break;
 
                 }
 
-                if (action != null)
-                    newActions.Add(action);
+                newActions.Add(action);
             }
 
             townData.actions.AddRange(newActions);
@@ -59,13 +52,26 @@ namespace Vagabondo.Generators
 
         private static void generateEventActions(Town townData)
         {
+            const float eventGenerationProb = 0.5f;
+
+            var candidateActionTypes = new List<GameActionType>() { };
+
+            if (townData.traits.Contains(DominionTrait.Wild))
+                candidateActionTypes.Add(GameActionType.Explore);
+
+            if (townData.traits.Contains(DominionTrait.HighCrime))
+                candidateActionTypes.Add(GameActionType.ChatCriminals);
+
+
             var newActions = new List<GameAction>();
-            //if (hasWilderness())
-            newActions.Add(new ExploreAction(townData));
-            //if (friendly)
-            newActions.Add(new ChatLocalsAction(townData));
-            //if (hasCrime())
-            newActions.Add(new ChatCriminalsAction(townData));
+            foreach (var actionType in candidateActionTypes)
+            {
+                if (UnityEngine.Random.value > eventGenerationProb)
+                    continue;
+
+                var action = GameActionFactory.CreateEventAction(actionType, townData);
+                newActions.Add(action);
+            }
 
             townData.actions.AddRange(newActions);
         }

@@ -82,12 +82,12 @@ namespace Vagabondo.Generators
             switch (shopType)
             {
                 case ShopType.Tavern:
-                    itemFilter = (foodItem) => (foodItem.category == ItemCategory.Drink);
+                    itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Drink);
                     break;
 
                 case ShopType.Bakery:
-                    //itemFilter = (foodItem) => (foodItem.category == FoodItemCategory.Bread || foodItem.category == FoodItemCategory.Dessert);
-                    itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Bread);
+                    itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Bread || foodItem.subcategory == ItemSubcategory.Dessert);
+                    //itemFilter = (foodItem) => (foodItem.subcategory == ItemSubcategory.Bread);
                     break;
 
                 case ShopType.Butchery:
@@ -98,7 +98,7 @@ namespace Vagabondo.Generators
                     throw new NotImplementedException();
             }
 
-            result.AddRange(FoodGenerator.GenerateFoodItems(itemFilter, inventorySize));
+            result.AddRange(FoodGenerator.GenerateFoodItemsFromTemplates(itemFilter, inventorySize));
 
             return result;
         }

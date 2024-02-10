@@ -16,12 +16,14 @@ namespace Vagabondo.DataModel
         Rich,
         Poor,
 
+        Wild,
         Rural,
         Industrial,
 
         HighCrime,
 
         Fanatic,
+
     }
 
 

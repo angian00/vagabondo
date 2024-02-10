@@ -32,7 +32,7 @@ namespace Vagabondo.DataModel
     }
 
 
-    public enum FoodPreparation
+    public enum Preparation
     {
         None,
         Mix,
@@ -46,12 +46,14 @@ namespace Vagabondo.DataModel
     }
 
 
-    public class FoodItemTemplate
+    public class ItemTemplate
     {
         public string name;
         public ItemSubcategory subcategory;
         public List<ItemSubcategory> ingredientCategories = new();
         public List<string> ingredientNames = new();
-        public FoodPreparation preparation;
+        public Preparation preparation;
+        public int frequency = 1;
+
     }
 }

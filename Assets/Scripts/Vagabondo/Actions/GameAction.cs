@@ -44,4 +44,43 @@ namespace Vagabondo.Actions
 
         public abstract GameActionResult Perform(TravelManager travelManager);
     }
+
+
+    public class GameActionFactory
+    {
+        public static GameAction CreateEventAction(GameActionType type, Town townData)
+        {
+            switch (type)
+            {
+                case GameActionType.Explore:
+                    return new ExploreAction(townData);
+                case GameActionType.ChatLocals:
+                    return new ChatLocalsAction(townData);
+                case GameActionType.ChatCriminals:
+                    return new ChatCriminalsAction(townData);
+            }
+
+            throw new System.Exception($"Invalid GameActionType: {type}");
+        }
+
+        public static GameAction CreateBuildingAction(TownBuilding building, Town townData)
+        {
+            switch (building)
+            {
+                case TownBuilding.Church:
+                    return new ChurchAction(townData);
+                case TownBuilding.Monastery:
+                    return new MonasteryAction(townData);
+                case TownBuilding.TownHall:
+                    return new TownHallAction(townData);
+                case TownBuilding.Tavern:
+                    return new TavernAction(townData);
+                case TownBuilding.Library:
+                    return new LibraryAction(townData);
+            }
+
+            throw new System.Exception($"Invalid GameActionType: {building}");
+        }
+    }
+
 }

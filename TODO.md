@@ -2,8 +2,6 @@
 - town and event actions
 	- add check before money effects
 
-	+ generazione wild animals (by biome)
-
 - data
 	- fill in building generation metadata
 	- improve quest generation data
@@ -11,29 +9,10 @@
 
 - trading
 	- filtrare tipi di item vendibili per shop
-	+ prezzi diversi di vendita e acquisto
 	? alcuni "shop" (es. farm) vendono tipi diversi da quelli che comprano
-	
-- GameItem refactoring:
-	- tidy up categories
-	- tidy up merchandise generator
-	- make other game item categories and generators
-		- books
-		+ fiori
-		+ medicinal herbs
-
-- new subsystems:
-	- books
-	- healing
-	- exoterism
-
-- food generation
-	- aggiungere frequency a foodItemTemplates
-	- aggiungere templates per food raw
-
-- reorganize traveler stats
 
 - ui
+	- evidenziare cambio di dominio
 	- skip ActionResult for shops
 	- add some feedback about action effect to ActionResult
 	- give item choice ui
@@ -42,6 +21,15 @@
 	+ rendere scrollabile gli inventory
 
 - manage defeat
+
+- GameItem refactoring:
+	- tidy up categories
+	- tidy up merchandise generator
+	- make other game item categories and generators
+		- fiori
+		- medicinal herbs
+		+ books
+
 
 - town description grammar
 	- parametrizzare per bioma, stagione, stato economico e militare
@@ -62,16 +50,19 @@
 	+ improve dominion permanence (town counter?)
 	+ correlare town size a dominion size
 
-- ui
-	- evidenziare cambio di dominio
+- actions
+	+ generazione random wild animals (by biome)
+
 
 
 - brainstorming:
-	- healing system
+	- new subsystems:
+		- books
+		- healing
+		- exoterism
 
-	- altre azioni
-		-> cercare azioni tipiche libro-game
-		
+
+	- altre azioni (quest templates?)
 		- Asking Around
 		- Sightsee
 		- Find Person or Work

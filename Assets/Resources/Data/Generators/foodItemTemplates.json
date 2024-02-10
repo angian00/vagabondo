@@ -9,6 +9,7 @@
 			"grain",
 		],
 		"preparation": "bake",
+		"frequency": 100,
 	},
 	{
 		"name": "#ingredient2# crackers",
@@ -20,6 +21,7 @@
 			"grain",
 		],
 		"preparation": "bake",
+		"frequency": 5,
 	},
 
 	//-----------------------------------------------
@@ -32,6 +34,7 @@
 			"grain",
 		],
 		"preparation": "boil",
+		"frequency": 20,
 	},
 	{
 		"name": "#ingredient1# gruel",
@@ -41,6 +44,7 @@
 			"dairy",
 		],
 		"preparation": "mix",
+		"frequency": 20,
 	},
 	{
 		"name": "#ingredient1# and #ingredient2# porridge",
@@ -51,6 +55,7 @@
 			"dairy",
 		],
 		"preparation": "mix",
+		"frequency": 20,
 	},
 
 	//-----------------------------------------------
@@ -65,6 +70,7 @@
 			"herb",
 		],
 		"preparation": "stew",
+		"frequency": 30,
 	},
 	{
 		"name": "boiled #ingredient1.s#",
@@ -73,6 +79,7 @@
 			"vegetable",
 		],
 		"preparation": "boil",
+		"frequency": 30,
 	},
 	{
 		"name": "#ingredient1# soup",
@@ -83,6 +90,7 @@
 			"fat",
 		],
 		"preparation": "stew",
+		"frequency": 20,
 	},
 	{
 		"name": "#ingredient1# dumplings",
@@ -92,6 +100,7 @@
 			"grain",
 		],
 		"preparation": "stew",
+		"frequency": 5,
 	},
 	{
 		"name": "#ingredient1# dumplings",
@@ -102,6 +111,7 @@
 			"grain",
 		],
 		"preparation": "stew",
+		"frequency": 5,
 	},
 
 	//-----------------------------------------------
@@ -115,6 +125,7 @@
 			"herb",
 		],
 		"preparation": "roast",
+		"frequency": 10,
 	},
 	{
 		"name": "roasted #ingredient1.s#",
@@ -123,6 +134,7 @@
 			"fish",
 		],
 		"preparation": "roast",
+		"frequency": 5,
 	},
 	{
 		"name": "#ingredient1# stew",
@@ -132,6 +144,7 @@
 			"vegetable",
 		],
 		"preparation": "stew",
+		"frequency": 10,
 	},
 	{
 		"name": "#ingredient1# and #ingredient2# stew",
@@ -141,6 +154,7 @@
 			"fruit",
 		],
 		"preparation": "stew",
+		"frequency": 5,
 	},
 	{
 		"name": "#ingredient1# pottage",
@@ -151,6 +165,7 @@
 			"vegetable",
 		],
 		"preparation": "stew",
+		"frequency": 5,
 	},
 	{
 		"name": "#ingredient1# stew",
@@ -161,6 +176,7 @@
 			"herb",
 		],
 		"preparation": "stew",
+		"frequency": 5,
 	},
 	{
 		"name": "#ingredient1# and #ingredient2# stew",
@@ -170,6 +186,7 @@
 			"fruit",
 		],
 		"preparation": "stew",
+		"frequency": 5,
 	},
 
 	//-----------------------------------------------
@@ -186,6 +203,7 @@
 			"vegetable",
 		],
 		"preparation": "bake",
+		"frequency": 2,
 	},
 	{
 		"name": "#ingredient2# pastry",
@@ -198,6 +216,7 @@
 			"vegetable",
 		],
 		"preparation": "bake",
+		"frequency": 2,
 	},
 	{
 		"name": "stuffed #ingredient1.s#",
@@ -207,6 +226,7 @@
 			"vegetable",
 		],
 		"preparation": "bake",
+		"frequency": 4,
 	},
 	{
 		"name": "#ingredient2# bacon",
@@ -218,6 +238,7 @@
 			"meat",
 		],
 		"preparation": "fry",
+		"frequency": 5,
 	},
 
 
@@ -233,6 +254,7 @@
 			"butter",
 		],
 		"preparation": "fry",
+		"frequency": 2,
 	},
 	{
 		"name": "krapfen",
@@ -243,6 +265,7 @@
 			"lard",
 		],
 		"preparation": "fry",
+		"frequency": 2,
 	},
 	{
 		"name": "marzipan",
@@ -254,6 +277,7 @@
 			"almonds",
 		],
 		"preparation": "fry",
+		"frequency": 2,
 	},
 	{
 		"name": "#ingredient3# tart",
@@ -266,6 +290,7 @@
 			"fruit",
 		],
 		"preparation": "bake",
+		"frequency": 4,
 	},
 	{
 		"name": "#ingredient2# sherbet",
@@ -277,6 +302,7 @@
 			"fruit",
 		],
 		"preparation": "bake",
+		"frequency": 2,
 	},
 	{
 		"name": "cassata",
@@ -291,6 +317,7 @@
 			"fruit",
 		],
 		"preparation": "bake",
+		"frequency": 1,
 	},
 	{
 		"name": "cannoli",
@@ -305,6 +332,7 @@
 			"fruit",
 		],
 		"preparation": "fry",
+		"frequency": 1,
 	},
 	{
 		"name": "puff pastry",
@@ -315,6 +343,7 @@
 			"sugar",
 		],
 		"preparation": "bake",
+		"frequency": 2,
 	},
 	{
 		"name": "pudding",
@@ -327,6 +356,7 @@
 			"dairy",
 		],
 		"preparation": "bake",
+		"frequency": 4,
 	},
 	{
 		"name": "candied #ingredient2.s#",
@@ -338,6 +368,7 @@
 			"fruit",
 		],
 		"preparation": "simmer",
+		"frequency": 2,
 	},
 	{
 		"name": "tipsy #ingredient1.s#",
@@ -347,6 +378,7 @@
 			"drink",
 		],
 		"preparation": "mix",
+		"frequency": 2,
 	},
 
 	//TODO: dolci con petali di fiori come rose, violette e sambuco
@@ -364,6 +396,7 @@
 			"meat",
 		],
 		"preparation": "preserve",
+		"frequency": 10,
 	},
 	{
 		"name": "#ingredient1# sausages",
@@ -372,6 +405,7 @@
 			"meat",
 		],
 		"preparation": "preserve",
+		"frequency": 5,
 	},
 	{
 		"name": "#ingredient2# salami",
@@ -385,6 +419,7 @@
 			"spice",
 		],
 		"preparation": "preserve",
+		"frequency": 5,
 	},
 	{
 		"name": "#ingredient1# ham",
@@ -394,6 +429,7 @@
 			"herb",
 		],
 		"preparation": "preserve",
+		"frequency": 5,
 	},
 	{
 		"name": "dried #ingredient1.s#",
@@ -402,6 +438,7 @@
 			"meat",
 		],
 		"preparation": "preserve",
+		"frequency": 10,
 	},
 	{
 		"name": "dried #ingredient1.s#",
@@ -410,6 +447,7 @@
 			"fish",
 		],
 		"preparation": "preserve",
+		"frequency": 5,
 	},
 	{
 		"name": "dried #ingredient1.s#",
@@ -418,6 +456,7 @@
 			"fruit",
 		],
 		"preparation": "preserve",
+		"frequency": 10,
 	},
 	{
 		"name": "smoked #ingredient1.s#",
@@ -427,6 +466,7 @@
 			"herb",
 		],
 		"preparation": "preserve",
+		"frequency": 10,
 	},
 
 	{
@@ -436,6 +476,7 @@
 			"fruit",
 		],
 		"preparation": "preserve",
+		"frequency": 5,
 	},
 
 	{
@@ -445,6 +486,7 @@
 			"grain",
 		],
 		"preparation": "preserve",
+		"frequency": 5,
 	},
 	{
 		"name": "fermented #ingredient1.s#",
@@ -453,6 +495,7 @@
 			"vegetable",
 		],
 		"preparation": "preserve",
+		"frequency": 4,
 	},
 	{
 		"name": "sour #ingredient2.s#",
@@ -465,6 +508,7 @@
 			"herb",
 		],
 		"preparation": "preserve",
+		"frequency": 5,
 	},
 
 	{
@@ -477,6 +521,7 @@
 			"fruit",
 		],
 		"preparation": "preserve",
+		"frequency": 2,
 	},
 	{
 		"name": "honey-glazed #ingredient2#",
@@ -488,6 +533,7 @@
 			"meat",
 		],
 		"preparation": "preserve",
+		"frequency": 1,
 	},
 
 	//-----------------------------------------------
@@ -500,6 +546,7 @@
 			"drink",
 		],
 		"preparation": "none",
+		"frequency": 40,
 	},
 	{
 		"name": "#ingredient1#",
@@ -508,6 +555,7 @@
 			"cheese",
 		],
 		"preparation": "none",
+		"frequency": 30,
 	},
 
 ]
