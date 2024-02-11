@@ -23,7 +23,11 @@ namespace Vagabondo.Behaviours
 
         [Header("Other UI views")]
         [SerializeField]
+        private GameObject dominionUI;
+        [SerializeField]
         private GameObject travelerUI;
+        [SerializeField]
+        private GameObject inventoryUI;
         [SerializeField]
         private GameObject merchandiseUI;
         [SerializeField]
@@ -33,6 +37,7 @@ namespace Vagabondo.Behaviours
         private List<ActionButtonBehaviour> actionObjs = new();
         private Town townData;
         private Traveler travelerData;
+        private Dominion lastDominion;
 
 
         private void OnEnable()
@@ -53,9 +58,14 @@ namespace Vagabondo.Behaviours
         }
 
 
-        public void OnSwitchViewClicked()
+        public void OnTravelerViewClicked()
         {
             UnityUtils.ShowUIView(travelerUI);
+        }
+
+        public void OnInventoryViewClicked()
+        {
+            UnityUtils.ShowUIView(inventoryUI);
         }
 
         public void OnMerchandiseClicked()
@@ -76,6 +86,26 @@ namespace Vagabondo.Behaviours
             updateView();
             if (travelerData != null)
                 updateInteractableActions();
+
+            if (townData.dominion != lastDominion)
+            {
+                dominionUI.GetComponent<DominionUIBehaviour>().Dominion = townData.dominion;
+                UnityUtils.ShowUIView(dominionUI);
+
+                lastDominion = townData.dominion;
+            }
+        }
+
+        public void onTravelerChanged(Traveler travelerData)
+        {
+            Debug.Log("TownUIBehaviour.onTravelerChanged()");
+            this.travelerData = travelerData;
+            updateInteractableActions();
+
+            foreach (var actionObj in actionObjs)
+            {
+                actionObj.ComputeInteractable(travelerData);
+            }
         }
 
         private void updateView()
@@ -95,18 +125,6 @@ namespace Vagabondo.Behaviours
             }
         }
 
-        public void onTravelerChanged(Traveler travelerData)
-        {
-            Debug.Log("TownUIBehaviour.onTravelerChanged()");
-            this.travelerData = travelerData;
-            updateInteractableActions();
-
-            foreach (var actionObj in actionObjs)
-            {
-                actionObj.ComputeInteractable(travelerData);
-            }
-        }
-
         private void updateInteractableActions()
         {
             foreach (var actionObj in actionObjs)
@@ -114,6 +132,5 @@ namespace Vagabondo.Behaviours
                 actionObj.ComputeInteractable(travelerData);
             }
         }
-
     }
 }

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 89938594712582508}
+      - m_Target: {fileID: 6610922530284972883}
         m_TargetAssemblyTypeName: Vagabondo.Behaviours.ShopItemBehaviour, Assembly-CSharp
         m_MethodName: OnTradeItem
         m_Mode: 1
@@ -414,9 +414,9 @@ GameObject:
   - component: {fileID: 5252103052470049925}
   - component: {fileID: 3091643657000678200}
   - component: {fileID: 5336831162754275993}
-  - component: {fileID: 89938594712582508}
+  - component: {fileID: 6610922530284972883}
   m_Layer: 5
-  m_Name: Shop Item Tenplate
+  m_Name: Shop Item Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &89938594712582508
+--- !u!114 &6610922530284972883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

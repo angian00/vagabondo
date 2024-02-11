@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\Actions\ExploreAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TownGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Experiments\ExperimentFoodGeneration.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Behaviours\InventoryItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Quest.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ActionResultUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\DestinationItemBehaviour.cs" />
@@ -122,6 +123,8 @@
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\GrammarFactory.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ShopItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\MemoryItemBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Behaviours\InventoryUIBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Behaviours\DominionUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\GameItemGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\DataUtils.cs" />
   </ItemGroup>

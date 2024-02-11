@@ -9,11 +9,6 @@
 - data
 	- improve action texts
 
-- ui
-	- add inventory panel
-
-	- evidenziare cambio di dominio
-
 
 - manage defeat
 
