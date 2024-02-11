@@ -8,26 +8,49 @@ namespace Vagabondo.Behaviours
 {
     public class DestinationItemBehaviour : MonoBehaviour
     {
+        [Header("UI Fields")]
+        [SerializeField]
+        private TextMeshProUGUI townNameLabel;
+        [SerializeField]
+        private TextMeshProUGUI dominionLabel;
+        [SerializeField]
+        private Transform hintsPanel;
+
+        [Header("Prefabs")]
+        [SerializeField]
+        private GameObject hintTemplate;
+
+
         public GameObject ParentView { get; set; }
 
-        private Town _data;
-        public Town Data { set { _data = value; updateView(); } }
+        private Town _townData;
+        public Town TownData
+        {
+            set
+            {
+                _townData = value;
+                updateView();
+            }
+        }
 
 
         public void OnDestinationChosen()
         {
-            TravelManager.Instance.TravelTo(_data.name);
+            TravelManager.Instance.TravelTo(_townData);
             UnityUtils.HideUIView(ParentView);
         }
 
         private void updateView()
         {
-            var townNameLabel = gameObject.transform.Find("Town Name").GetComponent<TextMeshProUGUI>();
-            townNameLabel.text = _data.name;
+            townNameLabel.text = _townData.name;
+            dominionLabel.text = _townData.dominion.name;
 
-            //var hintsPanel = gameObject.transform.Find("Hints"); //FUTURE: visualize hints
+            UnityUtils.RemoveAllChildren(hintsPanel);
+            foreach (var hint in _townData.hints)
+            {
+                var newHintObj = Instantiate(hintTemplate, hintsPanel, false);
+                newHintObj.transform.Find("Label").GetComponent<TextMeshProUGUI>().text = hint;
+            }
         }
-
-
     }
 }

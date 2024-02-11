@@ -47,6 +47,7 @@ namespace Vagabondo.DataModel
         public TownSize size;
         public int nMaxBuildings;
         public List<TownTemplateBuildingInfo> buildings;
+        public int nDestinations;
         public int frequency;
     }
 
@@ -65,9 +66,12 @@ namespace Vagabondo.DataModel
         public string description;
         public Biome biome;
         public Dominion dominion;
+        public int nDestinations;
         public HashSet<DominionTrait> traits = new();
         public HashSet<TownBuilding> buildings = new();
         public List<GameAction> actions = new();
+        public HashSet<string> hints = new();
+        public int nVisibleHints = 3;
 
         public Town(string name)
         {

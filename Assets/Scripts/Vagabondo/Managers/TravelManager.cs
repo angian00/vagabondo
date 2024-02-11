@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Vagabondo.Actions;
 using Vagabondo.DataModel;
 using Vagabondo.Generators;
@@ -19,7 +18,7 @@ namespace Vagabondo.Managers
 
         private Town currentTown;
         private Quest activeQuest;
-        private Dictionary<string, Town> nextDestinations;
+        private List<Town> nextDestinations;
 
 
         private TravelManager()
@@ -37,9 +36,8 @@ namespace Vagabondo.Managers
 
         private void initFirstTown()
         {
-            nextDestinations = generateNextDestinations(1);
-            var townName = nextDestinations.Keys.First();
-            TravelTo(townName);
+            var firstTown = townGenerator.GenerateTown(null);
+            TravelTo(firstTown);
         }
 
 
@@ -49,9 +47,8 @@ namespace Vagabondo.Managers
             EventManager.PublishActionPerformed(actionResult);
         }
 
-        public void TravelTo(string townName)
+        public void TravelTo(Town destination)
         {
-            var destination = nextDestinations[townName];
             currentTown = destination;
 
             ActionGenerator.GenerateActions(currentTown);
@@ -62,9 +59,8 @@ namespace Vagabondo.Managers
             PriceEvaluator.UpdatePrices(travelerData.merchandise);
             EventManager.PublishTravelerChanged(travelerData);
 
-            const int nDestinations = 3;
-            nextDestinations = generateNextDestinations(nDestinations, currentTown);
-            EventManager.PublishDestinationsChanged(nextDestinations.Values.ToList());
+            nextDestinations = generateNextDestinations(currentTown);
+            EventManager.PublishDestinationsChanged(nextDestinations);
         }
 
         public void AddMoney(int delta)
@@ -101,20 +97,25 @@ namespace Vagabondo.Managers
         {
             travelerData.stats[statId] += delta;
             EventManager.PublishTravelerChanged(travelerData);
+
+            foreach (var dest in nextDestinations)
+                updateNVisibleHints(dest, travelerData);
+
+            EventManager.PublishDestinationsChanged(nextDestinations);
         }
 
 
-        public void AddTrinket(Trinket trinket)
-        {
-            travelerData.trinkets.Add(trinket);
-            EventManager.PublishTravelerChanged(travelerData);
-        }
+        //public void AddTrinket(Trinket trinket)
+        //{
+        //    travelerData.trinkets.Add(trinket);
+        //    EventManager.PublishTravelerChanged(travelerData);
+        //}
 
-        public void RemoveTrinket(Trinket trinket)
-        {
-            travelerData.trinkets.Remove(trinket);
-            EventManager.PublishTravelerChanged(travelerData);
-        }
+        //public void RemoveTrinket(Trinket trinket)
+        //{
+        //    travelerData.trinkets.Remove(trinket);
+        //    EventManager.PublishTravelerChanged(travelerData);
+        //}
 
 
         public void AddItem(GameItem item)
@@ -171,18 +172,120 @@ namespace Vagabondo.Managers
         }
 
 
-        private Dictionary<string, Town> generateNextDestinations(int nDestinations, Town lastTown = null)
+        private List<Town> generateNextDestinations(Town currTown)
         {
-            var result = new Dictionary<string, Town>();
-            for (int i = 0; i < nDestinations; i++)
-            {
-                var townData = townGenerator.GenerateTown(lastTown); //TODO: make sure town name is not used again
+            var result = new List<Town>();
 
-                result[townData.name] = townData;
+            for (int i = 0; i < currTown.nDestinations; i++)
+            {
+                var townData = townGenerator.GenerateTown(currTown);
+                townData.hints = generateTownHints(townData, travelerData);
+
+                result.Add(townData);
             }
 
             return result;
         }
+
+        private HashSet<string> generateTownHints(Town townData, Traveler travelerData)
+        {
+            const int nMaxHints = 3;
+
+            var allHints = generateAllTownHints(townData, travelerData);
+
+            var res = new HashSet<string>();
+            var nHints = Math.Min(nMaxHints, allHints.Count);
+            while (res.Count < nHints)
+                res.Add(RandomUtils.RandomChoose(allHints));
+
+            return res;
+        }
+
+        private List<string> generateAllTownHints(Town townData, Traveler travelerData)
+        {
+            var res = new List<string>();
+
+            res.Add($"It is ruled by the {townData.dominion.name}");
+
+            switch (townData.biome)
+            {
+                case Biome.Forest:
+                    res.Add("It is surrounded by a dense forest");
+                    break;
+                case Biome.Plains:
+                    res.Add("It is surrounded by plains");
+                    break;
+                case Biome.Hills:
+                    res.Add("It is surrounded by hills");
+                    break;
+                case Biome.Mountains:
+                    res.Add("It is surrounded by mountains");
+                    break;
+                case Biome.Lake:
+                    res.Add("It is near a lake");
+                    break;
+
+                    //case Biome.Desert:
+                    //res.Add("It is surrounded by a desert");
+                    //break;
+            }
+
+            switch (townData.size)
+            {
+                case TownSize.Hamlet:
+                    res.Add("It is a tiny hamlet");
+                    break;
+                case TownSize.Village:
+                    res.Add("It is a small village");
+                    break;
+                case TownSize.Town:
+                    res.Add("It is a medium-sized town");
+                    break;
+                case TownSize.City:
+                    res.Add("It is a city");
+                    break;
+            }
+
+            foreach (var building in townData.buildings)
+                res.Add($"There is a {DataUtils.EnumToStr(building).ToLower()} in this settlement");
+
+            foreach (var trait in townData.traits)
+            {
+                switch (trait)
+                {
+                    case DominionTrait.Rich:
+                        res.Add("There are a lot of wealthy people");
+                        break;
+                    case DominionTrait.Poor:
+                        res.Add("It is poor");
+                        break;
+                    case DominionTrait.Wild:
+                        res.Add("It is surrounded by the wilderness");
+                        break;
+                    case DominionTrait.Rural:
+                        res.Add("It is surrounded by farms and fields");
+                        break;
+                    case DominionTrait.Industrial:
+                        res.Add("It is known for its industry");
+                        break;
+                    case DominionTrait.HighCrime:
+                        res.Add("There is a lot of crime");
+                        break;
+                    case DominionTrait.Fanatic:
+                        res.Add("Lots of religious fanatics there");
+                        break;
+                }
+            }
+
+            return res;
+        }
+
+        private void updateNVisibleHints(Town townData, Traveler travelerData)
+        {
+            //TODO: implement updateNVisibleHints logic
+            townData.nVisibleHints = townData.hints.Count;
+        }
+
 
 
         private void maybeAddQuestAction(Town townData)

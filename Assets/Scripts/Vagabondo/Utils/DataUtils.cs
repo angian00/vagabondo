@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 
 namespace Vagabondo.Utils
@@ -14,12 +15,14 @@ namespace Vagabondo.Utils
 
         public static string EnumToStr<T>(T value) where T : Enum
         {
-            return Enum.GetName(typeof(T), value);
+            var rawStr = Enum.GetName(typeof(T), value);
+            return Regex.Replace(rawStr, "([A-Z])", " $1").Trim();
         }
 
         public static T StrToEnum<T>(string valueStr) where T : Enum
         {
-            return (T)Enum.Parse(typeof(T), valueStr, true);
+            var enumStr = valueStr.Replace(" ", "");
+            return (T)Enum.Parse(typeof(T), enumStr, true);
         }
 
         public static IEnumerable<T> EnumValues<T>() where T : Enum

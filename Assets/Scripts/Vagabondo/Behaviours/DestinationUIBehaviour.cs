@@ -28,17 +28,14 @@ namespace Vagabondo.Behaviours
 
         private void updateView(List<Town> destinationsData)
         {
-            //Debug.Log("DestinationUIBehaviour.updateMerchandisePanel()");
             UnityUtils.RemoveAllChildren(destinationsPanel);
             foreach (var destData in destinationsData)
             {
                 var newDestPanel = Instantiate(destinationObjTemplate, destinationsPanel, false);
                 newDestPanel.GetComponent<DestinationItemBehaviour>().ParentView = gameObject;
-                newDestPanel.GetComponent<DestinationItemBehaviour>().Data = destData;
+                newDestPanel.GetComponent<DestinationItemBehaviour>().TownData = destData;
             }
-
         }
-
 
     }
 }

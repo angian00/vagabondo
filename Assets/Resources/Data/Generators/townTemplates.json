@@ -7,9 +7,9 @@
 			{ "buildingType": "Church", "probability": 0.5 },
 			{ "buildingType": "Farm", "probability": 0.8, "traitExcluded": "Industrial" },
 			{ "buildingType": "ShopGeneric", "probability": 0.5 },
-		]
+		],
+		"nDestinations": 1,
 	},
-
 	{
 		"size": "Village",
 		"frequency": 20,
@@ -19,8 +19,8 @@
 			{ "buildingType": "Tavern", "probability": 0.8 },
 			{ "buildingType": "Farm", "probability": 0.8, "traitExcluded": "Industrial" },
 			{ "buildingType": "ShopGeneric", "probability": 0.8 },
-
-		]
+		],
+		"nDestinations": 2,
 	},
 
 
@@ -36,7 +36,8 @@
 			{ "buildingType": "ShopGeneric", "probability": 1.0 },
 //			{ "buildingType": "mine", "probability": 1.0, "traitNeeded": "Industrial" },
 //			{ "buildingType": "farm", "probability": 1.0, "traitExcluded": "Industrial" },
-		]
+		],
+		"nDestinations": 3,
 	},
 
 	{
@@ -51,6 +52,7 @@
 			{ "buildingType": "Library", "probability": 0.4 },
 			{ "buildingType": "ShopGeneric", "probability": 1.0 },
 			{ "buildingType": "ShopGeneric", "probability": 1.0 },
-		]
+		],
+		"nDestinations": 5,
 	},
 ]

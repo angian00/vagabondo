@@ -13,8 +13,7 @@ namespace Vagabondo.Generators
         private static List<int> townTemplateWeights;
 
         private DominionGenerator dominionGenerator;
-        private HashSet<Dominion> dominions; //TODO: count explored towns by dominion
-        private TownTemplate currentTemplate;
+        private HashSet<string> usedTownNames = new();
 
 
         static TownGenerator()
@@ -39,32 +38,43 @@ namespace Vagabondo.Generators
 
         public Town GenerateTown(Town lastTown)
         {
-            var townName = FileStringGenerator.Sites.GenerateString();
-            var town = new Town(townName);
-
-            Biome biome; Dominion dominion;
+            Biome biome;
+            Dominion dominion;
 
             if (lastTown == null)
             {
-                currentTemplate = RandomUtils.RandomChooseWeighted(townTemplates, townTemplateWeights);
                 biome = RandomUtils.RandomEnum<Biome>();
                 dominion = dominionGenerator.GenerateDominion();
             }
             else
             {
-                while (lastTown.size == TownSize.City && currentTemplate.size == TownSize.City)
-                    currentTemplate = RandomUtils.RandomChooseWeighted(townTemplates, townTemplateWeights);
-
                 biome = randomBiomeTransition(lastTown.biome);
-                dominion = randomDominionTransition(lastTown.dominion);
+                var dominionCanPersist = Random.value <= lastTown.dominion.persistence;
+                if (dominionCanPersist && lastTown.dominion.nTowns < lastTown.dominion.maxNTowns)
+                    dominion = lastTown.dominion;
+                else
+                    dominion = dominionGenerator.GenerateDominion();
             }
 
-            town.size = currentTemplate.size;
+            TownTemplate townTemplate = null;
+            while (!isValidTownTemplate(townTemplate, dominion))
+                townTemplate = RandomUtils.RandomChooseWeighted(townTemplates, townTemplateWeights);
+
+            string townName;
+            do
+                townName = FileStringGenerator.Sites.GenerateString();
+            while (usedTownNames.Contains(townName));
+            usedTownNames.Add(townName);
+            var town = new Town(townName);
+
+            town.size = townTemplate.size;
+            town.nDestinations = townTemplate.nDestinations;
             town.biome = biome;
             town.dominion = dominion;
+            town.dominion.nTowns++;
 
             assignTownTraits(town, dominion.traits);
-            assignBuildings(town);
+            assignBuildings(town, townTemplate);
 
             town.description = TownDescriptionGenerator.GenerateTownDescription(town);
 
@@ -88,14 +98,6 @@ namespace Vagabondo.Generators
         }
 
 
-        private Dominion randomDominionTransition(Dominion lastDominion)
-        {
-            if (UnityEngine.Random.value <= lastDominion.type.permanence)
-                return lastDominion;
-            else
-                return dominionGenerator.GenerateDominion();
-        }
-
         private void assignTownTraits(Town town, HashSet<DominionTrait> traits)
         {
             town.traits = new();
@@ -105,6 +107,17 @@ namespace Vagabondo.Generators
                 if (isValidConstraint(trait, town))
                     town.traits.Add(trait);
             }
+        }
+
+        private bool isValidTownTemplate(TownTemplate townTemplate, Dominion dominion)
+        {
+            if (townTemplate == null)
+                return false;
+
+            if (townTemplate.size > dominion.maxTownSize)
+                return false;
+
+            return true;
         }
 
         private bool isValidConstraint(DominionTrait trait, Town town)
@@ -118,7 +131,7 @@ namespace Vagabondo.Generators
             return true;
         }
 
-        private void assignBuildings(Town town)
+        private void assignBuildings(Town town, TownTemplate townTemplate)
         {
             var shopTypes = new List<TownBuilding>() {
                 TownBuilding.Bakery,
@@ -130,13 +143,13 @@ namespace Vagabondo.Generators
                 //TownBuilding.Shoemaker,
             };
 
-            var buildingInfos = currentTemplate.buildings;
+            var buildingInfos = townTemplate.buildings;
             RandomUtils.Shuffle(buildingInfos);
 
             var buildings = new HashSet<TownBuilding>();
             foreach (var buildingInfo in buildingInfos)
             {
-                if (buildings.Count >= currentTemplate.nMaxBuildings)
+                if (buildings.Count >= townTemplate.nMaxBuildings)
                     break;
 
                 if (buildingInfo.traitNeeded != DominionTrait.Default && !town.traits.Contains(buildingInfo.traitNeeded))

@@ -12,24 +12,29 @@ namespace Vagabondo.Generators
     {
         private static int nMaxRegions = 80;
 
-        private static List<DominionType> dominionTypes;
+        private static List<DominionTemplate> dominionTemplates;
+        private static List<int> dominionTemplateWeights;
 
         private HashSet<string> usedRegionNames = new();
 
 
         static DominionGenerator()
         {
-            var fileObj = Resources.Load<TextAsset>($"Data/Generators/dominionTypes");
-            dominionTypes = JsonConvert.DeserializeObject<List<DominionType>>(fileObj.text);
+            var fileObj = Resources.Load<TextAsset>($"Data/Generators/dominionTemplates");
+            dominionTemplates = JsonConvert.DeserializeObject<List<DominionTemplate>>(fileObj.text);
+            dominionTemplateWeights = new();
+            foreach (var template in dominionTemplates)
+                dominionTemplateWeights.Add(template.frequency);
         }
+
 
 
         public Dominion GenerateDominion()
         {
-            var dominionType = RandomUtils.RandomChoose(dominionTypes);
+            var dominionTemplate = RandomUtils.RandomChooseWeighted(dominionTemplates, dominionTemplateWeights);
             var regionName = chooseRegionName();
 
-            var dominion = new Dominion(dominionType, $"{dominionType.name} of {regionName}");
+            var dominion = new Dominion(dominionTemplate, regionName);
             dominion.traits = randomTraits(dominion);
 
             return dominion;

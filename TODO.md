@@ -1,14 +1,12 @@
 # TODO
 - town and event actions
-	- town traits: randomize on dominion traits/town sizes
-	- improve dominion permanence (town counter?)
-	- generare hints
 	+ fare qualcosa quando vengono generate 0 actions
-	+ correlare town size a dominion size
+	+ logica disabilitazione destinations e hints
+	+ town traits: randomize on dominion traits/town sizes
+	+ riuso domini non saturati
 
 - data
 	- improve action texts
-
 
 - manage defeat
 
@@ -89,14 +87,13 @@
 		- cult
 
 
-- food generator:
-	- elenchi
+- item generator:
 		+ fiori
 		+ medicinal herbs
+		+ mushrooms
 		- almonds
 		- correggere mulled wine
 
-	- armonizzare espansione nomi con rich grammar
 
 
 + brainstorming:
@@ -106,19 +103,14 @@
 		- cambia l'effetto dei biomi con le stagioni
 
 + logica valutazione prezzi
-+ logica generazione azioni
 
 + grammar:
 	+ [optional] syntax
 
 
 ## FIXME
-- differenziare azioni quest da foodgift
 
 
 ## Errands
-- provare trial copilot
-https://github.com/github-copilot/signup
-
 - provare American town generator
 https://github.com/james-owen-ryan/talktown

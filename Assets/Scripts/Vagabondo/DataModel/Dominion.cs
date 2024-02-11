@@ -1,12 +1,17 @@
 using System.Collections.Generic;
+using Vagabondo.Utils;
 
 namespace Vagabondo.DataModel
 {
-    public class DominionType
+    public enum DominionType
     {
-        public string name;
-        public int size;
-        public float permanence; //probability to transition to itself
+        FreeState,
+        Barony,
+        County,
+        Marquisdom,
+        Duchy,
+        Archduchy,
+        Principate,
     }
 
     public enum DominionTrait
@@ -26,18 +31,33 @@ namespace Vagabondo.DataModel
 
     }
 
+    public class DominionTemplate
+    {
+        public DominionType type;
+        public int maxNTowns;
+        public TownSize maxTownSize;
+        public float persistence;
+        public int frequency;
+    }
+
 
     public class Dominion
     {
-        public string name;
-        public DominionType type;
+        public readonly string name;
+        public readonly int maxNTowns;
+        public readonly TownSize maxTownSize;
+        public readonly float persistence;
+
+        public int nTowns = 0;
         public HashSet<DominionTrait> traits = new();
 
 
-        public Dominion(DominionType type, string name)
+        public Dominion(DominionTemplate template, string regionName)
         {
-            this.type = type;
-            this.name = name;
+            this.maxNTowns = template.maxNTowns;
+            this.maxTownSize = template.maxTownSize;
+            this.persistence = template.persistence;
+            this.name = DataUtils.EnumToStr(template.type) + " of " + regionName;
         }
     }
 }

@@ -1,0 +1,52 @@
+[
+    {
+    	"type": "Principate",
+        "maxNTowns": 15,
+    	"maxTownSize": "City",
+        "persistence": 0.6,
+        "frequency": 2,
+    },
+    {
+    	"type": "Archduchy",
+    	"maxNTowns": 12,
+        "maxTownSize": "City",
+        "persistence": 0.5,
+        "frequency": 3,
+    },
+    {
+    	"type": "Duchy",
+    	"maxNTowns": 10,
+        "maxTownSize": "City",
+        "persistence": 0.5,
+        "frequency": 4,
+    },
+    {
+    	"type": "County",
+    	"maxNTowns": 8,
+        "maxTownSize": "Town",
+        "persistence": 0.4,
+        "frequency": 6,
+    },
+    {
+    	"type": "Marquisdom",
+    	"maxNTowns": 6,
+        "maxTownSize": "Town",
+        "persistence": 0.4,
+        "frequency": 6,
+    },
+    {
+    	"type": "Barony",
+    	"maxNTowns": 4,
+        "maxTownSize": "Town",
+        "persistence": 0.3,
+        "frequency": 8,
+    },
+
+	{
+	    "type": "FreeState",
+	    "maxNTowns": 3,
+        "maxTownSize": "Town",
+        "persistence": 0.3,
+        "frequency": 10,
+	},
+]
