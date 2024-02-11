@@ -25,8 +25,11 @@ namespace Vagabondo.Behaviours
             {
                 _memory = value;
 
-                Debug.Assert(_memory.title.Length <= maxTitleLength);
-                Debug.Assert(_memory.description.Length <= maxDescriptionLength);
+                if (_memory.title.Length > maxTitleLength)
+                    Debug.LogWarning($"Action title too long for memory {_memory.title}");
+
+                if (_memory.description.Length > maxDescriptionLength)
+                    Debug.LogWarning($"Action description too long for memory {_memory.title}");
 
                 titleLabel.text = _memory.title;
                 descriptionLabel.text = _memory.description;

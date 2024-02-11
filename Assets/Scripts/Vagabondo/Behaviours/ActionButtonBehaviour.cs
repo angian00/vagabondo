@@ -12,8 +12,8 @@ namespace Vagabondo.Behaviours
 {
     public class ActionButtonBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public static int maxTitleLength = 30;
-        public static int maxDescriptionLength = 60;
+        public static int maxTitleLength = 35;
+        public static int maxDescriptionLength = 125;
 
         [Header("UI Fields")]
         [SerializeField]
@@ -40,8 +40,11 @@ namespace Vagabondo.Behaviours
             {
                 _action = value;
 
-                //Debug.Assert(_action.title.Length <= maxTitleLength);
-                //Debug.Assert(_action.description.Length <= maxDescriptionLength);
+                if (_action.title.Length > maxTitleLength)
+                    Debug.LogWarning($"Action title too long for action {_action.title}");
+
+                if (_action.description.Length > maxDescriptionLength)
+                    Debug.LogWarning($"Action description too long for action {_action.title}");
 
                 if (_action.isBuildingAction())
                     backgroundImage.color = colorConfig.buildingActionColor;

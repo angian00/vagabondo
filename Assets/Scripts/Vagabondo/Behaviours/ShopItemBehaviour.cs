@@ -1,19 +1,26 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Vagabondo.DataModel;
 using Vagabondo.Managers;
 
 namespace Vagabondo.Behaviours
 {
-    public class ShopItemBehaviour : MonoBehaviour
+    public class ShopItemBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        public static int maxLabelLength = 20;
+
         [SerializeField]
         private TextMeshProUGUI itemLabel;
         [SerializeField]
         private Button tradeButton;
         [SerializeField]
         private TextMeshProUGUI buttonLabel;
+        [SerializeField]
+        private GameObject tooltipObj;
+        [SerializeField]
+        private TextMeshProUGUI tooltipLabel;
 
 
         private GameItem _data;
@@ -40,9 +47,24 @@ namespace Vagabondo.Behaviours
 
         private void updateView()
         {
-            itemLabel.text = _data.name;
+            itemLabel.text = _data.extendedName;
+            tooltipLabel.text = _data.extendedName;
+
             buttonLabel.text = $"{(_isTravelerSelling ? "Sell" : "Buy")} for {_data.currentPrice} $";
             tradeButton.interactable = _interactable;
         }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (itemLabel.isTextOverflowing)
+                tooltipObj.SetActive(true);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            tooltipObj.SetActive(false);
+        }
+
+
     }
 }

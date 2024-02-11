@@ -81,11 +81,28 @@ namespace Vagabondo.Managers
             travelerData.health += delta;
             EventManager.PublishTravelerChanged(travelerData);
 
-            //TODO: defeat event
+            //TODO: death event
             //if (travelerData.health < 0)
             //    EventManager.PublishTravelerChanged(travelerData);
 
         }
+
+        public void IncrementStat(StatId statId)
+        {
+            addToStat(statId, 1);
+        }
+
+        public void DecrementStat(StatId statId)
+        {
+            addToStat(statId, -1);
+        }
+
+        private void addToStat(StatId statId, int delta)
+        {
+            travelerData.stats[statId] += delta;
+            EventManager.PublishTravelerChanged(travelerData);
+        }
+
 
         public void AddTrinket(Trinket trinket)
         {
@@ -132,25 +149,6 @@ namespace Vagabondo.Managers
                 travelerData.money -= item.currentPrice;
                 travelerData.merchandise.Add(item);
             }
-            EventManager.PublishTravelerChanged(travelerData);
-        }
-
-
-        public void IncrementStat(StatId statId)
-        {
-            addToStat(statId, 1);
-        }
-
-        public void DecrementStat(StatId statId)
-        {
-            addToStat(statId, -1);
-        }
-
-        private void addToStat(StatId statId, int delta)
-        {
-            int oldValue;
-            travelerData.stats.TryGetValue(statId, out oldValue);
-            travelerData.stats[statId] = oldValue + delta;
             EventManager.PublishTravelerChanged(travelerData);
         }
 

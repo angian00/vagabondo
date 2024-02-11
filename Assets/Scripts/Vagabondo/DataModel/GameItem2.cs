@@ -17,8 +17,11 @@ namespace Vagabondo.DataModel
         public GameItem Instantiate()
         {
             var item = new GameItem();
-            item.name = name;
-            //item.isPluralizable = isPluralizable;
+            if (isPluralizable)
+                item.name = RichGrammarModifiers.applyModifier(name, "s");
+            else
+                item.name = name;
+
             item.category = ItemCategory.FoodIngredient;
             item.subcategory = subcategory;
             item.baseValue = baseValue;

@@ -1,14 +1,18 @@
 # TODO
 - town and event actions
 	- town traits: randomize on dominion traits/town sizes
-	- fare qualcosa quando vengono generate 0 actions
+	- improve dominion permanence (town counter?)
+	- generare hints
+	+ fare qualcosa quando vengono generate 0 actions
+	+ correlare town size a dominion size
 
 - data
 	- improve action texts
 
 - ui
+	- add inventory panel
+
 	- evidenziare cambio di dominio
-	- fix overflow testo e/o aggiungere tooltip con testo completo
 
 
 - manage defeat
@@ -37,11 +41,7 @@
 	- implementazione grammar: tenere traccia delle frasi gia' usate, con timestamp
 
 - write quest generation grammar
-
-- town
-	- generare hints
-	+ improve dominion permanence (town counter?)
-	+ correlare town size a dominion size
+- uniform grammar/ingredient pluralization/refExpansion
 
 - actions
 	+ generazione random wild animals (by biome)

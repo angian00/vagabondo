@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Vagabondo.Utils;
 
 namespace Vagabondo.DataModel
 {
@@ -14,5 +15,13 @@ namespace Vagabondo.DataModel
         public List<Trinket> trinkets = new();
         public List<Memory> memories = new();
         public Dictionary<StatId, int> stats = new();
+
+        public Traveler()
+        {
+            foreach (StatId statId in DataUtils.EnumValues<StatId>())
+            {
+                stats.Add(statId, 0);
+            }
+        }
     }
 }

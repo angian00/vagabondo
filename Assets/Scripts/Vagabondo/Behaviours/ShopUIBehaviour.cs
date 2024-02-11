@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Vagabondo.DataModel;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
@@ -17,6 +18,10 @@ namespace Vagabondo.Behaviours
         private Transform travelerItemsPanel;
         [SerializeField]
         private Transform shopItemsPanel;
+        [SerializeField]
+        private Scrollbar travelerItemsScrollbar;
+        [SerializeField]
+        private Scrollbar shopItemsScrollbar;
 
         [Header("Prefabs")]
         [SerializeField]
@@ -29,6 +34,8 @@ namespace Vagabondo.Behaviours
             {
                 _shopInfo = value;
                 updateShopInfo();
+                updateTravelerView();
+                resetScrollbars();
             }
         }
 
@@ -43,6 +50,13 @@ namespace Vagabondo.Behaviours
         private void OnDisable()
         {
             EventManager.onTravelerChanged -= onTravelerChanged;
+        }
+
+        private void onTravelerChanged(Traveler travelerData)
+        {
+            this._travelerData = travelerData;
+            updateTravelerView();
+            updateShopItemsInteractable();
         }
 
         public void OnCloseClicked()
@@ -62,12 +76,6 @@ namespace Vagabondo.Behaviours
             updateShopInfo();
         }
 
-        private void onTravelerChanged(Traveler travelerData)
-        {
-            this._travelerData = travelerData;
-            updateTravelerView();
-        }
-
         private void updateTravelerView()
         {
             moneyValueLabel.text = _travelerData.money.ToString();
@@ -85,8 +93,8 @@ namespace Vagabondo.Behaviours
                 newItemObj.GetComponent<ShopItemBehaviour>().Interactable = true;
             }
 
-            if (_shopInfo != null)
-                updateInteractableInventory();
+            //if (_shopInfo != null)
+            //    updateShopItemsInteractable();
         }
 
         private void updateShopInfo()
@@ -105,8 +113,11 @@ namespace Vagabondo.Behaviours
             }
         }
 
-        private void updateInteractableInventory()
+        private void updateShopItemsInteractable()
         {
+            if (_shopInfo == null)
+                return;
+
             for (int i = 0; i < _shopInfo.inventory.Count; i++)
             {
                 //works because _shopInventory and shopItemsPanel children are in the same order
@@ -115,7 +126,14 @@ namespace Vagabondo.Behaviours
                 var price = _shopInfo.inventory[i].currentPrice;
                 itemObj.GetComponent<ShopItemBehaviour>().Interactable = (price <= _travelerData.money);
             }
+        }
 
+        private void resetScrollbars()
+        {
+            travelerItemsScrollbar.value = 1;
+            shopItemsScrollbar.value = 1;
+
+            //shopItemsPanel.Find("Scrollbar Vertical").GetComponent<Scrollbar>().value = 1;
         }
     }
 }

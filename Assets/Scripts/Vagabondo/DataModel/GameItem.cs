@@ -1,3 +1,5 @@
+using Vagabondo.Utils;
+
 namespace Vagabondo.DataModel
 {
     public enum ItemQuality
@@ -56,6 +58,20 @@ namespace Vagabondo.DataModel
         public ItemQuality quality;
         public int baseValue;
         public int currentPrice;
+
+        public string extendedName
+        {
+            get
+            {
+                var qualityStr = "";
+                if (quality < ItemQuality.Standard)
+                    qualityStr = $"\n<style=BAD>[{DataUtils.EnumToStr(quality).ToLower()}]</style>";
+                else if (quality > ItemQuality.Standard)
+                    qualityStr = $"\n<style=GOOD>[{DataUtils.EnumToStr(quality).ToLower()}]</style>";
+
+                return $"{name}{qualityStr}";
+            }
+        }
 
         public IngredientDefinition definition;
     }
