@@ -16,13 +16,15 @@ namespace Vagabondo.Grammar
             { GrammarId.SketchyDeal, new List<string>() { "sketchyDeal" }  },
             { GrammarId.Food, new List<string>() {"food" } },
             { GrammarId.TownDescription, new List<string>() {
-                            "townRoot",
+                "townRoot",
                 "townSentenceChildren",
                 "townSentenceNature",
                 "townSentenceChurch",
                 "townSentenceFields",
+                "townSentencePond",
                 "townStructures",
                 "townNouns",
+                "townVerbs",
                 "townAdjectives",
                 }
             },

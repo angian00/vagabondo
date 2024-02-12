@@ -28,8 +28,10 @@ namespace Vagabondo.Experiment
                 "townSentenceNature",
                 "townSentenceChurch",
                 "townSentenceFields",
+                "townSentencePond",
                 "townStructures",
                 "townNouns",
+                "townVerbs",
                 "townAdjectives",
             };
             grammar = new RichGrammar(townDescriptionGrammarFiles);

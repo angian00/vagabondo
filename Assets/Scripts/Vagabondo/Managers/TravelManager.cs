@@ -9,7 +9,7 @@ namespace Vagabondo.Managers
 {
     public class TravelManager
     {
-        private static TravelManager _travelerManager = new TravelManager();
+        private static TravelManager _travelerManager;
         public static TravelManager Instance { get { return _travelerManager; } }
 
         private TownGenerator townGenerator;
@@ -21,6 +21,12 @@ namespace Vagabondo.Managers
         private List<Town> nextDestinations;
 
 
+        public static void Init()
+        {
+            _travelerManager = new TravelManager();
+            _travelerManager.initData();
+        }
+
         private TravelManager()
         {
             travelerData = new Traveler();
@@ -28,18 +34,12 @@ namespace Vagabondo.Managers
             NewQuest();
         }
 
-        public void Init()
-        {
-            initFirstTown();
-            EventManager.PublishTravelerChanged(travelerData);
-        }
-
-        private void initFirstTown()
+        private void initData()
         {
             var firstTown = townGenerator.GenerateTown(null);
             TravelTo(firstTown);
+            EventManager.PublishTravelerChanged(travelerData);
         }
-
 
         public void PerformAction(GameAction action)
         {
@@ -77,10 +77,8 @@ namespace Vagabondo.Managers
             travelerData.health += delta;
             EventManager.PublishTravelerChanged(travelerData);
 
-            //TODO: death event
-            //if (travelerData.health < 0)
-            //    EventManager.PublishTravelerChanged(travelerData);
-
+            if (travelerData.health <= 0)
+                EventManager.PublishGameOver();
         }
 
         public void IncrementStat(StatId statId)
@@ -189,12 +187,10 @@ namespace Vagabondo.Managers
 
         private HashSet<string> generateTownHints(Town townData, Traveler travelerData)
         {
-            const int nMaxHints = 3;
-
             var allHints = generateAllTownHints(townData, travelerData);
 
             var res = new HashSet<string>();
-            var nHints = Math.Min(nMaxHints, allHints.Count);
+            var nHints = Math.Min(GameParams.nMaxHints, allHints.Count);
             while (res.Count < nHints)
                 res.Add(RandomUtils.RandomChoose(allHints));
 
@@ -290,9 +286,7 @@ namespace Vagabondo.Managers
 
         private void maybeAddQuestAction(Town townData)
         {
-            const float questActionProbability = 0.8f;
-
-            if (UnityEngine.Random.value < questActionProbability)
+            if (UnityEngine.Random.value < GameParams.questActionProbability)
             {
                 var questState = activeQuest.GetCurrentState();
                 var questAction = new QuestAction(questState, townData);

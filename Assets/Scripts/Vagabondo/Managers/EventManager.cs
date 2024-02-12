@@ -18,6 +18,9 @@ namespace Vagabondo.Managers
         public delegate void OnActionPerformed(GameActionResult actionResult);
         public static event OnActionPerformed onActionPerformed;
 
+        public delegate void OnGameOver();
+        public static event OnGameOver onGameOver;
+
 
         public static void PublishTownChanged(Town newTown)
         {
@@ -41,6 +44,12 @@ namespace Vagabondo.Managers
         {
             if (onActionPerformed != null)
                 onActionPerformed(actionResult);
+        }
+
+        public static void PublishGameOver()
+        {
+            if (onGameOver != null)
+                onGameOver();
         }
     }
 }

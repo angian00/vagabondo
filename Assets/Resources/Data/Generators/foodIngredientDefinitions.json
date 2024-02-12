@@ -396,12 +396,19 @@
     "tags": "wild"
   },
   {
+    "name": "almond",
+    "isPluralizable": true,
+    "subcategory": "fruit",
+    "baseValue": 12,
+    "frequency": 20,
+    "tags": "maybe other category?"
+  },
+  {
     "name": "walnut",
     "isPluralizable": true,
     "subcategory": "fruit",
     "baseValue": 20,
-    "frequency": 15,
-    "": "maybe other category?"
+    "frequency": 15
   },
   {
     "name": "hazelnut",

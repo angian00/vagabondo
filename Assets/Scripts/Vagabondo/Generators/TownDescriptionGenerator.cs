@@ -11,16 +11,17 @@ namespace Vagabondo.Generators
         {
             var grammar = GrammarFactory.GetGrammar(GrammarFactory.GrammarId.TownDescription);
             var inputTags = new HashSet<string>();
+            var variables = new Dictionary<string, string>();
 
             var sentences = new List<string>();
 
             var sizeStr = DataUtils.EnumToStr(town.size).ToLower();
             inputTags.Add(sizeStr);
-            //sentences.Add(grammar.GenerateText(sizeRuleId));
+            variables.Add("townSize", sizeStr);
 
             //return string.Join("\n", sentences.ToArray());
 
-            return grammar.GenerateText(inputTags: inputTags);
+            return grammar.GenerateText(inputTags: inputTags, variables: variables);
         }
     }
 }

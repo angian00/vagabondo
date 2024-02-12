@@ -44,6 +44,7 @@ namespace Vagabondo.Actions
             return "";
         }
 
+        public virtual bool isShopAction() => false;
         public virtual bool isBuildingAction() => false;
         public virtual bool isEventAction() => false;
         public virtual bool isQuestAction() => false;

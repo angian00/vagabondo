@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\ChoiceTree.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\ShopAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\QuestGenerator.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Behaviours\GameOverUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\StringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\StringUtils.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\TownHallAction.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\Actions\ExploreAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TownGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Experiments\ExperimentFoodGeneration.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Behaviours\GameStartUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\InventoryItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Quest.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ActionResultUIBehaviour.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\Generators\FileStringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ActionButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TownDescriptionGenerator.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Managers\GameParams.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\DestinationUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\TravelerUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Actions\GameActionResult.cs" />

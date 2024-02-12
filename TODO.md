@@ -1,13 +1,10 @@
 # TODO
-- item data: aggiungere almonds, correggere mulled wine
-
-- manage defeat (start scene)
-- aggiungere scriptable object GameParamConfig
-
 - implementare item use and nutrition
-
 - implementare item scarcity
 
+- other improvements
+	- load gameparams from json
+	- shop inventorySize varies with town size
 
 - brainstorming:
 	- non-food items:

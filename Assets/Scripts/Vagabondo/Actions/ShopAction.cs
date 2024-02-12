@@ -17,7 +17,7 @@ namespace Vagabondo.Actions
             this.description = "You have the opportunity to buy some merchandise, or even sell some of your own";
         }
 
-        public override bool isBuildingAction() => true;
+        public override bool isShopAction() => true;
 
         public override GameActionResult Perform(TravelManager travelManager)
         {

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Vagabondo.Actions;
 using Vagabondo.DataModel;
+using Vagabondo.Managers;
 
 namespace Vagabondo.Generators
 {
@@ -14,13 +15,11 @@ namespace Vagabondo.Generators
 
         private static void generateBuildingActions(Town townData)
         {
-            const float buildingGenerationProb = 0.7f;
-
             var newActions = new List<GameAction>();
 
             foreach (var building in townData.buildings)
             {
-                if (UnityEngine.Random.value > buildingGenerationProb)
+                if (UnityEngine.Random.value > GameParams.buildingActionProbability)
                     continue;
 
                 GameAction action;
@@ -57,8 +56,6 @@ namespace Vagabondo.Generators
 
         private static void generateEventActions(Town townData)
         {
-            const float eventGenerationProb = 0.7f;
-
             var candidateActionTypes = new List<GameActionType>() { };
 
 
@@ -74,7 +71,7 @@ namespace Vagabondo.Generators
             var newActions = new List<GameAction>();
             foreach (var actionType in candidateActionTypes)
             {
-                if (UnityEngine.Random.value > eventGenerationProb)
+                if (UnityEngine.Random.value > GameParams.eventActionProbability)
                     continue;
 
                 var action = GameActionFactory.CreateEventAction(actionType, townData);

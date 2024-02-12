@@ -7,6 +7,8 @@ namespace Vagabondo.Generators
 {
     public class MerchandiseGenerator
     {
+        private const int defaultInventorySize = 12;
+
         public static GameItem GenerateItem(ItemCategory category)
         {
             switch (category)
@@ -33,31 +35,28 @@ namespace Vagabondo.Generators
             return item;
         }
 
-        public static List<GameItem> GenerateInventory(ShopType shopType)
+        public static List<GameItem> GenerateInventory(ShopType shopType, int inventorySize = defaultInventorySize)
         {
             switch (shopType)
             {
                 case ShopType.Tavern:
                 case ShopType.Bakery:
-                    return GenerateInventoryItems(shopType);
+                    return GenerateInventoryItems(shopType, inventorySize);
 
                 case ShopType.Butchery:
                 case ShopType.Farm:
-                    return GenerateInventoryIngredients(shopType);
+                    return GenerateInventoryIngredients(shopType, inventorySize);
 
                 case ShopType.Library:
-                    return GenerateInventoryBooks();
+                    return GenerateInventoryBooks(inventorySize);
 
                 default:
                     throw new NotImplementedException();
             }
         }
 
-        private static List<GameItem> GenerateInventoryBooks()
+        private static List<GameItem> GenerateInventoryBooks(int inventorySize)
         {
-            //FUTURE: inventory is influenced by town data
-            const int inventorySize = 12;
-
             var result = new List<GameItem>();
             for (int i = 0; i < inventorySize; i++)
             {
@@ -72,11 +71,8 @@ namespace Vagabondo.Generators
             return result;
         }
 
-        private static List<GameItem> GenerateInventoryItems(ShopType shopType)
+        private static List<GameItem> GenerateInventoryItems(ShopType shopType, int inventorySize)
         {
-            //FUTURE: inventory is influenced by town data
-            const int inventorySize = 20;
-
             var result = new List<GameItem>();
             Predicate<GameItem> itemFilter;
 
@@ -104,11 +100,8 @@ namespace Vagabondo.Generators
             return result;
         }
 
-        private static List<GameItem> GenerateInventoryIngredients(ShopType shopType)
+        private static List<GameItem> GenerateInventoryIngredients(ShopType shopType, int inventorySize)
         {
-            //FUTURE: inventory is influenced by town data
-            const int inventorySize = 20;
-
             var result = new List<GameItem>();
             Predicate<IngredientDefinition> ingredientFilter;
 

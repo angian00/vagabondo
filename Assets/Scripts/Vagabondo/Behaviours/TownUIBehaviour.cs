@@ -54,7 +54,7 @@ namespace Vagabondo.Behaviours
 
         private void Start()
         {
-            TravelManager.Instance.Init();
+            TravelManager.Init();
         }
 
 

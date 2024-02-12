@@ -10,7 +10,7 @@
     },
 
     "expressionTown": [
-      "the #townType#",
+      "the #townSize#",
       "the settlement",
       "the community",
       "the township",

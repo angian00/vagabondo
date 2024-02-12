@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Vagabondo.DataModel;
 using Vagabondo.Grammar;
+using Vagabondo.Managers;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Generators
@@ -279,7 +280,6 @@ namespace Vagabondo.Generators
 
         private static ItemQuality computeFoodQuality(List<GameItem> ingredients, ItemQuality preparationQuality)
         {
-            const float preparationWeight = 2.0f;
             float cumQuality = 0;
             float nQualities = 0;
 
@@ -289,8 +289,8 @@ namespace Vagabondo.Generators
                 nQualities++;
             }
 
-            cumQuality += preparationWeight * (int)preparationQuality;
-            nQualities += preparationWeight;
+            cumQuality += GameParams.preparationQualityWeight * (int)preparationQuality;
+            nQualities += GameParams.preparationQualityWeight;
 
 
             return (ItemQuality)Math.Round(cumQuality / nQualities);
@@ -298,14 +298,14 @@ namespace Vagabondo.Generators
 
         private static int computeFoodBaseValue(List<GameItem> ingredients)
         {
-            const float preparationMultiplier = 1.2f;
+
             var cumValue = 0.0f;
             foreach (var ingredient in ingredients)
             {
                 cumValue += ingredient.definition.baseValue;
             }
 
-            cumValue *= preparationMultiplier;
+            cumValue *= GameParams.preparationValueMultiplier;
 
             return (int)Math.Round(cumValue);
         }

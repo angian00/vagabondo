@@ -1,16 +1,13 @@
 using System.Collections.Generic;
+using Vagabondo.Managers;
 using Vagabondo.Utils;
 
 namespace Vagabondo.DataModel
 {
     public class Traveler
     {
-        public static int startMoney = 100;
-        //public static int startMoney = 0;
-        public static int startHealth = 10;
-
-        public int money = startMoney;
-        public int health = startHealth;
+        public int money;
+        public int health;
         public List<GameItem> merchandise = new();
         public List<Trinket> trinkets = new();
         public List<Memory> memories = new();
@@ -18,6 +15,9 @@ namespace Vagabondo.DataModel
 
         public Traveler()
         {
+            money = GameParams.startMoney;
+            health = GameParams.startHealth;
+
             foreach (StatId statId in DataUtils.EnumValues<StatId>())
             {
                 stats.Add(statId, 0);

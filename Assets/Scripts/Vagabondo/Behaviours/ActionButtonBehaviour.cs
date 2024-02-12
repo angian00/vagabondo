@@ -46,6 +46,8 @@ namespace Vagabondo.Behaviours
                 if (_action.description.Length > maxDescriptionLength)
                     Debug.LogWarning($"Action description too long for action {_action.title}");
 
+                if (_action.isShopAction())
+                    backgroundImage.color = colorConfig.shopActionColor;
                 if (_action.isBuildingAction())
                     backgroundImage.color = colorConfig.buildingActionColor;
                 else if (_action.isEventAction())
