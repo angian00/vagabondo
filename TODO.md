@@ -1,26 +1,49 @@
 # TODO
-- town and event actions
-	+ fare qualcosa quando vengono generate 0 actions
-	+ logica disabilitazione destinations e hints
-	+ town traits: randomize on dominion traits/town sizes
-	+ riuso domini non saturati
+- item data: aggiungere almonds, correggere mulled wine
 
-- data
-	- improve action texts
+- manage defeat (start scene)
+- aggiungere scriptable object GameParamConfig
 
-- manage defeat
+- implementare item use and nutrition
+
+- implementare item scarcity
+
+
+- brainstorming:
+	- non-food items:
+		- flowers; usage:
+			- as gifts
+			- in healing recipes
+			+ as ingredients in higher-level decorations
+		- medicine ingredients
+		- mushrooms and wild berries
+
+		- household items
+			- used for crafting and trading
+		- jewelry
+		- raw materials
+			- metal
+			- wood
+			- gems
+
+	- memorabilia
+		- trinkets (unique, non-tradable items)
+		? permanent modifications: scars, tattoos, ...
+
 
 - GameItem refactoring:
-	- tidy up categories
-	- tidy up merchandise generator
 	- make other game item categories and generators
 		- fiori
 		- medicinal herbs
 		+ books
+	- tidy up categories
+	- tidy up merchandise generator
+
+- uniform grammar/ingredient pluralization/refExpansion
 
 
 - town description grammar
-	- parametrizzare per bioma, stagione, stato economico e militare
+	- bugfixing: -ing con r finale (capturring, mirrorring)
 
 	- generalizzare sentences:
 		- children -> people
@@ -31,78 +54,34 @@
 		- citta' grandi
 		- clima cupo
 
-	- implementazione grammar: tenere traccia delle frasi gia' usate, con timestamp
+	- loggare opzionalmente regole utilizzate per produrre una frase
+
+	+ implementazione grammar: tenere traccia delle frasi gia' usate, con timestamp
+	+ parametrizzare per bioma, stagione, stato economico e militare
+
+- town and event actions
+	+ fare qualcosa quando vengono generate 0 actions
+	+ logica disabilitazione destinations e hints
+	+ town traits: randomize on dominion traits/town sizes
+	+ riuso domini non saturati
+
+- data
+	- improve action texts
 
 - write quest generation grammar
-- uniform grammar/ingredient pluralization/refExpansion
 
 - actions
-	+ generazione random wild animals (by biome)
 	- GiveItem action flow
 	- azioni complesse (ChoiceTree)
+	+ generazione random wild animals (by biome)
 
-
-- brainstorming:
-	- eating mechanics
-	- new subsystems:
-		- books
-		- healing
-		- exoterism
-
-
-	- altre azioni (quest templates?)
-		- Asking Around
-		- Sightsee
-		- Find Person or Work
-		- Rest
-		- Gambling
-
-		- help out
-		        - lost animal
-		        - injured man
-
-		- leisure time
-		        - festival
-		        - performance
-		        - playing darts in the tavern
-
-		- gossip
-		        - telling story around a fire
-		        - gossip of adultery
-		        - offer drink in the tavern
-
-		- bambini che giocano
-
-		- outsider npcs
-		        - traveling priest/preacher
-		        - fortune-teller
-		        - exotic merchant/caravan
-		        - beggar
-		        - crazy man
-
-		- exotic vendors
-		        - animal seller
-		        - flower seller
-
-		- cult
-
-
-- item generator:
-		+ fiori
-		+ medicinal herbs
-		+ mushrooms
-		- almonds
-		- correggere mulled wine
-
-
++ autoplay mode to test balance
 
 + brainstorming:
 	- religioni/soprannaturale
 	- influenza del passare del tempo:
 		- raccolta erbe con la luna nuova
 		- cambia l'effetto dei biomi con le stagioni
-
-+ logica valutazione prezzi
 
 + grammar:
 	+ [optional] syntax

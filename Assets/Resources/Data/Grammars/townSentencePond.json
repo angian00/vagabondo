@@ -1,0 +1,122 @@
+{
+  "rules": {
+    "townSentencePond": [
+      //"A small pond attracts ducks and fishermen alike, its tranquil waters reflecting the changing seasons"
+      //"#expressionPond.a# attracts #expressionPondVisitors#, its #adjectiveWater# #expressionWater# #expressionWaterAction#",
+      "#expressionPond.a# #verbAttract.s# #expressionPondVisitors#, #expressionWater# #verbTransitiveReflect.ing# #expressionTimeChange#",
+    ],
+
+    "expressionPond": [
+      "#nounPond#",
+      "#adjectiveSmall# #nounPond#"
+    ],
+
+    "expressionPondVisitors": {
+      "clauses": {
+        "#adverbQuantitySome# #nounWaterAnimal.s#": 10,
+        "#adverbQuantitySome# #nounWaterPerson.s#": 10,
+        "#expressionWaterPerson.s# and #nounWaterAnimal.s#": 3,
+        "#nounWaterAnimal.s# and #expressionWaterPerson.s#": 3,
+        "#expressionWaterPerson.s# and #nounWaterAnimal.s# alike": 1,
+        "#nounWaterAnimal.s# and #expressionWaterPerson.s# alike": 1,
+      }
+    },
+
+    "expressionWaterPerson": {
+      "clauses": {
+        "#nounMerrymaker#": 10,
+        "#nounWaterPerson#": 1,
+      }
+    },
+
+    "nounWaterPerson": [
+      "fisherman",
+      "swimmer",
+    ],
+
+    "nounWaterAnimal": [
+      "duck",
+      "waterfowl",
+      "water bird",
+    ],
+
+    "expressionWater": {
+      "clauses": {
+        "its water": 10,
+        "its waters": 5,
+        "the #adjectiveSerene# water": 2,
+      }
+    },
+
+    "expressionTimeChange": {
+      "clauses": {
+        "#expressionTime#": 10,
+        "the #nounRythm# of #expressionTime#": 3,
+        "the #adjectiveSerene# #nounRythm# of #expressionTime#": 1,
+      }
+    },
+
+    "expressionChange": [
+      "#nounTranquillity#",
+      "#adjectiveSerene# #nounRythm#",
+      "#adjectiveSerene# #nounBeauty#",
+    ],
+
+    "nounTranquillity": [
+      "ebb and flow",
+      "kaleidoscope",
+      "tranquility",
+      "serenity",
+      "harmony",
+    ],
+
+    "nounRythm": [
+      "change",
+      "essence",
+      "flow",
+      "dance",
+      "cadence",
+      "rhythm",
+      "journey",
+      "transition",
+      "shifts",
+    ],
+
+    "nounBeauty": [
+      "beauty",
+      "poetry",
+    ],
+
+    "expressionTime": [
+      "#expressionSeasons#",
+      "#expressionNatureExistence#",
+      "#expressionTransformation#",
+    ],
+
+    "expressionSeasons": [
+      "the seasons",
+      "each season",
+      "each passing season",
+      "changing seasons",
+      "shifting seasons",
+      "seasonal transformation",
+      "seasonal transitions",
+      "seasonal evolution",
+    ],
+
+    "expressionTransformation": [
+      "passing time",
+      "evolving landscapes",
+      "transformation",
+    ],
+    "expressionNatureExistence": [
+      "nature's embrace",
+      "nature's rhythms",
+      "nature's song",
+      "life's changes",
+      "earth's canvas",
+      "existence",
+      "the elements",
+    ],
+  }
+}

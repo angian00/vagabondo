@@ -16,6 +16,7 @@ die|dice
 ellipsis|ellipses
 erratum|errata
 fez|fezes
+fisherman|fishermen
 foot|feet
 fungus|fungi
 goose|geese

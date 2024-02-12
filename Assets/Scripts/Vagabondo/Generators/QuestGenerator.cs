@@ -65,6 +65,5 @@ namespace Vagabondo.Generators
                     + "only to see it crumble in your hands.";
             }
         }
-
     }
 }

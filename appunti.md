@@ -3,10 +3,7 @@
 ## Brainstorming
 - modi di essere sconfitti:
 	- friendliness diminuisce sotto valore critico
-	- combattimento (perdite health):
-		- con animali selvatici
-		- con guardie quando ad es. non si paga gabella
-
+	- combattimento (perdite health)
 
 
 ### Azioni

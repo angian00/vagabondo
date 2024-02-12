@@ -1,11 +1,11 @@
 {
   "rules": {
     "townSentenceChildren": [
-      "#childrenTownActivity.capitalize#, where #nostalgicStructureOrnamented#."
+      "#expressionChildrenTownActivity.capitalize#, where #expressionStructureNostalgicOrnamented#"
     ],
-    
-    "childrenTownActivity": "#childrenSubject# #childrenVerb# in the #childrenLocation#",
-    "nostalgicStructureOrnamented": "#nostalgicStructureAdjective.a# #townStructureSmall# stands #adverbBuildingSmall# as #nostalgicBuildingOrnament.a#",
+
+    "expressionChildrenTownActivity": "#childrenSubject# #verbChildrenHappy# in the #nounLocationChildren#",
+    "expressionStructureNostalgicOrnamented": "#adjectiveStructureNostalgic.a# #townStructureSmall# stands #adverbBuildingSmall# as #expressionOrnamentNostalgic.a#",
 
     "childrenSubject": {
       "clauses": {
@@ -15,12 +15,12 @@
       }
     },
 
-    "childrenVerb": [
+    "verbChildrenHappy": [
       "laugh and play",
       "laugh",
       "play",
       "run and chase each other",
-      "play and skip around", 
+      "play and skip around",
       "play games",
       "make memories",
       "enjoy themselves",
@@ -31,29 +31,24 @@
       "embark on exciting adventures",
     ],
 
-    "childrenLocation": [
+    "nounLocationChildren": [
       "#townSquare#",
       "#townPark#",
-      "#childrenPark#",
+      "#nounPlayground#",
     ],
 
-    "childrenPark": [
-      "community playground",
-      "schoolyard",
-    ],
-
-    "nostalgicStructureAdjective": [
+    "adjectiveStructureNostalgic": [
       "#adjectiveOld#",
       "#adjectiveLoved#",
       "#adjectiveBuilding#",
     ],
 
-    "nostalgicBuildingOrnament": [
-      "#ornamentPast#",
-      "#ornamentPastTown#",
+    "expressionOrnamentNostalgic": [
+      "#expressionOrnamentPast#",
+      "#expressionOrnamentPastTown#",
     ],
 
-    "ornamentPast": [
+    "expressionOrnamentPast": [
       "relic from a bygone era",
       "symbol of days long past",
       "testament to past generations",
@@ -75,7 +70,7 @@
       "tribute to days gone by",
     ],
 
-    "ornamentPastTown": [
+    "expressionOrnamentPastTown": [
       "echo of the town's collective memories",
       "emblem of the town's resilience",
       "homage to the town's founders",

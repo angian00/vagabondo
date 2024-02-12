@@ -58,8 +58,8 @@
 
     "marketStall": {
       "clauses": {
-          "market stall": 10,
-          "#specificFoodShop# stall": 3,
+        "market stall": 10,
+        "#specificFoodShop# stall": 3,
       }
     },
 
@@ -71,8 +71,8 @@
 
     "workshop": {
       "clauses": {
-          "workshop": 10,
-          "#specificWorkshop#": 3,
+        "workshop": 10,
+        "#specificWorkshop#": 3,
       }
     },
 

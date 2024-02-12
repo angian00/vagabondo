@@ -1,5 +1,33 @@
 {
   "rules": {
+    "adjectiveColor": [
+      "white",
+      "cream",
+      "ivory",
+      "snowy",
+      "pearly",
+      "chalky",
+      "milky",
+      "bleached",
+      "pure",
+      "alabaster",
+      "ochre",
+      "red",
+    ],
+
+    "adjectiveSmall": [
+      "small",
+      "modest",
+      "quaint",
+      "cozy",
+      "compact",
+      "charming",
+      "tiny",
+      "homely",
+      "petite",
+      "intimate"
+    ],
+
     "adjectiveOld": [
       "weathered",
       "ancient",
@@ -29,6 +57,34 @@
       "cherished",
       "well-loved",
       "sentimental",
+    ],
+
+    "adjectiveSerene": [
+      "affectionate",
+      "amorous",
+      "calm",
+      "cherished",
+      "cozy",
+      "dreamy",
+      "gentle",
+      "harmonious",
+      "heartfelt",
+      "intimate",
+      "passionate",
+      "peaceful",
+      "private",
+      "quiet",
+      "relaxing",
+      "romantic",
+      "serene",
+      "shared",
+      "stolen",
+      "subtle",
+      "tender",
+      "timeless",
+      "unforgettable",
+      "whispered",
+      "tranquil"
     ],
 
     "adjectiveBuilding": [
@@ -73,5 +129,15 @@
       "securely",
       "solidly",
       "tall",
-    ],  }
+    ],
+
+    "adverbProudly": [
+      "proudly",
+      "proud",
+      "tall",
+      "gracefully",
+      "elegantly"
+    ],
+
+  }
 }

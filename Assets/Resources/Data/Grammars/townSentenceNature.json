@@ -1,11 +1,11 @@
 {
   "rules": {
-    "townSentenceNature": "#locationEdgeExpression#, #naturalDescription#",
+    "townSentenceNature": "#expressionNatureLocation#, #expressionNatureDescription#",
 
-    "locationEdgeExpression": {
+    "expressionNatureLocation": {
       "clauses": {
-        "#nounLocationEdge# of #expressionTown#": 10,
-        "#locationRural#": 2
+        "#expressionLocationEdge# of #expressionTown#": 10,
+        "#expressionLocationRural#": 2
       }
     },
 
@@ -18,12 +18,12 @@
       "town"
     ],
 
-    "townExpressionBig": [
+    "expressionTownBig": [
       "the urban sprawl"
     ],
 
 
-    "nounLocationEdge": [
+    "expressionLocationEdge": [
       "at the edge",
       "on the outskirts",
       "near the boundary",
@@ -35,25 +35,25 @@
       "near the verge"
     ],
 
-    "locationRural": [
+    "expressionLocationRural": [
       "amidst the wilderness at the town's edge",
       "just beyond the town limits",
       "bordering the rural countryside",
       "adjacent to the farmland"
     ],
 
-    "naturalDescription": [
-      "#treeExpression# provides #treeBenefit# for #natureActivity#",
-      "#treeExpression# provides a spot for #natureAdjective# #natureNounPurpose#",
-      "#treeExpression# provides #treeBenefit# for #natureActivity# and a spot for #natureAdjective# #natureNounPurpose#"
+    "expressionNatureDescription": [
+      "#expressionTree# provides #nounTreeBenefit# for #nounMerrymaker.s#",
+      "#expressionTree# provides a spot for #adjectiveSerene# #nounNaturePurpose#",
+      "#expressionTree# provides #nounTreeBenefit# for #nounMerrymaker.s# and a spot for #adjectiveSerene# #nounNaturePurpose#"
     ],
 
-    "treeExpression": [
+    "expressionTree": [
       "#nounTree.a# tree",
-      "#treeAdjectiveBig.a# #nounTree#"
+      "#adjectiveTreeBig.a# #nounTree#"
     ],
 
-    "treeAdjectiveBig": [
+    "adjectiveTreeBig": [
       "towering",
       "tall",
       "imposing",
@@ -61,7 +61,7 @@
       "august"
     ],
 
-    "treeBenefit": [
+    "nounTreeBenefit": [
       "shade",
       "shelter",
       "protection",
@@ -75,42 +75,7 @@
       "comfort"
     ],
 
-    "natureActivity": [
-      "families",
-      "friends",
-      "gatherings",
-      "revelers",
-      "travelers",
-      "visitors",
-      "outings",
-      "merrymakers",
-      "nature enthusiasts",
-      "adventurers"
-    ],
-
-    "natureAdjective": [
-      "affectionate",
-      "amorous",
-      "cherished",
-      "cozy",
-      "dreamy",
-      "heartfelt",
-      "intimate",
-      "passionate",
-      "peaceful",
-      "private",
-      "quiet",
-      "relaxing",
-      "romantic",
-      "serene",
-      "shared",
-      "stolen",
-      "tender",
-      "unforgettable",
-      "whispered"
-    ],
-
-    "natureNounPurpose": [
+    "nounNaturePurpose": [
       "confessions",
       "contemplation",
       "conversations",

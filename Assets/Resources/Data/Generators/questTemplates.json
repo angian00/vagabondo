@@ -1,0 +1,43 @@
+[
+        {
+                "variables": {
+                        "questGiver": "",
+                        "questBuildingType": "",
+                        "questBuildingName": "",
+                        "questBuildingLocation": "",
+                        "questDocument": "",
+                        "artifactName": "",
+                        //"nounCatastrophe": "",
+                },
+                "states": [
+                        {
+                                "id": "dungeonIntro",
+                                "actionTitle": "Speak with #questGiver#",
+                                "actionDescription": "#questGiver.a.capitalize# approaches you with a secretive attitude",
+                                "memoryTitle": "The Abandoned #questBuildingType.capitalize#",
+                                "memoryDescription": "#questGiver.a# tells you that somewhere in #questBuildingLocation.a# lay the ruins of #questBuildingType.a#, abandoned a century ago after #nounCatastrophe.a#"
+                        },
+                        {
+                                "id": "artifactIntro",
+                                "actionTitle": "Tales around the fire",
+                                "actionDescription": "Spend the night exchanging tales around a bonfire",
+                                "memoryTitle": "An Artifact of Yore",
+                                "memoryDescription": "I racconti popolari della zona menzionano un antico artefatto ormai smarrito. L'artefatto e' di pietra verde ricoperta di muschio. secondo alcuni porta bene, secondo altri male."
+                        },
+                        {
+                                "id": "dungeonGuardian",
+                                "actionTitle": "Dealing in antiquities",
+                                "actionDescription": "Make some cheap purchases at the local second-hand dealer",
+                                "memoryTitle": "The #questDocument.capitalizeAll#",
+                                "memoryDescription": "Hai trovato il diario del guardiano della chiesa. vi si dice che la chiesa gode di una protezione dagli influssi maligni che allignano nel bosco"
+                        },
+                        {
+                                "id": "getArtifact",
+                                "actionTitle": "Explore #questBuildingName#",
+                                "actionDescription": "You have finally found that legendary old #questBuildingType#, it's time to explore it",
+                                "memoryTitle": "The #artifactName.capitalizeAll#",
+                                "memoryDescription": "You managed to put your hands on an old stone artifact fuzzy with moss and moisture, only to see it crumble in your hands."
+                        },
+                ]
+        }
+]

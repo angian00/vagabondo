@@ -1,0 +1,31 @@
+{
+  "rules": {
+
+    "verbStand": [
+      "stand",
+      "rise",
+      "soar",
+      "sprout"
+    ],
+
+    "verbAttract": [
+      "attract",
+      "lure",
+      "draw",
+      "entice",
+    ],
+
+    "verbTransitiveReflect": [
+      "mirror",
+      "captur",
+      "reflect",
+      "embrace",
+      "embody",
+      "harmonize",
+      //"enveloped in",
+      //"merging with",
+    ],
+
+
+  }
+}

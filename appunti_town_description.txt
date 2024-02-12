@@ -2,16 +2,22 @@
 //---- Small size
 //-------------------------------------
 
-night/day
-season
 
 
 v      "Children laugh and play in the town square, where a weathered gazebo stands as a relic of times past.",
 v      "At the edge of town, a towering oak tree provides shade for picnickers and a spot for young lovers to rendezvous.",
 v      "A small church with a white steeple serves as the heart of the community, ringing its bells on Sundays.",
 v      "In the distance, fields of golden wheat sway in the gentle breeze, painting the landscape with hues of amber.",
-      "A small pond attracts ducks and fishermen alike, its tranquil waters reflecting the changing seasons.",
+v      "A small pond attracts ducks and fishermen alike, its tranquil waters reflecting the changing seasons.",
 
+Generalizzazioni:
+- persone agiscono nel villaggio; peaceful, nostalgic
+- natura in relazione con lo spazio; nature
+- church; peaceful, small
+- farms in the landscape; rural
+
+night/day
+season
       "As night falls, the stars twinkle overhead, casting a peaceful glow on the sleeping town below.",
       "On hot summer days, children splash and play in the town's swimming hole, shaded by towering willow trees.",
 
