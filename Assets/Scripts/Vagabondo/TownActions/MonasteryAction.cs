@@ -4,9 +4,9 @@ using Vagabondo.DataModel;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
 
-namespace Vagabondo.Actions
+namespace Vagabondo.TownActions
 {
-    public class MonasteryAction : GameAction
+    public class MonasteryAction : TownAction
     {
         public MonasteryAction(Town townData) : base(GameActionType.Church, townData)
         {
@@ -16,26 +16,26 @@ namespace Vagabondo.Actions
 
         public override bool isBuildingAction() => true;
 
-        public override GameActionResult Perform(TravelManager travelManager)
+        public override TownActionResult Perform(TravelManager travelManager)
         {
-            var effectTypes = new List<GameActionEffectType>() {
-                GameActionEffectType.Learn,
-                GameActionEffectType.Pray,
-                GameActionEffectType.Trade,
-                GameActionEffectType.MakeEnemies,
+            var effectTypes = new List<TownActionEffectType>() {
+                TownActionEffectType.Learn,
+                TownActionEffectType.Pray,
+                TownActionEffectType.Trade,
+                TownActionEffectType.MakeEnemies,
             };
 
             //TODO: influence result by Religion stat, Exoterism stat, and other factors
             var effectType = RandomUtils.RandomChoose(effectTypes);
             switch (effectType)
             {
-                case GameActionEffectType.Learn:
+                case TownActionEffectType.Learn:
                     return performLearn(travelManager);
-                case GameActionEffectType.Pray:
+                case TownActionEffectType.Pray:
                     return performPray(travelManager);
-                case GameActionEffectType.Trade:
+                case TownActionEffectType.Trade:
                     return performTrade(travelManager);
-                case GameActionEffectType.MakeEnemies:
+                case TownActionEffectType.MakeEnemies:
                     return performMakeEnemies(travelManager);
             }
 
@@ -43,27 +43,27 @@ namespace Vagabondo.Actions
         }
 
 
-        private GameActionResult performLearn(TravelManager travelManager)
+        private TownActionResult performLearn(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Languages);
 
             var description = "You spend some time in the monastery library, consulting venerable old texts";
             var resultText = StringUtils.BuildResultTextStat(StatId.Languages, 1);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performPray(TravelManager travelManager)
+        private TownActionResult performPray(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Religion);
 
             var description = "You spend some time in the cloister, praying and meditating";
             var resultText = StringUtils.BuildResultTextStat(StatId.Religion, 1);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performTrade(TravelManager travelManager)
+        private TownActionResult performTrade(TravelManager travelManager)
         {
             var donationAmount = 40;
             string description;
@@ -76,7 +76,7 @@ namespace Vagabondo.Actions
                 description = "The monks ask you for a substantial donation, but you don't have enough money for their liking";
                 resultText = StringUtils.BuildResultTextStat(StatId.Religion, -1);
 
-                return new GameActionResult(description, resultText);
+                return new TownActionResult(description, resultText);
             }
 
             travelManager.AddMoney(-donationAmount);
@@ -87,10 +87,10 @@ namespace Vagabondo.Actions
             resultText = StringUtils.BuildResultTextMoney(-donationAmount)
                 + "\n\n" + StringUtils.BuildResultTextStat(StatId.Religion, 2);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performMakeEnemies(TravelManager travelManager)
+        private TownActionResult performMakeEnemies(TravelManager travelManager)
         {
             travelManager.DecrementStat(StatId.Religion);
             travelManager.DecrementStat(StatId.Religion);
@@ -99,7 +99,7 @@ namespace Vagabondo.Actions
             var description = "You get involved in a theological dispute, and are kicked out of the monastery!";
             var resultText = StringUtils.BuildResultTextStat(StatId.Religion, -2);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
     }
 }

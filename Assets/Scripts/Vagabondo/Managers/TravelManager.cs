@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Vagabondo.Actions;
 using Vagabondo.DataModel;
 using Vagabondo.Generators;
+using Vagabondo.TownActions;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Managers
@@ -41,7 +41,7 @@ namespace Vagabondo.Managers
             EventManager.PublishTravelerChanged(travelerData);
         }
 
-        public void PerformAction(GameAction action)
+        public void PerformAction(TownAction action)
         {
             var actionResult = action.Perform(this);
             EventManager.PublishActionPerformed(actionResult);
@@ -61,6 +61,8 @@ namespace Vagabondo.Managers
 
             nextDestinations = generateNextDestinations(currentTown);
             EventManager.PublishDestinationsChanged(nextDestinations);
+
+            AddNutrition(-GameParams.Instance.travelNutritionCost);
         }
 
         public void AddMoney(int delta)
@@ -80,6 +82,16 @@ namespace Vagabondo.Managers
             if (travelerData.health <= 0)
                 EventManager.PublishGameOver();
         }
+
+        public void AddNutrition(int delta)
+        {
+            travelerData.nutrition += delta;
+            EventManager.PublishTravelerChanged(travelerData);
+
+            if (travelerData.nutrition <= 0)
+                EventManager.PublishGameOver();
+        }
+
 
         public void IncrementStat(StatId statId)
         {
@@ -151,6 +163,21 @@ namespace Vagabondo.Managers
             EventManager.PublishTravelerChanged(travelerData);
         }
 
+
+        public void UseItem(GameItem item)
+        {
+            travelerData.merchandise.Remove(item);
+            switch (item.useVerb)
+            {
+                case UseVerb.Eat:
+                    AddNutrition(item.nutrition); //TODO: add ui feedback
+                    break;
+                default:
+                    throw new Exception($"Unknown useVerb {DataUtils.EnumToStr(item.useVerb)}");
+            }
+        }
+
+
         public void AddMemory(Memory memory)
         {
             travelerData.memories.Add(memory);
@@ -190,7 +217,7 @@ namespace Vagabondo.Managers
             var allHints = generateAllTownHints(townData, travelerData);
 
             var res = new HashSet<string>();
-            var nHints = Math.Min(GameParams.nMaxHints, allHints.Count);
+            var nHints = Math.Min(GameParams.Instance.nMaxHints, allHints.Count);
             while (res.Count < nHints)
                 res.Add(RandomUtils.RandomChoose(allHints));
 
@@ -286,7 +313,7 @@ namespace Vagabondo.Managers
 
         private void maybeAddQuestAction(Town townData)
         {
-            if (UnityEngine.Random.value < GameParams.questActionProbability)
+            if (UnityEngine.Random.value < GameParams.Instance.questActionProbability)
             {
                 var questState = activeQuest.GetCurrentState();
                 var questAction = new QuestAction(questState, townData);

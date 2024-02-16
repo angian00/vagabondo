@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Vagabondo.Actions;
+using Vagabondo.TownActions;
 using Vagabondo.DataModel;
 using Vagabondo.Managers;
 
@@ -15,14 +15,14 @@ namespace Vagabondo.Generators
 
         private static void generateBuildingActions(Town townData)
         {
-            var newActions = new List<GameAction>();
+            var newActions = new List<TownAction>();
 
             foreach (var building in townData.buildings)
             {
-                if (UnityEngine.Random.value > GameParams.buildingActionProbability)
+                if (UnityEngine.Random.value > GameParams.Instance.buildingActionProbability)
                     continue;
 
-                GameAction action;
+                TownAction action;
                 switch (building)
                 {
                     case TownBuilding.Bakery:
@@ -68,10 +68,10 @@ namespace Vagabondo.Generators
                 candidateActionTypes.Add(GameActionType.ChatCriminals);
 
 
-            var newActions = new List<GameAction>();
+            var newActions = new List<TownAction>();
             foreach (var actionType in candidateActionTypes)
             {
-                if (UnityEngine.Random.value > GameParams.eventActionProbability)
+                if (UnityEngine.Random.value > GameParams.Instance.eventActionProbability)
                     continue;
 
                 var action = GameActionFactory.CreateEventAction(actionType, townData);

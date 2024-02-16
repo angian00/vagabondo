@@ -12,7 +12,10 @@ namespace Vagabondo.DataModel
         public ItemSubcategory subcategory;
         public int frequency;
         public int baseValue;
+        public int nutrition;
+        public UseVerb useVerb;
         //public HashSet<Biome> compatibleBiomes;
+
 
         public GameItem Instantiate()
         {
@@ -26,6 +29,9 @@ namespace Vagabondo.DataModel
             item.subcategory = subcategory;
             item.baseValue = baseValue;
             item.currentPrice = baseValue;
+            item.nutrition = nutrition;
+            item.useVerb = useVerb;
+
             item.quality = RandomUtils.RandomQuality();
 
             item.definition = this;
@@ -49,7 +55,7 @@ namespace Vagabondo.DataModel
     }
 
 
-    public class ItemTemplate
+    public class GameItemTemplate
     {
         public string name;
         public ItemSubcategory subcategory;
@@ -57,6 +63,7 @@ namespace Vagabondo.DataModel
         public List<string> ingredientNames = new();
         public Preparation preparation;
         public int frequency = 1;
+        public UseVerb useVerb;
 
     }
 }

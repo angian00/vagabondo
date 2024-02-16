@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Vagabondo.DataModel;
+using Vagabondo.Managers;
+using Vagabondo.Utils;
 
 namespace Vagabondo.Behaviours
 {
@@ -10,7 +12,13 @@ namespace Vagabondo.Behaviours
         public static int maxLabelLength = 20;
 
         [SerializeField]
-        private TextMeshProUGUI itemLabel;
+        private TextMeshProUGUI nonusableItemLabel;
+        [SerializeField]
+        private TextMeshProUGUI usableItemLabel;
+        [SerializeField]
+        private GameObject useButton;
+        [SerializeField]
+        private TextMeshProUGUI useButtonLabel;
         [SerializeField]
         private GameObject tooltipObj;
         [SerializeField]
@@ -21,15 +29,38 @@ namespace Vagabondo.Behaviours
         public GameItem Data { get => _data; set { _data = value; updateView(); } }
 
 
+        public void OnUseClicked()
+        {
+            TravelManager.Instance.UseItem(_data);
+        }
+
         private void updateView()
         {
-            itemLabel.text = _data.extendedName;
+            if (_data.useVerb == UseVerb.None)
+            {
+                nonusableItemLabel.gameObject.SetActive(true);
+                usableItemLabel.gameObject.SetActive(false);
+                useButton.SetActive(false);
+
+                nonusableItemLabel.text = _data.extendedName;
+            }
+            else
+            {
+                nonusableItemLabel.gameObject.SetActive(false);
+                usableItemLabel.gameObject.SetActive(true);
+                useButton.SetActive(true);
+
+                usableItemLabel.text = _data.extendedName;
+                useButtonLabel.text = DataUtils.EnumToStr(_data.useVerb);
+            }
+
             tooltipLabel.text = _data.extendedName;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (itemLabel.isTextOverflowing)
+            if ((usableItemLabel.IsActive() && usableItemLabel.isTextOverflowing) ||
+                    (nonusableItemLabel.IsActive() && nonusableItemLabel.isTextOverflowing))
                 tooltipObj.SetActive(true);
         }
 

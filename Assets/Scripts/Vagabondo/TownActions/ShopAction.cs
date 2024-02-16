@@ -4,9 +4,9 @@ using Vagabondo.Generators;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
 
-namespace Vagabondo.Actions
+namespace Vagabondo.TownActions
 {
-    public class ShopAction : GameAction
+    public class ShopAction : TownAction
     {
         public ShopType shopType;
 
@@ -19,7 +19,7 @@ namespace Vagabondo.Actions
 
         public override bool isShopAction() => true;
 
-        public override GameActionResult Perform(TravelManager travelManager)
+        public override TownActionResult Perform(TravelManager travelManager)
         {
             var shopName = DataUtils.EnumToStr(shopType);
 

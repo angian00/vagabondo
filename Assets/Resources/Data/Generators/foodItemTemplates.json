@@ -547,6 +547,7 @@
 		],
 		"preparation": "none",
 		"frequency": 40,
+		"useVerb": "drink",
 	},
 	{
 		"name": "#ingredient1#",

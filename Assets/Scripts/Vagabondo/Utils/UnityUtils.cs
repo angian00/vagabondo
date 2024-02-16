@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Vagabondo.Utils
 {
@@ -33,32 +35,40 @@ namespace Vagabondo.Utils
             return new Color(r, g, b);
         }
 
+        public static void InitUIViews()
+        {
+            var rootObjs = SceneManager.GetActiveScene().GetRootGameObjects();
+            var canvas = rootObjs.First(obj => obj.name == "Canvas").transform;
+
+            foreach (Transform uiView in canvas.transform)
+            {
+                if (uiView.name == "Town UI" || uiView.name == "Game Start UI")
+                    ShowUIView(uiView.gameObject);
+                else
+                    HideUIView(uiView.gameObject);
+            }
+        }
+
 
         public static void ShowUIView(GameObject viewObj)
         {
-            ToggleUIView(viewObj, true);
+            toggleUIView(viewObj, true);
         }
 
         public static void HideUIView(GameObject viewObj)
         {
-            ToggleUIView(viewObj, false);
+            toggleUIView(viewObj, false);
         }
 
-        public static void ToggleUIView(GameObject viewObj, bool? proposedVisibilityStatus = null)
+        private static void toggleUIView(GameObject viewObj, bool newStatus)
         {
             var targetCanvasGroup = viewObj.GetComponent<CanvasGroup>();
             if (targetCanvasGroup == null)
                 throw new Exception($"viewObj {viewObj.name} does not have a CanvasGroup");
 
-            bool newVisibilityStatus;
-            if (proposedVisibilityStatus == null)
-                newVisibilityStatus = !(targetCanvasGroup.interactable);
-            else
-                newVisibilityStatus = (bool)proposedVisibilityStatus;
-
-            targetCanvasGroup.alpha = newVisibilityStatus ? 1 : 0;
-            targetCanvasGroup.interactable = newVisibilityStatus;
-            targetCanvasGroup.blocksRaycasts = newVisibilityStatus;
+            targetCanvasGroup.alpha = newStatus ? 1 : 0;
+            targetCanvasGroup.interactable = newStatus;
+            targetCanvasGroup.blocksRaycasts = newStatus;
         }
 
     }

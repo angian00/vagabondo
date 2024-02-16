@@ -9,7 +9,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{C502F229-05FE-C123-6280-A01E2DE33077}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -63,58 +64,56 @@
     <Compile Include="Assets\Scripts\Vagabondo\Generators\EnumGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\SubstitutionGrammar.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\ChoiceTree.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\ShopAction.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\TownHallAction.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\MonasteryAction.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\TavernAction.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\ChatCriminalsAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\QuestGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\GameOverUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\StringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\StringUtils.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\TownHallAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\ShopInfo.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\CommentRemover.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Biome.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\MonasteryAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Town.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\UnityUtils.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\ChatLocalsAction.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\GameAction.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Utils\NullableEnumConverter.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ShopUIBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\DataModel\GameItemTemplate.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RefExpansion.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\ExploreAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TownGenerator.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\ExploreAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Experiments\ExperimentFoodGeneration.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\GameStartUIBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\ChurchAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\InventoryItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Quest.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ActionResultUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\DestinationItemBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\QuestAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\TraceryGrammar.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\RandomUtils.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Trinket.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Traveler.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\QuestAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Experiments\ExperimentJsonParsing.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RichGrammarExpansion.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Managers\EventManager.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\MerchandiseGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Managers\TravelManager.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\ChatCriminalsAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\DominionGenerator.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\LibraryAction.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\ChurchAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RichGrammarParser.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Dominion.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\StatId.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\TavernAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\GameItem.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\DataModel\GameItem2.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\ActionGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\FileStringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ActionButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TownDescriptionGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Managers\GameParams.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\LibraryAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\DestinationUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\TravelerUIBehaviour.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Actions\GameActionResult.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\ShopAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\TownUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\ScriptableObjects\GameColorConfig.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Memory.cs" />
@@ -123,13 +122,16 @@
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TrinketGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TemplatedStringGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Managers\PriceEvaluator.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\TownActionResult.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\GrammarFactory.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ShopItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\MemoryItemBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\ChatLocalsAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\InventoryUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\DominionUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\GameItemGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\DataUtils.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\TownAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

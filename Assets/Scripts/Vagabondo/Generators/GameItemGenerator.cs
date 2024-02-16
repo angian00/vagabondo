@@ -13,9 +13,9 @@ namespace Vagabondo.Generators
     public class GameItemGenerator
     {
         private static List<IngredientDefinition> ingredientDefinitions;
-        private static List<ItemTemplate> foodItemTemplates;
+        private static List<GameItemTemplate> templates;
         private static List<int> ingredientDefinitionWeights;
-        private static List<int> foodItemTemplateWeights;
+        private static List<int> templateWeights;
 
         static GameItemGenerator()
         {
@@ -28,14 +28,14 @@ namespace Vagabondo.Generators
                 ingredientDefinitionWeights.Add(definition.frequency);
 
             fileObj = Resources.Load<TextAsset>($"Data/Generators/foodItemTemplates");
-            foodItemTemplates = JsonConvert.DeserializeObject<List<ItemTemplate>>(fileObj.text);
-            foodItemTemplateWeights = new();
-            foreach (var template in foodItemTemplates)
-                foodItemTemplateWeights.Add(template.frequency);
+            templates = JsonConvert.DeserializeObject<List<GameItemTemplate>>(fileObj.text);
+            templateWeights = new();
+            foreach (var template in templates)
+                templateWeights.Add(template.frequency);
         }
 
 
-        public static List<GameItem> GenerateFoodIngredients(int nIngredients = 10)
+        public static List<GameItem> GenerateIngredients(int nIngredients = 10)
         {
             List<GameItem> res = new();
             for (int iIngredient = 0; iIngredient < nIngredients; iIngredient++)
@@ -49,13 +49,13 @@ namespace Vagabondo.Generators
             return res;
         }
 
-        public static List<GameItem> GenerateFoodIngredients(List<ItemSubcategory> categories, int nIngredients = 10)
+        public static List<GameItem> GenerateIngredients(List<ItemSubcategory> categories, int nIngredients = 10)
         {
             Predicate<IngredientDefinition> ingredientFilter = (ingredientDef) => categories.Contains(ingredientDef.subcategory);
             return GenerateIngredients(ingredientFilter, nIngredients);
         }
 
-        public static GameItem GenerateFoodIngredient(Predicate<IngredientDefinition> ingredientFilter)
+        public static GameItem GenerateIngredient(Predicate<IngredientDefinition> ingredientFilter)
         {
             var ingredientList = GenerateIngredients(ingredientFilter, nIngredients: 1);
             return ingredientList[0];
@@ -88,7 +88,7 @@ namespace Vagabondo.Generators
         }
 
 
-        public static GameItem GenerateFoodItemFromIngredients(List<GameItem> availableIngredients)
+        public static GameItem GenerateItemFromIngredients(List<GameItem> availableIngredients)
         {
             const int maxTries = 20;
             int nTries = 0;
@@ -96,12 +96,7 @@ namespace Vagabondo.Generators
             while (true)
             {
                 var availableIngredientsCopy = new List<GameItem>(availableIngredients);
-                var template = RandomUtils.RandomChoose(foodItemTemplates);
-
-                var foodItem = new GameItem();
-
-                //template.preparation;
-                var preparationQuality = RandomUtils.RandomQuality();
+                var template = RandomUtils.RandomChoose(templates);
 
                 var chosenIngredients = new List<GameItem>();
                 var chosenIngredientNames = new List<string>();
@@ -128,12 +123,7 @@ namespace Vagabondo.Generators
                     availableIngredientsCopy.Remove(ingredient);
                 }
 
-                foodItem.subcategory = template.subcategory;
-                foodItem.quality = computeFoodQuality(chosenIngredients, preparationQuality);
-                foodItem.baseValue = computeFoodBaseValue(chosenIngredients);
-                foodItem.name = computeFoodName(chosenIngredients, template);
-
-                return foodItem;
+                return generateItem(template, chosenIngredients);
 
             outerLoopIterate:
                 nTries++;
@@ -142,15 +132,15 @@ namespace Vagabondo.Generators
             }
         }
 
-        public static GameItem GenerateIngredientsAndFood(int nIngredients = 10)
+        public static GameItem GenerateIngredientsAndItem(int nIngredients = 10)
         {
-            var availableIngredients = GenerateFoodIngredients(nIngredients);
+            var availableIngredients = GenerateIngredients(nIngredients);
 
             Debug.Log("Generated ingredients:");
             foreach (var ingredient in availableIngredients)
                 Debug.Log($"\t {ingredient.definition.name} [{DataUtils.EnumToStr(ingredient.definition.subcategory)}]");
 
-            return GenerateFoodItemFromIngredients(availableIngredients);
+            return GenerateItemFromIngredients(availableIngredients);
         }
 
         public static List<GameItem> GenerateItemsFromTemplates(Predicate<GameItem> itemFilter, int nItems = 10)
@@ -164,7 +154,7 @@ namespace Vagabondo.Generators
                 if (res.Count >= nItems || iTry >= nTries)
                     break;
 
-                var item = GenerateFoodItemFromTemplates();
+                var item = GenerateItemFromTemplates();
                 if (item != null && (itemFilter == null || itemFilter(item)))
                     res.Add(item);
             }
@@ -173,15 +163,14 @@ namespace Vagabondo.Generators
         }
 
 
-        public static GameItem GenerateFoodItemFromTemplates()
+        public static GameItem GenerateItemFromTemplates()
         {
             const int maxTries = 20;
             int nTries = 0;
 
             while (true)
             {
-                var template = RandomUtils.RandomChooseWeighted(foodItemTemplates, foodItemTemplateWeights);
-                var foodItem = new GameItem();
+                var template = RandomUtils.RandomChooseWeighted(templates, templateWeights);
 
                 var chosenIngredients = new List<GameItem>();
                 var chosenIngredientNames = new List<string>();
@@ -201,7 +190,7 @@ namespace Vagabondo.Generators
                     GameItem ingredient;
                     while (true)
                     {
-                        ingredient = GenerateFoodIngredient(ingredientFilter);
+                        ingredient = GenerateIngredient(ingredientFilter);
                         if (ingredient == null)
                             goto outerLoopIterate;
 
@@ -214,14 +203,8 @@ namespace Vagabondo.Generators
                     chosenIngredientNames.Add(ingredient.definition.name);
                 }
 
-                foodItem.subcategory = template.subcategory;
 
-                var preparationQuality = RandomUtils.RandomQuality();
-                foodItem.quality = computeFoodQuality(chosenIngredients, preparationQuality);
-                foodItem.baseValue = computeFoodBaseValue(chosenIngredients);
-                foodItem.name = computeFoodName(chosenIngredients, template);
-
-                return foodItem;
+                return generateItem(template, chosenIngredients);
 
             outerLoopIterate:
                 nTries++;
@@ -230,28 +213,24 @@ namespace Vagabondo.Generators
             }
         }
 
-
-        public static List<GameItem> GenerateFoodItems__old(Predicate<GameItem> itemFilter, int nItems = 10)
+        private static GameItem generateItem(GameItemTemplate template, List<GameItem> ingredients)
         {
-            var nIngredients = nItems * 100;
-            var availableIngredients = GenerateFoodIngredients(nIngredients);
+            var item = new GameItem();
 
-            var nTries = nItems * 100;
-            var iTry = 0;
-            List<GameItem> res = new();
-            while (true)
-            {
-                iTry++;
-                if (res.Count >= nItems || iTry >= nTries)
-                    break;
+            item.name = computeItemName(ingredients, template);
+            item.category = ItemCategory.Food;
+            item.subcategory = template.subcategory;
+            item.useVerb = (template.useVerb == UseVerb.None ? UseVerb.Eat : template.useVerb);
 
-                var item = GenerateFoodItemFromIngredients(availableIngredients);
-                if (item != null && (itemFilter == null || itemFilter(item)))
-                    res.Add(item);
-            }
+            var preparationQuality = RandomUtils.RandomQuality();
+            item.quality = computeItemQuality(ingredients, preparationQuality);
 
-            return res;
+            item.baseValue = computeItemBaseValue(ingredients);
+            item.nutrition = computeItemNutrition(ingredients);
+
+            return item;
         }
+
         private static GameItem chooseIngredient(ItemSubcategory targetCategory,
             List<GameItem> availableIngredients, List<string> prohibitedIngredientNames)
         {
@@ -278,7 +257,7 @@ namespace Vagabondo.Generators
             return RandomUtils.RandomChoose(compatibleIngredients);
         }
 
-        private static ItemQuality computeFoodQuality(List<GameItem> ingredients, ItemQuality preparationQuality)
+        private static ItemQuality computeItemQuality(List<GameItem> ingredients, ItemQuality preparationQuality)
         {
             float cumQuality = 0;
             float nQualities = 0;
@@ -289,14 +268,14 @@ namespace Vagabondo.Generators
                 nQualities++;
             }
 
-            cumQuality += GameParams.preparationQualityWeight * (int)preparationQuality;
-            nQualities += GameParams.preparationQualityWeight;
+            cumQuality += GameParams.Instance.preparationQualityWeight * (int)preparationQuality;
+            nQualities += GameParams.Instance.preparationQualityWeight;
 
 
             return (ItemQuality)Math.Round(cumQuality / nQualities);
         }
 
-        private static int computeFoodBaseValue(List<GameItem> ingredients)
+        private static int computeItemBaseValue(List<GameItem> ingredients)
         {
 
             var cumValue = 0.0f;
@@ -305,13 +284,26 @@ namespace Vagabondo.Generators
                 cumValue += ingredient.definition.baseValue;
             }
 
-            cumValue *= GameParams.preparationValueMultiplier;
+            cumValue *= GameParams.Instance.preparationValueMultiplier;
 
             return (int)Math.Round(cumValue);
         }
 
+        private static int computeItemNutrition(List<GameItem> ingredients)
+        {
 
-        private static string computeFoodName(List<GameItem> ingredients, ItemTemplate template)
+            var cumNutrition = 0.0f;
+            foreach (var ingredient in ingredients)
+            {
+                cumNutrition += ingredient.definition.nutrition;
+            }
+
+            //cumNutrition *= GameParams.Instance.preparationValueMultiplier;
+
+            return (int)Math.Round(cumNutrition);
+        }
+
+        private static string computeItemName(List<GameItem> ingredients, GameItemTemplate template)
         {
             var ingredientNouns = new List<IGrammarNoun>();
             for (var iIngredient = 0; iIngredient < ingredients.Count; iIngredient++)
@@ -321,13 +313,6 @@ namespace Vagabondo.Generators
             }
 
             return RefExpansion.ExpandText(template.name, "ingredient", ingredientNouns);
-            //string qualityStr;
-            //if (foodItem.quality == ItemQuality.Standard)
-            //    qualityStr = "";
-            //else
-            //    qualityStr = " [" + DataUtils.EnumToStr(foodItem.quality).ToLower() + "]";
-
-            //return dishStr + qualityStr;
         }
 
     }

@@ -55,6 +55,22 @@
       "locust"
     ],
 
+    "nounStreet": [
+      "street",
+      "road",
+      "avenue",
+      "boulevard",
+      "route"
+    ],
+    "nounPlaza": [
+      "plaza",
+      "square",
+      "court",
+      "common",
+      "green",
+      "park",
+    ],
+
     "nounPlayground": [
       "community playground",
       "schoolyard",

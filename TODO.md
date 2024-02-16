@@ -1,10 +1,10 @@
 # TODO
-- implementare item use and nutrition
 - implementare item scarcity
 
 - other improvements
-	- load gameparams from json
+	- ui: +/- nutrition feedback
 	- shop inventorySize varies with town size
+
 
 - brainstorming:
 	- non-food items:

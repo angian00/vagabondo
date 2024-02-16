@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Vagabondo.Actions;
+using Vagabondo.TownActions;
 using Vagabondo.DataModel;
 
 namespace Vagabondo.Managers
@@ -15,7 +15,7 @@ namespace Vagabondo.Managers
         public delegate void OnTravelerChanged(Traveler travelerData);
         public static event OnTravelerChanged onTravelerChanged;
 
-        public delegate void OnActionPerformed(GameActionResult actionResult);
+        public delegate void OnActionPerformed(TownActionResult actionResult);
         public static event OnActionPerformed onActionPerformed;
 
         public delegate void OnGameOver();
@@ -40,7 +40,7 @@ namespace Vagabondo.Managers
                 onTravelerChanged(travelerData);
         }
 
-        public static void PublishActionPerformed(GameActionResult actionResult)
+        public static void PublishActionPerformed(TownActionResult actionResult)
         {
             if (onActionPerformed != null)
                 onActionPerformed(actionResult);

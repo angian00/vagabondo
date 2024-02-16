@@ -5,9 +5,9 @@ using Vagabondo.Generators;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
 
-namespace Vagabondo.Actions
+namespace Vagabondo.TownActions
 {
-    public class ExploreAction : GameAction
+    public class ExploreAction : TownAction
     {
         public ExploreAction(Town townData) : base(GameActionType.Explore, townData)
         {
@@ -17,12 +17,12 @@ namespace Vagabondo.Actions
 
         public override bool isEventAction() => true;
 
-        public override GameActionResult Perform(TravelManager travelManager)
+        public override TownActionResult Perform(TravelManager travelManager)
         {
-            var effectTypes = new List<GameActionEffectType>() {
-                GameActionEffectType.Learn,
-                GameActionEffectType.ReceiveItem,
-                GameActionEffectType.Injury,
+            var effectTypes = new List<TownActionEffectType>() {
+                TownActionEffectType.Learn,
+                TownActionEffectType.ReceiveItem,
+                TownActionEffectType.Injury,
             };
 
 
@@ -30,11 +30,11 @@ namespace Vagabondo.Actions
             var effectType = RandomUtils.RandomChoose(effectTypes);
             switch (effectType)
             {
-                case GameActionEffectType.Learn:
+                case TownActionEffectType.Learn:
                     return performLearn(travelManager);
-                case GameActionEffectType.ReceiveItem:
+                case TownActionEffectType.ReceiveItem:
                     return performReceiveItem(travelManager);
-                case GameActionEffectType.Injury:
+                case TownActionEffectType.Injury:
                     return performInjury(travelManager);
             }
 
@@ -42,17 +42,17 @@ namespace Vagabondo.Actions
         }
 
 
-        private GameActionResult performLearn(TravelManager travelManager)
+        private TownActionResult performLearn(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Nature);
 
             var description = "You learn some interesting facts about the local wilderness";
             var resultText = StringUtils.BuildResultTextStat(StatId.Nature, 1);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performReceiveItem(TravelManager travelManager)
+        private TownActionResult performReceiveItem(TravelManager travelManager)
         {
             var plant = MerchandiseGenerator.GenerateItem(ItemCategory.WildPlant);
 
@@ -61,10 +61,10 @@ namespace Vagabondo.Actions
             var description = "You gather some useful herbs";
             var resultText = StringUtils.BuildResultTextItem(plant, true);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performInjury(TravelManager travelManager)
+        private TownActionResult performInjury(TravelManager travelManager)
         {
             const int maxInjury = 8;
 
@@ -76,7 +76,7 @@ namespace Vagabondo.Actions
             var description = $"You enconter a dangerous {animalName} which attacks you!";
             var resultText = StringUtils.BuildResultTextHealth(-injuryAmount);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
     }
 }

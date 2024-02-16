@@ -5,9 +5,9 @@ using Vagabondo.Generators;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
 
-namespace Vagabondo.Actions
+namespace Vagabondo.TownActions
 {
-    public class LibraryAction : GameAction
+    public class LibraryAction : TownAction
     {
         public LibraryAction(Town townData) : base(GameActionType.Library, townData)
         {
@@ -17,20 +17,20 @@ namespace Vagabondo.Actions
 
         public override bool isBuildingAction() => true;
 
-        public override GameActionResult Perform(TravelManager travelManager)
+        public override TownActionResult Perform(TravelManager travelManager)
         {
-            var effectTypes = new List<GameActionEffectType>() {
-                GameActionEffectType.Learn,
-                GameActionEffectType.Trade,
+            var effectTypes = new List<TownActionEffectType>() {
+                TownActionEffectType.Learn,
+                TownActionEffectType.Trade,
             };
 
             //TODO: influence result by stats
             var effectType = RandomUtils.RandomChoose(effectTypes);
             switch (effectType)
             {
-                case GameActionEffectType.Learn:
+                case TownActionEffectType.Learn:
                     return performLearn(travelManager);
-                case GameActionEffectType.Trade:
+                case TownActionEffectType.Trade:
                     return performTrade(travelManager);
             }
 
@@ -38,17 +38,17 @@ namespace Vagabondo.Actions
         }
 
 
-        private GameActionResult performLearn(TravelManager travelManager)
+        private TownActionResult performLearn(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Languages);
 
             var description = "You become more erudite than you were before";
             var resultText = StringUtils.BuildResultTextStat(StatId.Languages, 1);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performTrade(TravelManager travelManager)
+        private TownActionResult performTrade(TravelManager travelManager)
         {
             var shopInventory = MerchandiseGenerator.GenerateInventory(ShopType.Library);
             PriceEvaluator.UpdatePrices(shopInventory);

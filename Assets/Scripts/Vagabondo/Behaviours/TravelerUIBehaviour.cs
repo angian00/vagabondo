@@ -12,6 +12,8 @@ namespace Vagabondo.Behaviours
         [SerializeField]
         private TextMeshProUGUI healthValueLabel;
         [SerializeField]
+        private TextMeshProUGUI nutritionValueLabel;
+        [SerializeField]
         private Transform statsPanel;
         [SerializeField]
         private Transform memoriesPanel;
@@ -47,6 +49,7 @@ namespace Vagabondo.Behaviours
         {
             //Debug.Log("TravelerUIBehaviour.updateView()");
             healthValueLabel.text = travelerData.health.ToString();
+            nutritionValueLabel.text = travelerData.nutrition.ToString();
 
             UnityUtils.RemoveAllChildren(statsPanel);
             foreach (var statKey in travelerData.stats.Keys)

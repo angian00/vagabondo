@@ -8,6 +8,7 @@ namespace Vagabondo.DataModel
     {
         public int money;
         public int health;
+        public int nutrition;
         public List<GameItem> merchandise = new();
         public List<Trinket> trinkets = new();
         public List<Memory> memories = new();
@@ -15,8 +16,9 @@ namespace Vagabondo.DataModel
 
         public Traveler()
         {
-            money = GameParams.startMoney;
-            health = GameParams.startHealth;
+            money = GameParams.Instance.startMoney;
+            health = GameParams.Instance.startHealth;
+            nutrition = GameParams.Instance.startNutrition;
 
             foreach (StatId statId in DataUtils.EnumValues<StatId>())
             {

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Vagabondo.Actions;
+using Vagabondo.TownActions;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
 
@@ -21,7 +21,7 @@ namespace Vagabondo.Behaviours
         [SerializeField]
         private GameObject shopUI;
 
-        private GameActionResult _actionResult;
+        private TownActionResult _actionResult;
 
         private void OnEnable()
         {
@@ -39,7 +39,7 @@ namespace Vagabondo.Behaviours
             UnityUtils.HideUIView(gameObject);
         }
 
-        private void updateView(GameActionResult actionResult)
+        private void updateView(TownActionResult actionResult)
         {
             this._actionResult = actionResult;
             UnityUtils.ShowUIView(gameObject);

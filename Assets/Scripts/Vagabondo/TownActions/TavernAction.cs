@@ -5,9 +5,9 @@ using Vagabondo.Generators;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
 
-namespace Vagabondo.Actions
+namespace Vagabondo.TownActions
 {
-    public class TavernAction : GameAction
+    public class TavernAction : TownAction
     {
         public static int tavernCost = 10; //TODO: make tavernCost variable
 
@@ -20,29 +20,29 @@ namespace Vagabondo.Actions
 
         public override bool isBuildingAction() => true;
 
-        public override GameActionResult Perform(TravelManager travelManager)
+        public override TownActionResult Perform(TravelManager travelManager)
         {
-            var effectTypes = new List<GameActionEffectType>() {
-                GameActionEffectType.Trade,
-                GameActionEffectType.Gossip,
-                GameActionEffectType.MakeFriends,
-                GameActionEffectType.MakeEnemies,
-                GameActionEffectType.Injury,
+            var effectTypes = new List<TownActionEffectType>() {
+                TownActionEffectType.Trade,
+                TownActionEffectType.Gossip,
+                TownActionEffectType.MakeFriends,
+                TownActionEffectType.MakeEnemies,
+                TownActionEffectType.Injury,
             };
 
             //DEBUG
             var effectType = RandomUtils.RandomChoose(effectTypes);
             switch (effectType)
             {
-                case GameActionEffectType.Trade:
+                case TownActionEffectType.Trade:
                     return performTrade(travelManager);
-                case GameActionEffectType.Gossip:
+                case TownActionEffectType.Gossip:
                     return performGossip(travelManager);
-                case GameActionEffectType.MakeFriends:
+                case TownActionEffectType.MakeFriends:
                     return performMakeFriends(travelManager);
-                case GameActionEffectType.MakeEnemies:
+                case TownActionEffectType.MakeEnemies:
                     return performMakeEnemies(travelManager);
-                case GameActionEffectType.Injury:
+                case TownActionEffectType.Injury:
                     return performInjury(travelManager);
             }
 
@@ -50,7 +50,7 @@ namespace Vagabondo.Actions
         }
 
 
-        private GameActionResult performTrade(TravelManager travelManager)
+        private TownActionResult performTrade(TravelManager travelManager)
         {
             var shopInventory = MerchandiseGenerator.GenerateInventory(ShopType.Tavern);
             PriceEvaluator.UpdatePrices(shopInventory);
@@ -63,17 +63,17 @@ namespace Vagabondo.Actions
                 "or even sell some of your own", shopInfo);
         }
 
-        private GameActionResult performGossip(TravelManager travelManager)
+        private TownActionResult performGossip(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.Diplomacy);
 
             var description = "You learn some interesting facts about the local government";
             var resultText = StringUtils.BuildResultTextStat(StatId.Diplomacy, 1);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performMakeFriends(TravelManager travelManager)
+        private TownActionResult performMakeFriends(TravelManager travelManager)
         {
             //TODO: check if you can spend money to make friends
             travelManager.IncrementStat(StatId.Reputation);
@@ -81,20 +81,20 @@ namespace Vagabondo.Actions
             var description = "You spend some time making friends with the other patrons";
             var resultText = StringUtils.BuildResultTextStat(StatId.Reputation, 1);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performMakeEnemies(TravelManager travelManager)
+        private TownActionResult performMakeEnemies(TravelManager travelManager)
         {
             travelManager.DecrementStat(StatId.Reputation);
 
             var description = "You try to make friends, but get only hostile stares in return. You should work more on your people skills!";
             var resultText = StringUtils.BuildResultTextStat(StatId.Reputation, -1);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performInjury(TravelManager travelManager)
+        private TownActionResult performInjury(TravelManager travelManager)
         {
             const int maxInjury = 5;
 
@@ -105,7 +105,7 @@ namespace Vagabondo.Actions
             var resultText = StringUtils.BuildResultTextHealth(-injuryAmount);
 
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
     }
 }

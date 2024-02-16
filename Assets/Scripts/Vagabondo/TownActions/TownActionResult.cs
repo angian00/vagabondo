@@ -1,8 +1,8 @@
 using Vagabondo.DataModel;
 
-namespace Vagabondo.Actions
+namespace Vagabondo.TownActions
 {
-    public enum GameActionEffectType
+    public enum TownActionEffectType
     {
         Trade,
         Gossip,
@@ -17,21 +17,21 @@ namespace Vagabondo.Actions
     }
 
 
-    public class GameActionResult
+    public class TownActionResult
     {
         public readonly string descriptionText;
         public readonly string resultText;
 
-        public GameActionResult(string message) : this(message, null) { }
+        public TownActionResult(string message) : this(message, null) { }
 
-        public GameActionResult(string message, string resultText)
+        public TownActionResult(string message, string resultText)
         {
             this.descriptionText = message;
             this.resultText = resultText;
         }
     }
 
-    public class ShopActionResult : GameActionResult
+    public class ShopActionResult : TownActionResult
     {
         public readonly ShopInfo shopInfo;
         public readonly bool skipTextResult;

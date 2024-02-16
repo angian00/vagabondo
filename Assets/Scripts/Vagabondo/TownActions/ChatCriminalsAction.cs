@@ -5,9 +5,9 @@ using Vagabondo.Generators;
 using Vagabondo.Managers;
 using Vagabondo.Utils;
 
-namespace Vagabondo.Actions
+namespace Vagabondo.TownActions
 {
-    public class ChatCriminalsAction : GameAction
+    public class ChatCriminalsAction : TownAction
     {
         public ChatCriminalsAction(Town townData) : base(GameActionType.ChatCriminals, townData)
         {
@@ -17,33 +17,33 @@ namespace Vagabondo.Actions
 
         public override bool isEventAction() => true;
 
-        public override GameActionResult Perform(TravelManager travelManager)
+        public override TownActionResult Perform(TravelManager travelManager)
         {
-            var effectTypes = new List<GameActionEffectType>() {
-                GameActionEffectType.Learn,
-                GameActionEffectType.Trade,
-                GameActionEffectType.MakeEnemies,
-                GameActionEffectType.LoseMoney,
+            var effectTypes = new List<TownActionEffectType>() {
+                TownActionEffectType.Learn,
+                TownActionEffectType.Trade,
+                TownActionEffectType.MakeEnemies,
+                TownActionEffectType.LoseMoney,
             };
 
             //TODO: result influenced by Knowledge.Street
             var effectType = RandomUtils.RandomChoose(effectTypes);
             switch (effectType)
             {
-                case GameActionEffectType.Learn:
+                case TownActionEffectType.Learn:
                     return performLearn(travelManager);
-                case GameActionEffectType.Trade:
+                case TownActionEffectType.Trade:
                     return performTrade(travelManager);
-                case GameActionEffectType.MakeEnemies:
+                case TownActionEffectType.MakeEnemies:
                     return performMakeEnemies(travelManager);
-                case GameActionEffectType.LoseMoney:
+                case TownActionEffectType.LoseMoney:
                     return performLoseMoney(travelManager);
             }
 
             throw new Exception($"Invalid effectType: {DataUtils.EnumToStr(effectType)}");
         }
 
-        private GameActionResult performTrade(TravelManager travelManager)
+        private TownActionResult performTrade(TravelManager travelManager)
         {
             const int maxDealCost = 50;
             string description;
@@ -58,7 +58,7 @@ namespace Vagabondo.Actions
                 description = "Seeing you don't have much money, the people on the street look at you with contempt";
                 resultText = StringUtils.BuildResultTextStat(StatId.StreetSmarts, -2);
 
-                return new GameActionResult(description, resultText);
+                return new TownActionResult(description, resultText);
             }
 
             travelManager.AddMoney(-dealCost);
@@ -70,20 +70,20 @@ namespace Vagabondo.Actions
             resultText = StringUtils.BuildResultTextMoney(-dealCost) + "\n\n" +
                 StringUtils.BuildResultTextItem(item, true);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performLearn(TravelManager travelManager)
+        private TownActionResult performLearn(TravelManager travelManager)
         {
             travelManager.IncrementStat(StatId.StreetSmarts);
 
             var description = "You get more used to navigating in such an hostile environment";
             var resultText = StringUtils.BuildResultTextStat(StatId.StreetSmarts, -1);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performMakeEnemies(TravelManager travelManager)
+        private TownActionResult performMakeEnemies(TravelManager travelManager)
         {
             travelManager.DecrementStat(StatId.Reputation);
 
@@ -91,10 +91,10 @@ namespace Vagabondo.Actions
             var resultText = StringUtils.BuildResultTextStat(StatId.Reputation, -1);
 
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
-        private GameActionResult performLoseMoney(TravelManager travelManager)
+        private TownActionResult performLoseMoney(TravelManager travelManager)
         {
             const int maxStolenAmount = 50;
             string description;
@@ -113,7 +113,7 @@ namespace Vagabondo.Actions
                     " Since you don't have much money, the thief beats you up anyway";
                 resultText = StringUtils.BuildResultTextMoney(-stolenAmount) + "\n\n" + StringUtils.BuildResultTextHealth(-injuryAmount);
 
-                return new GameActionResult(description, resultText);
+                return new TownActionResult(description, resultText);
             }
 
             travelManager.AddMoney(-stolenAmount);
@@ -122,7 +122,7 @@ namespace Vagabondo.Actions
             description = "You are threatened by an armed guy, and forced to give him your money!";
             resultText = StringUtils.BuildResultTextMoney(-stolenAmount);
 
-            return new GameActionResult(description, resultText);
+            return new TownActionResult(description, resultText);
         }
 
     }

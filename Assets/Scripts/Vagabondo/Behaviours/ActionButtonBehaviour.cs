@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Vagabondo.Actions;
+using Vagabondo.TownActions;
 using Vagabondo.DataModel;
 using Vagabondo.Managers;
 using Vagabondo.ScriptableObjects;
@@ -33,8 +33,8 @@ namespace Vagabondo.Behaviours
         private GameColorConfig colorConfig;
 
 
-        private GameAction _action;
-        public GameAction Action
+        private TownAction _action;
+        public TownAction Action
         {
             set
             {

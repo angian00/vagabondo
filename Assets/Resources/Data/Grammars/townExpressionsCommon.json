@@ -1,0 +1,48 @@
+{
+  "rules": {
+    "expressionTown": [
+      "the #townSize#",
+      "the settlement",
+      "the community",
+      "the township",
+      "the neighborhood",
+      "town"
+    ],
+
+    "expressionTownBig": [
+      "the urban sprawl"
+    ],
+
+    "expressionLocationCenter": [
+      "in the #nounCenter#",
+      "at the #nounCenter#",
+    ],
+
+    "expressionLocationEdge": [
+      "at the edge",
+      "on the outskirts",
+      "near the boundary",
+      "at the periphery",
+      "on the fringe",
+      "nestled on the outskirts",
+      "by the outskirts",
+      "along the border",
+      "near the verge"
+    ],
+
+    "expressionLocationStreet": [
+      "#adverbLocationNear# the #adjectiveMain# #nounStreet#",
+      "in the #adjectiveMain# #nounPlaza#",
+      "in the #adjectivePublic# #nounPlaza#",
+    ],
+
+    "expressionLocationRural": [
+      "amidst the wilderness at the town's edge",
+      "just beyond the town limits",
+      "bordering the rural countryside",
+      "adjacent to the farmland"
+    ],
+
+
+  }
+}

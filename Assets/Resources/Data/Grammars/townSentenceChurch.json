@@ -2,7 +2,7 @@
   "rules": {
     "townSentenceChurch": [
       "#adjectiveSmall.a# #nounChurch# with #adjectiveColor.a# #nounChurchDetail# #expressionChurchAction# #expressionLocationEdge#",
-      "#adjectiveSmall.a# #nounChurch# with #adjectiveColor.a# #nounChurchDetail# #expressionChurchAction# as the #expressionTownCenter#",
+      "#adjectiveSmall.a# #nounChurch# with #adjectiveColor.a# #nounChurchDetail# #expressionChurchAction# as the #expressionLocationCenter#  of #expressionTown#",
       "#adjectiveSmall.a# #nounChurch# #expressionChurchAction#, #expressionChurchActivity# on #expressionChurchDays#"
     ],
 
@@ -19,7 +19,6 @@
       "#verbStand.s# #adverbProudly#"
     ],
 
-    "expressionTownCenter": "#nounCenter# of #expressionTown#",
 
     "expressionChurchActivity": [
       "ringing its bells",

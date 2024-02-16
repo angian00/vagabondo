@@ -1,11 +1,11 @@
 {
   "rules": {
     "origin": [
-      "#townSentenceChildren.capitalize#.",
+      // "#townSentenceChildren.capitalize#.",
       "#townSentenceNature.capitalize#.",
-      "#townSentenceChurch.capitalize#.",
-      "#townSentenceFields.capitalize#.",
-      "#townSentencePond.capitalize#.",
+      // "#townSentenceChurch.capitalize#.",
+      // "#townSentenceFields.capitalize#.",
+      // "#townSentencePond.capitalize#.",
     ]
 
   }

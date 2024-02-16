@@ -1,23 +1,42 @@
+using Newtonsoft.Json;
+using UnityEngine;
+
 namespace Vagabondo.Managers
 {
     public class GameParams
     {
-        // traveler data initialization
-        public const int startMoney = 100;
-        public const int startHealth = 10;
+        public static GameParams Instance { get; private set; }
 
-        // town generation stats
-        public const int nMaxHints = 3;
+        static GameParams()
+        {
+            var fileObj = Resources.Load<TextAsset>($"Config/gameParams");
+            Instance = JsonConvert.DeserializeObject<GameParams>(fileObj.text);
+            Debug.Log($"startMoney: {Instance.startMoney}");
+        }
 
-        // action generation probabilities
-        //public const float questActionProbability = 0.2f;
-        public const float questActionProbability = 0.8f;
-        public const float buildingActionProbability = 0.7f;
-        public const float eventActionProbability = 0.7f;
+        [JsonProperty]
+        public readonly int startMoney;
+        [JsonProperty]
+        public readonly int startHealth;
+        [JsonProperty]
+        public readonly int startNutrition;
 
-        //food calculations
-        public const float preparationQualityWeight = 2.0f;
-        public const float preparationValueMultiplier = 1.2f;
+        [JsonProperty]
+        public readonly int nMaxHints;
 
+        [JsonProperty]
+        public readonly float questActionProbability;
+        [JsonProperty]
+        public readonly float buildingActionProbability;
+        [JsonProperty]
+        public readonly float eventActionProbability;
+
+        [JsonProperty]
+        public readonly float preparationQualityWeight;
+        [JsonProperty]
+        public readonly float preparationValueMultiplier;
+
+        [JsonProperty]
+        public readonly int travelNutritionCost;
     }
 }

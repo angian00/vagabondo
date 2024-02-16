@@ -50,6 +50,15 @@ namespace Vagabondo.DataModel
         Drink,
     }
 
+    public enum UseVerb
+    {
+        None,
+        Eat,
+        Drink,
+        //Read,
+        //...
+    }
+
     public class GameItem
     {
         public string name;
@@ -58,6 +67,9 @@ namespace Vagabondo.DataModel
         public ItemQuality quality;
         public int baseValue;
         public int currentPrice;
+        public int nutrition;
+        public UseVerb useVerb = UseVerb.None;
+
 
         public string extendedName
         {

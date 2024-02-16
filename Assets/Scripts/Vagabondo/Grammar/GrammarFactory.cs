@@ -26,6 +26,7 @@ namespace Vagabondo.Grammar
                 "townNouns",
                 "townVerbs",
                 "townAdjectives",
+                "townExpressionsCommon",
                 }
             },
         };

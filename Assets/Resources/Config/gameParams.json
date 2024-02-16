@@ -1,0 +1,22 @@
+{
+    //initial stats
+    "startMoney": 100,
+    "startHealth": 10,
+    "startNutrition": 100,
+
+    // town generation stats
+    "nMaxHints": 3,
+
+    // action generation probabilities
+    //public const float questActionProbability": 0.2
+    "questActionProbability": 0.8,
+    "buildingActionProbability": 0.7,
+    "eventActionProbability": 0.7,
+
+    //food calculations
+    "preparationQualityWeight": 2.0,
+    "preparationValueMultiplier": 1.2,
+
+    //nutrition
+    "travelNutritionCost": 10,
+}

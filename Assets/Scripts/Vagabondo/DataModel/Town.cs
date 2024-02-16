@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
-using Vagabondo.Actions;
+using Vagabondo.TownActions;
 using Vagabondo.Utils;
 
 namespace Vagabondo.DataModel
@@ -69,7 +69,7 @@ namespace Vagabondo.DataModel
         public int nDestinations;
         public HashSet<DominionTrait> traits = new();
         public HashSet<TownBuilding> buildings = new();
-        public List<GameAction> actions = new();
+        public List<TownAction> actions = new();
         public HashSet<string> hints = new();
         public int nVisibleHints = 3;
 

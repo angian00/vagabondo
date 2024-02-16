@@ -87,6 +87,21 @@
       "tranquil"
     ],
 
+    "adjectiveMain": [
+      "main",
+      "central",
+      "major",
+      "primary",
+    ],
+
+    "adjectivePublic": [
+      "public",
+      "civic",
+      "community",
+      "common",
+      "urban",
+      "town",
+    ],
     "adjectiveBuilding": [
       "rustic",
       "enduring",
@@ -97,6 +112,19 @@
       "some",
       "a few",
       //"several",
+    ],
+
+    "adverbLocationNear": [
+      "near",
+      "by",
+      "along",
+      "bordering",
+      "adjacent to",
+      "alongside",
+      "adjoining",
+      "aside",
+      "by the side of",
+      "next to",
     ],
 
     "adverbBuildingSmall": [

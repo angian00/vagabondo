@@ -1,56 +1,68 @@
 {
   "rules": {
-    "townSentenceNature": "#expressionNatureLocation#, #expressionNatureDescription#",
+    "townSentenceNature": [
+      "#expressionNatureLocation#, #expressionNatureDescription#",
+      "#expressionNatureDescriptionSimple# #expressionNatureLocation#",
+    ],
 
     "expressionNatureLocation": {
       "clauses": {
-        "#expressionLocationEdge# of #expressionTown#": 10,
-        "#expressionLocationRural#": 2
+        "#expressionLocationCenter# of #expressionTown#": 6,
+        "#expressionLocationEdge# of #expressionTown#": 6,
+        "#expressionLocationStreet#": 4,
+        "#expressionLocationRural#": 2,
       }
     },
 
-    "expressionTown": [
-      "the #townSize#",
-      "the settlement",
-      "the community",
-      "the township",
-      "the neighborhood",
-      "town"
-    ],
-
-    "expressionTownBig": [
-      "the urban sprawl"
-    ],
-
-
-    "expressionLocationEdge": [
-      "at the edge",
-      "on the outskirts",
-      "near the boundary",
-      "at the periphery",
-      "on the fringe",
-      "nestled on the outskirts",
-      "by the outskirts",
-      "along the border",
-      "near the verge"
-    ],
-
-    "expressionLocationRural": [
-      "amidst the wilderness at the town's edge",
-      "just beyond the town limits",
-      "bordering the rural countryside",
-      "adjacent to the farmland"
-    ],
-
     "expressionNatureDescription": [
-      "#expressionTree# provides #nounTreeBenefit# for #nounMerrymaker.s#",
-      "#expressionTree# provides a spot for #adjectiveSerene# #nounNaturePurpose#",
-      "#expressionTree# provides #nounTreeBenefit# for #nounMerrymaker.s# and a spot for #adjectiveSerene# #nounNaturePurpose#"
+      "#expressionNatureDescriptionSimple#",
+      "#expressionNatureDescriptionMultiple#",
+    ],
+
+    "expressionNatureDescriptionMultiple": [
+      "#expressionNatureDescriptionTreeBenefit# and a spot for #adjectiveSerene# #nounContemplation#"
+    ],
+
+    "expressionNatureDescriptionSimple": [
+      "#expressionNatureDescriptionTreeBenefit#",
+      "#expressionNatureDescriptionNatureItemStreetBenefit#",
+    ],
+
+    "expressionNatureDescriptionTreeBenefit": [
+      "#expressionTree# provides #nounProtection# for #nounMerrymaker.s#",
+    ],
+
+    "expressionNatureDescriptionNatureItemStreetBenefit": [
+      "#expressionNatureItem# provides a spot for #adjectiveSerene# #nounContemplation#",
+    ],
+
+    "expressionNatureItem": [
+      "#nounNatureItemStreet.a#",
+      "#adjectiveSmall.a# #nounNatureItemStreet#",
+      "#expressionTree#",
     ],
 
     "expressionTree": [
       "#nounTree.a# tree",
-      "#adjectiveTreeBig.a# #nounTree#"
+      "#adjectiveTreeBig.a# #nounTree#",
+    ],
+    "nounNatureItemStreet": [
+      "planter box",
+      "potted plant",
+      "flowerbed",
+      "wildflower patch",
+      "hedge",
+      "topiary",
+      "rock garden",
+      "moss-covered stone",
+      "bench",
+      "bird bath",
+      "bird feeder",
+      "butterfly garden",
+      "arboretum",
+      "fountain",
+      "gazebo",
+      "vine-covered trellis",
     ],
 
     "adjectiveTreeBig": [
@@ -61,7 +73,7 @@
       "august"
     ],
 
-    "nounTreeBenefit": [
+    "nounProtection": [
       "shade",
       "shelter",
       "protection",
@@ -75,7 +87,7 @@
       "comfort"
     ],
 
-    "nounNaturePurpose": [
+    "nounContemplation": [
       "confessions",
       "contemplation",
       "conversations",

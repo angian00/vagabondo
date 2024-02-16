@@ -1,7 +1,7 @@
 using Vagabondo.DataModel;
 using Vagabondo.Managers;
 
-namespace Vagabondo.Actions
+namespace Vagabondo.TownActions
 {
     public enum GameActionType
     {
@@ -21,14 +21,14 @@ namespace Vagabondo.Actions
         Quest,
     }
 
-    public abstract class GameAction
+    public abstract class TownAction
     {
         public GameActionType type;
         public string title;
         public string description;
         public Town townData;
 
-        public GameAction(GameActionType type, Town townData)
+        public TownAction(GameActionType type, Town townData)
         {
             this.type = type;
             this.townData = townData;
@@ -49,13 +49,13 @@ namespace Vagabondo.Actions
         public virtual bool isEventAction() => false;
         public virtual bool isQuestAction() => false;
 
-        public abstract GameActionResult Perform(TravelManager travelManager);
+        public abstract TownActionResult Perform(TravelManager travelManager);
     }
 
 
     public class GameActionFactory
     {
-        public static GameAction CreateEventAction(GameActionType type, Town townData)
+        public static TownAction CreateEventAction(GameActionType type, Town townData)
         {
             switch (type)
             {
@@ -70,7 +70,7 @@ namespace Vagabondo.Actions
             throw new System.Exception($"Invalid GameActionType: {type}");
         }
 
-        public static GameAction CreateBuildingAction(TownBuilding building, Town townData)
+        public static TownAction CreateBuildingAction(TownBuilding building, Town townData)
         {
             switch (building)
             {

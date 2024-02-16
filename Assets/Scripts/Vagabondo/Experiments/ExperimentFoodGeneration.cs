@@ -14,7 +14,7 @@ namespace Vagabondo.Experiment
 
         public void OnRun()
         {
-            var foodItem = GameItemGenerator.GenerateIngredientsAndFood(20);
+            var foodItem = GameItemGenerator.GenerateIngredientsAndItem(20);
 
             var textBuilder = new StringBuilder();
             if (foodItem == null)

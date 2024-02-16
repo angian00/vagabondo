@@ -1,9 +1,9 @@
 using Vagabondo.DataModel;
 using Vagabondo.Managers;
 
-namespace Vagabondo.Actions
+namespace Vagabondo.TownActions
 {
-    public class QuestAction : GameAction
+    public class QuestAction : TownAction
     {
         private QuestState questState;
 
@@ -16,7 +16,7 @@ namespace Vagabondo.Actions
 
         public override bool isQuestAction() => true;
 
-        public override GameActionResult Perform(TravelManager travelManager)
+        public override TownActionResult Perform(TravelManager travelManager)
         {
             Memory memory;
             if (questState.isFinal)
@@ -35,7 +35,7 @@ namespace Vagabondo.Actions
             memory.description = questState.memoryDescription;
             travelManager.AddMemory(memory);
 
-            return new GameActionResult(questState.actionResultText);
+            return new TownActionResult(questState.actionResultText);
         }
     }
 }
