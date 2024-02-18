@@ -35,33 +35,7 @@ namespace Vagabondo.Generators
         }
 
 
-        public static List<GameItem> GenerateIngredients(int nIngredients = 10)
-        {
-            List<GameItem> res = new();
-            for (int iIngredient = 0; iIngredient < nIngredients; iIngredient++)
-            {
-                var ingredient = new GameItem();
-                ingredient.definition = RandomUtils.RandomChooseWeighted(ingredientDefinitions, ingredientDefinitionWeights);
-                ingredient.quality = RandomUtils.RandomQuality();
-                res.Add(ingredient);
-            }
-
-            return res;
-        }
-
-        public static List<GameItem> GenerateIngredients(List<ItemSubcategory> categories, int nIngredients = 10)
-        {
-            Predicate<IngredientDefinition> ingredientFilter = (ingredientDef) => categories.Contains(ingredientDef.subcategory);
-            return GenerateIngredients(ingredientFilter, nIngredients);
-        }
-
-        public static GameItem GenerateIngredient(Predicate<IngredientDefinition> ingredientFilter)
-        {
-            var ingredientList = GenerateIngredients(ingredientFilter, nIngredients: 1);
-            return ingredientList[0];
-        }
-
-        public static List<GameItem> GenerateIngredients(Predicate<IngredientDefinition> ingredientFilter, int nIngredients = 10)
+        public static List<GameItem> GenerateIngredients(Predicate<IngredientDefinition> ingredientFilter, int nIngredients)
         {
             List<IngredientDefinition> compatibleDefs = new();
             List<int> compatibleDefWeights = new();
@@ -132,9 +106,10 @@ namespace Vagabondo.Generators
             }
         }
 
+
         public static GameItem GenerateIngredientsAndItem(int nIngredients = 10)
         {
-            var availableIngredients = GenerateIngredients(nIngredients);
+            var availableIngredients = generateIngredients(nIngredients);
 
             Debug.Log("Generated ingredients:");
             foreach (var ingredient in availableIngredients)
@@ -142,6 +117,7 @@ namespace Vagabondo.Generators
 
             return GenerateItemFromIngredients(availableIngredients);
         }
+
 
         public static List<GameItem> GenerateItemsFromTemplates(Predicate<GameItem> itemFilter, int nItems = 10)
         {
@@ -154,7 +130,7 @@ namespace Vagabondo.Generators
                 if (res.Count >= nItems || iTry >= nTries)
                     break;
 
-                var item = GenerateItemFromTemplates();
+                var item = generateItemFromTemplates();
                 if (item != null && (itemFilter == null || itemFilter(item)))
                     res.Add(item);
             }
@@ -163,10 +139,12 @@ namespace Vagabondo.Generators
         }
 
 
-        public static GameItem GenerateItemFromTemplates()
+        private static GameItem generateItemFromTemplates()
         {
             const int maxTries = 20;
             int nTries = 0;
+
+            Debug.Log("Generating item from templates");
 
             while (true)
             {
@@ -177,6 +155,7 @@ namespace Vagabondo.Generators
 
                 foreach (var ingredientName in template.ingredientNames)
                 {
+                    Debug.Log($"chosen ingredient: {ingredientName}");
                     var ingredientDef = ingredientDefinitions.Find(def => def.name == ingredientName);
                     var ingredient = ingredientDef.Instantiate();
 
@@ -190,7 +169,7 @@ namespace Vagabondo.Generators
                     GameItem ingredient;
                     while (true)
                     {
-                        ingredient = GenerateIngredient(ingredientFilter);
+                        ingredient = generateIngredient(ingredientFilter);
                         if (ingredient == null)
                             goto outerLoopIterate;
 
@@ -212,6 +191,27 @@ namespace Vagabondo.Generators
                     return null;
             }
         }
+
+        private static List<GameItem> generateIngredients(int nIngredients)
+        {
+            List<GameItem> res = new();
+            for (int iIngredient = 0; iIngredient < nIngredients; iIngredient++)
+            {
+                var ingredient = new GameItem();
+                ingredient.definition = RandomUtils.RandomChooseWeighted(ingredientDefinitions, ingredientDefinitionWeights);
+                ingredient.quality = RandomUtils.RandomQuality();
+                res.Add(ingredient);
+            }
+
+            return res;
+        }
+
+        private static GameItem generateIngredient(Predicate<IngredientDefinition> ingredientFilter)
+        {
+            var ingredientList = GenerateIngredients(ingredientFilter, nIngredients: 1);
+            return ingredientList[0];
+        }
+
 
         private static GameItem generateItem(GameItemTemplate template, List<GameItem> ingredients)
         {

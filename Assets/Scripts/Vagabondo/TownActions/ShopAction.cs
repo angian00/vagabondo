@@ -24,7 +24,7 @@ namespace Vagabondo.TownActions
             var shopName = DataUtils.EnumToStr(shopType);
 
             var shopInventory = MerchandiseGenerator.GenerateInventory(shopType);
-            PriceEvaluator.UpdatePrices(shopInventory);
+            PriceEvaluator.UpdatePrices(shopInventory, townData);
 
             Predicate<GameItem> canBuy = ShopInfo.BuyFilter.ContainsKey(shopType) ? ShopInfo.BuyFilter[shopType] : null;
 

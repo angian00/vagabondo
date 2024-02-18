@@ -37,6 +37,16 @@ namespace Vagabondo.Managers
         public readonly float preparationValueMultiplier;
 
         [JsonProperty]
+        public readonly float richPriceMultiplier;
+        [JsonProperty]
+        public readonly float poorPriceMultiplier;
+
+        [JsonProperty]
+        public readonly float minPriceMultiplier;
+        [JsonProperty]
+        public readonly float maxPriceMultiplier;
+
+        [JsonProperty]
         public readonly int travelNutritionCost;
     }
 }

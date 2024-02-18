@@ -13,9 +13,14 @@
     "buildingActionProbability": 0.7,
     "eventActionProbability": 0.7,
 
-    //food calculations
+    //quality and price calculations
     "preparationQualityWeight": 2.0,
     "preparationValueMultiplier": 1.2,
+    "richPriceMultiplier": 1.4,
+    "poorPriceMultiplier": 0.7,
+
+    "minPriceMultiplier": 0.2,
+    "maxPriceMultiplier": 5,
 
     //nutrition
     "travelNutritionCost": 10,

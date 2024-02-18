@@ -1,9 +1,20 @@
 # TODO
-- implementare item scarcity
+- implementare item scarcity:
+	- item ui feedback annotation per price vs value
+ 	+ prob di generazione varia con abbondanza
+ 	+ unificare davvero ingredients/items (definition/template)
+ 		- legare frequency dei templates a frequency delle definitions
 
-- other improvements
-	- ui: +/- nutrition feedback
-	- shop inventorySize varies with town size
+- shop inventorySize varies with town size	
+
+- ui: +/- nutrition feedback
+
+- write quest generation grammar
+
+- actions
+	- GiveItem action flow
+	- azioni complesse (ChoiceTree)
+
 
 
 - brainstorming:
@@ -65,7 +76,6 @@
 - data
 	- improve action texts
 
-- write quest generation grammar
 
 - actions
 	- GiveItem action flow
@@ -85,7 +95,6 @@
 
 
 ## FIXME
-
 
 ## Errands
 - provare American town generator

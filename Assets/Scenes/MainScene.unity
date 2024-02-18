@@ -205,8 +205,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 697179383}
   m_HandleRect: {fileID: 697179382}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5111111
+  m_Value: 1.0000001
+  m_Size: 0.51111114
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4936,7 +4936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -75}
+  m_AnchoredPosition: {x: 0, y: -75}
   m_SizeDelta: {x: -100, y: 36}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &559546841
@@ -5161,7 +5161,7 @@ MonoBehaviour:
   shopItemsPanel: {fileID: 854149583}
   travelerItemsScrollbar: {fileID: 8326826}
   shopItemsScrollbar: {fileID: 1715886928}
-  tradableItemTemplate: {fileID: 3910322864513361014, guid: f4334e30ba4c5b04da0646abacf02db4, type: 3}
+  tradableItemTemplate: {fileID: 3910322864513361014, guid: 8388b71c83bf48549a35a62bfc99cd18, type: 3}
 --- !u!225 &571778181
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7672,7 +7672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000059827573}
+  m_AnchoredPosition: {x: 0, y: 0.00090028817}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &797018434
@@ -16784,7 +16784,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1033996507}
   m_Direction: 2
   m_Value: 1.0000008
-  m_Size: 0.6764705
+  m_Size: 0.6764706
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

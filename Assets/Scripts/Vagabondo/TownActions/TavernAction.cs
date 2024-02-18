@@ -53,7 +53,7 @@ namespace Vagabondo.TownActions
         private TownActionResult performTrade(TravelManager travelManager)
         {
             var shopInventory = MerchandiseGenerator.GenerateInventory(ShopType.Tavern);
-            PriceEvaluator.UpdatePrices(shopInventory);
+            PriceEvaluator.UpdatePrices(shopInventory, townData);
 
 
             Predicate<GameItem> canBuy = ShopInfo.BuyFilter[ShopType.Tavern];

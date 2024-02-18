@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{C502F229-05FE-C123-6280-A01E2DE33077}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -76,6 +75,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\CommentRemover.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Biome.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Town.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\TownActions\TownAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\UnityUtils.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\NullableEnumConverter.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ShopUIBehaviour.cs" />
@@ -121,8 +121,8 @@
     <Compile Include="Assets\Scripts\Vagabondo\Experiments\ExperimentSubstitutionGrammar.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TrinketGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\TemplatedStringGenerator.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Managers\PriceEvaluator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\TownActions\TownActionResult.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Managers\PriceEvaluator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\GrammarFactory.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ShopItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\MemoryItemBehaviour.cs" />
@@ -131,7 +131,6 @@
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\DominionUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\GameItemGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\DataUtils.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\TownActions\TownAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -60,15 +60,16 @@ namespace Vagabondo.Generators
             while (!isValidTownTemplate(townTemplate, dominion))
                 townTemplate = RandomUtils.RandomChooseWeighted(townTemplates, townTemplateWeights);
 
+
+            var town = townTemplate.Instantiate();
+
             string townName;
             do
                 townName = FileStringGenerator.Sites.GenerateString();
             while (usedTownNames.Contains(townName));
             usedTownNames.Add(townName);
-            var town = new Town(townName);
+            town.name = townName;
 
-            town.size = townTemplate.size;
-            town.nDestinations = townTemplate.nDestinations;
             town.biome = biome;
             town.dominion = dominion;
             town.dominion.nTowns++;
@@ -98,7 +99,7 @@ namespace Vagabondo.Generators
         }
 
 
-        private void assignTownTraits(Town town, HashSet<DominionTrait> traits)
+        private void assignTownTraits(Town town, HashSet<TownTrait> traits)
         {
             town.traits = new();
 
@@ -120,12 +121,12 @@ namespace Vagabondo.Generators
             return true;
         }
 
-        private bool isValidConstraint(DominionTrait trait, Town town)
+        private bool isValidConstraint(TownTrait trait, Town town)
         {
-            if (trait == DominionTrait.Industrial && town.size == TownSize.Hamlet)
+            if (trait == TownTrait.Industrial && town.size == TownSize.Hamlet)
                 return false;
 
-            if (trait == DominionTrait.HighCrime && town.size <= TownSize.Town && town.traits.Contains(DominionTrait.Rural))
+            if (trait == TownTrait.HighCrime && town.size <= TownSize.Town && town.traits.Contains(TownTrait.Rural))
                 return false;
 
             return true;
@@ -152,10 +153,10 @@ namespace Vagabondo.Generators
                 if (buildings.Count >= townTemplate.nMaxBuildings)
                     break;
 
-                if (buildingInfo.traitNeeded != DominionTrait.Default && !town.traits.Contains(buildingInfo.traitNeeded))
+                if (buildingInfo.traitNeeded != TownTrait.Default && !town.traits.Contains(buildingInfo.traitNeeded))
                     continue;
 
-                if (buildingInfo.traitExcluded != DominionTrait.Default && town.traits.Contains(buildingInfo.traitExcluded))
+                if (buildingInfo.traitExcluded != TownTrait.Default && town.traits.Contains(buildingInfo.traitExcluded))
                     continue;
 
                 if (Random.value > buildingInfo.probability)

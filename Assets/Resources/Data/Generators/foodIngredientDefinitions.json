@@ -5,7 +5,11 @@
     "subcategory": "grain",
     "baseValue": 5,
     "frequency": 80,
-    "nutrition": 10
+    "nutrition": 10,
+    "biomes": {
+      "Forest": 2,
+      "Lake": 0
+    }
   },
   {
     "name": "rye",
@@ -13,7 +17,11 @@
     "subcategory": "grain",
     "baseValue": 5,
     "frequency": 80,
-    "nutrition": 9
+    "nutrition": 9,
+    "biomes": {
+      "Forest": 2,
+      "Lake": 0
+    }
   },
   {
     "name": "spelt",
@@ -21,7 +29,11 @@
     "subcategory": "grain",
     "baseValue": 5,
     "frequency": 70,
-    "nutrition": 9
+    "nutrition": 9,
+    "biomes": {
+      "Forest": 2,
+      "Lake": 0
+    }
   },
   {
     "name": "barley",
@@ -29,7 +41,11 @@
     "subcategory": "grain",
     "baseValue": 5,
     "frequency": 70,
-    "nutrition": 9
+    "nutrition": 9,
+    "biomes": {
+      "Forest": 2,
+      "Lake": 0
+    }
   },
   {
     "name": "buckwheat",
@@ -37,7 +53,11 @@
     "subcategory": "grain",
     "baseValue": 5,
     "frequency": 50,
-    "nutrition": 9
+    "nutrition": 9,
+    "biomes": {
+      "Forest": 2,
+      "Lake": 0
+    }
   },
   {
     "name": "millet",
@@ -45,7 +65,11 @@
     "subcategory": "grain",
     "baseValue": 5,
     "frequency": 60,
-    "nutrition": 8
+    "nutrition": 8,
+    "biomes": {
+      "Forest": 2,
+      "Lake": 0
+    }
   },
   {
     "name": "oats",
@@ -53,7 +77,11 @@
     "subcategory": "grain",
     "baseValue": 5,
     "frequency": 70,
-    "nutrition": 8
+    "nutrition": 8,
+    "biomes": {
+      "Forest": 2,
+      "Lake": 0
+    }
   },
   {
     "name": "sorghum",
@@ -61,7 +89,11 @@
     "subcategory": "grain",
     "baseValue": 5,
     "frequency": 40,
-    "nutrition": 8
+    "nutrition": 8,
+    "biomes": {
+      "Forest": 2,
+      "Lake": 0
+    }
   },
   {
     "name": "lettuce",
@@ -70,7 +102,10 @@
     "baseValue": 2,
     "frequency": 50,
     "nutrition": 1,
-    "useVerb": "eat"
+    "useVerb": "eat",
+    "biomes": {
+      "Plains": 2
+    }
   },
   {
     "name": "cabbage",
@@ -450,7 +485,7 @@
     "frequency": 10,
     "nutrition": 3,
     "useVerb": "eat",
-    "tags": "wild"
+    "NOTES": "wild"
   },
   {
     "name": "blackberry",
@@ -460,7 +495,7 @@
     "frequency": 10,
     "nutrition": 3,
     "useVerb": "eat",
-    "tags": "wild"
+    "NOTES": "wild"
   },
   {
     "name": "raspberry",
@@ -470,7 +505,7 @@
     "frequency": 10,
     "nutrition": 3,
     "useVerb": "eat",
-    "tags": "wild"
+    "NOTES": "wild"
   },
   {
     "name": "red currant",
@@ -480,7 +515,7 @@
     "frequency": 10,
     "nutrition": 3,
     "useVerb": "eat",
-    "tags": "wild"
+    "NOTES": "wild"
   },
   {
     "name": "almond",
@@ -490,7 +525,7 @@
     "frequency": 20,
     "nutrition": 5,
     "useVerb": "eat",
-    "tags": "maybe other category?"
+    "NOTES": "maybe other category?"
   },
   {
     "name": "walnut",

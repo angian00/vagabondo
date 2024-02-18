@@ -1,5 +1,4 @@
 using UnityEngine;
-using Vagabondo.Utils;
 
 namespace Vagabondo.Behaviours
 {
@@ -11,12 +10,6 @@ namespace Vagabondo.Behaviours
         private float fadeOutTime = 0.5f;
 
         private float cumTime = 0.0f;
-
-
-        void Start()
-        {
-            UnityUtils.InitUIViews();
-        }
 
 
         void Update()

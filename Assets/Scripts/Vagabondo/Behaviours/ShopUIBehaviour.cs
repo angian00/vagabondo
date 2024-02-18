@@ -87,14 +87,11 @@ namespace Vagabondo.Behaviours
                     continue;
 
                 var newItemObj = Instantiate(tradableItemTemplate, travelerItemsPanel, false);
-                newItemObj.GetComponent<ShopItemBehaviour>().Parent = this;
-                newItemObj.GetComponent<ShopItemBehaviour>().Data = item;
-                newItemObj.GetComponent<ShopItemBehaviour>().IsTravelerSelling = true;
-                newItemObj.GetComponent<ShopItemBehaviour>().Interactable = true;
+                newItemObj.GetComponent<InventoryItemBehaviour>().ShopUI = this;
+                newItemObj.GetComponent<InventoryItemBehaviour>().Data = item;
+                newItemObj.GetComponent<InventoryItemBehaviour>().IsTravelerSelling = true;
+                newItemObj.GetComponent<InventoryItemBehaviour>().Interactable = true;
             }
-
-            //if (_shopInfo != null)
-            //    updateShopItemsInteractable();
         }
 
         private void updateShopInfo()
@@ -105,11 +102,11 @@ namespace Vagabondo.Behaviours
             foreach (var item in _shopInfo.inventory)
             {
                 var newItemObj = Instantiate(tradableItemTemplate, shopItemsPanel, false);
-                newItemObj.GetComponent<ShopItemBehaviour>().Parent = this;
-                newItemObj.GetComponent<ShopItemBehaviour>().Data = item;
-                newItemObj.GetComponent<ShopItemBehaviour>().IsTravelerSelling = false;
+                newItemObj.GetComponent<InventoryItemBehaviour>().ShopUI = this;
+                newItemObj.GetComponent<InventoryItemBehaviour>().Data = item;
+                newItemObj.GetComponent<InventoryItemBehaviour>().IsTravelerSelling = false;
                 if (_travelerData != null)
-                    newItemObj.GetComponent<ShopItemBehaviour>().Interactable = (item.currentPrice <= _travelerData.money);
+                    newItemObj.GetComponent<InventoryItemBehaviour>().Interactable = (item.currentPrice <= _travelerData.money);
             }
         }
 
@@ -122,9 +119,8 @@ namespace Vagabondo.Behaviours
             {
                 //works because _shopInventory and shopItemsPanel children are in the same order
                 var itemObj = shopItemsPanel.GetChild(i);
-                //var price = itemObj.GetComponent<ShopItemBehaviour>().Data.currentPrice;
                 var price = _shopInfo.inventory[i].currentPrice;
-                itemObj.GetComponent<ShopItemBehaviour>().Interactable = (price <= _travelerData.money);
+                itemObj.GetComponent<InventoryItemBehaviour>().Interactable = (price <= _travelerData.money);
             }
         }
 
@@ -132,8 +128,6 @@ namespace Vagabondo.Behaviours
         {
             travelerItemsScrollbar.value = 1;
             shopItemsScrollbar.value = 1;
-
-            //shopItemsPanel.Find("Scrollbar Vertical").GetComponent<Scrollbar>().value = 1;
         }
     }
 }

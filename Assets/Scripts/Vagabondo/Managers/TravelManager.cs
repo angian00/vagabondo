@@ -56,7 +56,7 @@ namespace Vagabondo.Managers
 
             EventManager.PublishTownChanged(currentTown);
 
-            PriceEvaluator.UpdatePrices(travelerData.merchandise);
+            PriceEvaluator.UpdatePrices(travelerData.merchandise, currentTown);
             EventManager.PublishTravelerChanged(travelerData);
 
             nextDestinations = generateNextDestinations(currentTown);
@@ -76,6 +76,7 @@ namespace Vagabondo.Managers
 
         public void AddHealth(int delta)
         {
+            //TODO: add ui feedback
             travelerData.health += delta;
             EventManager.PublishTravelerChanged(travelerData);
 
@@ -85,6 +86,7 @@ namespace Vagabondo.Managers
 
         public void AddNutrition(int delta)
         {
+            //TODO: add ui feedback
             travelerData.nutrition += delta;
             EventManager.PublishTravelerChanged(travelerData);
 
@@ -105,6 +107,7 @@ namespace Vagabondo.Managers
 
         private void addToStat(StatId statId, int delta)
         {
+            //TODO: add ui feedback
             travelerData.stats[statId] += delta;
             EventManager.PublishTravelerChanged(travelerData);
 
@@ -170,7 +173,8 @@ namespace Vagabondo.Managers
             switch (item.useVerb)
             {
                 case UseVerb.Eat:
-                    AddNutrition(item.nutrition); //TODO: add ui feedback
+                case UseVerb.Drink:
+                    AddNutrition(item.nutrition);
                     break;
                 default:
                     throw new Exception($"Unknown useVerb {DataUtils.EnumToStr(item.useVerb)}");
@@ -276,25 +280,25 @@ namespace Vagabondo.Managers
             {
                 switch (trait)
                 {
-                    case DominionTrait.Rich:
+                    case TownTrait.Rich:
                         res.Add("There are a lot of wealthy people");
                         break;
-                    case DominionTrait.Poor:
+                    case TownTrait.Poor:
                         res.Add("It is poor");
                         break;
-                    case DominionTrait.Wild:
+                    case TownTrait.Wild:
                         res.Add("It is surrounded by the wilderness");
                         break;
-                    case DominionTrait.Rural:
+                    case TownTrait.Rural:
                         res.Add("It is surrounded by farms and fields");
                         break;
-                    case DominionTrait.Industrial:
+                    case TownTrait.Industrial:
                         res.Add("It is known for its industry");
                         break;
-                    case DominionTrait.HighCrime:
+                    case TownTrait.HighCrime:
                         res.Add("There is a lot of crime");
                         break;
-                    case DominionTrait.Fanatic:
+                    case TownTrait.Fanatic:
                         res.Add("Lots of religious fanatics there");
                         break;
                 }

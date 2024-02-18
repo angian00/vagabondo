@@ -9,6 +9,7 @@
 			{ "buildingType": "ShopGeneric", "probability": 0.5 },
 		],
 		"nDestinations": 1,
+		"baseAbundance": 0.35,
 	},
 	{
 		"size": "Village",
@@ -21,6 +22,7 @@
 			{ "buildingType": "ShopGeneric", "probability": 0.8 },
 		],
 		"nDestinations": 2,
+		"baseAbundance": 0.6,
 	},
 
 
@@ -38,6 +40,7 @@
 //			{ "buildingType": "farm", "probability": 1.0, "traitExcluded": "Industrial" },
 		],
 		"nDestinations": 3,
+		"baseAbundance": 1.0,
 	},
 
 	{
@@ -54,5 +57,6 @@
 			{ "buildingType": "ShopGeneric", "probability": 1.0 },
 		],
 		"nDestinations": 5,
+		"baseAbundance": 1.5,
 	},
 ]

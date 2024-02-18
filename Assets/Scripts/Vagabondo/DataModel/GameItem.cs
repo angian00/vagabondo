@@ -55,6 +55,7 @@ namespace Vagabondo.DataModel
         None,
         Eat,
         Drink,
+
         //Read,
         //...
     }
@@ -69,7 +70,7 @@ namespace Vagabondo.DataModel
         public int currentPrice;
         public int nutrition;
         public UseVerb useVerb = UseVerb.None;
-
+        public float abundance;
 
         public string extendedName
         {

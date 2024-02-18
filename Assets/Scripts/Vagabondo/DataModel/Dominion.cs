@@ -14,23 +14,6 @@ namespace Vagabondo.DataModel
         Principate,
     }
 
-    public enum DominionTrait
-    {
-        Default,
-
-        Rich,
-        Poor,
-
-        Wild,
-        Rural,
-        Industrial,
-
-        HighCrime,
-
-        Fanatic,
-
-    }
-
     public class DominionTemplate
     {
         public DominionType type;
@@ -49,7 +32,7 @@ namespace Vagabondo.DataModel
         public readonly float persistence;
 
         public int nTowns = 0;
-        public HashSet<DominionTrait> traits = new();
+        public HashSet<TownTrait> traits = new();
 
 
         public Dominion(DominionTemplate template, string regionName)

@@ -249,7 +249,7 @@
 		"name": "pancakes",
 		"subcategory": "dessert",
 		"ingredientNames": [
-			"eggs",
+			"egg",
 			"honey",
 			"butter",
 		],
@@ -260,7 +260,7 @@
 		"name": "krapfen",
 		"subcategory": "dessert",
 		"ingredientNames": [
-			"eggs",
+			"egg",
 			"sugar",
 			"lard",
 		],
@@ -271,7 +271,7 @@
 		"name": "marzipan",
 		"subcategory": "dessert",
 		"ingredientNames": [
-			"eggs",
+			"egg",
 			"sugar",
 			"wheat",
 			"almonds",
@@ -283,7 +283,7 @@
 		"name": "#ingredient3# tart",
 		"subcategory": "dessert",
 		"ingredientNames": [
-			"eggs",
+			"egg",
 			"wheat",
 		],
 		"ingredientCategories": [
@@ -349,7 +349,7 @@
 		"name": "pudding",
 		"subcategory": "dessert",
 		"ingredientNames": [
-			"eggs",
+			"egg",
 			"sugar",
 		],
 		"ingredientCategories": [

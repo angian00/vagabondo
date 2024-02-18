@@ -54,6 +54,7 @@ namespace Vagabondo.Behaviours
 
         private void Start()
         {
+            UnityUtils.InitUIViews();
             TravelManager.Init();
         }
 
@@ -89,6 +90,8 @@ namespace Vagabondo.Behaviours
 
             if (townData.dominion != lastDominion)
             {
+                Debug.Log("ShowUIView(dominionUI)");
+
                 dominionUI.GetComponent<DominionUIBehaviour>().Dominion = townData.dominion;
                 UnityUtils.ShowUIView(dominionUI);
 

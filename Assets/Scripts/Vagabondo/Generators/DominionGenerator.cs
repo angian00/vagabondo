@@ -57,36 +57,36 @@ namespace Vagabondo.Generators
         }
 
 
-        private static HashSet<DominionTrait> randomTraits(Dominion dominion)
+        private static HashSet<TownTrait> randomTraits(Dominion dominion)
         {
             var binaryTraitDistribution = new List<int> { 6, 2, 2 };
             var unaryTraitProbability = 0.2f;
 
-            var traits = new HashSet<DominionTrait>();
+            var traits = new HashSet<TownTrait>();
 
-            var richPoorValues = new List<DominionTrait>() {
-                    DominionTrait.Default,
-                    DominionTrait.Rich,
-                    DominionTrait.Poor
+            var richPoorValues = new List<TownTrait>() {
+                    TownTrait.Default,
+                    TownTrait.Rich,
+                    TownTrait.Poor
                 };
             var richPoor = RandomUtils.RandomChooseWeighted(richPoorValues, binaryTraitDistribution);
-            if (richPoor != DominionTrait.Default)
+            if (richPoor != TownTrait.Default)
                 traits.Add(richPoor);
 
-            var ruralIndustrialValues = new List<DominionTrait>() {
-                    DominionTrait.Default,
-                    DominionTrait.Rural,
-                    DominionTrait.Industrial
+            var ruralIndustrialValues = new List<TownTrait>() {
+                    TownTrait.Default,
+                    TownTrait.Rural,
+                    TownTrait.Industrial
                 };
             var ruralIndustrial = RandomUtils.RandomChooseWeighted(ruralIndustrialValues, binaryTraitDistribution);
-            if (ruralIndustrial != DominionTrait.Default)
+            if (ruralIndustrial != TownTrait.Default)
                 traits.Add(ruralIndustrial);
 
             if (Random.value <= unaryTraitProbability)
-                traits.Add(DominionTrait.Fanatic);
+                traits.Add(TownTrait.Fanatic);
 
             if (Random.value <= unaryTraitProbability)
-                traits.Add(DominionTrait.HighCrime);
+                traits.Add(TownTrait.HighCrime);
 
             return traits;
         }

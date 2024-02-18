@@ -4,7 +4,7 @@ using Vagabondo.Utils;
 
 namespace Vagabondo.DataModel
 {
-    public struct IngredientDefinition : IGrammarNoun
+    public class IngredientDefinition : IGrammarNoun
     {
         public string name { get; set; }
         public bool isPluralizable { get; set; }
@@ -13,8 +13,9 @@ namespace Vagabondo.DataModel
         public int frequency;
         public int baseValue;
         public int nutrition;
-        public UseVerb useVerb;
-        //public HashSet<Biome> compatibleBiomes;
+        public UseVerb useVerb = UseVerb.None;
+        public Dictionary<Biome, float> biomes = new();
+        public Dictionary<TownTrait, float> traits = new();
 
 
         public GameItem Instantiate()

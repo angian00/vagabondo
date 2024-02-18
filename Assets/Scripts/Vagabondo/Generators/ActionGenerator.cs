@@ -61,10 +61,10 @@ namespace Vagabondo.Generators
 
             candidateActionTypes.Add(GameActionType.ChatLocals);
 
-            if (townData.traits.Contains(DominionTrait.Wild))
+            if (townData.traits.Contains(TownTrait.Wild))
                 candidateActionTypes.Add(GameActionType.Explore);
 
-            if (townData.traits.Contains(DominionTrait.HighCrime))
+            if (townData.traits.Contains(TownTrait.HighCrime))
                 candidateActionTypes.Add(GameActionType.ChatCriminals);
 
 
