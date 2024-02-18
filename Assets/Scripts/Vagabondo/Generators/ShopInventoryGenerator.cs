@@ -5,10 +5,8 @@ using Vagabondo.Utils;
 
 namespace Vagabondo.Generators
 {
-    public class MerchandiseGenerator
+    public class ShopInventoryGenerator
     {
-        private const int defaultInventorySize = 12;
-
         public static GameItem GenerateItem(ItemCategory category)
         {
             switch (category)
@@ -35,7 +33,7 @@ namespace Vagabondo.Generators
             return item;
         }
 
-        public static List<GameItem> GenerateInventory(ShopType shopType, int inventorySize = defaultInventorySize)
+        public static List<GameItem> GenerateInventory(ShopType shopType, int inventorySize)
         {
             switch (shopType)
             {

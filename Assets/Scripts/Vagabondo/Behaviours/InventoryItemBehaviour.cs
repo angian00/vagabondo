@@ -53,9 +53,9 @@ namespace Vagabondo.Behaviours
         {
             TravelManager.Instance.TradeItem(_data, _isTravelerSelling);
             if (_isTravelerSelling)
-                _shopUI.AddToShopInventory(_data);
+                _shopUI.BuyItem(_data);
             else
-                _shopUI.RemoveFromShopInventory(_data);
+                _shopUI.SellItem(_data);
         }
 
         private void useItem()

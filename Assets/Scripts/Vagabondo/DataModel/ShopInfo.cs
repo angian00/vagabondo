@@ -16,6 +16,7 @@ namespace Vagabondo.DataModel
     public class ShopInfo
     {
         public string name;
+        public int money;
         public List<GameItem> inventory;
         public Predicate<GameItem> canBuy;
 
@@ -37,9 +38,10 @@ namespace Vagabondo.DataModel
         //{
         //};
 
-        public ShopInfo(string name, List<GameItem> inventory, Predicate<GameItem> canBuy = null)
+        public ShopInfo(string name, int money, List<GameItem> inventory, Predicate<GameItem> canBuy = null)
         {
             this.name = name;
+            this.money = money;
             this.inventory = inventory;
             this.canBuy = canBuy;
         }

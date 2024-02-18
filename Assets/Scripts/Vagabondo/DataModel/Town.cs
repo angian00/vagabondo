@@ -65,6 +65,8 @@ namespace Vagabondo.DataModel
         public TownSize size;
         public int nMaxBuildings;
         public List<TownTemplateBuildingInfo> buildings;
+        public int shopInventorySize;
+        public int shopMoney;
         public int nDestinations;
         public float baseAbundance;
         public int frequency;
@@ -74,6 +76,8 @@ namespace Vagabondo.DataModel
         {
             var town = new Town();
             town.size = size;
+            town.shopInventorySize = shopInventorySize;
+            town.shopMoney = shopMoney;
             town.nDestinations = nDestinations;
             town.baseAbundance = baseAbundance;
 
@@ -96,6 +100,8 @@ namespace Vagabondo.DataModel
         public string description;
         public Biome biome;
         public Dominion dominion;
+        public int shopInventorySize;
+        public int shopMoney;
         public int nDestinations;
         public float baseAbundance;
 

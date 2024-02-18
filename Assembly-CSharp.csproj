@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\Utils\StringUtils.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\ShopInfo.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\CommentRemover.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Generators\ShopInventoryGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Biome.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Town.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\TownActions\TownAction.cs" />
@@ -99,7 +100,6 @@
     <Compile Include="Assets\Scripts\Vagabondo\Experiments\ExperimentJsonParsing.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RichGrammarExpansion.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Managers\EventManager.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Generators\MerchandiseGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Managers\TravelManager.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Generators\DominionGenerator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\RichGrammarParser.cs" />
@@ -125,7 +125,6 @@
     <Compile Include="Assets\Scripts\Vagabondo\TownActions\TownActionResult.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Managers\PriceEvaluator.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\GrammarFactory.cs" />
-    <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ShopItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\MemoryItemBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\TownActions\ChatLocalsAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\InventoryUIBehaviour.cs" />

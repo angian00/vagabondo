@@ -4,10 +4,6 @@
  	+ unificare davvero ingredients/items (definition/template)
  		- legare frequency dei templates a frequency delle definitions
 
-- shop inventorySize varies with town size
-
-- ui: +/- nutrition feedback
-
 - write quest generation grammar
 
 - actions

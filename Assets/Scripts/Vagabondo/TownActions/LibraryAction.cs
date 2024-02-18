@@ -50,10 +50,10 @@ namespace Vagabondo.TownActions
 
         private TownActionResult performTrade(TravelManager travelManager)
         {
-            var shopInventory = MerchandiseGenerator.GenerateInventory(ShopType.Library);
+            var shopInventory = ShopInventoryGenerator.GenerateInventory(ShopType.Library, townData.shopInventorySize);
             PriceEvaluator.UpdatePrices(shopInventory, townData);
 
-            var shopInfo = new ShopInfo("Library", shopInventory, ShopInfo.BuyFilter[ShopType.Library]);
+            var shopInfo = new ShopInfo("Library", townData.shopMoney, shopInventory, ShopInfo.BuyFilter[ShopType.Library]);
             return new ShopActionResult("You have the opportunity to trade books", shopInfo);
         }
     }

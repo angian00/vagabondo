@@ -54,7 +54,7 @@ namespace Vagabondo.TownActions
 
         private TownActionResult performReceiveItem(TravelManager travelManager)
         {
-            var plant = MerchandiseGenerator.GenerateItem(ItemCategory.WildPlant);
+            var plant = ShopInventoryGenerator.GenerateItem(ItemCategory.WildPlant);
 
             travelManager.AddItem(plant);
 

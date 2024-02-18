@@ -23,12 +23,12 @@ namespace Vagabondo.TownActions
         {
             var shopName = DataUtils.EnumToStr(shopType);
 
-            var shopInventory = MerchandiseGenerator.GenerateInventory(shopType);
+            var shopInventory = ShopInventoryGenerator.GenerateInventory(shopType, townData.shopInventorySize);
             PriceEvaluator.UpdatePrices(shopInventory, townData);
 
             Predicate<GameItem> canBuy = ShopInfo.BuyFilter.ContainsKey(shopType) ? ShopInfo.BuyFilter[shopType] : null;
 
-            var shopInfo = new ShopInfo(shopName, shopInventory, canBuy);
+            var shopInfo = new ShopInfo(shopName, townData.shopMoney, shopInventory, canBuy);
             return new ShopActionResult("", shopInfo, true);
         }
     }

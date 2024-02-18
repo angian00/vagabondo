@@ -13,13 +13,15 @@ namespace Vagabondo.Behaviours
         [SerializeField]
         private TextMeshProUGUI title;
         [SerializeField]
-        private TextMeshProUGUI moneyValueLabel;
+        private TextMeshProUGUI travelerMoneyValueLabel;
         [SerializeField]
         private Transform travelerItemsPanel;
         [SerializeField]
         private Transform shopItemsPanel;
         [SerializeField]
         private Scrollbar travelerItemsScrollbar;
+        [SerializeField]
+        private TextMeshProUGUI shopMoneyValueLabel;
         [SerializeField]
         private Scrollbar shopItemsScrollbar;
 
@@ -64,21 +66,23 @@ namespace Vagabondo.Behaviours
             UnityUtils.HideUIView(gameObject);
         }
 
-        public void RemoveFromShopInventory(GameItem item)
+        public void SellItem(GameItem item)
         {
             _shopInfo.inventory.Remove(item);
+            _shopInfo.money += item.currentPrice;
             updateShopInfo();
         }
 
-        public void AddToShopInventory(GameItem item)
+        public void BuyItem(GameItem item)
         {
             _shopInfo.inventory.Add(item);
+            _shopInfo.money -= item.currentPrice;
             updateShopInfo();
         }
 
         private void updateTravelerView()
         {
-            moneyValueLabel.text = _travelerData.money.ToString();
+            travelerMoneyValueLabel.text = _travelerData.money.ToString();
 
             UnityUtils.RemoveAllChildren(travelerItemsPanel);
             foreach (var item in _travelerData.merchandise)
@@ -97,6 +101,7 @@ namespace Vagabondo.Behaviours
         private void updateShopInfo()
         {
             title.text = $"Trading: {_shopInfo.name}";
+            shopMoneyValueLabel.text = _shopInfo.money.ToString();
 
             UnityUtils.RemoveAllChildren(shopItemsPanel);
             foreach (var item in _shopInfo.inventory)
@@ -110,6 +115,26 @@ namespace Vagabondo.Behaviours
             }
         }
 
+        private void updateTravelerItemsInteractable()
+        {
+            if (_travelerData == null)
+                return;
+
+            for (int i = 0; i < _travelerData.merchandise.Count; i++)
+            {
+                //it would be simpler to use the itemData from the InventoryItemBehaviour,
+                //but there are race conditions that make it unreliable
+                var item = _travelerData.merchandise[i];
+
+                //same filtering logic as in updateTravelerView, otherwise we are not in sync
+                if (_shopInfo != null && _shopInfo.canBuy != null && !_shopInfo.canBuy(item))
+                    continue;
+
+                var itemObj = travelerItemsPanel.GetChild(i);
+                itemObj.GetComponent<InventoryItemBehaviour>().Interactable = (item.currentPrice <= _shopInfo.money);
+            }
+        }
+
         private void updateShopItemsInteractable()
         {
             if (_shopInfo == null)
@@ -117,7 +142,14 @@ namespace Vagabondo.Behaviours
 
             for (int i = 0; i < _shopInfo.inventory.Count; i++)
             {
+                //it would be simpler to use the itemData from the InventoryItemBehaviour,
+                //but there are race conditions that make it unreliable
+                var item = _shopInfo.inventory[i];
+
                 //works because _shopInventory and shopItemsPanel children are in the same order
+                if (_shopInfo != null && _shopInfo.canBuy != null && !_shopInfo.canBuy(item))
+                    continue;
+
                 var itemObj = shopItemsPanel.GetChild(i);
                 var price = _shopInfo.inventory[i].currentPrice;
                 itemObj.GetComponent<InventoryItemBehaviour>().Interactable = (price <= _travelerData.money);

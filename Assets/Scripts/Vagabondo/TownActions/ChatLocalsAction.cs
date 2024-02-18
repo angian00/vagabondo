@@ -59,7 +59,7 @@ namespace Vagabondo.TownActions
 
         private TownActionResult performReceiveItem(TravelManager travelManager)
         {
-            var item = MerchandiseGenerator.GenerateItem(ItemCategory.Tool);
+            var item = ShopInventoryGenerator.GenerateItem(ItemCategory.Tool);
 
             travelManager.AddItem(item);
 

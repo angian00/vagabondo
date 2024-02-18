@@ -63,7 +63,7 @@ namespace Vagabondo.TownActions
 
             travelManager.AddMoney(-dealCost);
             //TODO: generate item with appropriate price
-            var item = MerchandiseGenerator.GenerateItem(ItemCategory.Tool);
+            var item = ShopInventoryGenerator.GenerateItem(ItemCategory.Tool);
             travelManager.AddItem(item);
 
             description = "You are approached by a sketchy figure in an alley, proposing you a deal";

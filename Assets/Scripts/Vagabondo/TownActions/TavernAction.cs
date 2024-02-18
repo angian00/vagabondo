@@ -52,13 +52,13 @@ namespace Vagabondo.TownActions
 
         private TownActionResult performTrade(TravelManager travelManager)
         {
-            var shopInventory = MerchandiseGenerator.GenerateInventory(ShopType.Tavern);
+            var shopInventory = ShopInventoryGenerator.GenerateInventory(ShopType.Tavern, townData.shopInventorySize);
             PriceEvaluator.UpdatePrices(shopInventory, townData);
 
 
             Predicate<GameItem> canBuy = ShopInfo.BuyFilter[ShopType.Tavern];
 
-            var shopInfo = new ShopInfo("Tavern", shopInventory, canBuy);
+            var shopInfo = new ShopInfo("Tavern", townData.shopMoney, shopInventory, canBuy);
             return new ShopActionResult($"You have the opportunity to buy some food and beverages, " +
                 "or even sell some of your own", shopInfo);
         }
