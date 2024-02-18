@@ -67,18 +67,25 @@ namespace Vagabondo.Managers
 
         public void AddMoney(int delta)
         {
+            if (delta == 0)
+                return;
+
             travelerData.money += delta;
             if (travelerData.money < 0)
                 throw new Exception("traveler money cannot become negative!");
 
             EventManager.PublishTravelerChanged(travelerData);
+            EventManager.PublishTextNotification(StringUtils.BuildResultTextMoney(delta));
         }
 
         public void AddHealth(int delta)
         {
-            //TODO: add ui feedback
+            if (delta == 0)
+                return;
+
             travelerData.health += delta;
             EventManager.PublishTravelerChanged(travelerData);
+            EventManager.PublishTextNotification(StringUtils.BuildResultTextHealth(delta));
 
             if (travelerData.health <= 0)
                 EventManager.PublishGameOver();
@@ -86,9 +93,12 @@ namespace Vagabondo.Managers
 
         public void AddNutrition(int delta)
         {
-            //TODO: add ui feedback
+            if (delta == 0)
+                return;
+
             travelerData.nutrition += delta;
             EventManager.PublishTravelerChanged(travelerData);
+            EventManager.PublishTextNotification(StringUtils.BuildResultTextNutrition(delta));
 
             if (travelerData.nutrition <= 0)
                 EventManager.PublishGameOver();
@@ -107,7 +117,9 @@ namespace Vagabondo.Managers
 
         private void addToStat(StatId statId, int delta)
         {
-            //TODO: add ui feedback
+            if (delta == 0)
+                return;
+
             travelerData.stats[statId] += delta;
             EventManager.PublishTravelerChanged(travelerData);
 
@@ -115,6 +127,7 @@ namespace Vagabondo.Managers
                 updateNVisibleHints(dest, travelerData);
 
             EventManager.PublishDestinationsChanged(nextDestinations);
+            EventManager.PublishTextNotification(StringUtils.BuildResultTextStat(statId, delta));
         }
 
 
@@ -135,12 +148,14 @@ namespace Vagabondo.Managers
         {
             travelerData.merchandise.Add(item);
             EventManager.PublishTravelerChanged(travelerData);
+            EventManager.PublishTextNotification(StringUtils.BuildResultTextItem(item, true));
         }
 
         public void RemoveItem(GameItem item)
         {
             travelerData.merchandise.Remove(item);
             EventManager.PublishTravelerChanged(travelerData);
+            EventManager.PublishTextNotification(StringUtils.BuildResultTextItem(item, false));
         }
 
         public GameItem RemoveAnyItem()
@@ -155,21 +170,26 @@ namespace Vagabondo.Managers
         {
             if (isTravelerSelling)
             {
-                travelerData.money += item.currentPrice;
-                travelerData.merchandise.Remove(item);
+                //travelerData.money += item.currentPrice;
+                //travelerData.merchandise.Remove(item);
+                AddMoney(item.currentPrice);
+                RemoveItem(item);
             }
             else
             {
-                travelerData.money -= item.currentPrice;
-                travelerData.merchandise.Add(item);
+                //travelerData.money -= item.currentPrice;
+                //travelerData.merchandise.Add(item);
+                AddMoney(-item.currentPrice);
+                AddItem(item);
             }
-            EventManager.PublishTravelerChanged(travelerData);
+            //EventManager.PublishTravelerChanged(travelerData);
         }
 
 
         public void UseItem(GameItem item)
         {
-            travelerData.merchandise.Remove(item);
+            RemoveItem(item);
+
             switch (item.useVerb)
             {
                 case UseVerb.Eat:
@@ -186,6 +206,7 @@ namespace Vagabondo.Managers
         {
             travelerData.memories.Add(memory);
             EventManager.PublishTravelerChanged(travelerData);
+            EventManager.PublishTextNotification(StringUtils.BuildResultTextMemory(memory));
         }
 
         public void RemoveQuestFragments(Guid questId)

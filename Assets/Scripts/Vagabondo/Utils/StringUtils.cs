@@ -18,6 +18,11 @@ namespace Vagabondo.Utils
             return buildResultText("Health", amount);
         }
 
+        public static string BuildResultTextNutrition(int amount)
+        {
+            return buildResultText("Nutrition", amount);
+        }
+
         public static string BuildResultTextMoney(int amount)
         {
             return buildResultText("$", amount);
@@ -64,5 +69,11 @@ namespace Vagabondo.Utils
 
             return $"<style={styleStr}>{signStr} {itemStr}</style>";
         }
+
+        public static string BuildResultTextMemory(Memory memory)
+        {
+            return $"<style={styleGood}>+ Memory: {memory.title}</style>";
+        }
+
     }
 }

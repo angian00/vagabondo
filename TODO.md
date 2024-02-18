@@ -1,11 +1,10 @@
 # TODO
 - implementare item scarcity:
-	- item ui feedback annotation per price vs value
  	+ prob di generazione varia con abbondanza
  	+ unificare davvero ingredients/items (definition/template)
  		- legare frequency dei templates a frequency delle definitions
 
-- shop inventorySize varies with town size	
+- shop inventorySize varies with town size
 
 - ui: +/- nutrition feedback
 

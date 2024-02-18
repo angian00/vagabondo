@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Vagabondo\DataModel\Quest.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\ActionResultUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Behaviours\DestinationItemBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Vagabondo\Behaviours\FlashNotificationUIBehaviour.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\TownActions\QuestAction.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Grammar\TraceryGrammar.cs" />
     <Compile Include="Assets\Scripts\Vagabondo\Utils\RandomUtils.cs" />

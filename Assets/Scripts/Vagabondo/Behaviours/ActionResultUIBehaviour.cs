@@ -1,8 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Vagabondo.TownActions;
 using Vagabondo.Managers;
+using Vagabondo.TownActions;
 using Vagabondo.Utils;
 
 namespace Vagabondo.Behaviours
@@ -59,7 +59,6 @@ namespace Vagabondo.Behaviours
                 }
                 else
                 {
-
                     actionButton.transform.Find("Action Label").GetComponent<TextMeshProUGUI>().text = "Trade";
                     actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
                     actionButton.GetComponent<Button>().onClick.AddListener(onActionShop);

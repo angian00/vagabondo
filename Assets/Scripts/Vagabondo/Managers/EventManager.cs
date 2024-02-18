@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Vagabondo.TownActions;
 using Vagabondo.DataModel;
+using Vagabondo.TownActions;
 
 namespace Vagabondo.Managers
 {
@@ -17,6 +17,9 @@ namespace Vagabondo.Managers
 
         public delegate void OnActionPerformed(TownActionResult actionResult);
         public static event OnActionPerformed onActionPerformed;
+
+        public delegate void OnTextNotification(string message);
+        public static event OnTextNotification onTextNotification;
 
         public delegate void OnGameOver();
         public static event OnGameOver onGameOver;
@@ -44,6 +47,12 @@ namespace Vagabondo.Managers
         {
             if (onActionPerformed != null)
                 onActionPerformed(actionResult);
+        }
+
+        public static void PublishTextNotification(string message)
+        {
+            if (onTextNotification != null)
+                onTextNotification(message);
         }
 
         public static void PublishGameOver()
